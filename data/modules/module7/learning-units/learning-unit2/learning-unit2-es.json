@@ -1,0 +1,1140 @@
+{
+  "title": "Manejo de Excepciones con <code class=\"language-python\">try</code> y <code class=\"language-python\">except</code>",
+  "description": "",
+  "content": [
+    {
+      "type": "paragraph",
+      "text": "Cuando un programa se ejecuta, pueden ocurrir situaciones inesperadas que impidan continuar con normalidad. Por ejemplo, un usuario puede introducir un dato inválido, intentar dividir un número entre cero o solicitar un elemento que no existe dentro de una lista. Si estos problemas no son gestionados, Python detendrá inmediatamente la ejecución del programa y mostrará un mensaje de error, lo que puede generar una mala experiencia para el usuario y dificultar el funcionamiento de la aplicación."
+    },
+    {
+      "type": "paragraph",
+      "text": "Para evitar que esto suceda, Python incorpora un mecanismo denominado manejo de excepciones, el cual permite detectar errores durante la ejecución y decidir cómo responder ante ellos. Gracias a este mecanismo es posible mostrar mensajes claros al usuario, solicitar nuevamente información, registrar el error para su análisis o continuar ejecutando el resto del programa cuando sea apropiado."
+    },
+    {
+      "type": "paragraph",
+      "text": "En esta unidad aprenderás a utilizar los bloques <code class=\"language-python\">try</code> y <code class=\"language-python\">except</code>, comprenderás cómo funciona el flujo de ejecución cuando ocurre una excepción y conocerás distintas estrategias para capturar errores específicos, haciendo que tus programas sean considerablemente más robustos, seguros y fáciles de mantener."
+    },
+    {
+      "type": "subtitle1",
+      "text": "¿Qué Son las Excepciones?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Una excepción es un evento que ocurre durante la ejecución de un programa cuando Python detecta una situación que impide continuar normalmente con la instrucción actual."
+    },
+    {
+      "type": "paragraph",
+      "text": "Cuando aparece una excepción, Python interrumpe el flujo normal del programa y busca un bloque de código preparado para manejar ese error. Si no encuentra ninguno, la ejecución finaliza mostrando un mensaje de error (<strong><i>Traceback</i></strong>)."
+    },
+    {
+      "type": "paragraph",
+      "text": "Por ejemplo, observa el siguiente código:"
+    },
+    {
+      "type": "code",
+      "text": "numero = 10\nresultado = numero / 0\n\nprint(resultado)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Salida:"
+    },
+    {
+      "type": "code",
+      "text": "PythonError: Traceback (most recent call last):\n  File \"/lib/python311.zip/_pyodide/_base.py\", line 573, in eval_code_async\n    await CodeRunner(\n  File \"/lib/python311.zip/_pyodide/_base.py\", line 393, in run_async\n    coroutine = eval(self.code, globals, locals)\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"&lt;exec>\", line 2, in &lt;module>\n  File \"&lt;string>\", line 3, in &lt;module>\nZeroDivisionError: division by zero"
+    },
+    {
+      "type": "test-button",
+      "text": "Probar >>",
+      "code": "numero = 10\nresultado = numero / 0\n\nprint(resultado)"
+    },
+    {
+      "type": "paragraph",
+      "text": "En este caso, Python detecta que una división entre cero no está permitida y genera automáticamente una excepción de tipo <code class=\"language-python\">ZeroDivisionError</code>."
+    },
+    {
+      "type": "paragraph",
+      "text": "Otro ejemplo:"
+    },
+    {
+      "type": "code",
+      "text": "numeros = [5, 8, 10]\n\nprint(numeros[5])"
+    },
+    {
+      "type": "paragraph",
+      "text": "Salida:"
+    },
+    {
+      "type": "code",
+      "text": "PythonError: Traceback (most recent call last):\n  File \"/lib/python311.zip/_pyodide/_base.py\", line 573, in eval_code_async\n    await CodeRunner(\n  File \"/lib/python311.zip/_pyodide/_base.py\", line 393, in run_async\n    coroutine = eval(self.code, globals, locals)\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"&lt;exec>\", line 2, in &lt;module>\n  File \"&lt;string>\", line 4, in &lt;module>\nIndexError: list index out of range"
+    },
+    {
+      "type": "test-button",
+      "text": "Probar >>",
+      "code": "numeros = [5, 8, 10]\n\nprint(numeros[5])"
+    },
+    {
+      "type": "paragraph",
+      "text": "Aquí Python intenta acceder a una posición inexistente dentro de la lista. Se genera una excepción de tipo <code class=\"language-python\">IndexError</code>."
+    },
+    {
+      "type": "paragraph",
+      "text": "Es importante comprender que las excepciones son situaciones que ocurren durante la ejecución del programa y que deben ser gestionadas adecuadamente."
+    },
+    {
+      "type": "subtitle2",
+      "text": "¿Qué Ocurre Cuando Aparece una Excepción?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Cuando Python detecta una excepción sigue, de manera simplificada, el siguiente proceso:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Ejecuta normalmente las instrucciones.",
+        "Encuentra una operación que produce un error.",
+        "Genera una excepción correspondiente al tipo de error.",
+        "Busca un bloque <code class=\"language-python\">except</code> capaz de manejar dicha excepción.",
+        "Si existe, ejecuta ese bloque y continúa el programa.",
+        "Si no existe, finaliza la ejecución mostrando el mensaje de error."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Este mecanismo permite separar el código \"normal\" del código destinado al manejo de errores."
+    },
+    {
+      "type": "subtitle2",
+      "text": "¿Por Qué Manejar Excepciones?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Manejar excepciones ofrece numerosas ventajas durante el desarrollo de software."
+    },
+    {
+      "type": "paragraph",
+      "text": "Entre las principales se encuentran:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Evitar que el programa termine inesperadamente.",
+        "Mostrar mensajes más comprensibles para el usuario.",
+        "Detectar situaciones excepcionales de forma controlada.",
+        "Continuar ejecutando otras partes del programa cuando sea posible.",
+        "Facilitar el mantenimiento y depuración del código.",
+        "Mejorar la robustez y confiabilidad de las aplicaciones."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Supongamos un programa que solicita la edad del usuario."
+    },
+    {
+      "type": "paragraph",
+      "text": "Sin manejo de excepciones:"
+    },
+    {
+      "type": "code",
+      "text": "edad = int(input(\"Ingrese su edad: \"))\n\nprint(\"Su edad es:\", edad)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Si el usuario escribe:"
+    },
+    {
+      "type": "code",
+      "text": "veinte"
+    },
+    {
+      "type": "paragraph",
+      "text": "Python mostrará:"
+    },
+    {
+      "type": "code",
+      "text": "PythonError: Traceback (most recent call last):\n  File \"/lib/python311.zip/_pyodide/_base.py\", line 573, in eval_code_async\n    await CodeRunner(\n  File \"/lib/python311.zip/_pyodide/_base.py\", line 395, in run_async\n    await coroutine\n  File \"&lt;exec>\", line 9, in &lt;module>\n  File \"&lt;exec>\", line 5, in __runner__\nValueError: invalid literal for int() with base 10: 'veinte'"
+    },
+    {
+      "type": "test-button",
+      "text": "Probar >>",
+      "code": "edad = int(input(\"Ingrese su edad: \"))\n\nprint(\"Su edad es:\", edad)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Y el programa finalizará inmediatamente."
+    },
+    {
+      "type": "paragraph",
+      "text": "En cambio, utilizando manejo de excepciones, el programa puede informar el problema sin finalizar abruptamente."
+    },
+    {
+      "type": "subtitle2",
+      "text": "Situaciones Donde es Recomendable Utilizar Excepciones"
+    },
+    {
+      "type": "paragraph",
+      "text": "El manejo de excepciones resulta especialmente útil cuando el programa interactúa con elementos externos que no siempre pueden controlarse."
+    },
+    {
+      "type": "paragraph",
+      "text": "Por ejemplo:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Entrada de datos del usuario.",
+        "Lectura de archivos.",
+        "Escritura de archivos.",
+        "Conexiones de red.",
+        "Bases de datos.",
+        "Acceso a índices de listas.",
+        "Conversión de tipos de datos.",
+        "Operaciones matemáticas."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "En todos estos casos pueden ocurrir situaciones inesperadas que conviene controlar."
+    },
+    {
+      "type": "subtitle1",
+      "text": "El Bloque <code class=\"language-python\">try</code>"
+    },
+    {
+      "type": "paragraph",
+      "text": "El bloque <code class=\"language-python\">try</code> contiene el código que podría generar una excepción."
+    },
+    {
+      "type": "paragraph",
+      "text": "Su función consiste en indicar a Python:"
+    },
+    {
+      "type": "paragraph",
+      "text": "\"Intenta ejecutar este código. Si ocurre un error, no detengas inmediatamente el programa; permite que otro bloque lo gestione\"."
+    },
+    {
+      "type": "paragraph",
+      "text": "La estructura básica es:"
+    },
+    {
+      "type": "code",
+      "text": "try:\n    # Código que puede producir una excepción"
+    },
+    {
+      "type": "paragraph",
+      "text": "Por sí solo, un bloque <code class=\"language-python\">try</code> no tiene utilidad."
+    },
+    {
+      "type": "paragraph",
+      "text": "Siempre debe ir acompañado de al menos un bloque <code class=\"language-python\">except</code>."
+    },
+    {
+      "type": "paragraph",
+      "text": "Ejemplo sencillo:"
+    },
+    {
+      "type": "code",
+      "text": "try:\n    numero = 10 / 0"
+    },
+    {
+      "type": "paragraph",
+      "text": "Durante la ejecución ocurre una división entre cero."
+    },
+    {
+      "type": "paragraph",
+      "text": "Como el bloque está dentro de <code class=\"language-python\">try</code>, Python buscará inmediatamente un bloque <code class=\"language-python\">except</code> que pueda manejar esa excepción. En este momento, no hay un bloque <code class=\"language-python\">except</code> que maneje la excepción."
+    },
+    {
+      "type": "subtitle2",
+      "text": "¿Qué Instrucciones Colocar Dentro del <code class=\"language-python\">try</code>?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Dentro del bloque <code class=\"language-python\">try</code> únicamente deberían ubicarse aquellas instrucciones que realmente pueden producir una excepción."
+    },
+    {
+      "type": "paragraph",
+      "text": "Por ejemplo:"
+    },
+    {
+      "type": "code",
+      "text": "try:\n    numero = int(input(\"Número: \"))\n    resultado = 100 / numero"
+    },
+    {
+      "type": "paragraph",
+      "text": "En este ejemplo pueden producirse dos excepciones distintas:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<code class=\"language-python\">ValueError</code>.",
+        "<code class=\"language-python\">ZeroDivisionError</code>."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Ambas ocurren únicamente durante esas instrucciones."
+    },
+    {
+      "type": "subtitle1",
+      "text": "El Bloque <code class=\"language-python\">except</code>"
+    },
+    {
+      "type": "paragraph",
+      "text": "El bloque <code class=\"language-python\">except</code> contiene el código que debe ejecutarse cuando ocurre una excepción."
+    },
+    {
+      "type": "paragraph",
+      "text": "Su estructura básica es:"
+    },
+    {
+      "type": "code",
+      "text": "try:\n    # Código\nexcept:\n    # Manejo del error"
+    },
+    {
+      "type": "paragraph",
+      "text": "Ejemplo:"
+    },
+    {
+      "type": "code",
+      "text": "try:\n    numero = 10 / 0\nexcept:\n    print(\"Ocurrió un error.\")"
+    },
+    {
+      "type": "paragraph",
+      "text": "Salida:"
+    },
+    {
+      "type": "code",
+      "text": "Ocurrió un error."
+    },
+    {
+      "type": "test-button",
+      "text": "Probar >>",
+      "code": "try:\n    numero = 10 / 0\nexcept:\n    print(\"Ocurrió un error.\")"
+    },
+    {
+      "type": "paragraph",
+      "text": "El programa no finaliza abruptamente."
+    },
+    {
+      "type": "subtitle2",
+      "text": "Continuación del Programa"
+    },
+    {
+      "type": "paragraph",
+      "text": "Una gran ventaja del manejo de excepciones es que el programa puede continuar ejecutándose."
+    },
+    {
+      "type": "code",
+      "text": "try:\n    numero = 10 / 0\nexcept:\n    print(\"No fue posible realizar la división.\")\n\nprint(\"El programa continúa.\")"
+    },
+    {
+      "type": "paragraph",
+      "text": "Salida:"
+    },
+    {
+      "type": "code",
+      "text": "No fue posible realizar la división.\nEl programa continúa."
+    },
+    {
+      "type": "test-button",
+      "text": "Probar >>",
+      "code": "try:\n    numero = 10 / 0\nexcept:\n    print(\"No fue posible realizar la división.\")\n\nprint(\"El programa continúa.\")"
+    },
+    {
+      "type": "subtitle2",
+      "text": "¿Es Recomendable Usar un <code class=\"language-python\">except</code> Vacío?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Python permite escribir:"
+    },
+    {
+      "type": "code",
+      "text": "except:"
+    },
+    {
+      "type": "paragraph",
+      "text": "Sin embargo, esto no es una buena práctica, ya que captura cualquier excepción sin distinguir cuál ocurrió."
+    },
+    {
+      "type": "paragraph",
+      "text": "Es mucho más recomendable indicar explícitamente el tipo de excepción."
+    },
+    {
+      "type": "subtitle1",
+      "text": "Flujo de Ejecución de un <code class=\"language-python\">try-except</code>"
+    },
+    {
+      "type": "paragraph",
+      "text": "Comprender el flujo de ejecución es fundamental para utilizar correctamente las excepciones."
+    },
+    {
+      "type": "paragraph",
+      "text": "Observa el siguiente ejemplo:"
+    },
+    {
+      "type": "code",
+      "text": "print(\"Inicio\")\n\ntry:\n    print(\"Antes del error\")\n    numero = 10 / 0\n    print(\"Después del error\")\nexcept ZeroDivisionError:\n    print(\"Se produjo una división entre cero.\")\n\nprint(\"Fin\")"
+    },
+    {
+      "type": "paragraph",
+      "text": "Salida:"
+    },
+    {
+      "type": "code",
+      "text": "Inicio\nAntes del error\nSe produjo una división entre cero.\nFin"
+    },
+    {
+      "type": "test-button",
+      "text": "Probar >>",
+      "code": "print(\"Inicio\")\n\ntry:\n    print(\"Antes del error\")\n    numero = 10 / 0\n    print(\"Después del error\")\nexcept ZeroDivisionError:\n    print(\"Se produjo una división entre cero.\")\n\nprint(\"Fin\")"
+    },
+    {
+      "type": "paragraph",
+      "text": "Observa que la línea:"
+    },
+    {
+      "type": "code",
+      "text": "print(\"Después del error\")"
+    },
+    {
+      "type": "paragraph",
+      "text": "Nunca se ejecuta, porque la excepción interrumpe inmediatamente el bloque <code class=\"language-python\">try</code>."
+    },
+    {
+      "type": "subtitle2",
+      "text": "Flujo Cuando NO Ocurre Ninguna Excepción"
+    },
+    {
+      "type": "code",
+      "text": "try:\n    numero = 20 / 4\n    print(numero)\nexcept ZeroDivisionError:\n    print(\"Error.\")"
+    },
+    {
+      "type": "paragraph",
+      "text": "Salida:"
+    },
+    {
+      "type": "code",
+      "text": "5.0"
+    },
+    {
+      "type": "test-button",
+      "text": "Probar >>",
+      "code": "try:\n    numero = 20 / 4\n    print(numero)\nexcept ZeroDivisionError:\n    print(\"Error.\")"
+    },
+    {
+      "type": "paragraph",
+      "text": "En este caso el bloque <code class=\"language-python\">except</code> jamás se ejecuta."
+    },
+    {
+      "type": "subtitle2",
+      "text": "Capturar Excepciones Específicas"
+    },
+    {
+      "type": "paragraph",
+      "text": "Una de las mejores prácticas consiste en capturar únicamente las excepciones que realmente esperamos."
+    },
+    {
+      "type": "paragraph",
+      "text": "Ejemplo:"
+    },
+    {
+      "type": "code",
+      "text": "try:\n    numero = int(input(\"Número: \"))\nexcept ValueError:\n    print(\"Debe ingresar un número entero.\")"
+    },
+    {
+      "type": "paragraph",
+      "text": "Aquí únicamente se captura un <code class=\"language-python\">ValueError</code>."
+    },
+    {
+      "type": "paragraph",
+      "text": "La ejecución del anterior código genera la siguiente salida:"
+    },
+    {
+      "type": "code",
+      "text": "Debe ingresar un número entero."
+    },
+    {
+      "type": "test-button",
+      "text": "Probar >>",
+      "code": "try:\n    numero = int(input(\"Número: \"))\nexcept ValueError:\n    print(\"Debe ingresar un número entero.\")"
+    },
+    {
+      "type": "paragraph",
+      "text": "Otro ejemplo:"
+    },
+    {
+      "type": "code",
+      "text": "try:\n    numeros = [10, 20, 30]\n    print(numeros[5])\nexcept IndexError:\n    print(\"La posición indicada no existe.\")"
+    },
+    {
+      "type": "paragraph",
+      "text": "Salida:"
+    },
+    {
+      "type": "code",
+      "text": "La posición indicada no existe."
+    },
+    {
+      "type": "test-button",
+      "text": "Probar >>",
+      "code": "try:\n    numeros = [10, 20, 30]\n    print(numeros[5])\nexcept IndexError:\n    print(\"La posición indicada no existe.\")"
+    },
+    {
+      "type": "subtitle3",
+      "text": "Ventajas de Capturar Excepciones Específicas"
+    },
+    {
+      "type": "list",
+      "items": [
+        "El código es más claro.",
+        "Facilita la depuración.",
+        "Evita ocultar errores inesperados.",
+        "Mejora el mantenimiento del programa."
+      ]
+    },
+    {
+      "type": "subtitle2",
+      "text": "Capturar Múltiples Excepciones"
+    },
+    {
+      "type": "paragraph",
+      "text": "En ocasiones una misma sección del programa puede producir diferentes tipos de excepciones."
+    },
+    {
+      "type": "paragraph",
+      "text": "Por ejemplo:"
+    },
+    {
+      "type": "code",
+      "text": "try:\n    numero = int(input(\"Número: \"))\n    resultado = 100 / numero\nexcept ValueError:\n    print(\"Debe ingresar un número entero.\")\nexcept ZeroDivisionError:\n    print(\"No es posible dividir entre cero.\")"
+    },
+    {
+      "type": "paragraph",
+      "text": "Por lo tanto, si se ingresase una entrada como <code class=\"language-python\">cinco</code>, entonces se obtendría la siguiente salida:"
+    },
+    {
+      "type": "code",
+      "text": "Debe ingresar un número entero."
+    },
+    {
+      "type": "paragraph",
+      "text": "Además, si se ingresara el valor <code class=\"language-python\">0</code>, entonces se obtendría la siguiente salida:"
+    },
+    {
+      "type": "code",
+      "text": "No es posible dividir entre cero."
+    },
+    {
+      "type": "test-button",
+      "text": "Probar >>",
+      "code": "try:\n    numero = int(input(\"Número: \"))\n    resultado = 100 / numero\nexcept ValueError:\n    print(\"Debe ingresar un número entero.\")\nexcept ZeroDivisionError:\n    print(\"No es posible dividir entre cero.\")"
+    },
+    {
+      "type": "paragraph",
+      "text": "Cada excepción posee su propio bloque."
+    },
+    {
+      "type": "paragraph",
+      "text": "También es posible agrupar varias excepciones cuando el tratamiento será exactamente el mismo."
+    },
+    {
+      "type": "code",
+      "text": "try:\n    numero = int(input(\"Número: \"))\n    resultado = 100 / numero\nexcept (ValueError, ZeroDivisionError):\n    print(\"Los datos ingresados no son válidos.\")"
+    },
+    {
+      "type": "test-button",
+      "text": "Probar >>",
+      "code": "try:\n    numero = int(input(\"Número: \"))\n    resultado = 100 / numero\nexcept (ValueError, ZeroDivisionError):\n    print(\"Los datos ingresados no son válidos.\")"
+    },
+    {
+      "type": "paragraph",
+      "text": "En este caso ambas excepciones ejecutarán exactamente el mismo bloque."
+    },
+    {
+      "type": "paragraph",
+      "text": "Por consiguiente, si se ingresara cualquiera de las dos entradas anteriormente planteadas, se obtendría la siguiente salida:"
+    },
+    {
+      "type": "paragraph",
+      "text": "Salida:"
+    },
+    {
+      "type": "code",
+      "text": "Los datos ingresados no son válidos."
+    },
+    {
+      "type": "subtitle2",
+      "text": "¿Cuál Bloque <code class=\"language-python\">except</code> Se Ejecuta?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Python analiza los bloques <code class=\"language-python\">except</code> en el orden en que aparecen."
+    },
+    {
+      "type": "paragraph",
+      "text": "Cuando encuentra el primero que coincide con la excepción generada, ejecuta únicamente ese bloque."
+    },
+    {
+      "type": "paragraph",
+      "text": "Los demás bloques ya no se evalúan."
+    },
+    {
+      "type": "subtitle2",
+      "text": "Capturar la Excepción Como Objeto (<code class=\"language-python\">as</code>)"
+    },
+    {
+      "type": "paragraph",
+      "text": "En muchas ocasiones resulta útil conocer el mensaje exacto generado por Python."
+    },
+    {
+      "type": "paragraph",
+      "text": "Para ello puede utilizarse la palabra reservada <code class=\"language-python\">as</code>."
+    },
+    {
+      "type": "paragraph",
+      "text": "Su sintaxis es:"
+    },
+    {
+      "type": "code",
+      "text": "except TipoDeExcepcion as variable:"
+    },
+    {
+      "type": "paragraph",
+      "text": "Ejemplo:"
+    },
+    {
+      "type": "code",
+      "text": "try:\n    numero = int(input(\"Número: \"))\nexcept ValueError as error:\n    print(error)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Si el usuario escribe:"
+    },
+    {
+      "type": "code",
+      "text": "hola"
+    },
+    {
+      "type": "paragraph",
+      "text": "Se nos muestra la siguiente salida:"
+    },
+    {
+      "type": "code",
+      "text": "invalid literal for int() with base 10: 'hola'"
+    },
+    {
+      "type": "test-button",
+      "text": "Probar >>",
+      "code": "try:\n    numero = int(input(\"Número: \"))\nexcept ValueError as error:\n    print(error)"
+    },
+    {
+      "type": "paragraph",
+      "text": "La variable <code class=\"language-python\">error</code> almacena el objeto de la excepción."
+    },
+    {
+      "type": "paragraph",
+      "text": "Otro ejemplo:"
+    },
+    {
+      "type": "code",
+      "text": "try:\n    lista = [1, 2, 3]\n    print(lista[8])\nexcept IndexError as error:\n    print(\"Detalle del error:\")\n    print(error)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Salida:"
+    },
+    {
+      "type": "code",
+      "text": "Detalle del error:\nlist index out of range"
+    },
+    {
+      "type": "test-button",
+      "text": "Probar >>",
+      "code": "try:\n    lista = [1, 2, 3]\n    print(lista[8])\nexcept IndexError as error:\n    print(\"Detalle del error:\")\n    print(error)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Esto resulta muy útil durante la depuración."
+    },
+    {
+      "type": "subtitle3",
+      "text": "¿Cuándo Utilizar <code class=\"language-python\">as</code>?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Es recomendable utilizarlo cuando:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Se desea registrar el error en un archivo.",
+        "Se necesita mostrar el mensaje original.",
+        "Se está depurando un programa.",
+        "Se desea obtener información adicional sobre la excepción."
+      ]
+    },
+    {
+      "type": "subtitle1",
+      "text": "Tabla Comparativa"
+    },
+    {
+      "type": "table",
+      "headers": ["Concepto", "Propósito", "¿Cuándo se Ejecuta?", "Ejemplo"],
+      "rows": [
+        [
+          "<code class=\"language-python\">try</code>",
+          "Contiene el código que puede producir una excepción.",
+          "Siempre que el programa llega a ese bloque.",
+          "<code class=\"language-python\">try:\n\nnumero = int(input())</code>"
+        ],
+        [
+          "<code class=\"language-python\">except</code>",
+          "Captura y maneja una excepción.",
+          "Solo cuando ocurre una excepción compatible.",
+          "<code class=\"language-python\">except ValueError:</code>"
+        ],
+        [
+          "Excepción específica",
+          "Maneja un único tipo de error.",
+          "Cuando ocurre exactamente esa excepción.",
+          "<code class=\"language-python\">except IndexError:</code>"
+        ],
+        [
+          "Múltiples excepciones",
+          "Maneja varios tipos de error.",
+          "Cuando ocurre cualquiera de las excepciones indicadas.",
+          "<code class=\"language-python\">except (ValueError, TypeError):</code>"
+        ],
+        [
+          "<code class=\"language-python\">as</code>",
+          "Permite acceder al objeto de la excepción.",
+          "Cuando se desea conocer el detalle del error.",
+          "<code class=\"language-python\">except ValueError as error:</code>"
+        ]
+      ]
+    },
+    {
+      "type": "subtitle1",
+      "text": "Ejemplos Detallados"
+    },
+    {
+      "type": "subtitle2",
+      "text": "Ejemplo 1: Conversión Segura de Números"
+    },
+    {
+      "type": "code",
+      "text": "try:\n    edad = int(input(\"Ingrese su edad: \"))\n    print(\"Edad registrada:\", edad)\nexcept ValueError:\n    print(\"Debe ingresar únicamente números enteros.\")"
+    },
+    {
+      "type": "paragraph",
+      "text": "Si el usuario introduce un texto, el programa no finalizará abruptamente y mostrará un mensaje comprensible."
+    },
+    {
+      "type": "paragraph",
+      "text": "Por ejemplo, si el usuario ingresa:"
+    },
+    {
+      "type": "code",
+      "text": "hola mundo"
+    },
+    {
+      "type": "paragraph",
+      "text": "Entonces se obtendrá la siguiente salida:"
+    },
+    {
+      "type": "code",
+      "text": "Debe ingresar únicamente números enteros."
+    },
+    {
+      "type": "paragraph",
+      "text": "Adicionalmente, si no se recurre a la excepción, por ejemplo, por medio de la siguiente entrada válida por parte del usuario:"
+    },
+    {
+      "type": "code",
+      "text": "21"
+    },
+    {
+      "type": "paragraph",
+      "text": "Entonces, se obtendrá la siguiente salida:"
+    },
+    {
+      "type": "code",
+      "text": "Edad registrada: 21"
+    },
+    {
+      "type": "test-button",
+      "text": "Probar >>",
+      "code": "try:\n    edad = int(input(\"Ingrese su edad: \"))\n    print(\"Edad registrada:\", edad)\n\nexcept ValueError:\n    print(\"Debe ingresar únicamente números enteros.\")"
+    },
+    {
+      "type": "subtitle2",
+      "text": "Ejemplo 2: División Segura"
+    },
+    {
+      "type": "code",
+      "text": "try:\n    numerador = float(input(\"Numerador: \"))\n    denominador = float(input(\"Denominador: \"))\n\n    resultado = numerador / denominador\n\n    print(\"Resultado:\", resultado)\nexcept ZeroDivisionError:\n    print(\"No es posible dividir entre cero.\")\nexcept ValueError:\n    print(\"Debe ingresar únicamente valores numéricos.\")"
+    },
+    {
+      "type": "paragraph",
+      "text": "Este ejemplo controla dos situaciones diferentes utilizando excepciones específicas."
+    },
+    {
+      "type": "paragraph",
+      "text": "Por lo tanto, la primera excepción se daría si el usuario ingresa el número cero como denominador:"
+    },
+    {
+      "type": "code",
+      "text": "7\n0"
+    },
+    {
+      "type": "paragraph",
+      "text": "Con la anterior entrada, entonces se obtendrá la siguiente salida:"
+    },
+    {
+      "type": "code",
+      "text": "No es posible dividir entre cero."
+    },
+    {
+      "type": "paragraph",
+      "text": "Adicionalmente, la segunda excepción maneja el caso cuando el usuario ingresa un valor NO numérico en algunos de los dos operandos de la división, por ejemplo:"
+    },
+    {
+      "type": "code",
+      "text": "python"
+    },
+    {
+      "type": "paragraph",
+      "text": "Obteniéndose la siguiente salida:"
+    },
+    {
+      "type": "code",
+      "text": "Debe ingresar únicamente valores numéricos."
+    },
+    {
+      "type": "paragraph",
+      "text": "Por último, si el usurio ingresa un valor numérico valido para cada uno de los operandos, por ejemplo:"
+    },
+    {
+      "type": "code",
+      "text": "72\n8"
+    },
+    {
+      "type": "paragraph",
+      "text": "Entonces, se obtendría la siguiente salida, correspondiente al resultado normal de la división:"
+    },
+    {
+      "type": "code",
+      "text": "9.0"
+    },
+    {
+      "type": "test-button",
+      "text": "Probar >>",
+      "code": "try:\n    numerador = float(input(\"Numerador: \"))\n    denominador = float(input(\"Denominador: \"))\n\n    resultado = numerador / denominador\n\n    print(\"Resultado:\", resultado)\nexcept ZeroDivisionError:\n    print(\"No es posible dividir entre cero.\")\nexcept ValueError:\n    print(\"Debe ingresar únicamente valores numéricos.\")"
+    },
+    {
+      "type": "subtitle2",
+      "text": "Ejemplo 3: Acceso Seguro a una Lista"
+    },
+    {
+      "type": "code",
+      "text": "try:\n    frutas = [\n        \"Manzana\",\n        \"Pera\",\n        \"Banano\"\n    ]\n\n    posicion = int(input(\"Posición: \"))\n\n    print(frutas[posicion])\nexcept IndexError:\n    print(\"La posición indicada no existe.\")\nexcept ValueError:\n    print(\"Debe ingresar un número entero.\")"
+    },
+    {
+      "type": "paragraph",
+      "text": "El programa evita que una posición inválida provoque la terminación de la ejecución."
+    },
+    {
+      "type": "paragraph",
+      "text": "La primera excepción, referente a <code class=\"language-python\">IndexError</code>, maneja el caso cuando el usuario ingresa un índice que está fuera del rango de índices la lista, por ejemplo:"
+    },
+    {
+      "type": "code",
+      "text": "9"
+    },
+    {
+      "type": "paragraph",
+      "text": "Por lo cual, se obtendría la siguiente salida:"
+    },
+    {
+      "type": "code",
+      "text": "La posición indicada no existe."
+    },
+    {
+      "type": "paragraph",
+      "text": "Adicionalmente, la segunda excepción, referente a <code class=\"language-python\">ValueError</code>, se da cuando el usuario ingresa una entrada distinta de un número entero, por ejemplo:"
+    },
+    {
+      "type": "code",
+      "text": "codigo"
+    },
+    {
+      "type": "paragraph",
+      "text": "Por lo cual, se obtendría la siguiente salida:"
+    },
+    {
+      "type": "code",
+      "text": "Debe ingresar un número entero."
+    },
+    {
+      "type": "paragraph",
+      "text": "Por último, si se ingresa un valor de índice válido para la lista correspondiente, por ejemplo:"
+    },
+    {
+      "type": "code",
+      "text": "1"
+    },
+    {
+      "type": "paragraph",
+      "text": "Entonces, se obtendrá el elemento correspondiente a dicho índice:"
+    },
+    {
+      "type": "code",
+      "text": "Pera"
+    },
+    {
+      "type": "test-button",
+      "text": "Probar >>",
+      "code": "try:\n    frutas = [\n        \"Manzana\",\n        \"Pera\",\n        \"Banano\"\n    ]\n\n    posicion = int(input(\"Posición: \"))\n\n    print(frutas[posicion])\nexcept IndexError:\n    print(\"La posición indicada no existe.\")\nexcept ValueError:\n    print(\"Debe ingresar un número entero.\")"
+    },
+    {
+      "type": "subtitle2",
+      "text": "Ejemplo 4: Mostrar el Detalle de la Excepción"
+    },
+    {
+      "type": "code",
+      "text": "try:\n    numero = int(input(\"Número: \"))\nexcept ValueError as error:\n    print(\"Se produjo una excepción.\")\n    print(\"Detalle:\", error)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Además de informar que ocurrió un error, el programa muestra el mensaje generado por Python, lo cual resulta muy útil durante el proceso de depuración."
+    },
+    {
+      "type": "paragraph",
+      "text": "Por ejemplo, si se fuerza el error por medio de la siguiente entrada:"
+    },
+    {
+      "type": "code",
+      "text": "c++"
+    },
+    {
+      "type": "paragraph",
+      "text": "Entonces se obtendrá la siguiente salida:"
+    },
+    {
+      "type": "code",
+      "text": "Se produjo una excepción.\nDetalle: invalid literal for int() with base 10: 'c++'"
+    },
+    {
+      "type": "test-button",
+      "text": "Probar >>",
+      "code": "try:\n    numero = int(input(\"Número: \"))\nexcept ValueError as error:\n    print(\"Se produjo una excepción.\")\n    print(\"Detalle:\", error)"
+    },
+    {
+      "type": "note",
+      "text": "📌 <strong>Notas:</strong><br><strong>1.</strong> El manejo de excepciones no evita que ocurran los errores; simplemente proporciona un mecanismo para detectarlos y decidir cómo actuar cuando aparecen.<br><strong>2.</strong> Siempre que sea posible, captura únicamente las excepciones que esperas que puedan ocurrir. Evita utilizar <code class=\"language-python\">except:</code> sin especificar el tipo de excepción, ya que puede ocultar errores importantes y dificultar la depuración del programa.<br><strong>3.</strong> Si estás utilizando esta plataforma para ejecutar el código directamente desde el navegador, es posible que observes mensajes de error más extensos que los mostrados habitualmente en un entorno local de Python. Esto ocurre porque el código es ejecutado mediante una versión de Python integrada en el navegador (<strong><i>Pyodide</i></strong>), la cual añade información interna relacionada con el proceso de ejecución. No te preocupes por esas líneas adicionales; para identificar el problema debes centrarte en la última parte del mensaje, donde Python indica el tipo de excepción (<code class=\"language-python\">ValueError</code>, <code class=\"language-python\">IndexError</code>, <code class=\"language-python\">ZeroDivisionError</code>, etc.) y una breve descripción de la causa del error."
+    },
+    {
+      "type": "tip",
+      "text": "⭐ <strong>Tips:</strong><br><strong>1.</strong> Organiza el código colocando dentro del bloque <code class=\"language-python\">try</code> únicamente las instrucciones que realmente pueden producir una excepción. De esta forma el manejo de errores será más claro y el programa resultará más fácil de mantener.<br><strong>2.</strong> Cuando aparezca un mensaje de error muy largo, acostúmbrate a leerlo de abajo hacia arriba. En la mayoría de los casos, las últimas líneas contienen la información más importante para identificar y solucionar el problema.<br><strong>3.</strong> Durante el desarrollo de un programa es recomendable utilizar <code class=\"language-python\">except TipoDeExcepcion as error</code>, ya que permite acceder al mensaje original de la excepción. Esto facilita la depuración y ayuda a comprender con mayor precisión por qué ocurrió el error antes de mostrar un mensaje más amigable al usuario."
+    },
+    {
+      "type": "subtitle1",
+      "text": "Ejercicios para Practicar"
+    },
+    {
+      "type": "subtitle2",
+      "text": "Ejercicio 1: Calculadora Segura"
+    },
+    {
+      "type": "paragraph",
+      "text": "Una pequeña empresa está desarrollando una calculadora para realizar operaciones matemáticas básicas. Sin embargo, algunos usuarios ingresan valores inválidos, como texto en lugar de números o intentan dividir entre cero, ocasionando que el programa termine inesperadamente."
+    },
+    {
+      "type": "paragraph",
+      "text": "Tu objetivo es hacer que la calculadora sea capaz de manejar estos errores utilizando <code class=\"language-python\">try</code> y <code class=\"language-python\">except</code>."
+    },
+    {
+      "type": "paragraph",
+      "text": "Instrucciones:"
+    },
+    {
+      "type": "paragraph",
+      "text": "Construye un programa que cumpla con los siguientes requerimientos:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Solicita al usuario dos números utilizando <code class=\"language-python\">input()</code>.",
+        "Convierte ambos valores al tipo <code class=\"language-python\">float</code>.",
+        "Calcula la división del primer número entre el segundo.",
+        "Si el usuario escribe un valor que no sea numérico, informa que el dato ingresado no es válido.",
+        "Si intenta dividir entre cero, informa claramente el problema.",
+        "Si no ocurre ningún error, muestra el resultado de la división."
+      ]
+    },
+    {
+      "type": "test-button",
+      "text": "Practicar >>",
+      "code": "# Ejercicio 1: Calculadora Segura\n#\n# Una pequeña empresa está desarrollando una calculadora para realizar\n# operaciones matemáticas básicas. Sin embargo, algunos usuarios\n# ingresan valores inválidos, como texto en lugar de números o\n# intentan dividir entre cero, ocasionando que el programa termine\n# inesperadamente.\n#\n# Tu objetivo es hacer que la calculadora sea capaz de manejar estos\n# errores utilizando try y except.\n#\n# Instrucciones:\n# Construye un programa que cumpla con los siguientes requerimientos:\n# - Solicita al usuario dos números utilizando input().\n# - Convierte ambos valores al tipo float.\n# - Calcula la división del primer número entre el segundo.\n# - Si el usuario escribe un valor que no sea numérico, informa que el\n#   dato ingresado no es válido.\n# - Si intenta dividir entre cero, informa claramente el problema.\n# - Si no ocurre ningún error, muestra el resultado de la división."
+    },
+    {
+      "type": "collapsible",
+      "title": "Observar posible solución",
+      "content": [
+        {
+          "type": "code",
+          "text": "try:\n    # Solicitar el primer número al usuario.\n    numero1 = float(input(\"Ingrese el primer número: \"))\n    # Solicitar el segundo número al usuario.\n    numero2 = float(input(\"Ingrese el segundo número: \"))\n    # Realizar la división.\n    resultado = numero1 / numero2\n    # Mostrar el resultado obtenido.\n    print(\"Resultado:\", resultado)\n# Capturar errores cuando el usuario escribe un valor no numérico.\nexcept ValueError:\n    print(\"Error: Debe ingresar únicamente números.\")\n# Capturar el intento de dividir entre cero.\nexcept ZeroDivisionError:\n    print(\"Error: No es posible dividir entre cero.\")"
+        },
+        {
+          "type": "test-button",
+          "text": "Probar Solución >>",
+          "code": "try:\n    # Solicitar el primer número al usuario.\n    numero1 = float(input(\"Ingrese el primer número: \"))\n    # Solicitar el segundo número al usuario.\n    numero2 = float(input(\"Ingrese el segundo número: \"))\n    # Realizar la división.\n    resultado = numero1 / numero2\n    # Mostrar el resultado obtenido.\n    print(\"Resultado:\", resultado)\n# Capturar errores cuando el usuario escribe un valor no numérico.\nexcept ValueError:\n    print(\"Error: Debe ingresar únicamente números.\")\n# Capturar el intento de dividir entre cero.\nexcept ZeroDivisionError:\n    print(\"Error: No es posible dividir entre cero.\")"
+        }
+      ]
+    },
+    {
+      "type": "subtitle2",
+      "text": "Ejercicio 2: Analizador de Lista de Datos"
+    },
+    {
+      "type": "paragraph",
+      "text": "Un sistema recibe una lista de datos provenientes de un sensor. Algunos registros contienen información correcta, mientras que otros presentan errores."
+    },
+    {
+      "type": "paragraph",
+      "text": "El objetivo es recorrer toda la lista y procesar cada elemento sin que el programa se detenga cuando encuentre un dato inválido."
+    },
+    {
+      "type": "paragraph",
+      "text": "Lista inicial:"
+    },
+    {
+      "type": "code",
+      "text": "datos = [15, 28, \"error\", 42, 17, \"Python\", 65, 80]"
+    },
+    {
+      "type": "paragraph",
+      "text": "Instrucciones:"
+    },
+    {
+      "type": "paragraph",
+      "text": "Construye un programa que realice las siguientes acciones:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Recorre todos los elementos de la lista utilizando un ciclo <code class=\"language-python\">for</code>.",
+        "Intenta sumar 10 a cada elemento.",
+        "Si el elemento es un número, muestra el resultado.",
+        "Si el elemento no es un número, captura la excepción correspondiente.",
+        "Muestra un mensaje indicando cuál fue el dato que produjo el error.",
+        "El programa debe continuar procesando el resto de elementos aunque encuentre errores."
+      ]
+    },
+    {
+      "type": "test-button",
+      "text": "Practicar >>",
+      "code": "# Ejercicio 2: Analizador de Lista de Datos\n#\n# Un sistema recibe una lista de datos provenientes de un sensor.\n# Algunos registros contienen información correcta, mientras que otros\n# presentan errores.\n#\n# El objetivo es recorrer toda la lista y procesar cada elemento sin\n# que el programa se detenga cuando encuentre un dato inválido.\n#\n# Lista inicial:\n# datos = [15, 28, \"error\", 42, 17, \"Python\", 65, 80]\n#\n# Instrucciones:\n# Construye un programa que realice las siguientes acciones:\n# - Recorre todos los elementos de la lista utilizando un ciclo for.\n# - Intenta sumar 10 a cada elemento.\n# - Si el elemento es un número, muestra el resultado.\n# - Si el elemento no es un número, captura la excepción\n#   correspondiente.\n# - Muestra un mensaje indicando cuál fue el dato que produjo el error.\n# - El programa debe continuar procesando el resto de elementos aunque\n#   encuentre errores."
+    },
+    {
+      "type": "collapsible",
+      "title": "Observar posible solución",
+      "content": [
+        {
+          "type": "code",
+          "text": "# Crear la lista de datos.\ndatos = [15, 28, \"error\", 42, 17, \"Python\", 65, 80]\n\n# Recorrer todos los elementos de la lista.\nfor dato in datos:\n    # Intentar realizar la operación.\n    try:\n        # Sumar 10 al elemento actual.\n        resultado = dato + 10\n        # Mostrar el resultado obtenido.\n        print(\"Resultado:\", resultado)\n    # Capturar errores cuando el dato no sea numérico.\n    except TypeError:\n        print(\"No fue posible procesar el valor:\", dato)"
+        },
+        {
+          "type": "test-button",
+          "text": "Probar Solución >>",
+          "code": "# Crear la lista de datos.\ndatos = [15, 28, \"error\", 42, 17, \"Python\", 65, 80]\n\n# Recorrer todos los elementos de la lista.\nfor dato in datos:\n    # Intentar realizar la operación.\n    try:\n        # Sumar 10 al elemento actual.\n        resultado = dato + 10\n        # Mostrar el resultado obtenido.\n        print(\"Resultado:\", resultado)\n    # Capturar errores cuando el dato no sea numérico.\n    except TypeError:\n        print(\"No fue posible procesar el valor:\", dato)"
+        }
+      ]
+    },
+    {
+      "type": "subtitle2",
+      "text": "Ejercicio 3: Sistema de Registro de Usuarios"
+    },
+    {
+      "type": "paragraph",
+      "text": "Una aplicación solicita información para registrar nuevos usuarios."
+    },
+    {
+      "type": "paragraph",
+      "text": "Durante el proceso pueden presentarse diferentes problemas:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "El usuario puede escribir texto donde se espera una edad.",
+        "Puede ingresar una edad negativa.",
+        "Puede dejar algunos datos vacíos.",
+        "Incluso podrían ocurrir errores inesperados."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Tu tarea consiste en construir un programa robusto utilizando varios bloques <code class=\"language-python\">except</code> para manejar cada situación."
+    },
+    {
+      "type": "paragraph",
+      "text": "Instrucciones:"
+    },
+    {
+      "type": "paragraph",
+      "text": "Construye un programa que realice las siguientes acciones:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Solicita el nombre del usuario.",
+        "Solicita la edad.",
+        "Convierte la edad a entero.",
+        "Verifica que la edad sea mayor o igual que cero.",
+        "Si la edad es negativa, genera manualmente una excepción utilizando <code class=\"language-python\">raise ValueError</code>.",
+        "Si todo es correcto, muestra un mensaje indicando que el registro fue exitoso.",
+        "Si ocurre un <code class=\"language-python\">ValueError</code>, informa el motivo del error.",
+        "Si ocurre cualquier otra excepción inesperada, captura el error utilizando <code class=\"language-python\">Exception</code>.",
+        "Muestra siempre un mensaje indicando que el proceso de registro ha finalizado."
+      ]
+    },
+    {
+      "type": "test-button",
+      "text": "Practicar >>",
+      "code": "# Ejercicio 3: Sistema de Registro de Usuarios\n#\n# Una aplicación solicita información para registrar nuevos usuarios.\n#\n# Durante el proceso pueden presentarse diferentes problemas:\n# - El usuario puede escribir texto donde se espera una edad.\n# - Puede ingresar una edad negativa.\n# - Puede dejar algunos datos vacíos.\n# - Incluso podrían ocurrir errores inesperados.\n#\n# Tu tarea consiste en construir un programa robusto utilizando varios\n# bloques except para manejar cada situación.\n#\n# Instrucciones:\n# Construye un programa que realice las siguientes acciones:\n# - Solicita el nombre del usuario.\n# - Solicita la edad.\n# - Convierte la edad a entero.\n# - Verifica que la edad sea mayor o igual que cero.\n# - Si la edad es negativa, genera manualmente una excepción\n#   utilizando raise ValueError.\n# - Si todo es correcto, muestra un mensaje indicando que el registro\n#   fue exitoso.\n# - Si ocurre un ValueError, informa el motivo del error.\n# - Si ocurre cualquier otra excepción inesperada, captura el error\n#   utilizando Exception.\n# - Muestra siempre un mensaje indicando que el proceso de registro ha\n#   finalizado."
+    },
+    {
+      "type": "collapsible",
+      "title": "Observar posible solución",
+      "content": [
+        {
+          "type": "code",
+          "text": "# Iniciar el bloque de manejo de excepciones.\ntry:\n    # Solicitar el nombre del usuario.\n    nombre = input(\"Ingrese su nombre: \")\n    # Solicitar la edad.\n    edad = int(input(\"Ingrese su edad: \"))\n\n    # Verificar que la edad no sea negativa.\n    if edad < 0:\n        # Generar manualmente una excepción.\n        raise ValueError(\"La edad no puede ser negativa.\")\n\n    # Mostrar el mensaje de registro exitoso.\n    print(\"Usuario registrado correctamente.\")\n# Capturar errores relacionados con valores inválidos.\nexcept ValueError as error:\n    # Mostrar el mensaje específico del error.\n    print(\"Error:\", error)\n# Capturar cualquier otra excepción inesperada.\nexcept Exception as error:\n    # Mostrar información sobre el error ocurrido.\n    print(\"Ha ocurrido un error inesperado.\")\n    print(error)\n\n# Ejecutar este mensaje independientemente del resultado.\nprint(\"El proceso de registro ha finalizado.\")"
+        },
+        {
+          "type": "test-button",
+          "text": "Probar Solución >>",
+          "code": "# Iniciar el bloque de manejo de excepciones.\ntry:\n    # Solicitar el nombre del usuario.\n    nombre = input(\"Ingrese su nombre: \")\n    # Solicitar la edad.\n    edad = int(input(\"Ingrese su edad: \"))\n\n    # Verificar que la edad no sea negativa.\n    if edad < 0:\n        # Generar manualmente una excepción.\n        raise ValueError(\"La edad no puede ser negativa.\")\n\n    # Mostrar el mensaje de registro exitoso.\n    print(\"Usuario registrado correctamente.\")\n# Capturar errores relacionados con valores inválidos.\nexcept ValueError as error:\n    # Mostrar el mensaje específico del error.\n    print(\"Error:\", error)\n# Capturar cualquier otra excepción inesperada.\nexcept Exception as error:\n    # Mostrar información sobre el error ocurrido.\n    print(\"Ha ocurrido un error inesperado.\")\n    print(error)\n\n# Ejecutar este mensaje independientemente del resultado.\nprint(\"El proceso de registro ha finalizado.\")"
+        }
+      ]
+    },
+    {
+      "type": "subtitle1",
+      "text": "Conclusiones de la Unidad"
+    },
+    {
+      "type": "paragraph",
+      "text": "El manejo de excepciones mediante los bloques <code class=\"language-python\">try</code> y <code class=\"language-python\">except</code> constituye una de las herramientas más importantes para desarrollar aplicaciones robustas en Python. En lugar de permitir que un error detenga completamente la ejecución del programa, las excepciones ofrecen la posibilidad de detectar situaciones inesperadas, responder adecuadamente a cada una de ellas y continuar con la ejecución cuando sea posible."
+    },
+    {
+      "type": "paragraph",
+      "text": "A lo largo de esta unidad aprendiste qué es una excepción, cómo funciona el flujo de ejecución de un bloque <code class=\"language-python\">try-except</code>, cómo capturar errores específicos, cómo manejar múltiples excepciones y cómo acceder a la información detallada del error mediante la cláusula <code class=\"language-python\">as</code>. También observaste que un buen manejo de excepciones mejora significativamente la experiencia del usuario al proporcionar mensajes claros y evitar cierres inesperados de la aplicación."
+    },
+    {
+      "type": "paragraph",
+      "text": "Estos conocimientos servirán como base para la siguiente unidad, donde ampliarás el manejo de excepciones utilizando los bloques <code class=\"language-python\">else</code> y <code class=\"language-python\">finally</code>, permitiendo ejecutar instrucciones únicamente cuando no ocurran errores o garantizar que determinadas acciones se ejecuten siempre, independientemente del resultado del programa."
+    }
+  ]
+}
