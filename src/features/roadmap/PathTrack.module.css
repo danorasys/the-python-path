@@ -1,0 +1,169 @@
+.track {
+  position: relative;
+  display: grid;
+  gap: var(--space-5);
+  padding: var(--space-4) 0;
+  list-style: none;
+  --marker: 3.75rem;
+  --road: 0.85rem;
+}
+
+.track::before {
+  content: "";
+  position: absolute;
+  top: calc(var(--space-4) + var(--marker) / 2);
+  bottom: calc(var(--space-4) + var(--marker) / 2);
+  left: 50%;
+  width: var(--road);
+  transform: translateX(-50%);
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--color-blue) 0 1.6rem,
+    var(--color-yellow) 1.6rem 3.2rem
+  );
+  border-inline: var(--border);
+}
+
+.stop {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) calc(var(--marker) + var(--space-6)) minmax(0, 1fr);
+  align-items: start;
+}
+
+.marker {
+  z-index: 1;
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: center;
+  display: grid;
+  place-items: center;
+  width: var(--marker);
+  height: var(--marker);
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  font-weight: 800;
+  border: var(--border);
+  border-radius: 50%;
+  box-shadow: var(--shadow-sm);
+}
+
+.card {
+  grid-row: 1;
+  position: relative;
+  display: block;
+  color: var(--color-ink);
+  text-decoration: none;
+  background: var(--color-surface);
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition:
+    transform 140ms var(--ease-out),
+    box-shadow 140ms var(--ease-out);
+}
+
+a.card:hover {
+  color: var(--color-ink);
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-lg);
+}
+
+a.card:active {
+  transform: translate(var(--press-offset), var(--press-offset));
+  box-shadow: var(--shadow-sm);
+}
+
+.stop:nth-child(odd) .card {
+  grid-column: 1;
+}
+
+.stop:nth-child(even) .card {
+  grid-column: 3;
+}
+
+.stop::after {
+  content: "";
+  position: absolute;
+  top: calc(var(--marker) / 2 - 2px);
+  height: var(--border-width);
+  width: calc(var(--space-6) / 2 + 4px);
+  background: var(--color-ink);
+}
+
+.stop:nth-child(odd)::after {
+  right: calc(50% + var(--marker) / 2);
+}
+
+.stop:nth-child(even)::after {
+  left: calc(50% + var(--marker) / 2);
+}
+
+.band {
+  display: block;
+  height: 0.75rem;
+  border-bottom: var(--border);
+}
+
+.cardBody {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-5) var(--space-5);
+}
+
+.name {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+  font-size: var(--step-2);
+}
+
+.arrow {
+  width: 1.4rem;
+  height: 1.4rem;
+  margin-top: 0.3rem;
+  flex-shrink: 0;
+}
+
+.description {
+  color: var(--color-ink-muted);
+}
+
+@media (max-width: 52rem) {
+  .track {
+    --marker: 3rem;
+  }
+
+  .track::before {
+    left: calc(var(--marker) / 2);
+  }
+
+  .stop {
+    grid-template-columns: var(--marker) minmax(0, 1fr);
+    column-gap: var(--space-4);
+  }
+
+  .marker {
+    grid-column: 1;
+    font-size: var(--step-1);
+  }
+
+  .stop:nth-child(odd) .card,
+  .stop:nth-child(even) .card {
+    grid-column: 2;
+  }
+
+  .stop::after,
+  .stop:nth-child(odd)::after,
+  .stop:nth-child(even)::after {
+    left: var(--marker);
+    right: auto;
+    width: var(--space-4);
+  }
+
+  .name {
+    font-size: var(--step-1);
+  }
+}

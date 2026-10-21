@@ -1,0 +1,315 @@
+{
+  "title": "Comentarios y Estilo Básico de Código",
+  "description": "",
+  "content": [
+    {
+      "type": "subtitle1",
+      "text": "¿Qué es un Comentario en Python?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Un comentario es una parte del código que no se ejecuta. Sirve para explicar lo que hace un bloque de instrucciones, aclarar la lógica detrás de un cálculo o dejar recordatorios."
+    },
+    {
+      "type": "paragraph",
+      "text": "En Python, los comentarios se escriben usando el símbolo <code class=\"language-python\">#</code>:"
+    },
+    {
+      "type": "code",
+      "text": "# así se escribe un comentario"
+    },
+    {
+      "type": "paragraph",
+      "text": "Todo lo que vaya después de <code class=\"language-python\">#</code> en esa línea será ignorado por Python."
+    },
+    {
+      "type": "note",
+      "text": "<strong>Nota:</strong><br>Los comentarios son para humanos, no para el intérprete. Le dan claridad al código y ayudan a recordar lo que intentabas hacer cuando lo vuelves a leer tiempo después."
+    },
+    {
+      "type": "subtitle1",
+      "text": "Comentarios de Una Sola Línea"
+    },
+    {
+      "type": "paragraph",
+      "text": "Este es el tipo más común. Se colocan encima de una línea de código o a la derecha de ella."
+    },
+    {
+      "type": "paragraph",
+      "text": "Ejemplo:"
+    },
+    {
+      "type": "code",
+      "text": "# Este programa muestra un saludo\nprint(\"Hola\")  # Muestra texto en pantalla"
+    },
+    {
+      "type": "paragraph",
+      "text": "Salida:"
+    },
+    {
+      "type": "code",
+      "text": "Hola"
+    },
+    {
+      "type": "test-button",
+      "text": "Probar >>",
+      "code": "# Este programa muestra un saludo\nprint(\"Hola\")  # Muestra texto en pantalla"
+    },
+    {
+      "type": "tip",
+      "text": "<strong>Tip:</strong><br>Evita escribir comentarios obvios como:<br><code class=\"language-python\">x = x + 1 # le sumo 1 a x</code>"
+    },
+    {
+      "type": "paragraph",
+      "text": "Los buenos comentarios explican el por qué, no el qué."
+    },
+    {
+      "type": "subtitle1",
+      "text": "Comentarios de Varias Líneas (Texto Explicativo)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Python no tiene un símbolo especial para comentarios multilínea como otros lenguajes, pero puedes usar comillas triples <code class=\"language-python\">\"\"\" \"\"\"</code> para escribir texto largo que no será ejecutado si no está asignado a una variable."
+    },
+    {
+      "type": "paragraph",
+      "text": "Se usa normalmente al inicio del archivo o al comienzo de funciones."
+    },
+    {
+      "type": "paragraph",
+      "text": "Ejemplo:"
+    },
+    {
+      "type": "code",
+      "text": "\"\"\"\nEste programa calcula el área de un círculo.\nEl usuario ingresa el radio y se muestra el resultado.\n\"\"\""
+    },
+    {
+      "type": "note",
+      "text": "<strong>Nota:</strong><br>Técnicamente, esto es un string literal sin usar, pero Python lo ignora, así que funciona como comentario."
+    },
+    {
+      "type": "subtitle1",
+      "text": "¿Para Qué Sirven Los Comentarios Realmente?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Los comentarios no son decoración. Son útiles cuando:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Explican la intención detrás de una solución.",
+        "Aclaran partes complicadas del código.",
+        "Documentan decisiones importantes.",
+        "Ayudan a quien lee el código (incluyéndote a ti)."
+      ]
+    },
+    {
+      "type": "tip",
+      "text": "<strong>Tip:</strong><br>Si tienes que explicar demasiado, quizá el código es demasiado complejo. A veces lo mejor es simplificar el código, no escribir más comentarios."
+    },
+    {
+      "type": "subtitle1",
+      "text": "Estilo Básico de Código: Escribir Código Limpio"
+    },
+    {
+      "type": "paragraph",
+      "text": "Python es famoso por promover un estilo claro y legible. Aquí tienes algunas reglas esenciales:"
+    },
+    {
+      "type": "subtitle2",
+      "text": "1. Usa Nombres Descriptivos Para Variables"
+    },
+    {
+      "type": "paragraph",
+      "text": "<icon-cross></icon-cross> Malo:"
+    },
+    {
+      "type": "code",
+      "text": "x = 10\ny = 20"
+    },
+    {
+      "type": "paragraph",
+      "text": "<icon-check></icon-check> Bueno:"
+    },
+    {
+      "type": "code",
+      "text": "edad = 10\nanios_experiencia = 20"
+    },
+    {
+      "type": "note",
+      "text": "<strong>Nota:</strong><br>Un buen nombre evita que necesites comentarios innecesarios."
+    },
+    {
+      "type": "subtitle2",
+      "text": "2. Espacios Alrededor de Operadores"
+    },
+    {
+      "type": "paragraph",
+      "text": "Esto mejora mucho la legibilidad."
+    },
+    {
+      "type": "paragraph",
+      "text": "<icon-cross></icon-cross> Sin espacios:"
+    },
+    {
+      "type": "code",
+      "text": "suma=10+5"
+    },
+    {
+      "type": "paragraph",
+      "text": "<icon-check></icon-check> Con espacios:"
+    },
+    {
+      "type": "code",
+      "text": "suma = 10 + 5"
+    },
+    {
+      "type": "subtitle2",
+      "text": "3. Una Idea por Línea"
+    },
+    {
+      "type": "paragraph",
+      "text": "<icon-cross></icon-cross> Difícil de leer:"
+    },
+    {
+      "type": "code",
+      "text": "a = 10; b = 20; print(a+b)"
+    },
+    {
+      "type": "paragraph",
+      "text": "<icon-check></icon-check> Claro y simple:"
+    },
+    {
+      "type": "code",
+      "text": "a = 10\nb = 20\nprint(a + b)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Salida:"
+    },
+    {
+      "type": "code",
+      "text": "30"
+    },
+    {
+      "type": "test-button",
+      "text": "Probar >>",
+      "code": "a = 10\nb = 20\nprint(a + b)"
+    },
+    {
+      "type": "subtitle2",
+      "text": "4. Mantén Las Líneas Cortas"
+    },
+    {
+      "type": "paragraph",
+      "text": "La recomendación general es no superar 79 caracteres por línea (PEP 8)."
+    },
+    {
+      "type": "tip",
+      "text": "<strong>Tip:</strong><br>Si necesitas escribir algo largo, divídelo en varias partes usando <code class=\"language-python\">\\</code> o concatenación."
+    },
+    {
+      "type": "subtitle1",
+      "text": "Comentarios Dentro del Código Real"
+    },
+    {
+      "type": "paragraph",
+      "text": "Veamos un ejemplo más realista de cómo usar comentarios para aclarar una idea:"
+    },
+    {
+      "type": "code",
+      "text": "# Calculamos el precio final con descuento\nprecio = 100\ndescuento = 0.15\n\n# Aplicamos el descuento\nprecio_final = precio - (precio * descuento)\n\nprint(\"Precio final:\", precio_final)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Salida:"
+    },
+    {
+      "type": "code",
+      "text": "Precio final: 85.0"
+    },
+    {
+      "type": "test-button",
+      "text": "Probar >>",
+      "code": "# Calculamos el precio final con descuento\nprecio = 100\ndescuento = 0.15\n\n# Aplicamos el descuento\nprecio_final = precio - (precio * descuento)\n\nprint(\"Precio final:\", precio_final)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Aquí los comentarios explican el propósito, no la operación matemática."
+    },
+    {
+      "type": "subtitle1",
+      "text": "¿Cuándo NO Debes Comentar?"
+    },
+    {
+      "type": "tip",
+      "text": "<strong>Tip:</strong> Usa esta regla de oro:<br><strong>\"Comenta cuando el lector pueda confundirse; no comentes cosas obvias\".</strong>"
+    },
+    {
+      "type": "paragraph",
+      "text": "<icon-cross></icon-cross> Comentario innecesario:"
+    },
+    {
+      "type": "code",
+      "text": "print(\"Hola\")  # imprime Hola"
+    },
+    {
+      "type": "paragraph",
+      "text": "<icon-cross></icon-cross> Comentarios que duplican el código:"
+    },
+    {
+      "type": "code",
+      "text": "x = 5   # x ahora vale 5"
+    },
+    {
+      "type": "subtitle1",
+      "text": "Ejercicio Guiado"
+    },
+    {
+      "type": "paragraph",
+      "text": "Añade comentarios útiles a este fragmento de código:"
+    },
+    {
+      "type": "code",
+      "text": "nombre = \"Juan\"\nedad= 22\nanio_actual = 2025\n\nprint(\"Tu nombre es:\", nombre)\nprint(\"Tu edad será en 5 años:\", edad + 5)"
+    },
+    {
+      "type": "test-button",
+      "text": "Practicar >>",
+      "code": "nombre = \"Juan\"\nedad= 22\nanio_actual = 2025\n\nprint(\"Tu nombre es:\", nombre)\nprint(\"Tu edad será en 5 años:\", edad + 5)"
+    },
+    {
+      "type": "collapsible",
+      "title": "Observar posible solución",
+      "content": [
+        {
+          "type": "code",
+          "text": "# Datos del usuaio\nnombre = \"Juan\"\nedad = 22\nanio_actual = 2025\n\n# Mostrar información\nprint(\"Tu nombre es:\", nombre)\n\n#Calculamos la edad futura (edad actual + 5)\nprint(\"Tu edad será en 5 años:\", edad + 5)"
+        }
+      ]
+    },
+    {
+      "type": "subtitle1",
+      "text": "Conclusiones de la Unidad"
+    },
+    {
+      "type": "paragraph",
+      "text": "En esta tema aprendiste:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Cómo se escriben comentarios con <code class=\"language-python\">#</code>.",
+        "Cómo crear comentarios explicativos con comillas triples.",
+        "Buenas prácticas de estilo y legibilidad.",
+        "Qué hace que un comentario sea útil.",
+        "Cómo escribir código más claro y estructurado."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Los comentarios serán tus aliados mientras avanzas hacia programas más complejos."
+    }
+  ]
+}

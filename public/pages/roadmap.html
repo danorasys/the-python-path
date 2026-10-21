@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex" />
+    <title>Redirecting… · The Python Path</title>
+    <script>
+      // Legacy URL: pages/roadmap.html#module1 -> #/roadmap/module1
+      var id = location.hash.replace("#", "").replace(/\/$/, "");
+      var target = /^module\d+$/.test(id) ? "#/roadmap/" + id : "#/roadmap";
+      location.replace("../" + target);
+    </script>
+  </head>
+  <body>
+    <a href="../#/roadmap">The Python Path</a>
+  </body>
+</html>

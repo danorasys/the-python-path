@@ -1,0 +1,127 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--color-surface);
+  border-bottom: var(--border);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  max-width: var(--content-width);
+  height: var(--header-height);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-right: auto;
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.brand:hover {
+  color: var(--color-ink);
+}
+
+.mark {
+  width: 2.6rem;
+  height: 2.6rem;
+  flex-shrink: 0;
+}
+
+.nav {
+  display: flex;
+}
+
+.list {
+  display: flex;
+  gap: var(--space-1);
+  padding: 0;
+  list-style: none;
+}
+
+.link {
+  display: block;
+  padding: 0.4rem 0.75rem;
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  border: var(--border-width) solid transparent;
+  border-radius: var(--radius-sm);
+}
+
+.link:hover {
+  color: var(--color-ink);
+  background: var(--color-blue-tint);
+  border-color: var(--color-ink);
+}
+
+.link[aria-current="page"] {
+  background: var(--color-yellow);
+  border-color: var(--color-ink);
+  box-shadow: var(--shadow-sm);
+}
+
+.menuButton {
+  display: none;
+}
+
+@media (max-width: 60rem) {
+  .menuButton {
+    display: inline-flex;
+  }
+
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: none;
+    padding: var(--space-4) var(--gutter) var(--space-5);
+    background: var(--color-surface);
+    border-bottom: var(--border);
+    box-shadow: 0 6px 0 0 var(--color-ink);
+  }
+
+  .navOpen {
+    display: block;
+  }
+
+  .list {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .link {
+    padding: 0.7rem 0.9rem;
+    font-size: var(--step-1);
+  }
+}
+
+@media (max-width: 30rem) {
+  .inner {
+    gap: var(--space-3);
+  }
+
+  .brandText {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+}

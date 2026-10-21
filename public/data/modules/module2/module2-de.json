@@ -1,0 +1,30 @@
+{
+    "title": "2. Ablaufsteuerung",
+    "description": "In diesem Modul lernst du, wie du steuern kannst, wie dein Programm ausgeführt wird. Du wirst Bedingungen verwenden, um Entscheidungen zu treffen, Schleifen, um Aktionen zu wiederholen, und logische Operatoren, um Bedingungen zu kombinieren. Außerdem wirst du sehen, wie man Schleifen unterbricht oder fortsetzt, je nach der Logik deines Programms.",
+    "steps": [
+        {
+            "name": "1. Bedingungen: <code>if</code>, <code>elif</code>, <code>else</code>",
+            "description": "In dieser Einheit lernst du, wie dein Programm Entscheidungen treffen kann, indem du <code>if</code>, <code>elif</code> und <code>else</code> verwendest, sodass der Code verschiedene Aktionen ausführt, abhängig davon, welche Bedingungen erfüllt sind. Du wirst sehen, wie der Ablauf funktioniert, wenn eine Bedingung wahr ist, was passiert, wenn keine zutrifft, und wie man mehrere Optionen hintereinander verknüpft.",
+            "color": "#FFD43B",
+            "unit": "learning-unit1"
+        },
+        {
+            "name": "2. Logische und Vergleichsoperatoren",
+            "description":"Hier wirst du verstehen, wie Operatoren wie <code>==</code>, <code>!=</code>, <code><</code>, <code>></code>, <code><=</code>, <code>>=</code> funktionieren und wie man sie mit <code>and</code>, <code>or</code> und <code>not</code> kombiniert, um komplexere Bedingungen zu erstellen. So kannst du mehrere Situationen gleichzeitig auswerten und präzisere Entscheidungen innerhalb deiner bedingten Strukturen treffen.",
+            "color": "#3776AB",
+            "unit": "learning-unit2"
+        },
+        {
+            "name": "3. <code>while</code>-und <code>for</code>-Schleifen",
+            "description": "In dieser Einheit lernst du, wie man Anweisungen mit <code>while</code> und <code>for</code> wiederholt, wodurch Aufgaben ohne wiederholtes Schreiben des gleichen Codes ausgeführt werden können. Außerdem lernst du, wie man über eine Zeichenkette (<code>str</code>) iteriert.",
+            "color": "#1B983A",
+            "unit": "learning-unit3"
+        },
+        {
+            "name": "4. Ablaufsteuerung in Schleifen",
+            "description": "Hier erfährst du, wie du die interne Ausführung einer Schleife mithilfe spezieller Anweisungen ändern kannst: <code>break</code> um sie vorzeitig zu stoppen, <code>continue</code>, um eine bestimmte Wiederholung zu überspringen, und <code>pass</code>, um einen leeren Block zu lassen, den du später ausfüllen kannst. Diese Werkzeuge ermöglichen dir eine präzisere und flexiblere Kontrolle über das Verhalten deiner Schleifen.",
+            "color": "#6464FF",
+            "unit": "learning-unit4"
+        }
+    ]
+}

@@ -1,0 +1,92 @@
+.terminal {
+  position: relative;
+  z-index: 1;
+  transform: rotate(1.25deg);
+}
+
+.terminal::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 1.25rem -1.25rem -1.5rem 1.5rem;
+  background-color: var(--color-blue);
+  background-image: radial-gradient(rgb(255 255 255 / 0.3) 1.5px, transparent 1.75px);
+  background-size: 1rem 1rem;
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  rotate: -5deg;
+  animation: slab-in 600ms var(--ease-out) 750ms backwards;
+}
+
+@keyframes slab-in {
+  from {
+    opacity: 0;
+    rotate: 0deg;
+    translate: -1rem -1rem;
+  }
+}
+
+.screen {
+  padding: var(--space-5);
+  font-family: var(--font-code);
+  font-size: clamp(0.85rem, 0.75rem + 0.45vw, 1.05rem);
+  line-height: 1.75;
+  color: #f4f8fc;
+  background: #000000;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.line {
+  min-height: 1.75em;
+}
+
+.prompt {
+  color: #8f9bab;
+}
+
+.keyword {
+  color: var(--color-yellow);
+  font-weight: 700;
+}
+
+.function {
+  color: #8cc4f2;
+}
+
+.string {
+  color: #9be8be;
+}
+
+.comment {
+  color: #8f9bab;
+  font-style: italic;
+}
+
+.caret {
+  display: inline-block;
+  width: 0.6em;
+  height: 1.1em;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  background: var(--color-yellow);
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 60rem) {
+  .terminal {
+    transform: none;
+  }
+
+  .terminal::before {
+    inset: 0.9rem -0.6rem -1rem 0.9rem;
+    rotate: -3deg;
+  }
+}

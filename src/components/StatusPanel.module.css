@@ -1,0 +1,67 @@
+.panel {
+  max-width: 38rem;
+  margin: var(--space-7) auto;
+  padding: var(--space-6);
+  background: var(--color-surface);
+  border: var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+
+.error {
+  background: var(--color-coral-tint);
+}
+
+.title {
+  font-size: var(--step-3);
+  margin-bottom: var(--space-3);
+}
+
+.body {
+  color: var(--color-ink-muted);
+  margin-bottom: var(--space-5);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.skeleton {
+  display: grid;
+  gap: var(--space-4);
+  max-width: var(--reading-width);
+  margin: var(--space-6) 0;
+}
+
+.bar {
+  height: 1.1rem;
+  background: var(--color-blue-tint);
+  border: var(--border-thin);
+  border-radius: var(--radius-sm);
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+.bar:nth-child(1) {
+  width: 55%;
+  height: 2.4rem;
+}
+
+.bar:nth-child(2) {
+  width: 90%;
+}
+
+.bar:nth-child(3) {
+  width: 75%;
+}
+
+.bar:nth-child(4) {
+  width: 82%;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.45;
+  }
+}

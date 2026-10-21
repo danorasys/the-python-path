@@ -1,0 +1,24 @@
+.pre {
+  margin: 0;
+  padding: var(--space-4) var(--space-5);
+  overflow-x: auto;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  tab-size: 4;
+}
+
+.pre:focus-visible {
+  outline-offset: -4px;
+}
+
+.copy {
+  min-height: 2rem;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.8rem;
+  color: var(--color-ink);
+}
+
+.copy svg {
+  width: 1rem;
+  height: 1rem;
+}

@@ -1,0 +1,36 @@
+.footer {
+  margin-top: auto;
+  background: var(--color-ink);
+  color: #ffffff;
+}
+
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: var(--space-5) var(--gutter);
+  font-size: var(--step--1);
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--step-0);
+}
+
+.footer a {
+  color: var(--color-yellow);
+  font-weight: 700;
+}
+
+.footer a:hover {
+  color: #ffffff;
+}
+
+.footer a:focus-visible {
+  outline-color: var(--color-yellow);
+}

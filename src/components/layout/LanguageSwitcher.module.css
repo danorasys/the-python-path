@@ -1,0 +1,38 @@
+.group {
+  display: inline-flex;
+  flex-shrink: 0;
+  border: var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.option {
+  min-width: 2.6rem;
+  min-height: 2.35rem;
+  padding: 0 0.55rem;
+  font-family: var(--font-display);
+  font-size: var(--step--1);
+  font-weight: 800;
+  background: transparent;
+  border: 0;
+}
+
+.option + .option {
+  border-left: var(--border-thin);
+}
+
+.option:hover {
+  background: var(--color-blue-tint);
+}
+
+.option[aria-pressed="true"] {
+  color: #ffffff;
+  background: var(--color-blue);
+}
+
+.option:focus-visible {
+  outline-offset: -5px;
+  outline-color: var(--color-yellow);
+}

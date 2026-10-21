@@ -1,0 +1,13 @@
+.sizer {
+  width: 100%;
+}
+
+.frame {
+  position: relative;
+  width: fit-content;
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  background: var(--color-paper);
+}

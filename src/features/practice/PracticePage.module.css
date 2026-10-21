@@ -1,0 +1,149 @@
+.header {
+  display: grid;
+  gap: var(--space-3);
+  max-width: var(--reading-width);
+  margin-bottom: var(--space-5);
+}
+
+.title {
+  font-size: var(--step-4);
+  font-weight: 800;
+}
+
+.intro {
+  font-size: var(--step-1);
+  color: var(--color-ink-muted);
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.25rem 0.8rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--step--1);
+  background: var(--color-surface);
+  border: var(--border-thin);
+  border-radius: 999px;
+}
+
+.statusDot {
+  width: 0.7rem;
+  height: 0.7rem;
+  border: 2px solid var(--color-ink);
+  border-radius: 50%;
+  background: var(--color-yellow);
+}
+
+.ready .statusDot {
+  background: var(--color-green);
+}
+
+.error .statusDot {
+  background: var(--color-coral);
+}
+
+.loading .statusDot {
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.shortcut {
+  margin-right: auto;
+  font-size: var(--step--1);
+  color: var(--color-ink-muted);
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: var(--space-5);
+  height: clamp(26rem, 68vh, 42rem);
+}
+
+.editorBody {
+  position: relative;
+  min-height: 0;
+}
+
+.editorBody > section {
+  position: absolute;
+  inset: 0;
+}
+
+.screen {
+  height: 100%;
+  overflow-y: auto;
+  padding: var(--space-4) var(--space-5);
+  font-family: var(--font-code);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #f4f8fc;
+  background: #000000;
+}
+
+.placeholder {
+  color: #8f9bab;
+  font-family: var(--font-body);
+}
+
+.pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.stderr {
+  color: #ff8a75;
+}
+
+.input {
+  color: var(--color-yellow);
+}
+
+.inputLine {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.inputField {
+  flex: 1;
+  min-width: 10rem;
+  padding: 0.2rem 0.5rem;
+  color: #000000;
+  font-family: var(--font-code);
+  background: var(--color-yellow-tint);
+  border: 2px solid var(--color-yellow);
+  border-radius: 4px;
+}
+
+.inputField:focus-visible {
+  outline-color: var(--color-yellow);
+}
+
+.runtimeError {
+  margin-bottom: var(--space-4);
+}
+
+@media (max-width: 56rem) {
+  .workspace {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: 24rem 18rem;
+    height: auto;
+  }
+}

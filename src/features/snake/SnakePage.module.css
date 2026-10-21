@@ -1,0 +1,224 @@
+.header {
+  display: grid;
+  gap: var(--space-3);
+  max-width: var(--reading-width);
+  margin-bottom: var(--space-5);
+}
+
+.title {
+  font-size: var(--step-4);
+  font-weight: 800;
+}
+
+.intro {
+  font-size: var(--step-1);
+  color: var(--color-ink-muted);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 17rem;
+  align-items: start;
+  gap: var(--space-6);
+}
+
+.boardArea {
+  max-width: 60rem;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: var(--space-4);
+  background: rgb(244 248 252 / 82%);
+}
+
+.overlayCard {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-3);
+  max-width: 24rem;
+  padding: var(--space-5) var(--space-6);
+  text-align: center;
+  background: var(--color-surface);
+  border: var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+
+.overlayTitle {
+  font-size: var(--step-3);
+}
+
+.overlayActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.panel {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.scores {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+
+.score {
+  display: grid;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-surface);
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.score:first-child {
+  background: var(--color-yellow);
+}
+
+.scoreLabel {
+  font-size: var(--step--1);
+  font-weight: 700;
+}
+
+.scoreValue {
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  font-weight: 800;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.legend {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border: var(--border);
+  border-radius: var(--radius);
+  list-style: none;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-weight: 600;
+}
+
+.swatch {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 1.4rem;
+  height: 1.4rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.85rem;
+  border: var(--border-thin);
+  border-radius: 3px;
+}
+
+.food {
+  background: var(--color-coral);
+}
+
+.bonus {
+  background: var(--color-yellow);
+}
+
+.pad {
+  display: none;
+  grid-template-columns: repeat(3, 3.5rem);
+  grid-template-rows: repeat(3, 3.5rem);
+  justify-content: center;
+  gap: var(--space-2);
+  margin-top: var(--space-5);
+}
+
+.pad button {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  touch-action: manipulation;
+}
+
+.padUp {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.padLeft {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.padRight {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.padDown {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+@media (max-width: 40rem) {
+  .overlay {
+    padding: var(--space-2);
+  }
+
+  .overlayCard {
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-4);
+    box-shadow: var(--shadow-sm);
+    font-size: var(--step--1);
+    line-height: 1.35;
+  }
+
+  .overlayTitle {
+    font-size: var(--step-1);
+  }
+
+  .overlayActions {
+    gap: var(--space-2);
+    margin-top: 0;
+  }
+
+  .overlayActions > * {
+    min-height: 2.25rem;
+    padding: 0.35rem 0.8rem;
+    font-size: var(--step--1);
+    box-shadow: var(--shadow-sm);
+  }
+}
+
+@media (hover: none), (max-width: 40rem) {
+  .keyboardHint {
+    display: none;
+  }
+}
+
+@media (max-width: 64rem) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .panel {
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  }
+}
+
+@media (hover: none), (max-width: 48rem) {
+  .pad {
+    display: grid;
+  }
+}

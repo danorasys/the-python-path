@@ -1,0 +1,96 @@
+.layer {
+  position: absolute;
+  z-index: 2;
+  inset: -2.5rem -1.5rem;
+  pointer-events: none;
+}
+
+.sticker {
+  position: absolute;
+  transform: translate(
+    calc(var(--px, 0) * var(--depth) * 1px),
+    calc(var(--py, 0) * var(--depth) * 1px)
+  );
+  transition: transform 300ms var(--ease-out);
+}
+
+.chip {
+  display: block;
+  padding: 0.3rem 0.7rem;
+  font-family: var(--font-code);
+  font-size: clamp(0.8rem, 0.7rem + 0.4vw, 1rem);
+  font-weight: 700;
+  white-space: nowrap;
+  border: var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+  rotate: var(--tilt);
+  opacity: 0;
+  animation:
+    pop 520ms var(--ease-out) var(--enter, 0.9s) forwards,
+    bob var(--bob, 5s) ease-in-out calc(var(--enter, 0.9s) + 520ms) infinite alternate;
+}
+
+.yellow {
+  background: var(--color-yellow);
+}
+
+.blue {
+  color: #ffffff;
+  background: var(--color-blue);
+}
+
+.green {
+  background: var(--color-green);
+}
+
+.coral {
+  background: var(--color-coral);
+}
+
+.white {
+  background: var(--color-surface);
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: scale(0.4) translateY(12px);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes bob {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chip {
+    opacity: 1;
+    animation: none;
+  }
+}
+
+@media (max-width: 60rem) {
+  .layer {
+    inset: -1.75rem -0.5rem;
+  }
+
+  .hideOnSmall {
+    display: none;
+  }
+}

@@ -1,0 +1,178 @@
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  align-items: center;
+  align-content: center;
+  gap: var(--space-7);
+  min-height: calc(100dvh - var(--header-height) - 12rem);
+  padding: var(--space-6) 0 var(--space-5);
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.welcome {
+  align-self: flex-start;
+  padding: 0.15rem 0.75rem;
+  font-size: var(--step-1);
+  font-weight: 700;
+  letter-spacing: 0;
+  background: var(--color-surface);
+  border: var(--border);
+  border-radius: 999px;
+  box-shadow: var(--shadow-sm);
+  animation: drop 600ms var(--ease-out) 100ms both;
+}
+
+.title {
+  --title-shadow: var(--color-yellow);
+  font-size: var(--step-5);
+  font-weight: 800;
+  font-stretch: 88%;
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  text-shadow: 0.06em 0.06em 0 var(--title-shadow);
+}
+
+.titleWord {
+  display: inline-block;
+  white-space: pre;
+  animation: stamp 560ms cubic-bezier(0.2, 0.9, 0.3, 1.25) backwards;
+  animation-delay: calc(250ms + var(--i, 0) * 130ms);
+  transition:
+    translate 160ms var(--ease-out),
+    text-shadow 160ms var(--ease-out);
+}
+
+.titleWord:hover {
+  translate: -0.03em -0.03em;
+  text-shadow: 0.1em 0.1em 0 var(--title-shadow);
+}
+
+.intro {
+  max-width: 34ch;
+  margin: var(--space-5) 0 var(--space-6);
+  font-size: var(--step-1);
+  line-height: 1.45;
+  color: var(--color-ink-muted);
+  animation: rise 500ms var(--ease-out) 750ms both;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.cta,
+.tryCta {
+  display: inline-block;
+  animation: pop 520ms cubic-bezier(0.2, 0.9, 0.3, 1.35) 900ms both;
+}
+
+.tryCta {
+  animation-delay: 1020ms;
+}
+
+.playIcon {
+  width: 0.95rem;
+  height: 0.95rem;
+  color: var(--color-blue);
+  transition: scale 200ms var(--ease-out);
+}
+
+.tryCta a:hover .playIcon,
+.tryCta a:focus-visible .playIcon {
+  scale: 1.25;
+}
+
+.ctaIcon {
+  width: 1.4rem;
+  height: 1.4rem;
+  transition: transform 200ms var(--ease-out);
+}
+
+.cta a:hover .ctaIcon,
+.cta a:focus-visible .ctaIcon {
+  transform: translate(3px, -3px);
+}
+
+.visual {
+  position: relative;
+  animation: slide-in 700ms var(--ease-out) 400ms both;
+}
+
+@keyframes drop {
+  from {
+    opacity: 0;
+    transform: translateY(-1.5rem) rotate(-6deg);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(0.25rem) rotate(2deg);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes stamp {
+  from {
+    opacity: 0;
+    transform: scale(1.35) translateY(-0.2em);
+    text-shadow: 0 0 0 var(--title-shadow);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(0.97);
+  }
+  to {
+    transform: none;
+    text-shadow: 0.06em 0.06em 0 var(--title-shadow);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(2.5rem) rotate(4deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 60rem) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-7);
+    padding-top: var(--space-4);
+  }
+}

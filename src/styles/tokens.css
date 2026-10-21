@@ -1,0 +1,62 @@
+:root {
+  --color-paper: #f4f8fc;
+  --color-grid: #d6e4f2;
+  --color-surface: #ffffff;
+  --color-ink: #000000;
+  --color-ink-muted: #3d4754;
+
+  --color-blue: #3776ab;
+  --color-blue-deep: #1f4e78;
+  --color-blue-tint: #dceaf7;
+
+  --color-yellow: #ffd43b;
+  --color-yellow-tint: #fff3c4;
+
+  --color-green: #34c47c;
+  --color-green-tint: #d5f5e4;
+
+  --color-coral: #ff6f59;
+  --color-coral-tint: #ffe0da;
+
+  --color-focus: var(--color-blue);
+
+  --border-width: 3px;
+  --border: var(--border-width) solid var(--color-ink);
+  --border-thin: 2px solid var(--color-ink);
+  --shadow-sm: 3px 3px 0 0 var(--color-ink);
+  --shadow: 5px 5px 0 0 var(--color-ink);
+  --shadow-lg: 8px 8px 0 0 var(--color-ink);
+  --press-offset: 3px;
+
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 16px;
+
+  --font-display: "Bricolage Grotesque Variable", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Figtree Variable", "Segoe UI", system-ui, sans-serif;
+  --font-code: "JetBrains Mono Variable", ui-monospace, "Cascadia Code", Consolas, monospace;
+
+  --step--1: 0.875rem;
+  --step-0: 1.0625rem;
+  --step-1: 1.3rem;
+  --step-2: 1.625rem;
+  --step-3: 2.05rem;
+  --step-4: clamp(2.25rem, 1.6rem + 2.6vw, 3.2rem);
+  --step-5: clamp(3.1rem, 1.8rem + 6vw, 6.6rem);
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+
+  --content-width: 72rem;
+  --reading-width: 46rem;
+  --header-height: 4.5rem;
+  --gutter: clamp(1rem, 0.5rem + 2.5vw, 2.5rem);
+
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+}

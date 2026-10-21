@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex" />
+    <title>Redirecting… · The Python Path</title>
+    <script>
+      // Legacy URL: pages/learning-unit.html#module1-learning-unit2 -> #/learn/module1/learning-unit2
+      var match = /^#(module\d+)-(learning-unit\d+)$/.exec(location.hash);
+      var target = match ? "#/learn/" + match[1] + "/" + match[2] : "#/roadmap";
+      location.replace("../" + target);
+    </script>
+  </head>
+  <body>
+    <a href="../#/roadmap">The Python Path</a>
+  </body>
+</html>

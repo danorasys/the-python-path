@@ -1,0 +1,71 @@
+.callout {
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-surface);
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.note {
+  background: var(--color-yellow-tint);
+}
+
+.tip {
+  background: var(--color-blue-tint);
+}
+
+.info {
+  background: var(--color-green-tint);
+}
+
+.danger {
+  background: var(--color-coral-tint);
+}
+
+.withIcon {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: var(--space-4);
+}
+
+.badge {
+  display: grid;
+  place-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  background: var(--color-surface);
+  border: var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+}
+
+.badge svg {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+.note .badge {
+  background: var(--color-yellow);
+}
+
+.tip .badge {
+  color: #ffffff;
+  background: var(--color-blue);
+}
+
+.label {
+  display: inline-block;
+  margin-bottom: var(--space-2);
+  padding: 0.1rem 0.6rem;
+  font-family: var(--font-display);
+  font-size: var(--step--1);
+  font-weight: 800;
+  border: var(--border-thin);
+  border-radius: 999px;
+  background: var(--color-surface);
+}
+
+.body {
+  line-height: 1.6;
+}

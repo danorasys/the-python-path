@@ -1,0 +1,79 @@
+.window {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: var(--color-surface);
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: 2.75rem;
+  padding: 0.35rem 0.5rem 0.35rem 0.85rem;
+  border-bottom: var(--border);
+}
+
+.blue {
+  color: #ffffff;
+  background: var(--color-blue);
+}
+
+.yellow {
+  background: var(--color-yellow);
+}
+
+.white {
+  background: var(--color-surface);
+}
+
+.dots {
+  display: flex;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+
+.dot {
+  width: 0.8rem;
+  height: 0.8rem;
+  border: var(--border-thin);
+  border-radius: 3px;
+}
+
+.dot:nth-child(1) {
+  background: var(--color-coral);
+}
+
+.dot:nth-child(2) {
+  background: var(--color-yellow);
+}
+
+.dot:nth-child(3) {
+  background: var(--color-green);
+}
+
+.title {
+  min-width: 0;
+  overflow: hidden;
+  font-family: var(--font-code);
+  font-size: var(--step--1);
+  font-weight: 600;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-left: auto;
+}
+
+.body {
+  flex: 1;
+  min-height: 0;
+}

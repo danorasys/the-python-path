@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+coverage/
+*.tsbuildinfo
+vite.config.ts.timestamp-*
+
+# Environment
+*.local
+
+# Logs
+*.log
+
+# Operating system
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Local development tools
+.claude/
+skills-lock.json
