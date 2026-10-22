@@ -1,6 +1,6 @@
 import type { Language } from "../../src/i18n/languages";
 
-export const BASE_LANGUAGE = "es" satisfies Language;
+export const BASE_LANGUAGE: Language = "es";
 
 export const DEFAULT_LABELS = {
   es: { run: "Probar >>", output: "Salida:" },

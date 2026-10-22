@@ -1,7 +1,7 @@
 import { readdir, readFile, stat } from "node:fs/promises";
 import path from "node:path";
 import type { ContentBlock, ModuleId, PathDocument, PathStep, UnitDocument, UnitId } from "../../src/content/types";
-import { LANGUAGES, isLanguage, type Language } from "../../src/i18n/languages";
+import { LANGUAGES, contentFallbackChain, isLanguage, type Language } from "../../src/i18n/languages";
 import { ContentError, ContentErrors } from "./errors";
 import {
   readModuleMeta,
@@ -153,7 +153,11 @@ function sortByOrder<T>(items: T[], order: (item: T) => number, file: (item: T) 
 }
 
 function pick<T>(versions: Map<Language, T>, language: Language): T | undefined {
-  return versions.get(language) ?? versions.get(BASE_LANGUAGE);
+  for (const candidate of [...contentFallbackChain(language), BASE_LANGUAGE]) {
+    const version = versions.get(candidate);
+    if (version !== undefined) return version;
+  }
+  return undefined;
 }
 
 function moduleDocument(entry: ModuleEntry, position: number, meta: ModuleMeta, language: Language): PathDocument {

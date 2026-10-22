@@ -1,0 +1,2 @@
+title: Fehler- und Ausnahmebehandlung
+description: In diesem Modul lernst du, die häufigsten Fehler in Python zu erkennen und sie mithilfe von Ausnahmen zu kontrollieren. Du wirst die Blöcke `try`, `except`, `finally` und `else` verwenden, um Fehler sicher zu handhaben und deine Programme korrekt am Laufen zu halten.

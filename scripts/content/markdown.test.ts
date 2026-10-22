@@ -172,6 +172,14 @@ describe("code blocks", () => {
     ]);
   });
 
+  it("does not attach the next output to a hidden button", () => {
+    expect(compile(md("```python run hidden", "print(1)", "```", "```output", "1", "```"))).toEqual([
+      { type: "test-button", text: "Probar >>", code: "print(1)" },
+      { type: "paragraph", text: "Salida:" },
+      { type: "code", text: "1", language: "python" },
+    ]);
+  });
+
   it("keeps the code exactly as written", () => {
     expect(compile(md("```python", "if x:", "\tprint('a  b')", "```"))).toEqual([
       { type: "code", text: "if x:\n\tprint('a  b')", language: "python" },

@@ -124,6 +124,19 @@ describe("buildContent", () => {
     expect(read("roadmap/roadmap-de.json")).toBeUndefined();
   });
 
+  it("falls back through English before Spanish, like the site does", async () => {
+    const read = await built({
+      "module1/module.es.yml": "title: Fundamentos\norder: 1",
+      "module1/module.de.yml": "title: Grundlagen",
+      "module1/learning-unit1.es.md": unit("title: Listas\norder: 1"),
+      "module1/learning-unit1.en.md": unit("title: Lists", ""),
+    });
+    expect(read("modules/module1/module1-de.json")).toMatchObject({
+      title: "1. Grundlagen",
+      steps: [{ name: "1. Lists", unit: "learning-unit1" }],
+    });
+  });
+
   it("writes redirects for units that moved", async () => {
     const read = await built({
       "module3/module.es.yml": "title: Estructuras\norder: 1",

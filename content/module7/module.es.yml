@@ -1,0 +1,3 @@
+title: Manejo de Errores y Excepciones
+description: En este módulo aprenderás a identificar los errores más comunes en Python y a controlarlos mediante excepciones. Usarás bloques try, except, finally y else para manejar fallos de forma segura y mantener tus programas funcionando correctamente.
+order: 7

@@ -1,0 +1,3 @@
+title: Funciones y Reutilización de Código
+description: En este módulo aprenderás a crear y usar funciones para organizar tu código y evitar repeticiones. Verás cómo pasar y devolver valores, usar parámetros opcionales y entender el alcance de las variables. También conocerás las funciones anidadas y las expresiones lambda.
+order: 4

@@ -249,7 +249,7 @@ function convertBlocks(nodes: readonly RootContent[], ctx: MarkdownContext): Con
     if (!options.hidden) blocks.push({ type: "code", text: node.value, language: "python" });
     if (options.run === undefined) continue;
     const next = nodes[index + 1];
-    if (next?.type === "code" && next.lang === "output") {
+    if (!options.hidden && next?.type === "code" && next.lang === "output") {
       const output = parseCode(next, ctx);
       if (output.kind === "output") blocks.push(...outputBlocks(next, output.label, ctx));
       index++;
