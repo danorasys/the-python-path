@@ -63,6 +63,13 @@
   border-color: var(--color-ink);
 }
 
+.unitPending,
+.unitPending:hover {
+  color: var(--color-ink-muted);
+  background: none;
+  opacity: 0.7;
+}
+
 .unitNumber {
   display: grid;
   place-items: center;

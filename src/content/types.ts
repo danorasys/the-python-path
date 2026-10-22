@@ -36,6 +36,13 @@ export type ContentBlock =
   | { type: "collapsible"; title: string; content: ContentBlock[] }
   | { type: "table"; title?: string; headers: string[]; rows: string[][] };
 
+export interface UnitAddress {
+  module: ModuleId;
+  unit: UnitId;
+}
+
+export type Redirects = Partial<Record<string, UnitAddress>>;
+
 export interface UnitDocument {
   title: string;
   description: string;

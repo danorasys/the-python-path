@@ -5,7 +5,9 @@ import type {
   PathStep,
   Question,
   QuestionOption,
+  Redirects,
   TextBlockType,
+  UnitAddress,
   UnitDocument,
   UnitId,
 } from "./types";
@@ -148,6 +150,22 @@ function parseQuestion(raw: unknown): Question | null {
 export function parseQuestionSet(raw: unknown): Question[] {
   if (!isObject(raw) || !Array.isArray(raw.questions)) invalid("question set");
   return raw.questions.map(parseQuestion).filter((q): q is Question => q !== null);
+}
+
+function parseUnitAddress(value: unknown): UnitAddress | null {
+  if (typeof value !== "string") return null;
+  const [module, unit, ...rest] = value.split("/");
+  return isModuleId(module) && isUnitId(unit) && rest.length === 0 ? { module, unit } : null;
+}
+
+export function parseRedirects(raw: unknown): Redirects {
+  if (!isObject(raw)) invalid("redirects");
+  const redirects: Redirects = {};
+  for (const [from, to] of Object.entries(raw)) {
+    const target = parseUnitAddress(to);
+    if (target && parseUnitAddress(from)) redirects[from] = target;
+  }
+  return redirects;
 }
 
 export function parseQuestionConfig(raw: unknown): { questionSets: number } {

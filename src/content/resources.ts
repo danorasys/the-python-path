@@ -4,9 +4,18 @@ import {
   parsePathDocument,
   parseQuestionConfig,
   parseQuestionSet,
+  parseRedirects,
   parseUnitDocument,
 } from "./parse";
-import type { Localized, ModuleId, PathDocument, Question, UnitDocument, UnitId } from "./types";
+import type {
+  Localized,
+  ModuleId,
+  PathDocument,
+  Question,
+  Redirects,
+  UnitDocument,
+  UnitId,
+} from "./types";
 
 export function getRoadmap(language: Language): Promise<Localized<PathDocument>> {
   return cached(`roadmap:${language}`, () =>
@@ -35,6 +44,12 @@ export function getUnit(
       (lang) => `modules/${moduleId}/learning-units/${unitId}/${unitId}-${lang}.json`,
       parseUnitDocument,
     ),
+  );
+}
+
+export function getRedirects(): Promise<Redirects> {
+  return cached("redirects", () =>
+    fetchUnlocalized("redirects.json", parseRedirects).catch((): Redirects => ({})),
   );
 }
 

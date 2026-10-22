@@ -1,5 +1,28 @@
 import { describe, expect, it, vi } from "vitest";
-import { DEFAULT_STEP_COLOR, parseBlocks, parsePathDocument, parseQuestionSet } from "./parse";
+import {
+  DEFAULT_STEP_COLOR,
+  parseBlocks,
+  parsePathDocument,
+  parseQuestionSet,
+  parseRedirects,
+} from "./parse";
+
+describe("parseRedirects", () => {
+  it("keeps only redirects between valid unit addresses", () => {
+    expect(
+      parseRedirects({
+        "module6/learning-unit2": "module3/learning-unit9",
+        "module6/learning-unit3": "../../etc/passwd",
+        "not-a-unit": "module3/learning-unit1",
+        "module6/learning-unit4": 42,
+      }),
+    ).toEqual({ "module6/learning-unit2": { module: "module3", unit: "learning-unit9" } });
+  });
+
+  it("rejects documents that are not objects", () => {
+    expect(() => parseRedirects([])).toThrow(TypeError);
+  });
+});
 
 describe("parsePathDocument", () => {
   it("keeps valid steps and sanitises ids and colours", () => {

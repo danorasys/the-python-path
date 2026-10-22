@@ -1,5 +1,7 @@
+import { fileURLToPath } from "node:url";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vitest/config";
+import { contentPlugin } from "./scripts/content/vitePlugin";
 
 const BASE_PATH = "/the-python-path/";
 
@@ -10,7 +12,7 @@ const CROSS_ORIGIN_ISOLATION = {
 
 export default defineConfig({
   base: BASE_PATH,
-  plugins: [react()],
+  plugins: [react(), !process.env.VITEST && contentPlugin(fileURLToPath(new URL("./content", import.meta.url)))],
   server: {
     headers: CROSS_ORIGIN_ISOLATION,
   },
