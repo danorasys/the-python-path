@@ -25,10 +25,10 @@ When Python encounters a `break`, it exits the loop and continues with the code 
 counter = 1
 
 while counter <= 10:
-	if counter == 5:
-		break
-	print(counter)
-	counter += 1
+    if counter == 5:
+        break
+    print(counter)
+    counter += 1
 ```
 
 ```output
@@ -44,19 +44,19 @@ In this case, the loop stops when the counter reaches 5.
 counter = 1
 
 while counter <= 10:
-	if counter == 5:
-		break
-	print(counter)
-	counter += 1
+    if counter == 5:
+        break
+    print(counter)
+    counter += 1
 ```
 
 ### Example with `for`
 
 ```python
 for letter in "Python":
-	if letter == "h":
-		break
-	print(letter)
+    if letter == "h":
+        break
+    print(letter)
 ```
 
 ```output
@@ -69,16 +69,16 @@ The loop is interrupted when it finds the letter `"h"`.
 
 ```python run hidden
 for letter in "Python":
-	if letter == "h":
-		break
-	print(letter)
+    if letter == "h":
+        break
+    print(letter)
 ```
 
-:::note[Note:]
+:::note
 `break` completely stops the loop, not just a single iteration.
 :::
 
-:::tip[Tip:]
+:::tip
 Use `break` when you find what you are looking for and don’t need to continue iterating.
 :::
 
@@ -90,9 +90,9 @@ Example:
 
 ```python
 for number in range(1, 6):
-	if number == 3:
-		continue
-	print(number)
+    if number == 3:
+        continue
+    print(number)
 ```
 
 ```output
@@ -106,16 +106,16 @@ Here, the number 3 is not printed, but the loop continues with the remaining num
 
 ```python run hidden
 for number in range(1, 6):
-	if number == 3:
-		continue
-	print(number)
+    if number == 3:
+        continue
+    print(number)
 ```
 
-:::note[Note:]
+:::note
 `continue` does not end the loop; it only skips a specific iteration.
 :::
 
-:::tip[Tip:]
+:::tip
 Use it when you want to skip certain cases within the loop without stopping it completely.
 :::
 
@@ -127,7 +127,7 @@ Example:
 
 ```python run
 for i in range(5):
-	pass
+    pass
 ```
 
 ```output
@@ -137,17 +137,17 @@ It is also often used with conditional statements:
 
 ```python run
 if True:
-	pass
+    pass
 ```
 
 ```output
 ```
 
-:::note[Note:]
+:::note
 `pass` prevents syntax errors when a block is empty.
 :::
 
-:::tip[Tip:]
+:::tip
 It is useful when you are planning your program and haven’t decided yet what code will go there.
 :::
 
@@ -165,9 +165,9 @@ It is useful when you are planning your program and haven’t decided yet what c
 
 ```python run
 for letter in "Programming":
-	if letter == "g":
-		print("Letter found")
-		break
+    if letter == "g":
+        print("Letter found")
+        break
 ```
 
 ```output
@@ -178,9 +178,9 @@ Letter found
 
 ```python run
 for number in range(1, 10):
-	if number % 2 == 0:
-		continue
-	print(number)
+    if number % 2 == 0:
+        continue
+    print(number)
 ```
 
 ```output
@@ -199,7 +199,7 @@ Create bucle `for` loop that goes through the numbers from 1 to 10.\
 When the number is 7, the program should completely stop the loop using `break`.\
 Print each number before the loop stops.
 
-```python run="Practice >>" hidden
+```python practice
 # Create bucle for loop that goes through the numbers
 # from 1 to 10.
 # When the number is 7, the program should completely
@@ -207,12 +207,12 @@ Print each number before the loop stops.
 # Print each number before the loop stops
 ```
 
-:::details[View possible solution]
-```python run="Try Solution >>"
+:::details
+```python run
 for number in range(1, 11):
-	if number == 7:
-		break
-	print(number)
+    if number == 7:
+        break
+    print(number)
 ```
 :::
 
@@ -222,7 +222,7 @@ Create a variable called `word` with the value `"computer"`.\
 Use a `for` loop to display each letter, except the letter `"o"`.\
 Use `continue`.
 
-```python run="Practice >>" hidden
+```python practice
 # Create a variable called word with the value
 # "computer".
 # Use a for loop to display each letter, except the
@@ -230,14 +230,14 @@ Use `continue`.
 # Use continue
 ```
 
-:::details[View possible solution]
-```python run="Try Solution >>"
+:::details
+```python run
 word = "computer"
 
 for letter in word:
-	if letter == "o":
-		continue
-	print(letter)
+    if letter == "o":
+        continue
+    print(letter)
 ```
 :::
 
@@ -247,19 +247,19 @@ Create a simulated list using `range()` from -3 to 3.\
 Loop through the values using a `for` loop.\
 If you find a negative number, print `"Negative number detected"` and stop the loop using `break`.
 
-```python run="Practice >>" hidden
+```python practice
 # Create a simulated list using range() from -3 to 3.
 # Loop through the values using a for loop.
 # If you find a negative number, print "Negative number
 # detected" and stop the loop using break
 ```
 
-:::details[View possible solution]
-```python run="Try Solution >>"
+:::details
+```python run
 for number in range(-3, 4):
-	if number < 0:
-		print("Negative number detected")
-		break
+    if number < 0:
+        print("Negative number detected")
+        break
 ```
 :::
 
@@ -269,7 +269,7 @@ Create `for` loop that iterates through the numbers from 1 to 5.\
 Inside the loop, add an `if` condition that checks whether the number is greater than 3.\
 For now, do not perform any action inside that condition; use `pass`.
 
-```python run="Practice >>" hidden
+```python practice
 # Create for loop that iterates through the numbers
 # from 1 to 5.
 # Inside the loop, add an if condition that checks
@@ -278,12 +278,12 @@ For now, do not perform any action inside that condition; use `pass`.
 # condition; use pass
 ```
 
-:::details[View possible solution]
-```python run="Try Solution >>"
+:::details
+```python run
 for number in range(1, 6):
-	if number > 3:
-		pass
-	print(number)
+    if number > 3:
+        pass
+    print(number)
 ```
 :::
 

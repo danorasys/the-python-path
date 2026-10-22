@@ -70,7 +70,7 @@ print(len(mensaje))
 6
 ```
 
-:::note[Nota:]
+:::note
 `len()` cuenta todos los caracteres de una cadena, incluyendo espacios en blanco.
 :::
 
@@ -108,7 +108,7 @@ print(total)
 1100
 ```
 
-:::tip[Tip:]
+:::tip
 Cuando necesites sumar una gran cantidad de números almacenados en una lista, utiliza `sum()` en lugar de crear manualmente un bucle `for`.
 :::
 
@@ -185,7 +185,7 @@ print(resultado)
 [9, 7, 4, 2, 1]
 ```
 
-:::note[Nota:]
+:::note
 `sorted()` no modifica la lista original.
 :::
 
@@ -272,7 +272,7 @@ Mayor: 91
 Menor: 64
 ```
 
-:::tip[Tip:]
+:::tip
 Las funciones integradas suelen estar altamente optimizadas internamente, por lo que generalmente son más eficientes y legibles que implementar la misma lógica manualmente.
 :::
 
@@ -294,7 +294,7 @@ Instrucciones:
 - Obtener la venta más baja registrada.
 - Mostrar todos los resultados.
 
-```python run="Practicar >>" hidden
+```python practice
 # Una empresa ha registrado las ventas obtenidas durante varios meses
 # y desea generar un pequeño informe estadístico.
 #
@@ -308,8 +308,8 @@ Instrucciones:
 # - Mostrar todos los resultados.
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 ventas = [1250, 1875, 980, 2150, 1640, 1990]
 
 # Obtener la cantidad de registros almacenados.
@@ -348,7 +348,7 @@ Instrucciones:
 - Redondear el promedio a dos decimales.
 - Mostrar toda la información obtenida.
 
-```python run="Practicar >>" hidden
+```python practice
 # Un sistema meteorológico ha almacenado las temperaturas registradas
 # durante una semana.
 #
@@ -362,8 +362,8 @@ Instrucciones:
 # - Mostrar toda la información obtenida.
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 temperaturas = [18.4, 21.7, 25.1, 19.6, 28.3, 30.5, 24.8]
 
 # Obtener la temperatura máxima registrada.
@@ -391,13 +391,13 @@ Un banco almacena movimientos financieros donde los números negativos represent
 
 ```python
 transacciones = [
-	1200,
-	-350,
-	850,
-	-120,
-	-780,
-	1500,
-	-95
+    1200,
+    -350,
+    850,
+    -120,
+    -780,
+    1500,
+    -95
 ]
 ```
 
@@ -409,18 +409,18 @@ Instrucciones:
 - Obtener el valor absoluto del retiro más grande.
 - Mostrar toda la información obtenida.
 
-```python run="Practicar >>" hidden
+```python practice
 # Un banco almacena movimientos financieros donde los números
 # negativos representan retiros y los positivos representan depósitos.
 #
 # transacciones = [
-#	1200,
-#	-350,
-#	850,
-#	-120,
-#	-780,
-#	1500,
-#	-95
+#   1200,
+#   -350,
+#   850,
+#   -120,
+#   -780,
+#   1500,
+#   -95
 # ]
 #
 # Instrucciones:
@@ -431,16 +431,16 @@ Instrucciones:
 # - Mostrar toda la información obtenida.
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 transacciones = [
-	1200,
-	-350,
-	850,
-	-120,
-	-780,
-	1500,
-	-95
+    1200,
+    -350,
+    850,
+    -120,
+    -780,
+    1500,
+    -95
 ]
 
 # Calcular el saldo final de la cuenta.
@@ -478,7 +478,7 @@ Instrucciones:
 - Obtener la calificación más baja.
 - Mostrar toda la información generada.
 
-```python run="Practicar >>" hidden
+```python practice
 # Una universidad desea organizar las calificaciones finales de un
 # grupo de estudiantes.
 #
@@ -492,8 +492,8 @@ Instrucciones:
 # - Mostrar toda la información generada.
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 calificaciones = [72, 91, 64, 88, 95, 70, 81, 60, 77]
 
 # Crear una lista ordenada de menor a mayor.
@@ -522,16 +522,16 @@ Una planta industrial ha registrado miles de lecturas, pero para realizar una pr
 
 ```python
 lecturas = [
-	-15,
-	22,
-	-7,
-	34,
-	-42,
-	18,
-	29,
-	-3,
-	41,
-	-27
+    -15,
+    22,
+    -7,
+    34,
+    -42,
+    18,
+    29,
+    -3,
+    41,
+    -27
 ]
 ```
 
@@ -545,21 +545,21 @@ Instrucciones:
 - Crear una nueva lista ordenada de menor a mayor.
 - Mostrar todos los resultados obtenidos.
 
-```python run="Practicar >>" hidden
+```python practice
 # Una planta industrial ha registrado miles de lecturas, pero para
 # realizar una prueba inicial se dispone del siguiente conjunto:
 #
 # lecturas = [
-#	-15,
-#	22,
-#	-7,
-#	34,
-#	-42,
-#	18,
-#	29,
-#	-3,
-#	41,
-#	-27
+#   -15,
+#   22,
+#   -7,
+#   34,
+#   -42,
+#   18,
+#   29,
+#   -3,
+#   41,
+#   -27
 # ]
 #
 # Instrucciones:
@@ -572,19 +572,19 @@ Instrucciones:
 # - Mostrar todos los resultados obtenidos.
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 lecturas = [
-	-15,
-	22,
-	-7,
-	34,
-	-42,
-	18,
-	29,
-	-3,
-	41,
-	-27
+    -15,
+    22,
+    -7,
+    34,
+    -42,
+    18,
+    29,
+    -3,
+    41,
+    -27
 ]
 
 # Determinar cuántas lecturas existen.

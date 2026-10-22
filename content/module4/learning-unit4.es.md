@@ -20,8 +20,8 @@ Ejemplo:
 
 ```python run
 def mostrar_nombre():
-	nombre = "Ana"
-	print(nombre)
+    nombre = "Ana"
+    print(nombre)
 
 mostrar_nombre()
 ```
@@ -34,8 +34,8 @@ Error fuera de la función:
 
 ```python run error
 def mostrar_nombre():
-	nombre = "Ana"
-	print(nombre)
+    nombre = "Ana"
+    print(nombre)
 
 print(nombre) # Error: no existe fuera de la función
 ```
@@ -48,7 +48,7 @@ Traceback (most recent call last):
 NameError: name 'nombre' is not defined
 ```
 
-:::note[Nota:]
+:::note
 Las variables locales desaparecen cuando la función termina su ejecución.
 :::
 
@@ -62,7 +62,7 @@ Ejemplo:
 mensaje = "Hola mundo"
 
 def mostrar_mensaje():
-	print(mensaje)
+    print(mensaje)
 
 mostrar_mensaje()
 ```
@@ -71,7 +71,7 @@ mostrar_mensaje()
 Hola mundo
 ```
 
-:::tip[Tip:]
+:::tip
 Las variables globales pueden ser leídas dentro de funciones sin problema.
 :::
 
@@ -85,8 +85,8 @@ Ejemplo:
 contador = 0
 
 def incrementar():
-	global contador
-	contador = contador + 1
+    global contador
+    contador = contador + 1
 
 incrementar()
 print(contador)
@@ -96,7 +96,7 @@ print(contador)
 1
 ```
 
-:::note[Nota:]
+:::note
 Sin `global`, Python crea una variable local nueva, no modifica la global.
 :::
 
@@ -106,8 +106,8 @@ Ejemplo de confusión común:
 x = 10
 
 def cambiar():
-	x = 5
-	print(x)
+    x = 5
+    print(x)
 
 cambiar()
 print(x)
@@ -118,7 +118,7 @@ print(x)
 10
 ```
 
-:::note[Nota:]
+:::note
 Esto ocurre porque `x` dentro de la función es local, no afecta la variable global.
 :::
 
@@ -144,11 +144,11 @@ Esto ocurre porque `x` dentro de la función es local, no afecta la variable glo
 contador = 0
 
 def sumar():
-	global contador
-	contador += 1
+    global contador
+    contador += 1
 
 def mostrar():
-	print("Valor:", contador)
+    print("Valor:", contador)
 
 sumar()
 sumar()
@@ -171,7 +171,7 @@ Crea un programa que:
 - Intente imprimir la variable fuera de la función (observa el error).
 - Explica en un comentario por qué ocurre el error.
 
-```python run="Practicar >>" hidden
+```python practice
 # Crea un programa que:
 # 1. Defina una función llamada saludo.
 # 2. Dentro de la función cree una variable llamada
@@ -182,15 +182,15 @@ Crea un programa que:
 # 5. Explica en un comentario por qué ocurre el error.
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # 1. Defina una función llamada saludo
 def saludo():
-	# 2. Dentro de la función cree una variable llamada
-	# mensaje con el valor "Hola desde la función"
-	mensaje = "Hola desde la función"
-	# 3. Imprima el valor dentro de la función
-	print(mensaje)
+    # 2. Dentro de la función cree una variable llamada
+    # mensaje con el valor "Hola desde la función"
+    mensaje = "Hola desde la función"
+    # 3. Imprima el valor dentro de la función
+    print(mensaje)
 
 # 4. Intente imprimir la variable fuera de la función
 # (observa el error)
@@ -210,7 +210,7 @@ Desarrolla un programa que:
 - Dentro de la función imprima la variable global.
 - Llama la función y verifica que funciona correctamente.
 
-```python run="Practicar >>" hidden
+```python practice
 # Desarrolla un programa que:
 # 1. Cree una variable global llamada nombre con tu
 # nombre.
@@ -220,16 +220,16 @@ Desarrolla un programa que:
 # correctamente.
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # 1. Cree una variable global llamada nombre con tu
 # nombre
 nombre = "Daniel"
 
 # 2. Defina una función llamada mostrar_nombre
 def mostrar_nombre():
-	# 3. Dentro de la función imprima la variable global
-	print(nombre)
+    # 3. Dentro de la función imprima la variable global
+    print(nombre)
 
 # 4. Llama la función y verifica que funciona
 # correctamente
@@ -247,7 +247,7 @@ Crea un programa que:
 - Llama la función tres veces.
 - Imprime el valor final del contador.
 
-```python run="Practicar >>" hidden
+```python practice
 # Crea un programa que:
 # 1. Defina una variable global llamada contador con
 # valor inicial 0.
@@ -258,18 +258,18 @@ Crea un programa que:
 # 5. Imprime el valor final del contador.
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # 1. Defina una variable global llamada contador con
 # valor inicial 0
 contador = 0
 
 # 2. Cree una función llamada incrementar
 def incrementar():
-	# 3. Dentro de la función: Usa la palabra clave global
-	# y aumenta el valor del contador en 1
-	global contador
-	contador += 1
+    # 3. Dentro de la función: Usa la palabra clave global
+    # y aumenta el valor del contador en 1
+    global contador
+    contador += 1
 
 # 4. Llama la función tres veces
 incrementar()

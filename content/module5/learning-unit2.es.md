@@ -23,7 +23,7 @@ print("Hola, me llamo", nombre, "y tengo", edad, "años")
 Hola, me llamo Daniel y tengo 20 años
 ```
 
-:::note[Nota:]
+:::note
 Este método funciona, pero puede volverse difícil de leer en textos más largos.
 :::
 
@@ -50,7 +50,7 @@ print(f"Hola, me llamo {nombre} y tengo {edad} años")
 Hola, me llamo Daniel y tengo 20 años
 ```
 
-:::note[Tip:]
+:::tip
 Las f-strings comienzan con la letra `f` antes de las comillas.
 :::
 
@@ -69,7 +69,7 @@ print(f"La suma es {a + b}")
 La suma es 8
 ```
 
-:::tip[Tip:]
+:::tip
 No solo puedes mostrar variables, también puedes hacer cálculos o llamar funciones.
 :::
 
@@ -119,7 +119,7 @@ Ana
    Ana    
 ```
 
-:::tip[Tip:]
+:::tip
 Esto es útil para mostrar datos en forma de tabla.
 :::
 
@@ -148,7 +148,7 @@ print("Hola {}, tienes {} años".format(nombre, edad))
 Hola Ana, tienes 20 años
 ```
 
-:::note[Nota:]
+:::note
 Aunque `format()` se usa, las f-strings son más modernas y recomendadas.
 :::
 
@@ -188,7 +188,7 @@ Crea un programa que:
 - Muestre un mensaje usando f-string que incluya: `nombre`, `edad` y `salario` con solo 2 decimales.
 - El resultado debe verse organizado en múltiples líneas.
 
-```python run="Practicar >>" hidden
+```python practice
 # Crea un programa que:
 # 1. Defina las siguientes variables: nombre = "Laura",
 # edad = 28 y salario = 2540.756.
@@ -198,7 +198,7 @@ Crea un programa que:
 # líneas.
 ```
 
-:::details[Observar posible solución]
+:::details
 ```python
 # 1. Defina las siguientes variables: nombre = "Laura",
 # edad = 28 y salario = 2540.756.
@@ -215,7 +215,7 @@ print(f"Edad: {edad}")
 print(f"Salario: {salario:.2f}")
 ```
 
-```python run="Probar Solución >>" hidden
+```python run hidden
 # 1. Defina las siguientes variables: nombre = "Laura",
 # edad = 28 y salario = 2540.756.
 nombre = "Laura"
@@ -240,7 +240,7 @@ Desarrolla un programa que:
 - Muestre una tabla alineada con: Nombre del producto a la izquierda y precio alineado a la derecha con 2 decimales.
 - Usa f-strings para lograr la alineación.
 
-```python run="Practicar >>" hidden
+```python practice
 # Desarrolla un programa que:
 # 1. Define tres productos con: nombre y precio.
 # 2. Muestre una tabla alineada con: Nombre del
@@ -249,8 +249,8 @@ Desarrolla un programa que:
 # 3. Usa f-strings para lograr la alineación.
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # 1. Define tres productos con: nombre y precio.
 p1 = "Laptop"
 p2 = "Mouse"
@@ -281,7 +281,7 @@ Crea un programa que:
 - División (con 2 decimales).
 - Muestre los resultados en formato claro usando f-strings.
 
-```python run="Practicar >>" hidden
+```python practice
 # Crea un programa que:
 # 1. Defina dos números: a = 15 y b = 4.
 # 2. Calcule suma.
@@ -292,8 +292,8 @@ Crea un programa que:
 # f-strings.
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # 1. Defina dos números: a = 15 y b = 4.
 a = 15
 b = 4

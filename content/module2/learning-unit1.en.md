@@ -20,7 +20,7 @@ It is executed only if the condition is true.
 ```python run
 age = 18
 if age >= 18:
-	print("You are an adult")
+    print("You are an adult")
 ```
 
 ```output
@@ -34,9 +34,9 @@ It is used to evaluate additional conditions when the `if` condition is not met.
 ```python run
 grade = 75
 if grade >= 90:
-	print("Excellent")
+    print("Excellent")
 elif grade >= 70:
-	print("Passed")
+    print("Passed")
 ```
 
 ```output
@@ -50,16 +50,16 @@ It is executed only if all the previous conditions were false.
 ```python run
 temperature = 10
 if temperature > 25:
-	print("It's hot")
+    print("It's hot")
 else:
-	print("It's cold")
+    print("It's cold")
 ```
 
 ```output
 It's cold
 ```
 
-:::note[Note:]
+:::note
 The `else` does not take a condition because it acts as the final option when none of the previous conditions apply.
 :::
 
@@ -70,11 +70,11 @@ You can combine `if`, multiple `elif`, and an `else` to create multiple paths:
 ```python run
 x = 0
 if x > 0:
-	print("Positive")
+    print("Positive")
 elif x < 0:
-	print("Negative")
+    print("Negative")
 else:
-	print("It is zero")
+    print("It is zero")
 ```
 
 ```output
@@ -83,7 +83,7 @@ It is zero
 
 This type of structure helps model real-world processes: evaluating grades, classifying ages, selecting options, and more.
 
-:::tip[Tip:]
+:::tip
 When you have many conditions, order them from the most specific to the most general to prevent a broad condition from blocking more precise ones.
 :::
 
@@ -108,14 +108,14 @@ age = 20
 has_id = True
 
 if age >= 18 and has_id:
-	print("You can enter")
+    print("You can enter")
 ```
 
 ```output
 You can enter
 ```
 
-:::note[Note:]
+:::note
 Conditions can be as simple or as complex as you need. However, it is good practice to keep them clear and readable.
 :::
 
@@ -127,9 +127,9 @@ Conditions can be as simple or as complex as you need. However, it is good pract
 number = 8
 
 if number % 2 == 0:
-	print("It is even")
+    print("It is even")
 else:
-	print("It is odd")
+    print("It is odd")
 ```
 
 ```output
@@ -142,11 +142,11 @@ It is even
 age = 15
 
 if age < 13:
-	print("Child")
+    print("Child")
 elif age < 18:
-	print("Teenager")
+    print("Teenager")
 else:
-	print("Adult")
+    print("Adult")
 ```
 
 ```output
@@ -159,9 +159,9 @@ Teenager
 password = "python123%"
 
 if password == "python123%":
-	print("Access granted")
+    print("Access granted")
 else:
-	print("Access denied")
+    print("Access denied")
 ```
 
 ```output
@@ -178,21 +178,21 @@ If the age is 18 or older, display "Adult".
 
 Otherwise, display "Minor".
 
-```python run="Practice >>" hidden
+```python practice
 # Create a variable with an age
 # (for example: age = 17).
 # If the age is 18 or older, display "Adult ".
 # Otherwise, display "Minor"
 ```
 
-:::details[View possible solution]
-```python run="Try Solution >>"
+:::details
+```python run
 age = 17
 
 if age >= 18:
-	print("Adult")
+    print("Adult")
 else:
-	print("Minor")
+    print("Minor")
 ```
 :::
 
@@ -202,23 +202,23 @@ Create a variable called `n` and assign it a numeric value.
 
 Display whether the number is positive, negative, or zero.
 
-```python run="Practice >>" hidden
+```python practice
 # Create a variable called n and assign it
 # a numeric value.
 # Display whether the number is positive,
 # negative, or zero
 ```
 
-:::details[View possible solution]
-```python run="Try Solution >>"
+:::details
+```python run
 n = -5
 
 if n > 0:
-	print("Positive")
+    print("Positive")
 elif n < 0:
-	print("Negative")
+    print("Negative")
 else:
-	print("Zero")
+    print("Zero")
 ```
 :::
 
@@ -231,7 +231,7 @@ Create two variables:
 
 If the person has a ticket and is 16 or older, display "Welcome". Otherwise, display "You cannot enter".
 
-```python run="Practice >>" hidden
+```python practice
 # Create two variables:
 # age
 # has_ticket (True o False)
@@ -240,15 +240,15 @@ If the person has a ticket and is 16 or older, display "Welcome". Otherwise, dis
 # Otherwise, display "You cannot enter"
 ```
 
-:::details[View possible solution]
-```python run="Try Solution >>"
+:::details
+```python run
 age = 16
 has_ticket = True
 
 if age >= 16 and has_ticket:
-	print("Welcome")
+    print("Welcome")
 else:
-	print("You cannot enter")
+    print("You cannot enter")
 ```
 :::
 

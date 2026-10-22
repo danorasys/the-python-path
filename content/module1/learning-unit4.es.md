@@ -20,7 +20,7 @@ Aquí:
 - La "etiqueta" es `nombre` o `edad`.
 - El contenido es `"Python"` y `33`.
 
-:::note[Nota:]
+:::note
 El signo `=` en Python no significa "igual matemático", sino "asignar un valor". Es decir: "guardar este valor en esta variable".
 :::
 
@@ -33,7 +33,7 @@ x = 10       # int (entero)
 x = "Hola"    # str (cadena)
 ```
 
-:::tip[Tip:]
+:::tip
 Puedes cambiar el tipo en cualquier momento, pero evita hacerlo. Mantener un tipo consistente hace tu código más claro.
 :::
 
@@ -62,7 +62,7 @@ mi variable = "texto"
 for = 5
 ```
 
-:::note[Nota:]
+:::note
 Usa nombres descriptivos. Tu código será más fácil de leer sin necesidad de comentarios.
 :::
 
@@ -88,7 +88,7 @@ precio = 19.99
 temperatura = 36.5
 ```
 
-:::note[Nota:]
+:::note
 Los floats pueden tener comportamientos curiosos por cómo se representan internamente.
 :::
 
@@ -126,7 +126,7 @@ logged_in = False
 
 Se usan muchísimo en condicionales.
 
-:::note[Nota:]
+:::note
 En Python, `True` y `False` empiezan con mayúscula.
 :::
 
@@ -220,7 +220,7 @@ texto = str(x)
 print(type(texto))
 ```
 
-:::tip[Tip:]
+:::tip
 `input()` siempre devuelve un string, así que a veces necesitarás convertirlo a `int` o `float`.
 :::
 
@@ -296,7 +296,7 @@ Edad: 20
 Edad: 20
 ```
 
-:::note[Nota:]
+:::note
 Este tipo de errores es muy común cuando inicias. No te preocupes, aprenderás a evitarlos con práctica.
 :::
 
@@ -314,7 +314,7 @@ Crea variables para guardar:
 
 Luego imprímelas usando `print()`.
 
-```python run="Practicar >>" hidden
+```python practice
 # Ejercicio 1: Crear variables básicas
 # Crea variables para guardar:
 # - Tu nombre
@@ -325,8 +325,8 @@ Luego imprímelas usando `print()`.
 # Luego imprímelas usando print()
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 nombre = "TU NOMBRE"
 edad = 22
 ciudad = "TU CIUDAD"
@@ -341,13 +341,13 @@ print(nombre, edad, ciudad, es_mayor, altura)
 
 Una variable contiene un número guardado como texto (`"25"`). Convierte ese valor a un entero y súmale 10. Luego muestra el resultado.
 
-```python run="Practicar >>" hidden
+```python practice
 # Una variable contiene un número guardado como texto ("25").
 # Convierte ese valor a un entero y súmale 10. Luego muestra el resultado.
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 numero = "25"      # el número viene como texto
 numero = int(numero)   # conversión a entero
 print(numero + 10)
@@ -370,7 +370,7 @@ Imprime:
 - La concatenación "Me gusta " + `c`.
 - El tipo de cada variable usando `type()`.
 
-```python run="Practicar >>" hidden
+```python practice
 # a = 10
 # b = 3.5
 # c = "Python"
@@ -380,8 +380,8 @@ Imprime:
 # 3. El tipo de cada variable usando type()
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 a = 10
 b = 3.5
 c = "Python"
@@ -409,7 +409,7 @@ Hola Camilo, tienes 30 años.
 
 Usa concatenación o comas.
 
-```python run="Practicar >>" hidden
+```python practice
 # Crear variables:
 # nombre = "Camilo"
 # edad = 30
@@ -418,8 +418,8 @@ Usa concatenación o comas.
 # Usa concatenación o comas
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 nombre = "Camilo"
 edad = 30
 

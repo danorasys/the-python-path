@@ -10,7 +10,7 @@ En programación, muchas tareas requieren repetir acciones: mostrar mensajes var
 
 Un bucle es una estructura de control que repite un conjunto de instrucciones mientras se cumpla una condición o mientras existan elementos por recorrer.
 
-:::note[Nota:]
+:::note
 Sin bucles, los programas serían largos, repetitivos y difíciles de mantener.
 :::
 
@@ -23,8 +23,8 @@ El bucle `while` repite el código mientras una condición sea verdadera. Antes 
 ```python run
 contador = 1
 while contador <= 5:
-	print(contador)
-	contador = contador + 1
+    print(contador)
+    contador = contador + 1
 ```
 
 ```output
@@ -35,11 +35,11 @@ while contador <= 5:
 5
 ```
 
-:::tip[Tip:]
+:::tip
 El `while` es ideal cuando no sabes cuántas veces se repetirá el bucle, pero sí sabes cuándo debe terminar.
 :::
 
-:::note[Nota:]
+:::note
 Si la condición nunca se vuelve falsa, el programa entrará en un bucle infinito.
 :::
 
@@ -50,8 +50,8 @@ Normalmente se usa una variable de control que cambia en cada repetición.
 ```python run
 x = 0
 while x < 3:
-	print("Hola")
-	x += 1
+    print("Hola")
+    x += 1
 ```
 
 ```output
@@ -68,7 +68,7 @@ El bucle `for` se usa para recorrer una secuencia. En esta unidad, la secuencia 
 
 ```python run
 for letra in "Python":
-	print(letra)
+    print(letra)
 ```
 
 ```output
@@ -82,7 +82,7 @@ n
 
 Esto significa que el bucle toma un carácter a la vez y lo asigna a la variable `letra`.
 
-:::note[Nota:]
+:::note
 Aunque aún no se han visto listas, los strings ya permiten entender el concepto de "recorrer una secuencia".
 :::
 
@@ -93,7 +93,7 @@ Recorrer una secuencia significa acceder a cada elemento uno por uno, en orden. 
 - Cada carácter es un elemento.
 - Se recorren de izquierda a derecha.
 
-:::tip[Tip:]
+:::tip
 El `for` es ideal cuando ya sabes qué vas a recorrer, como un texto o un rango de números.
 :::
 
@@ -103,7 +103,7 @@ El `for` es ideal cuando ya sabes qué vas a recorrer, como un texto o un rango 
 
 ```python run
 for i in range(5):
-	print(i)
+    print(i)
 ```
 
 ```output
@@ -114,7 +114,7 @@ for i in range(5):
 4
 ```
 
-:::note[Nota:]
+:::note
 `range(5)` genera los números del `0` al `4`.
 :::
 
@@ -125,8 +125,8 @@ for i in range(5):
 ```python run
 n = 1
 while n <= 5:
-	print(n)
-	n += 1
+    print(n)
+    n += 1
 ```
 
 ```output
@@ -141,7 +141,7 @@ while n <= 5:
 
 ```python run
 for c in "Hola":
-	print(c)
+    print(c)
 ```
 
 ```output
@@ -155,7 +155,7 @@ a
 
 ```python run
 for i in range(3):
-	print("Aprendiendo Python")
+    print("Aprendiendo Python")
 ```
 
 ```output
@@ -171,18 +171,18 @@ Aprendiendo Python
 Crea una variable llamada `contador` que empiece en 1.\
 Usa un bucle `while` para mostrar los números del 1 al 10, uno por uno.
 
-```python run="Practicar >>" hidden
+```python practice
 # Crea una variable llamada contador que empiece en 1.
 # Usa un bucle while para mostrar los números del 1 al
 # 10, uno por uno
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 contador = 1
 while contador <= 10:
-	print(contador)
-	contador += 1
+    print(contador)
+    contador += 1
 ```
 :::
 
@@ -191,18 +191,18 @@ while contador <= 10:
 Crea una variable llamada `n` con el valor 5.\
 Usa un bucle `while` para mostrar una cuenta regresiva hasta llegar a 1.
 
-```python run="Practicar >>" hidden
+```python practice
 # Crea una variable llamada n con el valor 5.
 # Usa un bucle while para mostrar una cuenta regresiva
 # hasta llegar a 1
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 n = 5
 while n >= 1:
-	print(n)
-	n -= 1
+    print(n)
+    n -= 1
 ```
 :::
 
@@ -211,17 +211,17 @@ while n >= 1:
 Crea una variable llamada `palabra` con cualquier texto.\
 Usa un bucle `for` para mostrar cada carácter de la palabra en una línea distinta.
 
-```python run="Practicar >>" hidden
+```python practice
 # Crea una variable llamada palabra con cualquier
 # texto. Usa un bucle for para mostrar cada carácter de
 # la palabra en una línea distinta
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 palabra = "Python"
 for letra in palabra:
-	print(letra)
+    print(letra)
 ```
 :::
 
@@ -230,17 +230,17 @@ for letra in palabra:
 Usa un bucle `for` para contar cuántas letras tiene la palabra `"programacion"`.\
 Utiliza una variable contadora.
 
-```python run="Practicar >>" hidden
+```python practice
 # Usa un bucle for para contar cuántas letras tiene la
 # palabra "programacion".
 # Utiliza una variable contadora
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 contador = 0
 for letra in "programacion":
-	contador += 1
+    contador += 1
 
 print(contador)
 ```
@@ -250,15 +250,15 @@ print(contador)
 
 Usa un bucle `for` y `range()` para mostrar los números pares del 0 al 10.
 
-```python run="Practicar >>" hidden
+```python practice
 # Usa un bucle for y range() para mostrar los números
 # pares del 0 al 10
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 for i in range(0, 11, 2):
-	print(i)
+    print(i)
 ```
 :::
 

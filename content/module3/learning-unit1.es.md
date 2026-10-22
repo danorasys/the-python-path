@@ -25,7 +25,7 @@ Una lista puede contener:
 - Valores booleanos
 - Incluso otros objetos o listas.
 
-:::note[Nota:]
+:::note
 Python permite listas con distintos tipos de datos, aunque en programas reales suele mantenerse un mismo tipo para mayor claridad.
 :::
 
@@ -142,7 +142,7 @@ del numeros[0]
 print(numeros)
 ```
 
-:::tip[Tip:]
+:::tip
 `pop()` devuelve el elemento eliminado.\
 `remove()` falla si el valor no existe.
 :::
@@ -155,7 +155,7 @@ print(numeros)
 animales = ["perro", "gato", "pez"]
 
 for animal in animales:
-	print(animal)
+    print(animal)
 ```
 
 ### Usando Índices
@@ -164,10 +164,10 @@ for animal in animales:
 animales = ["perro", "gato", "pez"]
 
 for i in range(len(animales)):
-	print(animales[i])
+    print(animales[i])
 ```
 
-:::tip[Tip:]
+:::tip
 Usa el primer método cuando solo necesitas el valor; usa índices cuando necesitas la posición.
 :::
 
@@ -192,7 +192,7 @@ estudiantes[0] = "Ana María"
 print(estudiantes)
 
 for estudiante in estudiantes:
-	print(estudiante)
+    print(estudiante)
 ```
 
 ## Ejercicios Prácticos
@@ -208,7 +208,7 @@ Crea un programa que permita gestionar las notas de un estudiante siguiendo esto
 - Mostrar todas las notas usando un bucle.
 - Mostrar cuántas notas hay en total.
 
-```python run="Practicar >>" hidden
+```python practice
 # Crea un programa que permita gestionar las notas de
 # un estudiante siguiendo estos pasos:
 # 1. Crear una lista llamada notas con 5 calificaciones
@@ -220,8 +220,8 @@ Crea un programa que permita gestionar las notas de un estudiante siguiendo esto
 # 6. Mostrar cuántas notas hay en total
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # 1. Crear una lista llamada notas con 5 calificaciones numéricas decimales
 notas = [3.5, 4.0, 2.8, 4.5, 3.9]
 
@@ -237,7 +237,7 @@ notas.append(4.8)
 
 # 5. Mostrar todas las notas usando un bucle
 for nota in notas:
-	print(nota)
+    print(nota)
 
 # 6. Mostrar cuántas notas hay en total
 print(len(notas))
@@ -254,7 +254,7 @@ Desarrolla un programa que simule una lista de compras:
 - Mostrar la lista completa.
 - Mostrar cada producto junto con su posición usando índices.
 
-```python run="Practicar >>" hidden
+```python practice
 # Desarrolla un programa que simule una lista de
 # compras:
 # 1. Crear una lista con al menos 4 productos.
@@ -265,7 +265,7 @@ Desarrolla un programa que simule una lista de compras:
 # índices
 ```
 
-:::details[Observar posible solución]
+:::details
 ```python
 # 1. Crear una lista con al menos 4 productos
 compras = ["pan", "leche", "huevos", "arroz"]
@@ -281,10 +281,10 @@ print(compras)
 
 #5. Mostrar cada producto junto con su posición usando índices
 for i in range(len(compras)):
-	print(i, compras[i])
+    print(i, compras[i])
 ```
 
-```python run="Probar Solución >>" hidden
+```python run hidden
 # 1. Crear una lista con al menos 4 productos
 compras = ["pan", "leche", "huevos", "arroz"]
 
@@ -300,7 +300,7 @@ print(compras)
 #5. Mostrar cada producto junto con su posición usando
 # índices
 for i in range(len(compras)):
-	print(i, compras[i])
+    print(i, compras[i])
 ```
 :::
 
@@ -313,7 +313,7 @@ Crea un programa que:
 - Muestre únicamente los números mayores que 5.
 - Cuente cuántos cumplen la condición.
 
-```python run="Practicar >>" hidden
+```python practice
 # Crea un programa que:
 # 1. Cree una lista con 10 números.
 # 2. Recorra la lista.
@@ -321,8 +321,8 @@ Crea un programa que:
 # 4. Cuente cuántos cumplen la condición
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # 1. Cree una lista con 10 números
 numeros = [1, 7, 3, 9, 2, 8, 6, 4, 10, 5]
 
@@ -330,11 +330,11 @@ numeros = [1, 7, 3, 9, 2, 8, 6, 4, 10, 5]
 contador = 0
 
 for numero in numeros:
-	# 3. Muestre únicamente los números mayores que 5
-	if numero > 5:
-		print(numero)
-		# 4. Cuente cuántos cumplen la condición
-		contador += 1
+    # 3. Muestre únicamente los números mayores que 5
+    if numero > 5:
+        print(numero)
+        # 4. Cuente cuántos cumplen la condición
+        contador += 1
 
 print("Cantidad:", contador)
 ```

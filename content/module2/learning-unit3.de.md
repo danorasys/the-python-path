@@ -9,7 +9,7 @@ En der Programmierung erfordern viele Aufgaben das Wiederholen von Aktionen: Nac
 
 Eine Schleife ist eine Kontrollstruktur, die eine Reihe von Anweisungen wiederholt, solange eine Bedingung erfüllt ist oder solange es Elemente gibt, die durchlaufen werden können.
 
-:::note[Hinweis:]
+:::note
 Ohne Schleifen wären Programme lang, repetitiv und schwer zu warten.
 :::
 
@@ -22,8 +22,8 @@ Die `while`-Schleife wiederholt den Code, solange eine Bedingung wahr ist. Vor j
 ```python run
 zaehler = 1
 while zaehler <= 5:
-	print(zaehler)
-	zaehler = zaehler + 1
+    print(zaehler)
+    zaehler = zaehler + 1
 ```
 
 ```output
@@ -34,11 +34,11 @@ while zaehler <= 5:
 5
 ```
 
-:::tip[Tipp:]
+:::tip
 Die `while`-Schleife ist ideal, wenn du nicht weißt, wie oft sich die Schleife wiederholen wird, aber weißt, wann sie enden soll.
 :::
 
-:::note[Hinweis:]
+:::note
 Wenn die Bedingung niemals falsch wird, gerät das Programm in eine Endlosschleife.
 :::
 
@@ -49,8 +49,8 @@ Normalerweise wird eine Kontrollvariable verwendet, die sich bei jeder Wiederhol
 ```python run
 x = 0
 while x < 3:
-	print("Hallo")
-	x += 1
+    print("Hallo")
+    x += 1
 ```
 
 ```output
@@ -67,7 +67,7 @@ Die `for`-Schleife wird verwendet, um eine Sequenz zu durchlaufen. In dieser Ein
 
 ```python run
 for buchstabe in "Python":
-	print(buchstabe)
+    print(buchstabe)
 ```
 
 ```output
@@ -81,7 +81,7 @@ n
 
 Das bedeutet, dass die Schleife ein Zeichen nach dem anderen nimmt und es der Variablen `buchstabe` zuweist.
 
-:::note[Hinweis:]
+:::note
 Auch wenn Listen noch nicht behandelt wurden, ermöglichen Strings bereits, das Konzept des „Durchlaufens einer Sequenz“ zu verstehen.
 :::
 
@@ -92,7 +92,7 @@ Eine Sequenz durchlaufen bedeutet, auf jedes Element einzeln und der Reihe nach 
 - Jedes Zeichen ist ein Element.
 - Sie werden von links nach rechts durchlaufen.
 
-:::tip[Tipp:]
+:::tip
 Die `for`-Schleife ist ideal, wenn du bereits weißt, was du durchlaufen wirst, wie z.B. einen Text oder einen Zahlenbereich.
 :::
 
@@ -102,7 +102,7 @@ Die `for`-Schleife ist ideal, wenn du bereits weißt, was du durchlaufen wirst, 
 
 ```python run
 for i in range(5):
-	print(i)
+    print(i)
 ```
 
 ```output
@@ -113,7 +113,7 @@ for i in range(5):
 4
 ```
 
-:::note[Hinweis:]
+:::note
 `range(5)` erzeugt die Zahlen von `0` bis `4`.
 :::
 
@@ -124,8 +124,8 @@ for i in range(5):
 ```python run
 n = 1
 while n <= 5:
-	print(n)
-	n += 1
+    print(n)
+    n += 1
 ```
 
 ```output
@@ -140,7 +140,7 @@ while n <= 5:
 
 ```python run
 for c in "Hallo":
-	print(c)
+    print(c)
 ```
 
 ```output
@@ -155,7 +155,7 @@ o
 
 ```python run
 for i in range(3):
-	print("Python Lernen")
+    print("Python Lernen")
 ```
 
 ```output
@@ -171,19 +171,19 @@ Python Lernen
 Erstelle eine Variable namens `zaehler`, die bei 1 beginnt.\
 Verwende eine `while`-Schleife, um die Zahlen von 1 bis 10 einzeln anzuzeigen.
 
-```python run="Üben >>" hidden
+```python practice
 # Erstelle eine Variable namens zaehler, die bei 1
 # beginnt.
 # Verwende eine while-Schleife, um die Zahlen von 1 bis
 # 10 einzeln anzuzeigen
 ```
 
-:::details[Mögliche Lösung anzeigen]
-```python run="Lösung Ausprobieren >>"
+:::details
+```python run
 zaehler = 1
 while zaehler <= 10:
-	print(zaehler)
-	zaehler += 1
+    print(zaehler)
+    zaehler += 1
 ```
 :::
 
@@ -192,18 +192,18 @@ while zaehler <= 10:
 Erstelle eine Variable namens `n` mit dem Wert 5.\
 Verwende eine `while`-Schleife, um einen Countdown bis 1 anzuzeigen.
 
-```python run="Üben >>" hidden
+```python practice
 # Erstelle eine Variable namens n mit dem Wert 5.
 # Verwende eine while-Schleife, um einen Countdown bis
 # 1 anzuzeigen
 ```
 
-:::details[Mögliche Lösung anzeigen]
-```python run="Lösung Ausprobieren >>"
+:::details
+```python run
 n = 5
 while n >= 1:
-	print(n)
-	n -= 1
+    print(n)
+    n -= 1
 ```
 :::
 
@@ -212,18 +212,18 @@ while n >= 1:
 Erstelle eine Variable namens `wort` mit einem beliebigen Text.\
 Verwende eine `for`-Schleife, um jedes Zeichen des Wortes in einer eigenen Zeile anzuzeigen.
 
-```python run="Üben >>" hidden
+```python practice
 # Erstelle eine Variable namens wort mit einem
 # beliebigen Text.
 # Verwende eine for-Schleife, um jedes Zeichen des
 # Wortes in einer eigenen Zeile anzuzeigen
 ```
 
-:::details[Mögliche Lösung anzeigen]
-```python run="Lösung Ausprobieren >>"
+:::details
+```python run
 wort = "Python"
 for buchstabe in wort:
-	print(buchstabe)
+    print(buchstabe)
 ```
 :::
 
@@ -231,17 +231,17 @@ for buchstabe in wort:
 
 Verwende eine `for`-Schleife, um zu zählen, wie viele Buchstaben das Wort `"programmierung"` hat. Benutze eine Zählvariable.
 
-```python run="Üben >>" hidden
+```python practice
 # Verwende eine for-Schleife, um zu zählen, wie viele
 # Buchstaben das Wort "programmierung" hat. Benutze
 # eine Zählvariable
 ```
 
-:::details[Mögliche Lösung anzeigen]
-```python run="Lösung Ausprobieren >>"
+:::details
+```python run
 zaehler = 0
 for buchstabe in "programmierung":
-	zaehler += 1
+    zaehler += 1
 
 print(zaehler)
 ```
@@ -251,15 +251,15 @@ print(zaehler)
 
 Verwende eine `for`-Schleife und `range()`, um die geraden Zahlen von 0 bis 10 anzuzeigen.
 
-```python run="Üben >>" hidden
+```python practice
 # Verwende eine for-Schleife und range(), um die
 # geraden Zahlen von 0 bis 10 anzuzeigen
 ```
 
-:::details[Mögliche Lösung anzeigen]
-```python run="Lösung Ausprobieren >>"
+:::details
+```python run
 for i in range(0, 11, 2):
-	print(i)
+    print(i)
 ```
 :::
 

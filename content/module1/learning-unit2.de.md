@@ -7,7 +7,7 @@ summary: Wie man Text auf dem Bildschirm anzeigt und die minimale Struktur eines
 
 Ein Programm in Python ist einfach eine Textdatei, die Anweisungen enthält, die der Interpreter Zeile für Zeile ausführt. Die minimale Struktur eines Programms kann so einfach sein wie eine einzelne Zeile, die eine Nachricht auf dem Bildschirm anzeigt.
 
-:::note[Hinweis:]
+:::note
 In Python wird jede Zeile der Reihe nach von oben nach unten ausgeführt. Du brauchst keine obligatorische Hauptfunktion wie in anderen Sprachen.
 :::
 
@@ -31,7 +31,7 @@ Hallo, Welt
 print("Hallo, Welt")
 ```
 
-:::tip[Tipp:]
+:::tip
 Alles, was du anzeigen möchtest, muss in den Klammern von `print()` stehen. Wenn es Text ist, muss er in Anführungszeichen gesetzt werden.
 :::
 
@@ -71,7 +71,7 @@ Python lernen macht Spaß
 Python
 ```
 
-:::note[Hinweis:]
+:::note
 Im Gegensatz zu vielen Sprachen muss man in Python den Variablentyp nicht deklarieren; es reicht, sie zuzuweisen.
 :::
 
@@ -87,7 +87,7 @@ print("Dein Alter ist:", 22)
 Dein Alter ist: 22
 ```
 
-:::note[Hinweis:]
+:::note
 Wenn du Kommas innerhalb von `print()` verwendest, fügt Python automatisch ein Leerzeichen zwischen jedem Element ein.
 :::
 
@@ -123,7 +123,7 @@ print("Welt")
 Hallo...Welt
 ```
 
-:::note[Hinweis:]
+:::note
 Standardmäßig verwendet `end` `\n`, also einen Zeilenumbruch. Deshalb erscheint jede `print()` in einer neuen Zeile.
 :::
 
@@ -148,7 +148,7 @@ Zeile 2
 Zeile 3
 ```
 
-:::tip[Hinweis:]
+:::note
 Escape-Sequenzen ermöglichen es dir, genau zu steuern, wie der ausgegebene Text aussieht. Sie sind sehr nützlich, um Menüs oder formatiere Ergebnisse anzuzeigen.
 :::
 
@@ -182,7 +182,7 @@ Hallo von meinem ersten Python-Programm
 print("Hallo von meinem ersten Python-Programm")
 ```
 
-:::tip[Tipp]
+:::tip
 Betrachte ein Programm als eine Liste von Anweisungen. Wenn du zwei Zeilen hast:
 :::
 
@@ -216,7 +216,7 @@ print("Willkommen,", name, "in der Welt von Python!")
 Willkommen, DEIN NAME in der Welt von Python!
 ```
 
-:::note[Hinweis:]
+:::note
 Du kannst `"DEIN NAME"` durch deinen eigenen Namen ersetzen.
 :::
 

@@ -20,7 +20,7 @@ Se define usando llaves `{}`.
 numeros = {1, 2, 3, 4}
 ```
 
-:::note[Nota:]
+:::note
 Aunque usan `{}`, los sets no son diccionarios porque no tienen claves ni valores.
 :::
 
@@ -35,7 +35,7 @@ print(datos)
 {1, 2, 3}
 ```
 
-:::tip[Tip:]
+:::tip
 Los sets son la forma más sencilla de eliminar duplicados de una colección.
 :::
 
@@ -127,7 +127,7 @@ print(colores)
 
 No produce error si no está presente.
 
-:::tip[Tip:]
+:::tip
 Usa `discard()` cuando no estés seguro de que el elemento exista.
 :::
 
@@ -137,7 +137,7 @@ Usa `discard()` cuando no estés seguro de que el elemento exista.
 numeros = {1, 2, 3}
 
 for numero in numeros:
-	print(numero)
+    print(numero)
 ```
 
 ```output
@@ -146,7 +146,7 @@ for numero in numeros:
 3
 ```
 
-:::note[Nota:]
+:::note
 El orden puede cambiar cada vez que ejecutes el programa.
 :::
 
@@ -222,7 +222,7 @@ print(python & java)
 {'Ana', 'Carlos'}
 ```
 
-:::tip[Tip:]
+:::tip
 Los sets son ideales para análisis de coincidencias y filtros rápidos.
 :::
 
@@ -254,7 +254,7 @@ Crea un programa que:
 - Muestre el resultado sin duplicados.
 - Recorra el set mostrando cada elemento.
 
-```python run="Practicar >>" hidden
+```python practice
 # Crea un programa que:
 # 1. Defina una lista con números repetidos.
 # 2. Convierta la lista en un set.
@@ -262,8 +262,8 @@ Crea un programa que:
 # 4. Recorra el set mostrando cada elemento
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # 1. Defina una lista con números repetidos
 numeros = [1, 2, 2, 3, 4, 4, 5]
 
@@ -275,7 +275,7 @@ print(conjunto)
 
 # 4. Recorra el set mostrando cada elemento
 for n in conjunto:
-	print(n)
+    print(n)
 ```
 :::
 
@@ -289,7 +289,7 @@ Desarrolla un programa que:
 - Estudiantes solo del primer grupo (diferencia).
 - Imprima cada resultado con un mensaje descriptivo.
 
-```python run="Practicar >>" hidden
+```python practice
 # Desarrolla un programa que:
 # 1. Cree dos sets con nombres de estudiantes.
 # 2. Muestre todos los estudiantes (unión).
@@ -298,8 +298,8 @@ Desarrolla un programa que:
 # 5. Imprima cada resultado con un mensaje descriptivo
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # 1. Cree dos sets con nombres de estudiantes
 grupo_a = {"Ana", "Luis", "Pedro"}
 grupo_b = {"Pedro", "Sofía", "Ana"}
@@ -325,7 +325,7 @@ Simula un sistema simple donde:
 - Recorre el set mostrando los usuarios actuales.
 - Comprueba si un usuario específico pertenece al conjunto usando `in`.
 
-```python run="Practicar >>" hidden
+```python practice
 # Simula un sistema simple donde:
 # 1. Existe un set llamado usuarios_autorizados.
 # 2. Agrega un nuevo usuario.
@@ -335,8 +335,8 @@ Simula un sistema simple donde:
 # conjunto usando in
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # 1. Existe un set llamado usuarios_autorizados
 usuarios_autorizados = {"ana", "luis", "carlos"}
 
@@ -347,7 +347,7 @@ usuarios_autorizados.remove("luis")
 
 # 4. Recorre el set mostrando los usuarios actuales
 for usuario in usuarios_autorizados:
-	print(usuario)
+    print(usuario)
 
 # 5. Comprueba si un usuario específico pertenece al
 # conjunto usando in

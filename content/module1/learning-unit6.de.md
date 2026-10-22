@@ -25,7 +25,7 @@ Gib deinen Namen ein: Linus
 Hallo, Linus
 ```
 
-:::note[Hinweis:]
+:::note
 Alles, was `input()` zurückgibt, ist Text, selbst wenn der Benutzer eine Zahl eingibt.
 :::
 
@@ -54,7 +54,7 @@ Wie alt bist du? 55
 Nächstes Jahr wirst du 56 Jahre alt sein.
 ```
 
-:::tip[Tipp:]
+:::tip
 Wenn du die Eingabe nicht umwandelst, kann eine Zahl nicht mathematisch addiert werden, sondern nur als Text.
 :::
 
@@ -83,19 +83,19 @@ Das Doppelte ist: 14
 
 ### 1\. Vergessen, dass `input()` Immer Text Zurückgibt
 
-```python run="Fehler Ausprobieren >>" input="5" error
+```python run="Fehler Ausprobieren >>" error input="5"
 n = input("Zahl: ")
 print(n + 10)    # FEHLER
 ```
 
 ### 2\. Versuchen, Ungültigen Text Umzuwandeln
 
-```python run="Fehler Ausprobieren >>" input="hallo" error
+```python run="Fehler Ausprobieren >>" error input="hallo"
 text = input("Eingabe: ")  # Eingabe: hallo
 int(text)    # FEHLER
 ```
 
-:::note[Hinweis:]
+:::note
 Später wirst du lernen, diese Fehler mit `try` und `except` zu behandeln.
 :::
 
@@ -139,7 +139,7 @@ Gib ein Wort ein: Python
 PythonPythonPython
 ```
 
-:::tip[Tipp:]
+:::tip
 Wenn du eine Zeichenkette wiederholst, werden nicht automatisch Leerzeichen eingefügt.
 :::
 
@@ -149,13 +149,13 @@ Wenn du eine Zeichenkette wiederholst, werden nicht automatisch Leerzeichen eing
 
 Bitte den Benutzer um seinen Namen und zeige eine Begrüßung an.
 
-```python run="Üben >>" hidden
+```python practice
 # Bitte den Benutzer um seinen Namen und zeige eine
 # Begrüßung an
 ```
 
-:::details[Mögliche Lösung anzeigen]
-```python run="Lösung Ausprobieren >>" input="Ana"
+:::details
+```python run input="Ana"
 name = input("Gib deinen Namen ein: ")
 print("Hallo", name)
 ```
@@ -165,13 +165,13 @@ print("Hallo", name)
 
 Bitte den Benutzer um sein Alter und sage ihm, wie alt er in 5 Jahren sein wird.
 
-```python run="Üben >>" hidden
+```python practice
 # Bitte den Benutzer um sein Alter und sage ihm, wie
 # alt er in 5 Jahren sein wird
 ```
 
-:::details[Mögliche Lösung anzeigen]
-```python run="Lösung Ausprobieren >>" input="25"
+:::details
+```python run input="25"
 alter = int(input("Wie alt bist du? "))
 print("In 5 Jahren wirst du", alter + 5, "Jahre alt sein.")
 ```
@@ -181,13 +181,13 @@ print("In 5 Jahren wirst du", alter + 5, "Jahre alt sein.")
 
 Bitte den Benutzer um ein Wort und eine Zahl. Zeige das Wort so oft wiederholt an, wie die Zahl angibt.
 
-```python run="Üben >>" hidden
+```python practice
 # Bitte den Benutzer um ein Wort und eine Zahl. Zeige
 # das Wort so oft wiederholt an, wie die Zahl angibt
 ```
 
-:::details[Mögliche Lösung anzeigen]
-```python run="Lösung Ausprobieren >>" input="Python|3"
+:::details
+```python run input="Python|3"
 wort = input("Gib ein Wort ein: ")
 anzahl = int(input("Wie oft soll es wiederholt werden? "))
 print(wort * anzahl)
@@ -198,13 +198,13 @@ print(wort * anzahl)
 
 Bitte den Benutzer um eine Temperatur in Grad Celsius und wandle sie in Fahrenheit um.
 
-```python run="Üben >>" hidden
+```python practice
 # Bitte den Benutzer um eine Temperatur in Grad Celsius
 # und wandle sie in Fahrenheit um
 ```
 
-:::details[Mögliche Lösung anzeigen]
-```python run="Lösung Ausprobieren >>" input="25"
+:::details
+```python run input="25"
 c = float(input("Temperatur in Celsius: "))
 f = (c * 9 / 5) + 32
 print("Das entspricht", f, "°F")

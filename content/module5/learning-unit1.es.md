@@ -49,7 +49,7 @@ n
 | Positivo | `texto[0]` | Primer carácter |
 | Negativo | `texto[-1]` | Último carácter |
 
-:::note[Nota:]
+:::note
 Las cadenas son inmutables, no se pueden modificar directamente:
 :::
 
@@ -82,7 +82,7 @@ Pyth
 cadena[inicio:fin]
 ```
 
-:::note[Nota:]
+:::note
 El índice final no se incluye en el resultado.
 :::
 
@@ -100,7 +100,7 @@ Pto
 nohtyP
 ```
 
-:::note[Tip:]
+:::tip
 El uso de `[::-1]` es una forma rápida de invertir una cadena.
 :::
 
@@ -134,7 +134,7 @@ hola mundo
   hola Python  
 ```
 
-:::tip[Tip:]
+:::tip
 Encadenar métodos permite hacer varias operaciones en una sola línea.
 :::
 
@@ -161,7 +161,7 @@ True
 False
 ```
 
-:::note[Nota:]
+:::note
 El operador `in` permite verificar si un texto está contenido en otro.
 :::
 
@@ -205,7 +205,7 @@ Crea un programa que:
 - Reemplace `"python"` por `"Java"`.
 - Muestre: Texto limpio, número de repeticiones y texto modificado.
 
-```python run="Practicar >>" hidden
+```python practice
 # Crea un programa que:
 # 1. Defina una variable con el texto: " Python es un
 # lenguaje poderoso y Python es fácil de aprender ".
@@ -217,8 +217,8 @@ Crea un programa que:
 # texto modificado.
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # 1. Defina una variable con el texto: " Python es un
 # lenguaje poderoso y Python es fácil de aprender "
 texto = " Python es un lenguaje poderoso y Python es fácil de aprender "
@@ -250,7 +250,7 @@ Crea un programa que:
 - Compare la palabra original con la invertida.
 - Indique si es un palíndromo (se lee igual al derecho y al revés).
 
-```python run="Practicar >>" hidden
+```python practice
 # Crea un programa que:
 # 1. Defina una palabra (por ejemplo "reconocer").
 # 2. Invierta la palabra usando slicing.
@@ -259,8 +259,8 @@ Crea un programa que:
 # derecho y al revés).
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # 1. Defina una palabra (por ejemplo "reconocer")
 palabra = "reconocer"
 
@@ -271,9 +271,9 @@ invertida = palabra[::-1]
 # 4. Indique si es un palíndromo (se lee igual al
 # derecho y al revés)
 if palabra == invertida:
-	print("Es un palíndromo")
+    print("Es un palíndromo")
 else:
-	print("No es un palíndromo")
+    print("No es un palíndromo")
 ```
 :::
 
@@ -289,7 +289,7 @@ Desarrolla un programa que:
 - Invierta todo el texto.
 - Muestre cada resultado por separado.
 
-```python run="Practicar >>" hidden
+```python practice
 # Desarrolla un programa que:
 # 1. Defina una cadena con el siguiente texto: "Python,
 # Java, Python, C++, Python, JavaScript".
@@ -301,8 +301,8 @@ Desarrolla un programa que:
 # 7. Muestre cada resultado por separado.
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # 1. Defina una cadena con el siguiente texto: "Python,
 # Java, Python, C++, Python, JavaScript"
 texto = "Python, Java, Python, C++, Python, JavaScript"

@@ -22,7 +22,7 @@ numeros = [1, 2, 3, 4, 5]
 cuadrados = []
 
 for numero in numeros:
-	cuadrados.append(numero ** 2)
+    cuadrados.append(numero ** 2)
 
 print(cuadrados)
 ```
@@ -81,7 +81,7 @@ numeros = [1, 2, 3]
 resultado = []
 
 for numero in numeros:
-	resultado.append(numero * 10)
+    resultado.append(numero * 10)
 
 print(resultado)
 ```
@@ -138,9 +138,9 @@ Una de las características más poderosas es la posibilidad de filtrar elemento
 numeros = range(1, 21)
 
 numeros_pares = [
-	numero
-	for numero in numeros
-	if numero % 2 == 0
+    numero
+    for numero in numeros
+    if numero % 2 == 0
 ]
 
 print(numeros_pares)
@@ -154,17 +154,17 @@ print(numeros_pares)
 
 ```python run
 palabras = [
-	"Python",
-	"IA",
-	"Programacion",
-	"Codigo",
-	"Desarrollo"
+    "Python",
+    "IA",
+    "Programacion",
+    "Codigo",
+    "Desarrollo"
 ]
 
 palabras_largas = [
-	palabra
-	for palabra in palabras
-	if len(palabra) > 5]
+    palabra
+    for palabra in palabras
+    if len(palabra) > 5]
 
 print(palabras_largas)
 ```
@@ -173,7 +173,7 @@ print(palabras_largas)
 ['Python', 'Programacion', 'Codigo', 'Desarrollo']
 ```
 
-:::note[Nota:]
+:::note
 La condición siempre se evalúa después del `for`. Si la condición es verdadera, el elemento es agregado a la nueva lista.
 :::
 
@@ -193,10 +193,10 @@ También podemos decidir qué valor guardar según una condición.
 numeros = range(1, 11)
 
 etiquetas = [
-	"Par"
-	if numero % 2 == 0
-	else "Impar"
-	for numero in numeros
+    "Par"
+    if numero % 2 == 0
+    else "Impar"
+    for numero in numeros
 ]
 
 print(etiquetas)
@@ -212,9 +212,9 @@ print(etiquetas)
 numeros = range(1, 51)
 
 resultado = [
-	numero
-	for numero in numeros
-	if numero % 2 == 0 and numero % 3 == 0
+    numero
+    for numero in numeros
+    if numero % 2 == 0 and numero % 3 == 0
 ]
 
 print(resultado)
@@ -248,9 +248,9 @@ Ejemplo:
 
 ```python run
 pares = [
-	(x, y)
-	for x in range(1, 4)
-	for y in range(1, 4)
+    (x, y)
+    for x in range(1, 4)
+    for y in range(1, 4)
 ]
 
 print(pares)
@@ -264,8 +264,8 @@ print(pares)
 
 ```python run
 matriz = [
-	[columna for columna in range(4)]
-	for fila in range(3)
+    [columna for columna in range(4)]
+    for fila in range(3)
 ]
 
 print(matriz)
@@ -299,7 +299,7 @@ print(matriz)
 - La comprensión tenga varios niveles difíciles de leer.
 - Sea necesario realizar múltiples acciones dentro del bucle.
 
-:::tip[Tip:]
+:::tip
 Si una List Comprehension requiere varias líneas para entenderse, probablemente un bucle tradicional sea una mejor opción.
 :::
 
@@ -325,7 +325,7 @@ Instrucciones:
 - Guardar el resultado en una variable llamada `calificaciones_aprobadas`.
 - Mostrar el contenido de la nueva lista utilizando `print()`.
 
-```python run="Practicar >>" hidden
+```python practice
 # Una institución educativa almacena las calificaciones finales de
 # sus estudiantes en una lista.
 #
@@ -345,8 +345,8 @@ Instrucciones:
 # - Mostrar el contenido de la nueva lista utilizando print().
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # Una institución educativa almacena las calificaciones finales de
 # sus estudiantes en una lista.
 #
@@ -365,11 +365,11 @@ calificaciones = [45, 80, 62, 95, 30, 71, 88, 56]
 #   calificaciones_aprobadas.
 
 calificaciones_aprobadas = [
-	# - Recorrer cada elemento de la lista original
-	nota
-	for nota in calificaciones
-	# - Conservar únicamente las calificaciones mayores o iguales a 60.
-	if nota >= 60
+    # - Recorrer cada elemento de la lista original
+    nota
+    for nota in calificaciones
+    # - Conservar únicamente las calificaciones mayores o iguales a 60.
+    if nota >= 60
 ]
 
 # - Mostrar el contenido de la nueva lista utilizando print().
@@ -383,11 +383,11 @@ Una tienda almacena los nombres de sus productos en la siguiente lista:
 
 ```python
 productos = [
-	"Laptop",
-	"Mouse",
-	"Teclado",
-	"Monitor",
-	"Memoria USB"
+    "Laptop",
+    "Mouse",
+    "Teclado",
+    "Monitor",
+    "Memoria USB"
 ]
 ```
 
@@ -401,15 +401,15 @@ Instrucciones:
 - Guardar el resultado en una variable llamada `productos_mayusculas`.
 - Mostrar la lista resultante.
 
-```python run="Practicar >>" hidden
+```python practice
 # Una tienda almacena los nombres de sus productos en la siguiente lista:
 #
 # productos = [
-#	"Laptop",
-#	"Mouse",
-#	"Teclado",
-#	"Monitor",
-#	"Memoria USB"
+#   "Laptop",
+#   "Mouse",
+#   "Teclado",
+#   "Monitor",
+#   "Memoria USB"
 # ]
 #
 # El administrador desea generar una nueva lista donde todos los nombres
@@ -423,24 +423,24 @@ Instrucciones:
 # - Mostrar la lista resultante.
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # Una tienda almacena los nombres de sus productos en la siguiente lista:
 #
 # productos = [
-#	"Laptop",
-#	"Mouse",
-#	"Teclado",
-#	"Monitor",
-#	"Memoria USB"
+#   "Laptop",
+#   "Mouse",
+#   "Teclado",
+#   "Monitor",
+#   "Memoria USB"
 # ]
 
 productos = [
-	"Laptop",
-	"Mouse",
-	"Teclado",
-	"Monitor",
-	"Memoria USB"
+    "Laptop",
+    "Mouse",
+    "Teclado",
+    "Monitor",
+    "Memoria USB"
 ]
 
 # El administrador desea generar una nueva lista donde todos los nombres
@@ -451,10 +451,10 @@ productos = [
 # - Guardar el resultado en una variable llamada productos_mayusculas.
 
 productos_mayusculas = [
-	# - Recorrer todos los productos de la lista original.
-	# - Convertir cada nombre a mayúsculas mediante el método upper().
-	producto.upper()
-	for producto in productos
+    # - Recorrer todos los productos de la lista original.
+    # - Convertir cada nombre a mayúsculas mediante el método upper().
+    producto.upper()
+    for producto in productos
 ]
 
 # - Mostrar la lista resultante.
@@ -468,8 +468,8 @@ Una estación meteorológica registra temperaturas durante el día.
 
 ```python
 temperaturas = [
-	15, 28, 35, 42, 18,
-	39, 50, 24, 45, 32
+    15, 28, 35, 42, 18,
+    39, 50, 24, 45, 32
 ]
 ```
 
@@ -491,12 +491,12 @@ Instrucciones:
 - Guardar las alertas en una variable llamada `alertas_criticas`.
 - Mostrar el resultado.
 
-```python run="Practicar >>" hidden
+```python practice
 # Una estación meteorológica registra temperaturas durante el día.
 #
 # temperaturas = [
-#	15, 28, 35, 42, 18,
-#	39, 50, 24, 45, 32
+#   15, 28, 35, 42, 18,
+#   39, 50, 24, 45, 32
 # ]
 #
 # Debes generar una lista de alertas para todas las temperaturas
@@ -515,18 +515,18 @@ Instrucciones:
 # - Mostrar el resultado.
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # Una estación meteorológica registra temperaturas durante el día.
 #
 # temperaturas = [
-#	15, 28, 35, 42, 18,
-#	39, 50, 24, 45, 32
+#   15, 28, 35, 42, 18,
+#   39, 50, 24, 45, 32
 # ]
 
 temperaturas = [
-	15, 28, 35, 42, 18,
-	39, 50, 24, 45, 32
+    15, 28, 35, 42, 18,
+    39, 50, 24, 45, 32
 ]
 
 # Debes generar una lista de alertas para todas las temperaturas
@@ -540,12 +540,12 @@ temperaturas = [
 # Instrucciones:
 # - Guardar las alertas en una variable llamada alertas_criticas.
 alertas_criticas = [
-	# - Crear una cadena de texto con el formato indicado.
-	f"ALERTA: {temperatura}°C"
-	# - Recorrer todas las temperaturas utilizando una List Comprehension.
-	for temperatura in temperaturas
-	# - Filtrar únicamente las temperaturas superiores a 40.
-	if temperatura > 40
+    # - Crear una cadena de texto con el formato indicado.
+    f"ALERTA: {temperatura}°C"
+    # - Recorrer todas las temperaturas utilizando una List Comprehension.
+    for temperatura in temperaturas
+    # - Filtrar únicamente las temperaturas superiores a 40.
+    if temperatura > 40
 ]
 
 # - Mostrar el resultado.
@@ -559,12 +559,12 @@ Un sistema de seguridad almacena eventos en la siguiente estructura:
 
 ```python
 eventos = [
-	("LOGIN_SUCCESS", 120),
-	("LOGIN_FAILED", 18),
-	("FILE_ACCESS", 320),
-	("LOGIN_FAILED", 24),
-	("FILE_DELETE", 8),
-	("LOGIN_FAILED", 41)
+    ("LOGIN_SUCCESS", 120),
+    ("LOGIN_FAILED", 18),
+    ("FILE_ACCESS", 320),
+    ("LOGIN_FAILED", 24),
+    ("FILE_DELETE", 8),
+    ("LOGIN_FAILED", 41)
 ]
 ```
 
@@ -582,16 +582,16 @@ Instrucciones:
 - Guardar el resultado en una variable llamada `intentos_fallidos`.
 - Mostrar la lista obtenida.
 
-```python run="Practicar >>" hidden
+```python practice
 # Un sistema de seguridad almacena eventos en la siguiente estructura:
 #
 # eventos = [
-#	("LOGIN_SUCCESS", 120),
-#	("LOGIN_FAILED", 18),
-#	("FILE_ACCESS", 320),
-#	("LOGIN_FAILED", 24),
-#	("FILE_DELETE", 8),
-#	("LOGIN_FAILED", 41)
+#   ("LOGIN_SUCCESS", 120),
+#   ("LOGIN_FAILED", 18),
+#   ("FILE_ACCESS", 320),
+#   ("LOGIN_FAILED", 24),
+#   ("FILE_DELETE", 8),
+#   ("LOGIN_FAILED", 41)
 # ]
 #
 # Debes identificar aquellos eventos correspondientes a intentos
@@ -610,26 +610,26 @@ Instrucciones:
 # - Mostrar la lista obtenida.
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # Un sistema de seguridad almacena eventos en la siguiente estructura:
 #
 # eventos = [
-#	("LOGIN_SUCCESS", 120),
-#	("LOGIN_FAILED", 18),
-#	("FILE_ACCESS", 320),
-#	("LOGIN_FAILED", 24),
-#	("FILE_DELETE", 8),
-#	("LOGIN_FAILED", 41)
+#   ("LOGIN_SUCCESS", 120),
+#   ("LOGIN_FAILED", 18),
+#   ("FILE_ACCESS", 320),
+#   ("LOGIN_FAILED", 24),
+#   ("FILE_DELETE", 8),
+#   ("LOGIN_FAILED", 41)
 # ]
 
 eventos = [
-	("LOGIN_SUCCESS", 120),
-	("LOGIN_FAILED", 18),
-	("FILE_ACCESS", 320),
-	("LOGIN_FAILED", 24),
-	("FILE_DELETE", 8),
-	("LOGIN_FAILED", 41)
+    ("LOGIN_SUCCESS", 120),
+    ("LOGIN_FAILED", 18),
+    ("FILE_ACCESS", 320),
+    ("LOGIN_FAILED", 24),
+    ("FILE_DELETE", 8),
+    ("LOGIN_FAILED", 41)
 ]
 
 # Debes identificar aquellos eventos correspondientes a intentos
@@ -642,14 +642,14 @@ eventos = [
 # - Utilizar una List Comprehension.
 # - Guardar el resultado en una variable llamada intentos_fallidos.
 intentos_fallidos = [
-	# - Recorrer cada tupla de la lista.
-	cantidad
-	# - Separar el tipo de evento y la cantidad.
-	for tipo_evento, cantidad in eventos
-	# - Filtrar únicamente los eventos "LOGIN_FAILED".
-	if tipo_evento == "LOGIN_FAILED"
-	# - Conservar solo aquellos cuya cantidad sea mayor a 20.
-	and cantidad > 20
+    # - Recorrer cada tupla de la lista.
+    cantidad
+    # - Separar el tipo de evento y la cantidad.
+    for tipo_evento, cantidad in eventos
+    # - Filtrar únicamente los eventos "LOGIN_FAILED".
+    if tipo_evento == "LOGIN_FAILED"
+    # - Conservar solo aquellos cuya cantidad sea mayor a 20.
+    and cantidad > 20
 ]
 
 # - Mostrar la lista obtenida.
@@ -677,7 +677,7 @@ Instrucciones:
 - Guardar el resultado en una variable llamada coordenadas.
 - Mostrar la lista obtenida.
 
-```python run="Practicar >>" hidden
+```python practice
 # Un videojuego necesita generar posiciones válidas dentro de un mapa
 # bidimensional.
 #
@@ -697,8 +697,8 @@ Instrucciones:
 # - Mostrar la lista obtenida.
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # Un videojuego necesita generar posiciones válidas dentro de un mapa
 # bidimensional.
 #
@@ -713,13 +713,13 @@ Instrucciones:
 # - Utilizar una List Comprehension anidada.
 # - Guardar el resultado en una variable llamada coordenadas.
 coordenadas = [
-	# - Generar todas las combinaciones posibles de coordenadas.
-	(x, y)
-	for x in range(1, 11)
-	for y in range(1, 11)
-	# - Evaluar la suma de cada coordenada.
-	# - Conservar únicamente aquellas cuya suma sea múltiplo de 4.
-	if (x + y) % 4 == 0
+    # - Generar todas las combinaciones posibles de coordenadas.
+    (x, y)
+    for x in range(1, 11)
+    for y in range(1, 11)
+    # - Evaluar la suma de cada coordenada.
+    # - Conservar únicamente aquellas cuya suma sea múltiplo de 4.
+    if (x + y) % 4 == 0
 ]
 
 # - Mostrar la lista obtenida.

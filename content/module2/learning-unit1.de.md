@@ -20,7 +20,7 @@ Es wird nur ausgeführt, wenn die Bedingung wahr ist.
 ```python run
 alter = 18
 if alter >= 18:
-	print("Du bist volljährig")
+    print("Du bist volljährig")
 ```
 
 ```output
@@ -34,9 +34,9 @@ Es wird verwendet, um zusätzliche Bedingungen zu prüfen, wenn die `if`-Bedingu
 ```python run
 note = 75
 if note >= 90:
-	print("Ausgezeichnet")
+    print("Ausgezeichnet")
 elif note >= 70:
-	print("Bestanden")
+    print("Bestanden")
 ```
 
 ```output
@@ -50,16 +50,16 @@ Es wird nur ausgeführt, wenn alle vorherigen Bedingungen falsch waren.
 ```python run
 temperatur = 10
 if temperatur > 25:
-	print("Es ist heiß")
+    print("Es ist heiß")
 else:
-	print("Es ist kalt")
+    print("Es ist kalt")
 ```
 
 ```output
 Es ist kalt
 ```
 
-:::note[Hinweis:]
+:::note
 `else` hat keine Bedingung, da es als letzte Option ausgeführt wird, wenn keine der vorherigen Bedingungen zutrifft.
 :::
 
@@ -70,11 +70,11 @@ Du kannst `if`, mehrere `elif`-Anweisungen und ein `else` kombinieren, um mehrer
 ```python run
 x = 0
 if x > 0:
-	print("Positiv")
+    print("Positiv")
 elif x < 0:
-	print("Negativ")
+    print("Negativ")
 else:
-	print("Null")
+    print("Null")
 ```
 
 ```output
@@ -83,7 +83,7 @@ Null
 
 Diese Art von Struktur hilft dabei, reale Prozesse zu modellieren: Noten bewerten, Altersgruppen einteilen, Optionen auswählen usw.
 
-:::tip[Tipp:]
+:::tip
 Wenn du viele Bedingungen hast, ordne sie von der spezifischsten bis zur allgemeinsten, um zu verhindern, dass eine breite Bedingung genauere Bedingungen blockiert.
 :::
 
@@ -108,14 +108,14 @@ alter = 20
 hat_ausweis = True
 
 if alter >= 18 and hat_ausweis:
-	print("Du darfst eintreten")
+    print("Du darfst eintreten")
 ```
 
 ```output
 Du darfst eintreten
 ```
 
-:::note[Hinweis:]
+:::note
 Bedingungen können so einfach oder so komplex sein, wie du sie brauchst. Es ist jedoch gute Praxis, sie klar und lesbar zu halten.
 :::
 
@@ -127,9 +127,9 @@ Bedingungen können so einfach oder so komplex sein, wie du sie brauchst. Es ist
 zahl = 8
 
 if zahl % 2 == 0:
-	print("Gerade")
+    print("Gerade")
 else:
-	print("Ungerade")
+    print("Ungerade")
 ```
 
 ```output
@@ -142,11 +142,11 @@ Gerade
 alter = 15
 
 if alter < 13:
-	print("Kind")
+    print("Kind")
 elif alter < 18:
-	print("Teenager")
+    print("Teenager")
 else:
-	print("Erwachsener")
+    print("Erwachsener")
 ```
 
 ```output
@@ -159,9 +159,9 @@ Teenager
 passwort = "python123%"
 
 if passwort == "python123%":
-	print("Zugriff erlaubt")
+    print("Zugriff erlaubt")
 else:
-	print("Zugriff verweigert")
+    print("Zugriff verweigert")
 ```
 
 ```output
@@ -178,21 +178,21 @@ Wenn das Alter 18 oder älter ist, zeige „Volljährig“.
 
 Andernfalls zeige „Minderjährig“.
 
-```python run="Üben >>" hidden
+```python practice
 # Erstelle eine Variable mit einem Alter
 # (z.B.: alter = 17).
 # Wenn das Alter 18 oder älter ist, zeige "Volljährig".
 # Andernfalls zeige "Minderjährig"
 ```
 
-:::details[Mögliche Lösung anzeigen]
-```python run="Lösung Ausprobieren >>"
+:::details
+```python run
 alter = 17
 
 if alter >= 18:
-	print("Volljährig")
+    print("Volljährig")
 else:
-	print("Minderjährig")
+    print("Minderjährig")
 ```
 :::
 
@@ -202,22 +202,22 @@ Erstelle eine Variable namens `n` und weise ihr einen Zahlenwert zu.
 
 Zeige an, ob die Zahl positiv, negativ oder null ist.
 
-```python run="Üben >>" hidden
+```python practice
 # Erstelle eine Variable namens n und weise ihr
 # einen Zahlenwert zu.
 # Zeige an, ob die Zahl positiv, negativ oder null ist
 ```
 
-:::details[Mögliche Lösung anzeigen]
-```python run="Lösung Ausprobieren >>"
+:::details
+```python run
 n = -5
 
 if n > 0:
-	print("Positiv")
+    print("Positiv")
 elif n < 0:
-	print("Negativ")
+    print("Negativ")
 else:
-	print("Null")
+    print("Null")
 ```
 :::
 
@@ -230,7 +230,7 @@ Erstelle zwei Variablen:
 
 Wenn die Person ein Ticket hat und 16 Jahre oder älter ist, zeige „Willkommen“. Andernfalls zeige „Du kannst nicht eintreten“.
 
-```python run="Üben >>" hidden
+```python practice
 # Erstelle zwei Variablen:
 # alter
 # hat_eintritt (True oder False)
@@ -239,15 +239,15 @@ Wenn die Person ein Ticket hat und 16 Jahre oder älter ist, zeige „Willkommen
 # Andernfalls zeige "Du kannst nicht eintreten"
 ```
 
-:::details[Mögliche Lösung anzeigen]
-```python run="Lösung Ausprobieren >>"
+:::details
+```python run
 alter = 16
 hat_eintritt = True
 
 if alter >= 16 and hat_eintritt:
-	print("Willkommen")
+    print("Willkommen")
 else:
-	print("Du kannst nicht eintreten")
+    print("Du kannst nicht eintreten")
 ```
 :::
 

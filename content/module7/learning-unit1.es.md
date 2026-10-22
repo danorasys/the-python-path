@@ -41,7 +41,7 @@ En este caso, Python informa que la variable `numero2` no existe.
 
 Gracias a estos mensajes es posible identificar rápidamente la causa del problema y corregir el código.
 
-:::note[Nota:]
+:::note
 Si estás utilizando esta plataforma para ejecutar el código directamente desde el navegador, es posible que observes mensajes de error más extensos que los mostrados habitualmente en un entorno local de Python. Esto ocurre porque el código es ejecutado mediante una versión de Python integrada en el navegador (**_Pyodide_**), la cual añade información interna relacionada con el proceso de ejecución.
 :::
 
@@ -91,7 +91,7 @@ Código incorrecto:
 edad = 20
 
 if edad >= 18
-	print("Mayor de edad")
+    print("Mayor de edad")
 ```
 
 ```output
@@ -107,7 +107,7 @@ Corrección:
 edad = 20
 
 if edad >= 18:
-	print("Mayor de edad")
+    print("Mayor de edad")
 ```
 
 ```output
@@ -165,14 +165,14 @@ Corrección:
 numero = 8
 
 if numero > 5:
-	print("Es mayor que cinco")
+    print("Es mayor que cinco")
 ```
 
 ```output
 Es mayor que cinco
 ```
 
-:::note[Nota:]
+:::note
 Aunque `IndentationError` aparece con un nombre diferente, forma parte de los errores relacionados con la sintaxis del lenguaje, ya que la indentación constituye una regla obligatoria en Python.
 :::
 
@@ -281,7 +281,7 @@ TypeError: unsupported operand type(s) for +: 'int' and 'str'
 
 No es posible sumar directamente un entero y una cadena.
 
-:::note[Nota:]
+:::note
 Los errores en tiempo de ejecución suelen ser los más frecuentes durante el desarrollo de software, ya que muchas veces dependen de los datos proporcionados por el usuario y no únicamente del código escrito por el programador.
 :::
 
@@ -342,9 +342,9 @@ Código:
 edad = 18
 
 if edad > 18:
-	print("Usted es un adulto, puede ingresar")
+    print("Usted es un adulto, puede ingresar")
 else:
-	print("Usted no es un adulto, no puede ingresar")
+    print("Usted no es un adulto, no puede ingresar")
 ```
 
 ```output
@@ -359,9 +359,9 @@ Corrección:
 edad = 18
 
 if edad >= 18:
-	print("Usted es un adulto, puede ingresar")
+    print("Usted es un adulto, puede ingresar")
 else:
-	print("Usted no es un adulto, no puede ingresar")
+    print("Usted no es un adulto, no puede ingresar")
 ```
 
 ```output
@@ -402,7 +402,7 @@ print(promedio)
 
 Se podría considerar redondear el resultado a dos decimales, por ejemplo.
 
-:::note[Nota:]
+:::note
 Los errores lógicos son especialmente peligrosos porque pueden pasar desapercibidos durante mucho tiempo si no se prueban cuidadosamente los resultados obtenidos por el programa.
 :::
 
@@ -423,7 +423,7 @@ Los errores lógicos son especialmente peligrosos porque pueden pasar desapercib
 numero = 15
 
 if numero > 10
-	print("Número válido")
+    print("Número válido")
 ```
 
 ```output
@@ -515,7 +515,7 @@ estudiantes = ["Ana", "Carlos", "Luisa", "Pedro"]
 notas = [4.5, 3.8, 4.9, 4.2]
 
 for i in range(len(estudiantes))
-	print(estudiantes[i], "obtuvo", notas[i])
+    print(estudiantes[i], "obtuvo", notas[i])
 
 print("Proceso finalizado")
 ```
@@ -530,7 +530,7 @@ Debes modificar el código para cumplir con los siguientes objetivos:
 - Mostrar el nombre de cada estudiante junto con su respectiva nota.
 - Confirmar que el programa finalice mostrando el mensaje correspondiente.
 
-```python run="Practicar >>" hidden
+```python practice
 # Una institución educativa está desarrollando un sistema para
 # registrar las calificaciones de varios estudiantes. Sin embargo, el
 # programa contiene diferentes errores que impiden su correcto
@@ -550,7 +550,7 @@ Debes modificar el código para cumplir con los siguientes objetivos:
 # notas = [4.5, 3.8, 4.9, 4.2]
 #
 # for i in range(len(estudiantes))
-# 	print(estudiantes[i], "obtuvo", notas[i])
+#   print(estudiantes[i], "obtuvo", notas[i])
 #
 # print("Proceso finalizado")
 #
@@ -567,8 +567,8 @@ Debes modificar el código para cumplir con los siguientes objetivos:
 #   correspondiente.
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # Crear la lista de estudiantes.
 estudiantes = ["Ana", "Carlos", "Luisa", "Pedro"]
 
@@ -578,8 +578,8 @@ notas = [4.5, 3.8, 4.9, 4.2]
 # Corregir el error de sintaxis agregando los dos puntos al final del ciclo for.
 for i in range(len(estudiantes)):
 
-	# Mostrar el nombre del estudiante junto con su calificación correspondiente.
-	print(estudiantes[i], "obtuvo", notas[i])
+    # Mostrar el nombre del estudiante junto con su calificación correspondiente.
+    print(estudiantes[i], "obtuvo", notas[i])
 
 # Confirmar que el programa terminó correctamente.
 print("Proceso finalizado")
@@ -598,16 +598,16 @@ Código inicial:
 
 ```python
 productos = [
-	"Mouse",
-	"Teclado",
-	"Monitor",
-	"Impresora"
+    "Mouse",
+    "Teclado",
+    "Monitor",
+    "Impresora"
 ]
 
 cantidades = [15, 8, 12]
 
 for i in range(len(productos)):
-	print(productos[i], "-", cantidades[i])
+    print(productos[i], "-", cantidades[i])
 ```
 
 Instrucciones:
@@ -622,7 +622,7 @@ Analiza cuidadosamente el código anterior y realiza las siguientes actividades:
 - Mostrar el nombre de cada producto junto con la cantidad disponible.
 - Verificar que el programa termine sin generar excepciones.
 
-```python run="Practicar >>" hidden
+```python practice
 # Una empresa almacena la información de sus productos utilizando dos
 # listas: una contiene los nombres de los productos y otra las
 # cantidades disponibles.
@@ -636,16 +636,16 @@ Analiza cuidadosamente el código anterior y realiza las siguientes actividades:
 # Código inicial:
 #
 # productos = [
-# 	"Mouse",
-# 	"Teclado",
-# 	"Monitor",
-# 	"Impresora"
+#   "Mouse",
+#   "Teclado",
+#   "Monitor",
+#   "Impresora"
 # ]
 #
 # cantidades = [15, 8, 12]
 #
 # for i in range(len(productos)):
-# 	print(productos[i], "-", cantidades[i])
+#   print(productos[i], "-", cantidades[i])
 #
 # Instrucciones:
 #
@@ -663,14 +663,14 @@ Analiza cuidadosamente el código anterior y realiza las siguientes actividades:
 # - Verificar que el programa termine sin generar excepciones.
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # Crear la lista con los nombres de los productos.
 productos = [
-	"Mouse",
-	"Teclado",
-	"Monitor",
-	"Impresora"
+    "Mouse",
+    "Teclado",
+    "Monitor",
+    "Impresora"
 ]
 
 # Corregir la lista agregando la cantidad faltante.
@@ -679,8 +679,8 @@ cantidades = [15, 8, 12, 6]
 # Recorrer ambas listas utilizando sus índices.
 for i in range(len(productos)):
 
-	# Mostrar el producto junto con su cantidad correspondiente.
-	print(productos[i], "-", cantidades[i])
+    # Mostrar el producto junto con su cantidad correspondiente.
+    print(productos[i], "-", cantidades[i])
 
 # Mostrar un mensaje indicando que el recorrido terminó correctamente.
 print("Inventario procesado correctamente.")
@@ -706,13 +706,13 @@ descuento = 15
 
 for precio in precios
 
-	if precio > 100:
+    if precio > 100:
 
-		precio_final = precio + (precio * descuento / 100)
+        precio_final = precio + (precio * descuento / 100)
 
-	else
+    else
 
-		precio_final = precio
+        precio_final = precio
 
 print("Precio final:", precio_final)
 
@@ -734,7 +734,7 @@ Para ello deberás:
 - Verificar que el programa complete toda su ejecución sin producir excepciones.
 - Mostrar un mensaje indicando que el procesamiento de ventas finalizó correctamente.
 
-```python run="Practicar >>" hidden
+```python practice
 # Una tienda desea calcular el precio final de varios productos
 # aplicando un descuento del 15% a aquellos cuyo precio sea superior a
 # 100 unidades monetarias.
@@ -759,13 +759,13 @@ Para ello deberás:
 #
 # for precio in precios
 #
-# 	if precio > 100:
+#   if precio > 100:
 #
-# 		precio_final = precio + (precio * descuento / 100)
+#       precio_final = precio + (precio * descuento / 100)
 #
-# 	else
+#   else
 #
-# 		precio_final = precio
+#       precio_final = precio
 #
 # print("Precio final:", precio_final)
 #
@@ -793,8 +793,8 @@ Para ello deberás:
 #   finalizó correctamente.
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # Crear la lista con los precios de los productos.
 precios = [80, 150, 220, 95, 310]
 
@@ -804,19 +804,19 @@ descuento = 15
 # Recorrer todos los precios almacenados en la lista.
 for precio in precios:
 
-	# Verificar si el producto debe recibir descuento.
-	if precio > 100:
+    # Verificar si el producto debe recibir descuento.
+    if precio > 100:
 
-		# Corregir el error lógico restando el descuento al precio original.
-		precio_final = precio - (precio * descuento / 100)
+        # Corregir el error lógico restando el descuento al precio original.
+        precio_final = precio - (precio * descuento / 100)
 
-	# Mantener el precio original cuando no aplica descuento.
-	else:
+    # Mantener el precio original cuando no aplica descuento.
+    else:
 
-		precio_final = precio
+        precio_final = precio
 
-	# Mostrar el precio final correspondiente al producto procesado.
-	print("Precio final:", precio_final)
+    # Mostrar el precio final correspondiente al producto procesado.
+    print("Precio final:", precio_final)
 
 # Eliminar el acceso a una posición inexistente de la lista para evitar un IndexError.
 

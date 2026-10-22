@@ -26,7 +26,7 @@ Por ejemplo:
 
 ```python run
 def saludar():
-	print("Hola")
+    print("Hola")
 
 print(type(saludar))
 ```
@@ -43,7 +43,7 @@ Una función puede almacenarse dentro de una variable.
 
 ```python run
 def saludar():
-	print("Hola")
+    print("Hola")
 
 mensaje = saludar
 
@@ -74,7 +74,7 @@ mensaje()
 
 ejecuta exactamente la misma función.
 
-:::note[Nota:]
+:::note
 Existe una diferencia importante entre:\
 `mensaje = saludar`\
 y\
@@ -89,14 +89,14 @@ Las funciones pueden almacenarse dentro de listas.
 
 ```python run
 def sumar(a, b):
-	return a + b
+    return a + b
 
 def multiplicar(a, b):
-	return a * b
+    return a * b
 
 operaciones = [
-	sumar,
-	multiplicar
+    sumar,
+    multiplicar
 ]
 
 print(operaciones[0](5, 3))
@@ -114,10 +114,10 @@ Una función puede recibir otra función como argumento.
 
 ```python run
 def saludar():
-	print("Hola")
+    print("Hola")
 
 def ejecutar(funcion):
-	funcion()
+    funcion()
 
 ejecutar(saludar)
 ```
@@ -134,10 +134,10 @@ La función `ejecutar()` puede trabajar con cualquier función compatible.
 
 ```python run
 def ejecutar(funcion):
-	funcion()
+    funcion()
 
 def despedirse():
-	print("Adiós")
+    print("Adiós")
 
 ejecutar(despedirse)
 ```
@@ -150,14 +150,14 @@ Adiós
 
 ```python run
 def cuadrado(numero):
-	return numero ** 2
+    return numero ** 2
 
 def cubo(numero):
-	return numero ** 3
+    return numero ** 3
 
 def procesar(valor, operacion):
-	resultado = operacion(valor)
-	return resultado
+    resultado = operacion(valor)
+    return resultado
 
 print(procesar(4, cuadrado))
 print(procesar(4, cubo))
@@ -168,7 +168,7 @@ print(procesar(4, cubo))
 64
 ```
 
-:::note[Nota:]
+:::note
 Cuando una función recibe otra función como parámetro se suele decir que trabaja con una función de orden superior (**Higher-Order Function**).
 :::
 
@@ -179,10 +179,10 @@ Una función también puede devolver otra función.
 ```python run
 def crear_saludo():
 
-	def saludar():
-		print("Bienvenido")
+    def saludar():
+        print("Bienvenido")
 
-	return saludar
+    return saludar
 
 funcion = crear_saludo()
 
@@ -216,10 +216,10 @@ almacena una función dentro de la variable `funcion`.
 ```python run
 def crear_multiplicador(factor):
 
-	def multiplicar(numero):
-		return numero * factor
+    def multiplicar(numero):
+        return numero * factor
 
-	return multiplicar
+    return multiplicar
 
 duplicar = crear_multiplicador(2)
 
@@ -234,7 +234,7 @@ print(triplicar(10))
 30
 ```
 
-:::note[Nota:]
+:::note
 Este comportamiento es la base de los llamados **Closures**, un concepto muy utilizado en programación funcional.
 :::
 
@@ -244,15 +244,15 @@ La función `map()` recibe una función como argumento.
 
 ```python run
 def cuadrado(numero):
-	return numero ** 2
+    return numero ** 2
 
 numeros = [1, 2, 3, 4, 5]
 
 resultado = list(
-	map(
-		cuadrado,
-		numeros
-	)
+    map(
+        cuadrado,
+        numeros
+    )
 )
 
 print(resultado)
@@ -268,15 +268,15 @@ La función `filter()` también recibe funciones.
 
 ```python run
 def es_par(numero):
-	return numero % 2 == 0
+    return numero % 2 == 0
 
 numeros = [1, 2, 3, 4, 5, 6]
 
 resultado = list(
-	filter(
-		es_par,
-		numeros
-	)
+    filter(
+        es_par,
+        numeros
+    )
 )
 
 print(resultado)
@@ -292,15 +292,15 @@ print(resultado)
 
 ```python run
 nombres = [
-	"Alejandro",
-	"Ana",
-	"Carlos",
-	"Beatriz"
+    "Alejandro",
+    "Ana",
+    "Carlos",
+    "Beatriz"
 ]
 
 resultado = sorted(
-	nombres,
-	key=len
+    nombres,
+    key=len
 )
 
 print(resultado)
@@ -310,7 +310,7 @@ print(resultado)
 ['Ana', 'Carlos', 'Beatriz', 'Alejandro']
 ```
 
-:::tip[Tip:]
+:::tip
 Muchas funciones integradas de Python aprovechan la capacidad de tratar funciones como objetos para ofrecer comportamientos personalizables.
 :::
 
@@ -344,7 +344,7 @@ Instrucciones:
 - Ejecutar cada operación utilizando la misma función principal.
 - Mostrar todos los resultados.
 
-```python run="Practicar >>" hidden
+```python practice
 # Una calculadora avanzada necesita permitir que diferentes
 # operaciones matemáticas puedan ejecutarse utilizando una única
 # función central.
@@ -363,27 +363,27 @@ Instrucciones:
 # - Mostrar todos los resultados.
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # Crear una función que realice una suma.
 def sumar(a, b):
-	return a + b
+    return a + b
 
 # Crear una función que realice una resta.
 def restar(a, b):
-	return a - b
+    return a - b
 
 # Crear una función que realice una multiplicación.
 def multiplicar(a, b):
-	return a * b
+    return a * b
 
 # Crear una función que realice una división.
 def dividir(a, b):
-	return a / b
+    return a / b
 
 # Crear una función que reciba otra función como parámetro.
 def ejecutar_operacion(numero1, numero2, operacion):
-	return operacion(numero1, numero2)
+    return operacion(numero1, numero2)
 
 # Ejecutar la suma utilizando la función principal.
 print(ejecutar_operacion(20, 5, sumar))
@@ -421,7 +421,7 @@ Instrucciones:
 - Aplicar la función recibida.
 - Mostrar varios ejemplos de uso.
 
-```python run="Practicar >>" hidden
+```python practice
 # Una universidad necesita aplicar diferentes transformaciones a las
 # notas de los estudiantes.
 #
@@ -444,23 +444,23 @@ Instrucciones:
 # - Mostrar varios ejemplos de uso.
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # Crear una función que aumente una nota en cinco puntos.
 def bonificacion_cinco(calificacion):
-	return calificacion + 5
+    return calificacion + 5
 
 # Crear una función que aumente una nota en diez puntos.
 def bonificacion_diez(calificacion):
-	return calificacion + 10
+    return calificacion + 10
 
 # Crear una función que reduzca una nota en dos puntos.
 def penalizacion_dos(calificacion):
-	return calificacion - 2
+    return calificacion - 2
 
 # Crear una función que reciba otra función como argumento.
 def procesar_calificacion(calificacion, operacion):
-	return operacion(calificacion)
+    return operacion(calificacion)
 
 # Aplicar la bonificación de cinco puntos.
 print(procesar_calificacion(70, bonificacion_cinco))
@@ -491,7 +491,7 @@ Instrucciones:
 - Crear una función para multiplicar por diez.
 - Probar cada una de ellas.
 
-```python run="Practicar >>" hidden
+```python practice
 # Una aplicación científica necesita crear funciones capaces de
 # multiplicar valores por factores configurables.
 #
@@ -511,17 +511,17 @@ Instrucciones:
 # - Probar cada una de ellas.
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # Crear una función que genere multiplicadores personalizados.
 def crear_multiplicador(factor):
 
-	# Crear una función interna que utilice el factor recibido.
-	def multiplicar(numero):
-		return numero * factor
+    # Crear una función interna que utilice el factor recibido.
+    def multiplicar(numero):
+        return numero * factor
 
-	# Retornar la función creada.
-	return multiplicar
+    # Retornar la función creada.
+    return multiplicar
 
 # Crear una función para duplicar valores.
 duplicar = crear_multiplicador(2)
@@ -559,7 +559,7 @@ Instrucciones:
 - Ejecutar varias validaciones utilizando la misma función principal.
 - Mostrar los resultados obtenidos.
 
-```python run="Practicar >>" hidden
+```python practice
 # Una empresa recibe información de múltiples fuentes y necesita
 # validar los datos mediante diferentes reglas.
 #
@@ -575,23 +575,23 @@ Instrucciones:
 # - Mostrar los resultados obtenidos.
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # Crear una función que determine si un número es positivo.
 def es_positivo(numero):
-	return numero > 0
+    return numero > 0
 
 # Crear una función que determine si un número es par.
 def es_par(numero):
-	return numero % 2 == 0
+    return numero % 2 == 0
 
 # Crear una función que determine si un número es mayor que cien.
 def es_mayor_que_cien(numero):
-	return numero > 100
+    return numero > 100
 
 # Crear una función que reciba una función de validación.
 def validar_dato(valor, regla):
-	return regla(valor)
+    return regla(valor)
 
 # Validar si un número es positivo.
 print(validar_dato(50, es_positivo))
@@ -625,7 +625,7 @@ Instrucciones:
 - Construir una nueva lista con los resultados.
 - Mostrar los resultados de las tres transformaciones.
 
-```python run="Practicar >>" hidden
+```python practice
 # Una empresa almacena información de ventas y desea aplicar
 # diferentes estrategias de procesamiento sobre la misma colección de
 # datos.
@@ -645,33 +645,33 @@ Instrucciones:
 # - Mostrar los resultados de las tres transformaciones.
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # Crear una función que aplique un descuento del diez por ciento.
 def aplicar_descuento(valor):
-	return valor * 0.90
+    return valor * 0.90
 
 # Crear una función que aplique un incremento del quince por ciento.
 def aplicar_incremento(valor):
-	return valor * 1.15
+    return valor * 1.15
 
 # Crear una función que convierta el valor a una descripción textual.
 def convertir_descripcion(valor):
-	return f"Venta registrada: {valor}"
+    return f"Venta registrada: {valor}"
 
 # Crear una función que procese una lista utilizando otra función.
 def procesar_lista(lista, funcion):
 
-	resultado = []
+    resultado = []
 
-	# Recorrer todos los elementos de la lista.
-	for elemento in lista:
+    # Recorrer todos los elementos de la lista.
+    for elemento in lista:
 
-		# Aplicar la función recibida al elemento actual.
-		resultado.append(funcion(elemento))
+        # Aplicar la función recibida al elemento actual.
+        resultado.append(funcion(elemento))
 
-	# Retornar la nueva lista construida.
-	return resultado
+    # Retornar la nueva lista construida.
+    return resultado
 
 ventas = [1200, 1500, 1800, 2100, 2400]
 

@@ -45,7 +45,7 @@ print(a ** b)    # 1000 -> 10^3
 1000
 ```
 
-:::note[Nota:]
+:::note
 La división `/` siempre devuelve un `float` (número decimal). Si quieres una división sin decimales, usa `//`.
 :::
 
@@ -169,7 +169,7 @@ Asigna valores numéricos y muestra:
 - El promedio.
 - El resultado de `a * c`.
 
-```python run="Practicar >>" hidden
+```python practice
 # Crea tres variables: a, b, c.
 # Asigna valores numéricos y muestra:
 # - La suma de los tres
@@ -177,8 +177,8 @@ Asigna valores numéricos y muestra:
 # - El resultado de a * c
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 a = 10
 b = 20
 c = 5
@@ -203,7 +203,7 @@ parte2 = "es "
 parte3 = "genial"
 ```
 
-```python run="Practicar >>" hidden
+```python practice
 # Une las siguientes partes para formar una única
 # frase (Muéstrala en pantalla):
 # parte1 = "Python "
@@ -211,8 +211,8 @@ parte3 = "genial"
 # parte3 = "genial"
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 parte1 = "Python "
 parte2 = "es "
 parte3 = "genial"
@@ -226,14 +226,14 @@ print(frase)
 
 Crea una variable que contenga un símbolo (por ejemplo "\*") y repítelo 20 veces (Muéstralo en pantalla).
 
-```python run="Practicar >>" hidden
+```python practice
 # Crea una variable que contenga un símbolo
 # (por ejemplo "*") y repítelo 20 veces
 # (Muéstralo en pantalla)
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 simbolo = "*"
 print(simbolo * 20)
 ```
@@ -249,15 +249,15 @@ numero = "40"
 
 Convierte el número a entero y súmale 7. Por último, muestra el resultado en pantalla.
 
-```python run="Practicar >>" hidden
+```python practice
 # Tienes un número almacenado como texto:
 # numero = "40"
 # Convierte el número a entero y súmale 7.
 # Por último, muestra el resultado en pantalla
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 numero = "40"
 numero = int(numero)
 print(numero + 7)
@@ -281,7 +281,7 @@ Linus tiene 55 años
 
 Por último, muestra el mensaje en pantalla.
 
-```python run="Practicar >>" hidden
+```python practice
 # Con las siguientes variables:
 # nombre = "Linus"
 # edad = 55
@@ -289,8 +289,8 @@ Por último, muestra el mensaje en pantalla.
 # Por último, muestra el mensaje en pantalla
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 nombre = "Linus"
 edad = 55
 

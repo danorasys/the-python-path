@@ -7,7 +7,7 @@ summary: How to display text on the screen and understand the basic structure of
 
 A program in Python is simply a text file that contains instructions which the interpreter will execute line by line. The minimal structure of a program can be as simple as a single line that displays a message on the screen.
 
-:::note[Note:]
+:::note
 In Python, each line is executed in order, from top to bottom. You don’t need a mandatory main function like in other languages.
 :::
 
@@ -31,7 +31,7 @@ Hello, World
 print("Hello, World")
 ```
 
-:::tip[Tip:]
+:::tip
 Everything you want to display must go inside the parentheses of `print()`. If it is text, it must be enclosed in quotation marks.
 :::
 
@@ -71,7 +71,7 @@ Learning Python is fun
 Python
 ```
 
-:::note[Note:]
+:::note
 Unlike many languages, Python does not require you to declare the variable type; simply assigning it is enough.
 :::
 
@@ -87,7 +87,7 @@ print("Your age is:", 22)
 Your age is: 22
 ```
 
-:::note[Note:]
+:::note
 When you use commas inside `print()`, Python automatically adds a space between each element.
 :::
 
@@ -123,7 +123,7 @@ print("World")
 Hello...World
 ```
 
-:::note[Note:]
+:::note
 By default, `end` uses `\n`, that is, a newline. That’s why each `print()` appears on a new line.
 :::
 
@@ -148,7 +148,7 @@ Line 2
 Line 3
 ```
 
-:::tip[Note:]
+:::note
 Escape sequences allow you to control exactly how the text you print looks. They are very useful for displaying menus or formatted output.
 :::
 
@@ -182,7 +182,7 @@ Hello from my first Python program
 print("Hello from my first Python program")
 ```
 
-:::tip[Tip]
+:::tip
 Think of a program as a list of instructions. If you have two lines:
 :::
 
@@ -216,7 +216,7 @@ print("Welcome,", name, "to the world of Python!")
 Welcome, YOUR NAME to the world of Python!
 ```
 
-:::note[Note:]
+:::note
 You can replace `"YOUR NAME"` with your own name.
 :::
 

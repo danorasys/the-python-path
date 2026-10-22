@@ -26,14 +26,14 @@ La estructura básica de una función en Python es:
 
 ```python
 def nombre_funcion():
-	instrucciones
+    instrucciones
 ```
 
 Ejemplo:
 
 ```python
 def saludar():
-	print("Hola, bienvenido al programa")
+    print("Hola, bienvenido al programa")
 ```
 
 ### Ejecutar la Función
@@ -50,12 +50,12 @@ Hola, bienvenido al programa
 
 ```python run hidden
 def saludar():
-	print("Hola, bienvenido al programa")
+    print("Hola, bienvenido al programa")
 
 saludar()
 ```
 
-:::note[Nota:]
+:::note
 Definir una función no ejecuta el código automáticamente. Es necesario llamar la función para que se ejecute.
 :::
 
@@ -63,7 +63,7 @@ Definir una función no ejecuta el código automáticamente. Es necesario llamar
 
 ```python run
 def mostrar_mensaje():
-	print("Aprendiendo funciones en Python")
+    print("Aprendiendo funciones en Python")
 
 mostrar_mensaje()
 mostrar_mensaje()
@@ -99,7 +99,7 @@ Una función puede ejecutarse muchas veces dentro de un programa.
 
 ```python run
 def bienvenida():
-	print("Bienvenido al sistema")
+    print("Bienvenido al sistema")
 
 bienvenida()
 bienvenida()
@@ -112,7 +112,7 @@ Bienvenido al sistema
 Bienvenido al sistema
 ```
 
-:::tip[Tip:]
+:::tip
 Si ves el mismo bloque de código repetido varias veces, probablemente debería convertirse en una función.
 :::
 
@@ -122,11 +122,11 @@ Ejemplo de un programa organizado con funciones:
 
 ```python run
 def mostrar_titulo():
-	print("Sistema de Registro")
+    print("Sistema de Registro")
 
 def mostrar_menu():
-	print("1. Registrar usuario")
-	print("2. Ver usuarios")
+    print("1. Registrar usuario")
+    print("2. Ver usuarios")
 
 mostrar_titulo()
 mostrar_menu()
@@ -156,7 +156,7 @@ Ejemplo correcto:
 
 ```python
 def ejemplo():
-	print("Dentro de la función")
+    print("Dentro de la función")
 ```
 
 Ejemplo incorrecto:
@@ -170,10 +170,10 @@ print("Error")
 
 ```python run
 def mostrar_bienvenida():
-	print("Bienvenido al programa")
+    print("Bienvenido al programa")
 
 def mostrar_despedida():
-	print("Gracias por usar el programa")
+    print("Gracias por usar el programa")
 
 mostrar_bienvenida()
 mostrar_despedida()
@@ -195,7 +195,7 @@ Crea un programa que realice lo siguiente:
 - Ejecutar la función desde el programa principal.
 - Llamar la función tres veces para observar cómo se reutiliza el código.
 
-```python run="Practicar >>" hidden
+```python practice
 # Crea un programa que realice lo siguiente:
 # 1. Definir una función llamada saludo.
 # 2. Dentro de la función imprimir el mensaje: "Hola,
@@ -205,13 +205,13 @@ Crea un programa que realice lo siguiente:
 # reutiliza el código
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # 1. Definir una función llamada saludo
 def saludo():
-	# 2. Dentro de la función imprimir el mensaje: "Hola,
-	# este es mi primer programa con funciones"
-	print("Hola, este es mi primer programa con funciones")
+    # 2. Dentro de la función imprimir el mensaje: "Hola,
+    # este es mi primer programa con funciones"
+    print("Hola, este es mi primer programa con funciones")
 
 # 3. Ejecutar la función desde el programa principal
 # 4. Llamar la función tres veces para observar cómo se
@@ -238,31 +238,31 @@ Desarrolla un programa que simule un menú simple:
 - Llamar la función desde el programa principal.
 - Ejecutarla dos veces para verificar que funciona correctamente.
 
-```python run="Practicar >>" hidden
+```python practice
 # Desarrolla un programa que simule un menú simple:
 # 1. Crear una función llamada mostrar_menu.
 # 2. Dentro de la función mostrar las siguientes
 # opciones:
-#	1. Ver productos
-#	2. Comprar producto
-#	3. Salir
+#   1. Ver productos
+#   2. Comprar producto
+#   3. Salir
 # 3. Llamar la función desde el programa principal.
 # 4. Ejecutarla dos veces para verificar que funciona
 # correctamente
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # 1. Crear una función llamada mostrar_menu
 def mostrar_menu():
 # 2. Dentro de la función mostrar las siguientes
 # opciones:
-	# 1. Ver productos
-	print("1. Ver productos")
-	# 2. Comprar producto
-	print("2. Comprar producto")
-	# 3. Salir
-	print("3. Salir")
+    # 1. Ver productos
+    print("1. Ver productos")
+    # 2. Comprar producto
+    print("2. Comprar producto")
+    # 3. Salir
+    print("3. Salir")
 
 # 3. Llamar la función desde el programa principal
 # 4. Ejecutarla dos veces para verificar que funciona
@@ -290,7 +290,7 @@ El programa ha iniciado correctamente
 
 - Ejecutar ambas funciones desde el programa principal.
 
-```python run="Practicar >>" hidden
+```python practice
 # Crea un programa que tenga dos funciones diferentes:
 # 1. Una función llamada titulo que imprima: "Sistema
 # de Gestión de Estudiantes"
@@ -300,17 +300,17 @@ El programa ha iniciado correctamente
 # principal
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # 1. Una función llamada titulo que imprima: "Sistema
 # de Gestión de Estudiantes"
 def titulo():
-	print("Sistema de Gestión de Estudiantes")
+    print("Sistema de Gestión de Estudiantes")
 
 # 2. Una función llamada mensaje_inicio que imprima:
 # "El programa ha iniciado correctamente"
 def mensaje_inicio():
-	print("El programa ha iniciado correctamente")
+    print("El programa ha iniciado correctamente")
 
 # 3. Ejecutar ambas funciones desde el programa
 # principal

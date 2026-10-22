@@ -111,30 +111,46 @@ describe("notes, tips and details", () => {
     ]);
   });
 
-  it("allows notes without a label and with several paragraphs", () => {
-    expect(compile(md(":::tip", "Uno.", "", "Dos.", ":::"))).toEqual([{ type: "tip", text: "Uno.<br><br>Dos." }]);
+  it("uses the default label of each language and allows several paragraphs", () => {
+    expect(compile(md(":::tip", "Uno.", "", "Dos.", ":::"))).toEqual([
+      { type: "tip", text: "<strong>Tip:</strong><br>Uno.<br><br>Dos." },
+    ]);
+    expect(compile(md(":::note", "Eins.", ":::"), "de")).toEqual([
+      { type: "note", text: "<strong>Hinweis:</strong><br>Eins." },
+    ]);
+  });
+
+  it("leaves the label out when the brackets are empty", () => {
+    expect(compile(md(":::note[]", "Solo texto.", ":::"))).toEqual([{ type: "note", text: "Solo texto." }]);
   });
 
   it("rejects anything but text inside a note", () => {
     expect(errorOf(() => compile(md(":::note[Nota:]", "- uno", ":::"))).message).toContain("Only text");
   });
 
-  it("builds collapsible sections with nested content", () => {
+  it("builds collapsible sections whose buttons try the solution", () => {
     expect(compile(md(":::details[Ver solución]", "```python run", "print(1)", "```", ":::"))).toEqual([
       {
         type: "collapsible",
         title: "Ver solución",
         content: [
           { type: "code", text: "print(1)", language: "python" },
-          { type: "test-button", text: "Probar >>", code: "print(1)" },
+          { type: "test-button", text: "Probar Solución >>", code: "print(1)" },
         ],
       },
     ]);
   });
 
-  it("requires a title for details and rejects unknown blocks", () => {
-    expect(errorOf(() => compile(md(":::details", "x", ":::"))).message).toContain("needs a title");
+  it("gives details a default title and rejects unknown blocks", () => {
+    expect(compile(md(":::details", "Texto.", ":::"), "en")).toEqual([
+      { type: "collapsible", title: "View possible solution", content: [{ type: "paragraph", text: "Texto." }] },
+    ]);
     expect(errorOf(() => compile(md(":::warning", "x", ":::"))).message).toContain("Available blocks");
+  });
+
+  it("rejects labels left in the default text of another language", () => {
+    expect(errorOf(() => compile(md(":::note[Nota:]", "x", ":::"), "en")).message).toContain("default text of the es files");
+    expect(errorOf(() => compile(md(":::details[View possible solution]", "x", ":::"), "de")).message).toContain("en files");
   });
 });
 
@@ -181,9 +197,35 @@ describe("code blocks", () => {
   });
 
   it("keeps the code exactly as written", () => {
-    expect(compile(md("```python", "if x:", "\tprint('a  b')", "```"))).toEqual([
-      { type: "code", text: "if x:\n\tprint('a  b')", language: "python" },
+    expect(compile(md("```python", "if x:", "    print('a  b')", "```"))).toEqual([
+      { type: "code", text: "if x:\n    print('a  b')", language: "python" },
     ]);
+  });
+
+  it("rejects tabs in Python code and points to the line", () => {
+    const error = errorOf(() => compile(md("Texto", "", "```python", "if x:", "\tprint(1)", "```")));
+    expect(error.message).toContain("spaces instead of tabs");
+    expect(error.location.line).toBe(5);
+    expect(compile(md("```output", "a\tb", "```"))).toEqual([
+      { type: "paragraph", text: "Salida:" },
+      { type: "code", text: "a\tb", language: "python" },
+    ]);
+  });
+
+  it("creates practice buttons with the label of each language", () => {
+    expect(compile(md("```python practice", "# Escribe tu código", "```"))).toEqual([
+      { type: "test-button", text: "Practicar >>", code: "# Escribe tu código" },
+    ]);
+    expect(compile(md("```python practice", "# Code", "```"), "de")).toEqual([
+      { type: "test-button", text: "Üben >>", code: "# Code" },
+    ]);
+    expect(errorOf(() => compile(md("```python practice run", "x", "```"))).message).toContain('"practice" already');
+  });
+
+  it("rejects button and output labels in another language", () => {
+    expect(errorOf(() => compile(md('```python run="Probar >>"', "x", "```"), "de")).message).toContain("es files");
+    expect(errorOf(() => compile(md('```output label="Output:"', "x", "```"), "es")).message).toContain("en files");
+    expect(compile(md('```python run="Probar Todos >>"', "x", "```"))).toHaveLength(2);
   });
 
   it("accepts the options used to run examples", () => {

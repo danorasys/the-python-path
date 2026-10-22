@@ -19,7 +19,7 @@ Here:
 - The "label" is `name` or `age`.
 - The content is `"Python"` and `33`.
 
-:::note[Note:]
+:::note
 The `=` sign in Python does not mean "mathematically equal", but "assign a value". In other words: "store this value in this variable".
 :::
 
@@ -32,7 +32,7 @@ x = 10       # int (integer)
 x = "Hello"   # str (string)
 ```
 
-:::tip[Tip:]
+:::tip
 You can change the type at any time, but avoid doing so. Keeping a consistent type makes your code clearer.
 :::
 
@@ -61,7 +61,7 @@ my variable = "text"
 for = 5
 ```
 
-:::note[Note:]
+:::note
 Use descriptive names. Your code will be easier to read without needing comments.
 :::
 
@@ -87,7 +87,7 @@ price = 19.99
 temperature = 36.5
 ```
 
-:::tip[Tip:]
+:::tip
 Floats can behave strangely because of how they are represented internally:
 :::
 
@@ -125,7 +125,7 @@ logged_in = False
 
 They are used very often in conditionals.
 
-:::note[Note:]
+:::note
 In Python, `True` and `False` start with uppercase letters.
 :::
 
@@ -219,7 +219,7 @@ text = str(x)
 print(type(text))
 ```
 
-:::tip[Tip:]
+:::tip
 `input()` always returns a string, so sometimes you will need to convert it to `int` or `float`.
 :::
 
@@ -295,7 +295,7 @@ Age: 20
 Age: 20
 ```
 
-:::note[Note:]
+:::note
 This type of error is very common when starting out. Don’t worry, you will learn to avoid them with practice.
 :::
 
@@ -313,7 +313,7 @@ Create variables to store:
 
 Then print them using `print()`.
 
-```python run="Practice >>" hidden
+```python practice
 # Exercise 1: Create basic variables
 # Create variables to store:
 # - Your name
@@ -324,8 +324,8 @@ Then print them using `print()`.
 # Then print them using print()
 ```
 
-:::details[See possible solution]
-```python run="Try Solution >>"
+:::details
+```python run
 name = "YOUR NAME"
 age = 22
 city = "YOUR CITY"
@@ -340,14 +340,14 @@ print(name, age, city, is_adult, height)
 
 A variable contains a number stored as text (`"25"`). Convert that value to an integer and add 10. Then show the result.
 
-```python run="Practice >>" hidden
+```python practice
 # A variable contains a number stored as text ("25").
 # Convert that value to an integer and add 10.
 # Then show the result
 ```
 
-:::details[See possible solution]
-```python run="Try Solution >>"
+:::details
+```python run
 number = "25"      # number comes as text
 number = int(number)   # convert to integer
 print(number + 10)
@@ -370,7 +370,7 @@ Print:
 - The concatenation "I like " + `c`.
 - The type of each variable using `type()`.
 
-```python run="Practice >>" hidden
+```python practice
 # a = 10
 # b = 3.5
 # c = "Python"
@@ -380,8 +380,8 @@ Print:
 # 3. The type of each variable using type()
 ```
 
-:::details[See possible solution]
-```python run="Try Solution >>"
+:::details
+```python run
 a = 10
 b = 3.5
 c = "Python"
@@ -409,7 +409,7 @@ Hello Camilo, you are 30 years old.
 
 Use concatenation or commas.
 
-```python run="Practice >>" hidden
+```python practice
 # Create variables:
 # name = "Camilo"
 # age = 30
@@ -418,8 +418,8 @@ Use concatenation or commas.
 # Use concatenation or commas
 ```
 
-:::details[See possible solution]
-```python run="Try Solution >>"
+:::details
+```python run
 name = "Camilo"
 age = 30
 

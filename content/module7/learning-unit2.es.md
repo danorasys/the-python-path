@@ -97,7 +97,7 @@ Si el usuario escribe:
 veinte
 ```
 
-```python run hidden input="veinte" error
+```python run hidden error input="veinte"
 edad = int(input("Ingrese su edad: "))
 
 print("Su edad es:", edad)
@@ -738,7 +738,7 @@ Construye un programa que cumpla con los siguientes requerimientos:
 - Si intenta dividir entre cero, informa claramente el problema.
 - Si no ocurre ningún error, muestra el resultado de la división.
 
-```python run="Practicar >>" hidden
+```python practice
 # Ejercicio 1: Calculadora Segura
 #
 # Una pequeña empresa está desarrollando una calculadora para realizar
@@ -761,8 +761,8 @@ Construye un programa que cumpla con los siguientes requerimientos:
 # - Si no ocurre ningún error, muestra el resultado de la división.
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>" input="10|2"
+:::details
+```python run input="10|2"
 try:
     # Solicitar el primer número al usuario.
     numero1 = float(input("Ingrese el primer número: "))
@@ -804,7 +804,7 @@ Construye un programa que realice las siguientes acciones:
 - Muestra un mensaje indicando cuál fue el dato que produjo el error.
 - El programa debe continuar procesando el resto de elementos aunque encuentre errores.
 
-```python run="Practicar >>" hidden
+```python practice
 # Ejercicio 2: Analizador de Lista de Datos
 #
 # Un sistema recibe una lista de datos provenientes de un sensor.
@@ -829,8 +829,8 @@ Construye un programa que realice las siguientes acciones:
 #   encuentre errores.
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # Crear la lista de datos.
 datos = [15, 28, "error", 42, 17, "Python", 65, 80]
 
@@ -875,7 +875,7 @@ Construye un programa que realice las siguientes acciones:
 - Si ocurre cualquier otra excepción inesperada, captura el error utilizando `Exception`.
 - Muestra siempre un mensaje indicando que el proceso de registro ha finalizado.
 
-```python run="Practicar >>" hidden
+```python practice
 # Ejercicio 3: Sistema de Registro de Usuarios
 #
 # Una aplicación solicita información para registrar nuevos usuarios.
@@ -906,8 +906,8 @@ Construye un programa que realice las siguientes acciones:
 #   finalizado.
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>" input="Ana|25"
+:::details
+```python run input="Ana|25"
 # Iniciar el bloque de manejo de excepciones.
 try:
     # Solicitar el nombre del usuario.

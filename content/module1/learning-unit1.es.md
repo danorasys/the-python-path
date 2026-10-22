@@ -18,7 +18,7 @@ Es un lenguaje multipropósito, lo que significa que se puede usar en una gran v
 - Scripting en servidores.
 - Aplicaciones de escritorio.
 
-:::note[Nota:]
+:::note
 Parte del éxito de Python viene de su enorme comunidad y su ecosistema de librerías. Por ejemplo, para IA tienes TensorFlow, para datos Pandas, para web Django, etc.
 :::
 
@@ -36,7 +36,7 @@ print('Hola, Mundo')
 Hola, Mundo
 ```
 
-:::tip[Tip:]
+:::tip
 Si una línea de Python "suena" a lo que estás intentando hacer, probablemente es la forma correcta de escribirlo.
 :::
 
@@ -50,7 +50,7 @@ Esto permite:
 - Ejecutar código en entornos interactivos como Pyodide (en navegador) o en un terminal.
 - Detectar errores línea por línea.
 
-:::note[Nota:]
+:::note
 Como Python es interpretado, si hay un error en la línea 80, Python ejecutará las primeras 79 sin problema y solo fallará cuando llegue a la 80.
 :::
 
@@ -74,7 +74,7 @@ x = 10     # entero
 x = "Hola"  # ahora es una cadena
 ```
 
-:::tip[Tip:]
+:::tip
 La flexibilidad del tipado dinámico es poderosa, pero a veces causa errores difíciles de detectar. Más adelante aprenderás buenas prácticas para evitar esto.
 :::
 
@@ -90,7 +90,7 @@ Resumen del proceso:
 - Python lo convierte en bytecode (`.pyc`).
 - El bytecode se ejecuta en la Python Virtual Machine (PVM).
 
-:::note[Nota:]
+:::note
 El bytecode es una versión optimizada que permite que tu programa arranque más rápido la próxima vez.
 :::
 
@@ -106,7 +106,7 @@ Puedes automatizar casi cualquier cosa: renombrar archivos, enviar correos, leer
 
 Frameworks como Django o Flask permiten crear aplicaciones web completas.
 
-:::note[Nota:]
+:::note
 Django es "baterías incluidas", Flask es más minimalista. Más adelante podrás elegir según tus necesidades.
 :::
 

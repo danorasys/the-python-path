@@ -25,10 +25,10 @@ Wenn Python auf ein `break` trifft, verlässt es die Schleife und fährt mit dem
 zaehler = 1
 
 while zaehler <= 10:
-	if zaehler == 5:
-		break
-	print(zaehler)
-	zaehler += 1
+    if zaehler == 5:
+        break
+    print(zaehler)
+    zaehler += 1
 ```
 
 ```output
@@ -44,19 +44,19 @@ In diesem Fall wird die Schleife gestoppt, sobald der Zähler 5 erreicht.
 zaehler = 1
 
 while zaehler <= 10:
-	if zaehler == 5:
-		break
-	print(zaehler)
-	zaehler += 1
+    if zaehler == 5:
+        break
+    print(zaehler)
+    zaehler += 1
 ```
 
 ### Beispiel mit `for`
 
 ```python
 for buchstabe in "Python":
-	if buchstabe == "h":
-		break
-	print(buchstabe)
+    if buchstabe == "h":
+        break
+    print(buchstabe)
 ```
 
 ```output
@@ -69,16 +69,16 @@ Die Schleife wird unterbrochen, sobald der Buchstabe `"h"` gefunden wird.
 
 ```python run hidden
 for buchstabe in "Python":
-	if buchstabe == "h":
-		break
-	print(buchstabe)
+    if buchstabe == "h":
+        break
+    print(buchstabe)
 ```
 
-:::note[Hinweis:]
+:::note
 `break` beendet die gesamte Schleife, nicht nur eine einzelne Wiederholung.
 :::
 
-:::tip[Tipp:]
+:::tip
 Verwende `break`, wenn du gefunden hast, wonach du suchst, und nicht weiter durchlaufen musst.
 :::
 
@@ -90,9 +90,9 @@ Beispiel:
 
 ```python
 for zahl in range(1, 6):
-	if zahl == 3:
-		continue
-	print(zahl)
+    if zahl == 3:
+        continue
+    print(zahl)
 ```
 
 ```output
@@ -106,16 +106,16 @@ Hier wird die Zahl 3 nicht ausgegeben, aber die Schleife läuft mit den übrigen
 
 ```python run hidden
 for zahl in range(1, 6):
-	if zahl == 3:
-		continue
-	print(zahl)
+    if zahl == 3:
+        continue
+    print(zahl)
 ```
 
-:::note[Hinweis:]
+:::note
 `continue` beendet die Schleife nicht, sondern überspringt nur eine bestimmte Iteration.
 :::
 
-:::tip[Tipp:]
+:::tip
 Verwende es, wenn du bestimmte Fälle innerhalb der Schleife ignorieren möchtest, ohne sie vollständig zu beenden.
 :::
 
@@ -127,7 +127,7 @@ Beispiel:
 
 ```python run
 for i in range(5):
-	pass
+    pass
 ```
 
 ```output
@@ -137,17 +137,17 @@ Sie wird auch häufig bei bedingten Anweisungen verwendet:
 
 ```python run
 if True:
-	pass
+    pass
 ```
 
 ```output
 ```
 
-:::note[Hinweis:]
+:::note
 `pass` verhindert Syntaxfehler, wenn ein Block leer ist.
 :::
 
-:::tip[Tipp:]
+:::tip
 Es ist nützlich, wenn du dein Programm planst und noch nicht entschieden hast, welcher Code dort eingefügt werden soll.
 :::
 
@@ -165,9 +165,9 @@ Es ist nützlich, wenn du dein Programm planst und noch nicht entschieden hast, 
 
 ```python run
 for buchstabe in "Programmierung":
-	if buchstabe == "g":
-		print("Buchstabe gefunden")
-		break
+    if buchstabe == "g":
+        print("Buchstabe gefunden")
+        break
 ```
 
 ```output
@@ -178,9 +178,9 @@ Buchstabe gefunden
 
 ```python run
 for zahl in range(1, 10):
-	if zahl % 2 == 0:
-		continue
-	print(zahl)
+    if zahl % 2 == 0:
+        continue
+    print(zahl)
 ```
 
 ```output
@@ -199,7 +199,7 @@ Erstelle eine `for`-Schleife, die die Zahlen von 1 bis 10 durchläuft.\
 Wenn die Zahl 7 erreicht wird, soll das Programm die Schleife mit `break` vollständig beenden.\
 Gib jede Zahl aus, bevor die Schleife gestoppt wird.
 
-```python run="Üben >>" hidden
+```python practice
 # Erstelle eine for-Schleife, die die Zahlen von 1 bis
 # 10 durchläuft.
 # Wenn die Zahl 7 erreicht wird, soll das Programm die
@@ -207,12 +207,12 @@ Gib jede Zahl aus, bevor die Schleife gestoppt wird.
 # Gib jede Zahl aus, bevor die Schleife gestoppt wird
 ```
 
-:::details[Mögliche Lösung anzeigen]
-```python run="Lösung Ausprobieren >>"
+:::details
+```python run
 for nummer in range(1, 11):
-	if nummer == 7:
-		break
-	print(nummer)
+    if nummer == 7:
+        break
+    print(nummer)
 ```
 :::
 
@@ -222,21 +222,21 @@ Erstelle eine Variable `wort` mit dem Wert `"Computer"`.\
 Verwende eine `for`-Schleife, um jeden Buchstaben anzuzeigen, außer dem Buchstaben `"o"`.\
 Verwende `continue`.
 
-```python run="Üben >>" hidden
+```python practice
 # Erstelle eine Variable wort mit dem Wert "Computer".
 # Verwende eine for-Schleife, um jeden Buchstaben
 # anzuzeigen, außer dem Buchstaben "o".
 # Verwende continue
 ```
 
-:::details[Mögliche Lösung anzeigen]
-```python run="Lösung Ausprobieren >>"
+:::details
+```python run
 wort = "Computer"
 
 for buchstabe in wort:
-	if buchstabe == "o":
-		continue
-	print(buchstabe)
+    if buchstabe == "o":
+        continue
+    print(buchstabe)
 ```
 :::
 
@@ -246,7 +246,7 @@ Erstelle eine simulierte Liste mit `range()` von -3 bis 3.\
 Durchlaufe die Werte mit einer `for`-Schleife.\
 Wenn du eine negative Zahl findest, gib `"Negative Zahl erkannt"` aus und beende die Schleife mit `break`.
 
-```python run="Üben >>" hidden
+```python practice
 # Erstelle eine simulierte Liste mit range()
 # von -3 bis 3.
 # Durchlaufe die Werte mit einer for-Schleife.
@@ -254,12 +254,12 @@ Wenn du eine negative Zahl findest, gib `"Negative Zahl erkannt"` aus und beende
 # Zahl erkannt" aus und beende die Schleife mit break
 ```
 
-:::details[Mögliche Lösung anzeigen]
-```python run="Lösung Ausprobieren >>"
+:::details
+```python run
 for nummer in range(-3, 4):
-	if nummer < 0:
-		print("Negative Zahl erkannt")
-		break
+    if nummer < 0:
+        print("Negative Zahl erkannt")
+        break
 ```
 :::
 
@@ -269,7 +269,7 @@ Erstelle eine `for`-Schleife, die die Zahlen von 1 bis 5 durchläuft.\
 Innerhalb der Schleife füge eine `if`-Bedingung ein, die überprüft, ob die Zahl größer als 3 ist.\
 Vorerst soll innerhalb dieser Bedingung nichts ausgeführt werden; verwende `pass`.
 
-```python run="Üben >>" hidden
+```python practice
 # Erstelle eine for-Schleife, die die Zahlen von 1 bis
 # 5 durchläuft.
 # Innerhalb der Schleife füge eine if-Bedingung ein,
@@ -278,12 +278,12 @@ Vorerst soll innerhalb dieser Bedingung nichts ausgeführt werden; verwende `pas
 # ausgeführt werden; verwende pass
 ```
 
-:::details[Mögliche Lösung anzeigen]
-```python run="Lösung Ausprobieren >>"
+:::details
+```python run
 for nummer in range(1, 6):
-	if nummer > 3:
-		pass
-	print(nummer)
+    if nummer > 3:
+        pass
+    print(nummer)
 ```
 :::
 

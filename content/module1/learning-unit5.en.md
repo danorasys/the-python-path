@@ -44,7 +44,7 @@ print(a ** b)    # 1000 -> 10^3
 1000
 ```
 
-:::note[Note:]
+:::note
 The division `/` always returns a `float` (decimal number). If you want a division without decimals, use `//`.
 :::
 
@@ -164,7 +164,7 @@ Assign numeric values and display:
 - The average.
 - The result of `a * c`.
 
-```python run="Practice >>" hidden
+```python practice
 # Create three variables: a, b, c.
 # Assign numeric values and display:
 # - The sum of the three
@@ -172,8 +172,8 @@ Assign numeric values and display:
 # - The result of a * c
 ```
 
-:::details[View possible solution]
-```python run="Try Solution >>"
+:::details
+```python run
 a = 10
 b = 20
 c = 5
@@ -198,7 +198,7 @@ part2 = "is "
 part3 = "awesome"
 ```
 
-```python run="Practice >>" hidden
+```python practice
 # Join the following parts to form a single
 # sentence (Display it on screen):
 # part1 = "Python "
@@ -206,8 +206,8 @@ part3 = "awesome"
 # part3 = "awesome"
 ```
 
-:::details[View possible solution]
-```python run="Try Solution >>"
+:::details
+```python run
 part1 = "Python "
 part2 = "is "
 part3 = "awesome"
@@ -221,14 +221,14 @@ print(sentence)
 
 Create a variable that contains a symbol (e.g., "\*") and repeat it 20 times (Display it on screen).
 
-```python run="Practice >>" hidden
+```python practice
 # Create a variable that contains a
 # symbol (e.g., "*") and repeat it 20 times
 # (Display it on screen)
 ```
 
-:::details[View possible solution]
-```python run="Try Solution >>"
+:::details
+```python run
 symbol = "*"
 print(symbol * 20)
 ```
@@ -244,15 +244,15 @@ number = "40"
 
 Convert the number to an integer and add 7. Finally, display the result on screen.
 
-```python run="Practice >>" hidden
+```python practice
 # You have a number stored as text:
 # number = "40"
 # Convert the number to an integer and add 7.
 # Finally, display the result on screen
 ```
 
-:::details[View possible solution]
-```python run="Try Solution >>"
+:::details
+```python run
 number = "40"
 number = int(number)
 print(number + 7)
@@ -276,7 +276,7 @@ Linus is 55 years old
 
 Finally, display the message on screen.
 
-```python run="Practice >>" hidden
+```python practice
 # Using the following variables:
 # name = "Linus"
 # age = 55
@@ -284,8 +284,8 @@ Finally, display the message on screen.
 # Finally, display the message on screen
 ```
 
-:::details[View possible solution]
-```python run="Try Solution >>"
+:::details
+```python run
 name = "Linus"
 age = 55
 

@@ -16,14 +16,14 @@ Esto permite que la función trabaje con distintos datos cada vez que se ejecuta
 
 ```python
 def nombre_funcion(parametro):
-	instrucciones
+    instrucciones
 ```
 
 Ejemplo:
 
 ```python
 def saludar(nombre):
-	print("Hola", nombre)
+    print("Hola", nombre)
 ```
 
 Llamando la función:
@@ -40,13 +40,13 @@ Hola Ana
 
 ```python run hidden
 def saludar(nombre):
-	print("Hola", nombre)
+    print("Hola", nombre)
 
 saludar("Carlos")
 saludar("Ana")
 ```
 
-:::note[Nota:]
+:::note
 Los valores que se envían a una función cuando se llama se conocen como argumentos.\
     **•** Parámetro → variable definida en la función.\
     **•** Argumento → valor enviado al llamar la función.
@@ -58,8 +58,8 @@ Una función puede recibir más de un parámetro.
 
 ```python
 def presentar(nombre, edad):
-	print("Nombre:", nombre)
-	print("Edad:", edad)
+    print("Nombre:", nombre)
+    print("Edad:", edad)
 ```
 
 Llamando la función:
@@ -75,8 +75,8 @@ Edad: 22
 
 ```python run hidden
 def presentar(nombre, edad):
-	print("Nombre:", nombre)
-	print("Edad:", edad)
+    print("Nombre:", nombre)
+    print("Edad:", edad)
 
 presentar("Laura", 22)
 ```
@@ -91,8 +91,8 @@ Ejemplo:
 
 ```python
 def sumar(a, b):
-	resultado = a + b
-	return resultado
+    resultado = a + b
+    return resultado
 ```
 
 Uso de la función:
@@ -108,14 +108,14 @@ print(total)
 
 ```python run hidden
 def sumar(a, b):
-	resultado = a + b
-	return resultado
+    resultado = a + b
+    return resultado
 
 total = sumar(5, 3)
 print(total)
 ```
 
-:::tip[Tip:]
+:::tip
 Usa `return` cuando necesites obtener un resultado de la función para usarlo después.
 :::
 
@@ -131,12 +131,12 @@ Ejemplo:
 
 ```python
 def suma_print(a, b):
-	print(a + b)
+    print(a + b)
 ```
 
 ```python
 def suma_return(a, b):
-	return a + b
+    return a + b
 ```
 
 Uso:
@@ -152,10 +152,10 @@ print(resultado * 2)
 
 ```python run hidden
 def suma_print(a, b):
-	print(a + b)
+    print(a + b)
 
 def suma_return(a, b):
-	return a + b
+    return a + b
 
 resultado = suma_return(4, 6)
 print(resultado * 2)
@@ -173,8 +173,8 @@ print(resultado * 2)
 
 ```python run
 def calcular_area(base, altura):
-	area = base * altura
-	return area
+    area = base * altura
+    return area
 
 resultado = calcular_area(5, 4)
 print("El área es:", resultado)
@@ -192,11 +192,11 @@ Ejemplo:
 
 ```python
 def ejemplo():
-	return 10
-	print("Esto no se ejecuta")
+    return 10
+    print("Esto no se ejecuta")
 ```
 
-:::tip[Tip:]
+:::tip
 Las funciones con `return` permiten construir programas más flexibles, porque el resultado puede utilizarse en cálculos posteriores.
 :::
 
@@ -225,7 +225,7 @@ El programa debe cumplir con lo siguiente:
 - Guardar el resultado en una variable.
 - Mostrar el resultado en pantalla.
 
-```python run="Practicar >>" hidden
+```python practice
 # Crea un programa que permita calcular la suma de dos
 # números utilizando una función.
 # El programa debe cumplir con lo siguiente:
@@ -241,17 +241,17 @@ El programa debe cumplir con lo siguiente:
 # 7. Mostrar el resultado en pantalla.
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # 1. Definir una función llamada sumar
 # 2. La función debe recibir dos parámetros
 def sumar(a, b):
-	# 3. Dentro de la función se debe calcular la suma de
-	# los dos valores
-	resultado = a + b
-	# 4. La función debe devolver el resultado utilizando
-	# return
-	return resultado
+    # 3. Dentro de la función se debe calcular la suma de
+    # los dos valores
+    resultado = a + b
+    # 4. La función debe devolver el resultado utilizando
+    # return
+    return resultado
 
 # 5. En el programa principal se debe llamar la función
 # enviando los números 10 y 5
@@ -276,7 +276,7 @@ El programa debe realizar lo siguiente:
 - Guardar el resultado en una variable.
 - Mostrar el resultado en pantalla.
 
-```python run="Practicar >>" hidden
+```python practice
 # Desarrolla un programa que calcule el área de un
 # rectángulo utilizando funciones.
 # El programa debe realizar lo siguiente:
@@ -292,17 +292,17 @@ El programa debe realizar lo siguiente:
 # 7. Mostrar el resultado en pantalla.
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # 1.Crear una función llamada calcular_area
 # 2. La función debe recibir dos parámetros: base y
 # altura
 def calcular_area(base, altura):
-	# 3. Dentro de la función calcular el área usando la
-	# fórmula: area = base * altura
-	area = base * altura
-	# 4. Utilizar return para devolver el resultado
-	return area
+    # 3. Dentro de la función calcular el área usando la
+    # fórmula: area = base * altura
+    area = base * altura
+    # 4. Utilizar return para devolver el resultado
+    return area
 
 # 5. En el programa principal llamar la función con los
 # valores 8 y 3
@@ -328,7 +328,7 @@ El programa debe cumplir con lo siguiente:
 - Guardar el resultado en una variable.
 - Mostrar el promedio final.
 
-```python run="Practicar >>" hidden
+```python practice
 # Crea un programa que calcule el promedio de tres
 # notas utilizando una función.
 # El programa debe cumplir con lo siguiente:
@@ -346,19 +346,19 @@ El programa debe cumplir con lo siguiente:
 # 7. Mostrar el promedio final.
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # 1. Crea una función llamada calcular_promedio
 # 2. La función debe recibir tres parámetros que
 # representen tres notas
 def calcular_promedio(nota1, nota2, nota3):
-	# 3. Dentro de la función calcular el promedio
-	# utilizando la fórmula: promedio = (nota1 + nota2 +
-	# nota3) / 3
-	promedio = (nota1 + nota2 + nota3) / 3
-	# 4. La función debe devolver el resultado usando
-	# return
-	return promedio
+    # 3. Dentro de la función calcular el promedio
+    # utilizando la fórmula: promedio = (nota1 + nota2 +
+    # nota3) / 3
+    promedio = (nota1 + nota2 + nota3) / 3
+    # 4. La función debe devolver el resultado usando
+    # return
+    return promedio
 
 # 5. En el programa principal llamar la función con las
 # notas 4.0, 3.5 y 4.5

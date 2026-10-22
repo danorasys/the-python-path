@@ -30,7 +30,7 @@ numeros.append(10)
 print(numeros)
 ```
 
-:::note[Nota:]
+:::note
 Los métodos modifican directamente la lista original; no crean una nueva lista (en la mayoría de los casos).
 :::
 
@@ -49,7 +49,7 @@ print(frutas)
 ['manzana', 'pera', 'uva']
 ```
 
-:::tip[Tip:]
+:::tip
 `append()` agrega un solo elemento cada vez. Si agregas una lista, se insertará como un único elemento:
 :::
 
@@ -72,7 +72,7 @@ print(numeros)
 [1, 3, 2]
 ```
 
-:::note[Nota:]
+:::note
 Si el valor no existe, Python genera un error.
 :::
 
@@ -111,7 +111,7 @@ print(numeros)
 | `[3,1,2]` | `[1,2,3]` |
 | `["c","a","b"]` | `["a","b","c"]` |
 
-:::note[Nota:]
+:::note
 Todos los elementos deben ser comparables entre sí (no mezclar números y texto).
 :::
 
@@ -130,7 +130,7 @@ print(valores)
 [4, 3, 2, 1]
 ```
 
-:::note[Nota:]
+:::note
 `reverse()` no ordena, solo cambia el orden existente.
 :::
 
@@ -175,7 +175,7 @@ print(numeros)
 [1, 2, 3, 4, 5]
 ```
 
-:::note[Nota:]
+:::note
 Observa cómo varios métodos pueden combinarse para procesar datos paso a paso sin crear estructuras adicionales.
 :::
 
@@ -192,7 +192,7 @@ Crea un programa que gestione una lista de estudiantes siguiendo estas instrucci
 - Mostrar la lista final.
 - Contar cuántas veces aparece un nombre específico.
 
-```python run="Practicar >>" hidden
+```python practice
 # Crea un programa que gestione una lista de
 # estudiantes siguiendo estas instrucciones:
 # 1. Crear una lista llamada estudiantes con al menos 4
@@ -204,8 +204,8 @@ Crea un programa que gestione una lista de estudiantes siguiendo estas instrucci
 # Contar cuántas veces aparece un nombre específico
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # 1. Crear una lista llamada estudiantes con al menos 4 nombres
 estudiantes = ["Carlos", "Ana", "Luis", "Ana"]
 
@@ -233,7 +233,7 @@ Desarrolla un programa que:
 - Invierta el orden usando `reverse()`.
 - Muestre la lista después de cada operación.
 
-```python run="Practicar >>" hidden
+```python practice
 # Desarrolla un programa que:
 # 1. Cree una lista con 8 números enteros (algunos
 # repetidos).
@@ -243,7 +243,7 @@ Desarrolla un programa que:
 # 5. Muestre la lista después de cada operación
 ```
 
-:::details[Observar posible solución]
+:::details
 ```python
 # 1. Cree una lista con 8 números enteros (algunos repetidos)
 numeros = [5, 3, 8, 3, 1, 9, 3, 2]
@@ -262,7 +262,7 @@ numeros.reverse()
 print(numeros)
 ```
 
-```python run="Probar Solución >>" hidden
+```python run hidden
 # 1. Cree una lista con 8 números enteros (algunos
 # repetidos)
 numeros = [5, 3, 8, 3, 1, 9, 3, 2]
@@ -293,7 +293,7 @@ Simula un pequeño inventario siguiendo estos pasos:
 - Mostrar el inventario final.
 - Mostrar cuántas veces aparece un producto específico.
 
-```python run="Practicar >>" hidden
+```python practice
 # Simula un pequeño inventario siguiendo estos pasos:
 # 1. Crear una lista con productos.
 # 2. Agregar dos productos nuevos.
@@ -304,8 +304,8 @@ Simula un pequeño inventario siguiendo estos pasos:
 # específico
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # 1. Crear una lista con productos
 inventario = ["pan", "leche", "arroz", "pan"]
 

@@ -16,7 +16,7 @@ En Python, los comentarios se escriben usando el símbolo `#`:
 
 Todo lo que vaya después de `#` en esa línea será ignorado por Python.
 
-:::note[Nota:]
+:::note
 Los comentarios son para humanos, no para el intérprete. Le dan claridad al código y ayudan a recordar lo que intentabas hacer cuando lo vuelves a leer tiempo después.
 :::
 
@@ -35,7 +35,7 @@ print("Hola")  # Muestra texto en pantalla
 Hola
 ```
 
-:::tip[Tip:]
+:::tip
 Evita escribir comentarios obvios como:\
 `x = x + 1 # le sumo 1 a x`
 :::
@@ -57,7 +57,7 @@ El usuario ingresa el radio y se muestra el resultado.
 """
 ```
 
-:::note[Nota:]
+:::note
 Técnicamente, esto es un string literal sin usar, pero Python lo ignora, así que funciona como comentario.
 :::
 
@@ -70,7 +70,7 @@ Los comentarios no son decoración. Son útiles cuando:
 - Documentan decisiones importantes.
 - Ayudan a quien lee el código (incluyéndote a ti).
 
-:::tip[Tip:]
+:::tip
 Si tienes que explicar demasiado, quizá el código es demasiado complejo. A veces lo mejor es simplificar el código, no escribir más comentarios.
 :::
 
@@ -94,7 +94,7 @@ edad = 10
 anios_experiencia = 20
 ```
 
-:::note[Nota:]
+:::note
 Un buen nombre evita que necesites comentarios innecesarios.
 :::
 
@@ -138,7 +138,7 @@ print(a + b)
 
 La recomendación general es no superar 79 caracteres por línea (PEP 8).
 
-:::tip[Tip:]
+:::tip
 Si necesitas escribir algo largo, divídelo en varias partes usando `\` o concatenación.
 :::
 
@@ -166,7 +166,7 @@ Aquí los comentarios explican el propósito, no la operación matemática.
 ## ¿Cuándo NO Debes Comentar?
 
 :::tip
-**Tip:** Usa esta regla de oro:\
+Usa esta regla de oro:\
 **"Comenta cuando el lector pueda confundirse; no comentes cosas obvias".**
 :::
 
@@ -195,7 +195,7 @@ print("Tu nombre es:", nombre)
 print("Tu edad será en 5 años:", edad + 5)
 ```
 
-:::details[Observar posible solución]
+:::details
 ```python
 # Datos del usuaio
 nombre = "Juan"

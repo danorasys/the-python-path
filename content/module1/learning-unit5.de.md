@@ -44,7 +44,7 @@ print(a ** b)    # 1000 -> 10^3
 1000
 ```
 
-:::note[Hinweis:]
+:::note
 Die Division `/` liefert immer einen `float` (Gleitkommazahl). Wenn du eine Division ohne Nachkommastellen möchtest, verwende `//`.
 :::
 
@@ -180,7 +180,7 @@ Weise numerische Werte zu und zeige sie an:
 - Der Durchschnitt
 - Das Ergebnis von `a * c`.
 
-```python run="Üben >>" hidden
+```python practice
 # Erstelle drei Variablen: a, b, c.
 # Weise numerische Werte zu und zeige sie an:
 # - Die Summe der drei
@@ -188,8 +188,8 @@ Weise numerische Werte zu und zeige sie an:
 # - Das Ergebnis von a * c
 ```
 
-:::details[Mögliche Lösung anzeigen]
-```python run="Lösung Ausprobieren >>"
+:::details
+```python run
 a = 10
 b = 20
 c = 5
@@ -214,7 +214,7 @@ teil2 = "ist "
 teil3 = "Genial"
 ```
 
-```python run="Üben >>" hidden
+```python practice
 # Füge die folgenden Teile zu einem einzigen
 # Satz zusammen (zeige ihn auf dem Bildschirm an):
 # teil1 = "Python "
@@ -222,8 +222,8 @@ teil3 = "Genial"
 # teil3 = "Genial "
 ```
 
-:::details[Mögliche Lösung anzeigen]
-```python run="Lösung Ausprobieren >>"
+:::details
+```python run
 teil1 = "Python "
 teil2 = "ist "
 teil3 = "Genial"
@@ -237,14 +237,14 @@ print(satz)
 
 Erstelle eine Variable, die ein Symbol enthält (z.B. „\*“) und wiederhole es 20 Mal (zeige es auf dem Bildschirm an).
 
-```python run="Üben >>" hidden
+```python practice
 # Erstelle eine Variable, die ein Symbol enthält
 # (z.B. "*") und wiederhole es 20 Mal
 # (zeige es auf dem Bildschirm an)
 ```
 
-:::details[Mögliche Lösung anzeigen]
-```python run="Lösung Ausprobieren >>"
+:::details
+```python run
 symbol = "*"
 print(symbol * 20)
 ```
@@ -260,15 +260,15 @@ zahl = "40"
 
 Wandle die Zahl in eine Ganzzahl um und addiere 7. Zeige zuletzt das Ergebnis auf dem Bildschirm an.
 
-```python run="Üben >>" hidden
+```python practice
 # Du hast eine Zahl als Text gespeichert:
 # zahl = "40" Wandle die Zahl in eine
 # Ganzzahl um und addiere 7.
 # Zeige zuletzt das Ergebnis auf dem Bildschirm an
 ```
 
-:::details[Mögliche Lösung anzeigen]
-```python run="Lösung Ausprobieren >>"
+:::details
+```python run
 zahl = "40"
 zahl = int(zahl)
 print(zahl + 7)
@@ -292,7 +292,7 @@ Linus ist 55 Jahre alt
 
 Zeige zuletzt die Nachricht auf dem Bildschirm an.
 
-```python run="Üben >>" hidden
+```python practice
 # Mit den folgenden Variablen:
 # name = "Linus"
 # alter = 55
@@ -301,8 +301,8 @@ Zeige zuletzt die Nachricht auf dem Bildschirm an.
 # Zeige zuletzt die Nachricht auf dem Bildschirm an
 ```
 
-:::details[Mögliche Lösung anzeigen]
-```python run="Lösung Ausprobieren >>"
+:::details
+```python run
 name = "Linus"
 alter = 55
 

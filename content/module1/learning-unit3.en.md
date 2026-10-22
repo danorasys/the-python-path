@@ -15,7 +15,7 @@ In Python, comments are written using the symbol `#`:
 
 Everything that comes after `#` on that line will be ignored by Python.
 
-:::note[Note:]
+:::note
 Comments are for humans, not for the interpreter. They give clarity to the code and help you remember what you were trying to do when you read it again later.
 :::
 
@@ -34,7 +34,7 @@ print("Hello")  # Displays text on screen
 Hello
 ```
 
-:::tip[Tip:]
+:::tip
 Avoid writing obvious comments like:\
 `x = x + 1 # Add 1 to x`
 :::
@@ -56,7 +56,7 @@ The user enters the radius and the result is shown.
 """
 ```
 
-:::note[Note:]
+:::note
 Technically, this is an unused string literal, but Python ignores it, so it works as a comment.
 :::
 
@@ -69,7 +69,7 @@ Comments are not decoration. They are useful when:
 - They document important decisions.
 - They help whoever reads the code (including you).
 
-:::tip[Note:]
+:::note
 If you have to explain too much, maybe the code is too complex. Sometimes the best option is to simplify the code, not write more comments.
 :::
 
@@ -93,7 +93,7 @@ age = 10
 years_experience = 20
 ```
 
-:::note[Note:]
+:::note
 A good name prevents the need for unnecessary comments.
 :::
 
@@ -137,7 +137,7 @@ print(a + b)
 
 The general recommendation is not to exceed 79 characters per line (PEP 8).
 
-:::tip[Tip:]
+:::tip
 If you need to write something long, split it into several parts using `\` or concatenation.
 :::
 
@@ -164,7 +164,7 @@ Here the comments explain the purpose, not the mathematical operation.
 
 ## When Should You NOT Comment?
 
-:::tip[Tip:]
+:::tip
 Use this golden rule:\
 **"Comment when the reader might get confused; don't comment on obvious things"**.
 :::
@@ -194,7 +194,7 @@ print("Your name is:", name)
 print("Your age in 5 years will be:", age + 5)
 ```
 
-:::details[See possible solution]
+:::details
 ```python
 # User data
 name = "Juan"

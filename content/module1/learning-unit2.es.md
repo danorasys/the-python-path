@@ -8,7 +8,7 @@ order: 2
 
 Un programa en Python es simplemente un archivo de texto que contiene instrucciones que el intérprete ejecutará línea por línea. La estructura mínima de un programa puede ser algo tan simple como una línea que muestre un mensaje en pantalla.
 
-:::note[Nota:]
+:::note
 En Python, cada línea se ejecuta en orden, de arriba hacia abajo. No necesitas una función principal obligatoria como en otros lenguajes.
 :::
 
@@ -32,7 +32,7 @@ Hola, Mundo
 print("Hola, Mundo")
 ```
 
-:::tip[Tip:]
+:::tip
 Todo lo que quieras mostrar debe ir dentro de los paréntesis de `print()`. Si es texto, debe estar entre comillas.
 :::
 
@@ -72,7 +72,7 @@ Aprender Python es divertido
 Python
 ```
 
-:::note[Nota:]
+:::note
 A diferencia de muchos lenguajes, Python no necesita que declares el tipo de variable; basta con asignarla.
 :::
 
@@ -88,7 +88,7 @@ print("Tu edad es:", 22)
 Tu edad es: 22
 ```
 
-:::note[Nota:]
+:::note
 Cuando usas comas dentro de `print()`, Python agrega un espacio automáticamente entre cada elemento.
 :::
 
@@ -124,7 +124,7 @@ print("Mundo")
 Hola...Mundo
 ```
 
-:::note[Nota:]
+:::note
 Por defecto, `end` usa `\n`, es decir, un salto de línea. Por eso cada `print()` aparece en una línea nueva.
 :::
 
@@ -149,7 +149,7 @@ Línea 2
 Línea 3
 ```
 
-:::tip[Nota:]
+:::note
 Las secuencias de escape te permiten controlar exactamente cómo se ve el texto que imprimes. Son muy útiles para mostrar menús o resultados con formato.
 :::
 
@@ -183,7 +183,7 @@ Hola desde mi primer programa en Python
 print("Hola desde mi primer programa en Python")
 ```
 
-:::tip[Tip]
+:::tip
 Piensa en un programa como una lista de instrucciones. Si tienes dos líneas:
 :::
 
@@ -217,7 +217,7 @@ print("¡Bienvenido,", nombre, "al mundo de Python!")
 ¡Bienvenido, TU NOMBRE al mundo de Python!
 ```
 
-:::note[Nota]
+:::note
 Puedes reemplazar `"TU NOMBRE"` por tu propio nombre.
 :::
 

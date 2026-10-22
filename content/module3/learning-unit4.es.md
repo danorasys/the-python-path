@@ -17,13 +17,13 @@ Se define usando llaves `{}`.
 
 ```python
 persona = {
-	"nombre": "Ana",
-	"edad": 25,
-	"pais": "Colombia"
+    "nombre": "Ana",
+    "edad": 25,
+    "pais": "Colombia"
 }
 ```
 
-:::note[Nota:]
+:::note
 Las claves deben ser únicas dentro del diccionario.
 :::
 
@@ -33,9 +33,9 @@ Se accede usando la clave en lugar de un índice.
 
 ```python run
 persona = {
-	"nombre": "Ana",
-	"edad": 25,
-	"pais": "Colombia"
+    "nombre": "Ana",
+    "edad": 25,
+    "pais": "Colombia"
 }
 
 print(persona["nombre"])
@@ -47,7 +47,7 @@ Ana
 25
 ```
 
-:::tip[Tip:]
+:::tip
 Piensa en el diccionario como una agenda: buscas información usando el nombre del contacto, no su posición.
 :::
 
@@ -66,9 +66,9 @@ print(persona)
 
 ```python run hidden
 persona = {
-	"nombre": "Ana",
-	"edad": 25,
-	"pais": "Colombia"
+    "nombre": "Ana",
+    "edad": 25,
+    "pais": "Colombia"
 }
 
 persona["edad"] = 26
@@ -90,9 +90,9 @@ print(persona)
 
 ```python run hidden
 persona = {
-	"nombre": "Ana",
-	"edad": 25,
-	"pais": "Colombia"
+    "nombre": "Ana",
+    "edad": 25,
+    "pais": "Colombia"
 }
 
 persona["edad"] = 26
@@ -100,7 +100,7 @@ persona["profesion"] = "Ingeniera"
 print(persona)
 ```
 
-:::note[Nota:]
+:::note
 No necesitas un método especial para agregar datos; basta con asignar un valor a una nueva clave.
 :::
 
@@ -117,9 +117,9 @@ print(persona)
 
 ```python run hidden
 persona = {
-	"nombre": "Ana",
-	"edad": 25,
-	"pais": "Colombia"
+    "nombre": "Ana",
+    "edad": 25,
+    "pais": "Colombia"
 }
 
 persona["edad"] = 26
@@ -136,13 +136,13 @@ print(persona)
 
 ```python run
 persona = {
-	"nombre": "Ana",
-	"edad": 25,
-	"pais": "Colombia"
+    "nombre": "Ana",
+    "edad": 25,
+    "pais": "Colombia"
 }
 
 for clave in persona:
-	print(clave)
+    print(clave)
 ```
 
 ```output
@@ -155,13 +155,13 @@ pais
 
 ```python run
 persona = {
-	"nombre": "Ana",
-	"edad": 25,
-	"pais": "Colombia"
+    "nombre": "Ana",
+    "edad": 25,
+    "pais": "Colombia"
 }
 
 for valor in persona.values():
-	print(valor)
+    print(valor)
 ```
 
 ```output
@@ -174,13 +174,13 @@ Colombia
 
 ```python run
 persona = {
-	"nombre": "Ana",
-	"edad": 25,
-	"pais": "Colombia"
+    "nombre": "Ana",
+    "edad": 25,
+    "pais": "Colombia"
 }
 
 for clave, valor in persona.items():
-	print(clave, valor)
+    print(clave, valor)
 ```
 
 ```output
@@ -189,7 +189,7 @@ edad 25
 pais Colombia
 ```
 
-:::tip[Tip:]
+:::tip
 `items()` es la forma más completa de recorrer un diccionario.
 :::
 
@@ -214,9 +214,9 @@ None
 
 ```python run hidden
 persona = {
-	"nombre": "Ana",
-	"edad": 25,
-	"pais": "Colombia"
+    "nombre": "Ana",
+    "edad": 25,
+    "pais": "Colombia"
 }
 
 print(persona.get("telefono"))
@@ -224,7 +224,7 @@ print(persona.get("telefono"))
 
 Si la clave no existe, devuelve `None` en lugar de error.
 
-:::note[Nota:]
+:::note
 Usar `get()` evita que el programa se detenga cuando una clave no está presente.
 :::
 
@@ -232,9 +232,9 @@ Usar `get()` evita que el programa se detenga cuando una clave no está presente
 
 ```python run
 producto = {
-	"nombre": "Laptop",
-	"precio": 1200,
-	"stock": 5
+    "nombre": "Laptop",
+    "precio": 1200,
+    "stock": 5
 }
 
 print(producto["nombre"])
@@ -250,16 +250,16 @@ Los diccionarios permiten representar objetos reales fácilmente.
 
 ```python run
 usuario = {
-	"username": "daniel",
-	"activo": True,
-	"edad": 20
+    "username": "daniel",
+    "activo": True,
+    "edad": 20
 }
 
 usuario["edad"] = 22
 usuario["email"] = "correo@email.com"
 
 for clave, valor in usuario.items():
-	print(clave, ":", valor)
+    print(clave, ":", valor)
 ```
 
 ```output
@@ -283,7 +283,7 @@ Crea un programa que realice lo siguiente:
 - Eliminar el país del diccionario.
 - Mostrar el diccionario final.
 
-```python run="Practicar >>" hidden
+```python practice
 # Crea un programa que realice lo siguiente:
 # 1. Crea un diccionario llamado usuario con: nombre,
 # edad y país.
@@ -295,14 +295,14 @@ Crea un programa que realice lo siguiente:
 # 7. Mostrar el diccionario final
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # 1. Crea un diccionario llamado usuario con: nombre,
 # edad y país
 usuario = {
-	"nombre": "Carlos",
-	"edad": 28,
-	"pais": "México"
+    "nombre": "Carlos",
+    "edad": 28,
+    "pais": "México"
 }
 
 # 2. Mostrar el nombre del usuario
@@ -315,7 +315,7 @@ usuario["email"] = "carlos@email.com"
 
 # 5. Recorrer el diccionario mostrando clave y valor
 for clave, valor in usuario.items():
-	print(clave, valor)
+    print(clave, valor)
 
 # 6. Eliminar el país del diccionario
 del usuario["pais"]
@@ -335,7 +335,7 @@ Desarrolla un programa que:
 - Muestre solo los valores del diccionario.
 - Use `get()` para intentar acceder a una clave inexistente llamada `"categoria"`.
 
-```python run="Practicar >>" hidden
+```python practice
 # Desarrolla un programa que:
 # 1. Cree un diccionario llamado producto.
 # 2. Incluya: nombre, precio y cantidad.
@@ -345,14 +345,14 @@ Desarrolla un programa que:
 # inexistente llamada "categoria"
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # 1. Cree un diccionario llamado producto
 # 2. Incluya: nombre, precio y cantidad
 producto = {
-	"nombre": "Mouse",
-	"precio": 25,
-	"cantidad": 10
+    "nombre": "Mouse",
+    "precio": 25,
+    "cantidad": 10
 }
 
 # 3. Aumente la cantidad disponible
@@ -360,7 +360,7 @@ producto["cantidad"] = 15
 
 # 4. Muestre solo los valores del diccionario
 for valor in producto.values():
-	print(valor)
+    print(valor)
 
 # 5. Use get() para intentar acceder a una clave
 # inexistente llamada "categoria"
@@ -378,7 +378,7 @@ Crea un programa que:
 - Muestre todos los estudiantes y sus notas.
 - Calcule cuántos estudiantes hay usando `len()`.
 
-```python run="Practicar >>" hidden
+```python practice
 # Crea un programa que:
 # 1. Defina un diccionario donde las claves sean
 # nombres de estudiantes y los valores sus notas
@@ -389,15 +389,15 @@ Crea un programa que:
 # 5. Calcule cuántos estudiantes hay usando len()
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # 1. Defina un diccionario donde las claves sean
 # nombres de estudiantes y los valores sus notas
 # (Números decimales)
 notas = {
-	"Ana": 4.5,
-	"Luis": 3.8,
-	"Sofía": 4.9
+    "Ana": 4.5,
+    "Luis": 3.8,
+    "Sofía": 4.9
 }
 
 # 2. Agregue un nuevo estudiante
@@ -407,7 +407,7 @@ notas["Luis"] = 4.0
 
 # 4. Muestre todos los estudiantes y sus notas
 for nombre, nota in notas.items():
-	print(nombre, nota)
+    print(nombre, nota)
 
 # 5. Calcule cuántos estudiantes hay usando len()
 print(len(notas))

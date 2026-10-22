@@ -26,7 +26,7 @@ Escribe tu nombre: Linus
 Hola, Linus
 ```
 
-:::note[Nota:]
+:::note
 Todo lo que devuelve `input()` es texto, incluso si el usuario escribe un número.
 :::
 
@@ -55,7 +55,7 @@ print("El próximo año tendrás", edad + 1)
 El próximo año tendrás 56
 ```
 
-:::tip[Tip:]
+:::tip
 Si no conviertes, un número no podrá ser sumado matemáticamente, solo como texto.
 :::
 
@@ -84,19 +84,19 @@ El doble es: 14
 
 ### 1\. Olvidar Que Devuelve Texto
 
-```python run="Probar Error >>" input="5" error
+```python run="Probar Error >>" error input="5"
 n = input("Número: ")
 print(n + 10)    # ERROR
 ```
 
 ### 2\. Tratar de Convertir un Texto No Válido
 
-```python run="Probar Error >>" input="hello" error
+```python run="Probar Error >>" error input="hello"
 text = input("Input: ") # Input: hello
 int(text)    # ERROR
 ```
 
-:::note[Nota:]
+:::note
 Más adelante aprenderás a manejar estos errores con `try` y `except`.
 :::
 
@@ -140,7 +140,7 @@ Escribe una palabra: Python
 PythonPythonPython
 ```
 
-:::tip[Tip:]
+:::tip
 Cuando repites una cadena, no se agregan espacios automáticamente.
 :::
 
@@ -150,12 +150,12 @@ Cuando repites una cadena, no se agregan espacios automáticamente.
 
 Pídele al usuario su nombre y muéstrale un saludo.
 
-```python run="Practicar >>" hidden
+```python practice
 # Pídele al usuario su nombre y muéstrale un saludo
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>" input="Ana"
+:::details
+```python run input="Ana"
 nombre = input("Escribe tu nombre: ")
 print("Hola", nombre)
 ```
@@ -165,13 +165,13 @@ print("Hola", nombre)
 
 Pídele al usuario su edad y dile cuántos años tendrá en 5 años.
 
-```python run="Practicar >>" hidden
+```python practice
 # Pídele al usuario su edad y dile cuántos años
 # tendrá en 5 años
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>" input="25"
+:::details
+```python run input="25"
 edad = int(input("¿Cuántos años tienes? "))
 print("En 5 años tendrás", edad + 5)
 ```
@@ -181,13 +181,13 @@ print("En 5 años tendrás", edad + 5)
 
 Pidele al usuario una palabra y un número. Muestra la palabra repetida ese número de veces.
 
-```python run="Practicar >>" hidden
+```python practice
 # Pídele al usuario una palabra y un número.
 # Muestra la palabra repetida ese número de veces
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>" input="Python|3"
+:::details
+```python run input="Python|3"
 palabra = input("Escribe una palabra: ")
 cantidad = int(input("¿Cuántas veces quieres repetirla? "))
 print(palabra * cantidad)
@@ -198,14 +198,14 @@ print(palabra * cantidad)
 
 Pídele al usuario una temperatura en grados Celsius y conviértelos a Fahrenheit (Muéstraselo al usuario).
 
-```python run="Practicar >>" hidden
+```python practice
 # Pídele al usuario una temperatura en grados
 # Celsius y conviértelos a Fahrenheit
 # (Muéstraselo al usuario)
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>" input="25"
+:::details
+```python run input="25"
 c = float(input("Temperatura en Celsius: "))
 f = (c * 9 / 5) + 32
 print("Equivalen a", f, "°F")

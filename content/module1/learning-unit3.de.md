@@ -15,7 +15,7 @@ In Python schreibt man Kommentare mit dem Symbol `#`:
 
 Alles, was nach `#` in derselben Zeile steht, wird von Python ignoriert.
 
-:::note[Hinweis:]
+:::note
 Kommentare sind für Menschen, nicht für den Interpreter. Sie machen den Code verständlicher und helfen dir zu erinnern, was du meintest, wenn du ihn später erneut liest.
 :::
 
@@ -34,7 +34,7 @@ print("Hallo")  # Zeigt Text auf dem Bildschirm
 Hallo
 ```
 
-:::tip[Tipp:]
+:::tip
 Vermeide offensichtliche Kommentare wie:\
 `x = x + 1 # ich addiere 1 zu x`
 :::
@@ -56,7 +56,7 @@ Der Benutzer gibt den Radius ein und das Ergebnis wird angezeigt.
 """
 ```
 
-:::note[Hinweis:]
+:::note
 Technisch gesehen ist dies ein ungenutztes Stringliteral, aber Python ignoriert es, sodass es als Kommentar funktioniert.
 :::
 
@@ -69,7 +69,7 @@ Kommentare sind keine Dekoration. Sie sind nützlich, wenn:
 - Sie wichtige Entscheidungen dokumentieren.
 - Sie den Leser des Codes unterstützen (auch dich selbst).
 
-:::tip[Hinweis:]
+:::note
 Wenn du zu viel erklären musst, ist der Code vielleicht zu komplex. Oft ist es besser, den Code zu vereinfachen, statt mehr Kommentare zu schreiben.
 :::
 
@@ -93,7 +93,7 @@ alter = 10
 jahre_erfahrung = 20
 ```
 
-:::note[Hinweis:]
+:::note
 Ein guter Name verhindert unnötige Kommentare.
 :::
 
@@ -137,7 +137,7 @@ print(a + b)
 
 Die allgemeine Empfehlung lautet, nicht mehr als 79 Zeichen pro Zeile zu verwenden (PEP 8).
 
-:::tip[Tipp:]
+:::tip
 Wenn du etwas Langes schreiben musst, teile es auf mehrere Teile auf, z. B. mit `\` oder durch Konkatenation.
 :::
 
@@ -165,7 +165,7 @@ Hier erklären Kommentare den Zweck, nicht die mathematische Operation.
 ## Wann Solltest Du NICHT Kommentieren?
 
 :::tip
-**Tipp:** Merke dir diese goldene Regel:\
+Merke dir diese goldene Regel:\
 **"Kommentiere, wenn der Leser verwirrt sein könnte; kommentiere nicht das Offensichtliche".**
 :::
 
@@ -194,7 +194,7 @@ print("Dein Name ist:", name)
 print("Dein Alter in 5 Jahren wird sein:", alter + 5)
 ```
 
-:::details[Mögliche Lösung ansehen]
+:::details
 ```python
 # Benutzerdaten
 name = "Juan"

@@ -16,14 +16,14 @@ Si al llamar la función no se proporciona ese valor, Python utiliza el valor pr
 
 ```python
 def nombre_funcion(parametro=valor):
-	instrucciones
+    instrucciones
 ```
 
 ### Ejemplo Básico
 
 ```python
 def saludar(nombre="Usuario"):
-	print("Hola", nombre)
+    print("Hola", nombre)
 ```
 
 Uso:
@@ -42,13 +42,13 @@ Hola Carlos
 
 ```python run hidden
 def saludar(nombre="Usuario"):
-	print("Hola", nombre)
+    print("Hola", nombre)
 
 saludar()
 saludar("Carlos")
 ```
 
-:::note[Nota:]
+:::note
 Los argumentos por defecto hacen que los parámetros sean opcionales.
 :::
 
@@ -58,8 +58,8 @@ Una función puede tener varios parámetros con valores por defecto.
 
 ```python
 def mostrar_datos(nombre="Desconocido", edad=0):
-	print("Nombre:", nombre)
-	print("Edad:", edad)
+    print("Nombre:", nombre)
+    print("Edad:", edad)
 ```
 
 Uso:
@@ -71,8 +71,8 @@ mostrar_datos("Ana", 25)
 
 ```python run hidden
 def mostrar_datos(nombre="Desconocido", edad=0):
-	print("Nombre:", nombre)
-	print("Edad:", edad)
+    print("Nombre:", nombre)
+    print("Edad:", edad)
 
 mostrar_datos()
 mostrar_datos("Ana", 25)
@@ -86,17 +86,17 @@ Los parámetros con valores por defecto deben ir después de los parámetros obl
 
 ```python
 def ejemplo(a=10, b):
-	pass
+    pass
 ```
 
 ### Correcto
 
 ```python
 def ejemplo(b, a=10):
-	pass
+    pass
 ```
 
-:::tip[Tip:]
+:::tip
 Primero define los parámetros obligatorios y luego los opcionales.
 :::
 
@@ -108,7 +108,7 @@ Ejemplo:
 
 ```python
 def registrar(nombre, edad):
-	print(nombre, edad)
+    print(nombre, edad)
 ```
 
 Llamada:
@@ -125,12 +125,12 @@ Carlos 25
 
 ```python run hidden
 def registrar(nombre, edad):
-	print(nombre, edad)
+    print(nombre, edad)
 
 registrar(edad=25, nombre="Carlos")
 ```
 
-:::note[Nota:]
+:::note
 El orden de los argumentos no importa cuando se usan argumentos nombrados.
 :::
 
@@ -138,8 +138,8 @@ El orden de los argumentos no importa cuando se usan argumentos nombrados.
 
 ```python
 def crear_usuario(nombre, rol="usuario"):
-	print("Nombre:", nombre)
-	print("Rol:", rol)
+    print("Nombre:", nombre)
+    print("Rol:", rol)
 ```
 
 Uso:
@@ -151,14 +151,14 @@ crear_usuario("Luis", rol="admin")
 
 ```python run hidden
 def crear_usuario(nombre, rol="usuario"):
-	print("Nombre:", nombre)
-	print("Rol:", rol)
+    print("Nombre:", nombre)
+    print("Rol:", rol)
 
 crear_usuario("Ana")
 crear_usuario("Luis", rol="admin")
 ```
 
-:::tip[Tip:]
+:::tip
 Los argumentos nombrados mejoran la legibilidad del código, especialmente cuando hay muchos parámetros.
 :::
 
@@ -175,8 +175,8 @@ Los argumentos nombrados mejoran la legibilidad del código, especialmente cuand
 
 ```python run
 def calcular_descuento(precio, descuento=10):
-	total = precio - (precio * descuento / 100)
-	return total
+    total = precio - (precio * descuento / 100)
+    return total
 
 print(calcular_descuento(100))
 print(calcular_descuento(100, 20))
@@ -187,7 +187,7 @@ print(calcular_descuento(100, 20))
 80.0
 ```
 
-:::note[Nota:]
+:::note
 Los valores por defecto se asignan una sola vez al definir la función, no cada vez que se ejecuta.
 :::
 
@@ -203,7 +203,7 @@ Crea un programa que realice lo siguiente:
 - Llamar la función sin argumentos.
 - Llamar la función enviando el nombre `"Carlos"`.
 
-```python run="Practicar >>" hidden
+```python practice
 # Crea un programa que realice lo siguiente:
 # 1. Definir una función llamada saludo.
 # 2. La función debe tener un parámetro llamado nombre
@@ -214,15 +214,15 @@ Crea un programa que realice lo siguiente:
 # 5. Llamar la función enviando el nombre "Carlos".
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # 1. Definir una función llamada saludo
 # 2. La función debe tener un parámetro llamado nombre
 # con valor por defecto "Invitado"
 def saludo(nombre="Invitado"):
-	# 3. Dentro de la función imprimir el mensaje: "Hola,
-	# <nombre>"
-	print("Hola,", nombre)
+    # 3. Dentro de la función imprimir el mensaje: "Hola,
+    # <nombre>"
+    print("Hola,", nombre)
 
 # 4. Llamar la función sin argumentos
 saludo()
@@ -243,7 +243,7 @@ Desarrolla un programa que:
 - Llamar la función otra vez usando el `precio` e `impuesto` personalizado (por ejemplo 20).
 - Mostrar ambos resultados.
 
-```python run="Practicar >>" hidden
+```python practice
 # Desarrolla un programa que:
 # 1. Cree una función llamada precio_final.
 # 2. La función debe recibir: precio (obligatorio) e
@@ -257,17 +257,17 @@ Desarrolla un programa que:
 # 7. Mostrar ambos resultados.
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # 1. Cree una función llamada precio_final
 # 2. La función debe recibir: precio (obligatorio) e
 # impuesto (por defecto 15)
 def precio_final(precio, impuesto=15):
-	# 3. Calcular el precio final con la fórmula:
-	# precio_total = precio + (precio * impuesto / 100)
-	total = precio + (precio * impuesto / 100)
-	# 4. Devolver el resultado usando return
-	return total
+    # 3. Calcular el precio final con la fórmula:
+    # precio_total = precio + (precio * impuesto / 100)
+    total = precio + (precio * impuesto / 100)
+    # 4. Devolver el resultado usando return
+    return total
 
 # 5. Llamar la función una vez usando solo el precio
 print(precio_final(100))
@@ -290,7 +290,7 @@ Crea un programa que:
 - Llamar la función cambiando el orden de los argumentos.
 - Llamar la función sin especificar la cantidad.
 
-```python run="Practicar >>" hidden
+```python practice
 # Crea un programa que:
 # 1. Defina una función llamada crear_producto.
 # 2. La función debe recibir: nombre, precio y cantidad
@@ -302,16 +302,16 @@ Crea un programa que:
 # 6. Llamar la función sin especificar la cantidad.
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # 1. Defina una función llamada crear_producto
 # 2. La función debe recibir: nombre, precio y cantidad
 # (por defecto 1)
 def crear_producto(nombre, precio, cantidad=1):
-	# 3. Imprimir los datos del producto
-	print("Nombre:", nombre)
-	print("Precio:", precio)
-	print("Cantidad:", cantidad)
+    # 3. Imprimir los datos del producto
+    print("Nombre:", nombre)
+    print("Precio:", precio)
+    print("Cantidad:", cantidad)
 
 # 4. Llamar la función utilizando argumentos nombrados
 crear_producto(nombre="Laptop", precio=1000, cantidad=2)

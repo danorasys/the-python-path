@@ -23,7 +23,7 @@ These operators return `True` or `False`, depending on the condition.
 ```python run
 age = 20
 if age >= 18:
-	print("You are an adult")
+    print("You are an adult")
 ```
 
 ```output
@@ -43,7 +43,7 @@ Example:
 ```python run
 age = 24
 if age >= 18 and age < 65:
-	print("Adult")
+    print("Adult")
 ```
 
 ```output
@@ -59,7 +59,7 @@ Example:
 ```python run
 color = "red"
 if color == "red" or color =="blue":
-	print("Allowed color")
+    print("Allowed color")
 ```
 
 ```output
@@ -75,7 +75,7 @@ Example:
 ```python run
 connected = False
 if not connected:
-	print("No connection")
+    print("No connection")
 ```
 
 ```output
@@ -102,7 +102,7 @@ No connection
 ```python run
 temp = 25
 if temp > 20 and temp < 30:
-	print("Ideal temperature")
+    print("Ideal temperature")
 ```
 
 ```output
@@ -111,30 +111,30 @@ Ideal temperature
 
 ## Tips
 
-:::tip[Tip:]
+:::tip
 When combining multiple conditions, think: "Do I want all of them to be true, or just one?"
 :::
 
-:::tip[Tip:]
+:::tip
 Write clear and short conditions; avoid using too many within the same `if`.
 :::
 
-:::tip[Tip:]
+:::tip
 Use not when you want to simplify long rules. For example:\
 Instead of `if connected == False:`, use `if not connected:`.
 :::
 
 ## Notes
 
-:::note[Note:]
+:::note
 Comparisons in Python use `==`, not `=`.
 :::
 
-:::note[Note:]
+:::note
 You can chain comparisons like in mathematics: `18 <= age < 60`.
 :::
 
-:::note[Note:]
+:::note
 Python evaluates conditions from left to right.
 :::
 
@@ -147,9 +147,9 @@ user = "python_learner"
 password = "password123"
 
 if user == "python_learner" and password == "password123":
-	print("Access granted")
+    print("Access granted")
 else:
-	print("Authentication failed")
+    print("Authentication failed")
 ```
 
 ```output
@@ -162,11 +162,11 @@ Access granted
 score = 75
 
 if 60 <= score <= 100:
-	print("Passed")
+    print("Passed")
 elif 0 <= score < 60:
-	print("Failed")
+    print("Failed")
 else:
-	print("Invalid score")
+    print("Invalid score")
 ```
 
 ```output
@@ -178,9 +178,9 @@ Passed
 ```python run
 mode ="offline"
 if not mode == "online":
-	print("Offline mode active")
+    print("Offline mode active")
 else:
-	print("Connection successfully established")
+    print("Connection successfully established")
 ```
 
 ```output
@@ -193,7 +193,7 @@ Offline mode active
 
 Create a variable called `age` and assign it an integer value. The program must check whether the person is 18 years old or older. If the condition is met, display the message `Can vote`. Otherwise, display `Cannot vote`.
 
-```python run="Practice >>" hidden
+```python practice
 # Create a variable called age and assign it an integer
 # value. The program must check whether the person is
 # 18 years old or older. If the condition is met,
@@ -201,14 +201,14 @@ Create a variable called `age` and assign it an integer value. The program must 
 # "Cannot vote"
 ```
 
-:::details[View possible solution]
-```python run="Try Solution >>"
+:::details
+```python run
 age = 17
 
 if age >= 18:
-	print("Can vote")
+    print("Can vote")
 else:
-	print("Cannot vote")
+    print("Cannot vote")
 ```
 :::
 
@@ -216,7 +216,7 @@ else:
 
 Create a variable called `number`. The program must check whether the value of `number` is between 1 and 10, including both limits. If the number is within the range, display `Valid number`. If it is not, display `Number out of range`.
 
-```python run="Practice >>" hidden
+```python practice
 # Create a variable called number. The program must
 # check whether the value of number is between 1 and
 # 10, including both limits. If the number is within
@@ -224,14 +224,14 @@ Create a variable called `number`. The program must check whether the value of `
 # display "Number out of range"
 ```
 
-:::details[View possible solution]
-```python run="Try Solution >>"
+:::details
+```python run
 number = 7
 
 if number >= 1 and number <= 10:
-	print("Valid number")
+    print("Valid number")
 else:
-	print("Number out of range")
+    print("Number out of range")
 ```
 :::
 
@@ -239,21 +239,21 @@ else:
 
 Create a variable called `color`. The program must check whether the color is `blue` or `red`. If it matches one of those colors, display `Allowed color`. Otherwise, display `Color not allowed`.
 
-```python run="Practice >>" hidden
+```python practice
 # Create a variable called color. The program must
 # check whether the color is "blue" or "red". If it matches
 # one of those colors, display "Allowed color".
 # Otherwise, display "Color not allowed"
 ```
 
-:::details[View possible solution]
-```python run="Try Solution >>"
+:::details
+```python run
 color = "blue"
 
 if color == "blue" or color == "red":
-	print("Allowed color")
+    print("Allowed color")
 else:
-	print("Color not allowed")
+    print("Color not allowed")
 ```
 :::
 
@@ -261,21 +261,21 @@ else:
 
 Create a variable called `attempts`. If the value of attempts is different from `0`, display `Attempts available`. If the value is `0`, display `Account locked`.
 
-```python run="Practice >>" hidden
+```python practice
 # Create a variable called attempts. If the value of
 # attempts is different from 0, display "Attempts
 # available". If the value is 0, display "Account
 # locked"
 ```
 
-:::details[View possible solution]
-```python run="Try Solution >>"
+:::details
+```python run
 attempts = 0
 
 if attempts != 0:
-	print("Attempts available")
+    print("Attempts available")
 else:
-	print("Account locked")
+    print("Account locked")
 ```
 :::
 
@@ -289,7 +289,7 @@ Create a variable called `n`. The program must determine whether the number is:
 
 Display a different message for each case.
 
-```python run="Practice >>" hidden
+```python practice
 # Create a variable called n. The program must
 # determine whether the number is:
 # - Positive (greater than 0).
@@ -298,16 +298,16 @@ Display a different message for each case.
 # Display a different message for each case
 ```
 
-:::details[View possible solution]
-```python run="Try Solution >>"
+:::details
+```python run
 n = -3
 
 if n > 0:
-	print("The number is positive")
+    print("The number is positive")
 elif n < 0:
-	print("The number is negative")
+    print("The number is negative")
 else:
-	print("The number is zero")
+    print("The number is zero")
 ```
 :::
 
@@ -320,7 +320,7 @@ Create two variables:
 
 The program should display `Access granted` only if the person is 18 years old or older and `has_access` is `True`. In any other case, it should display `Access denied`.
 
-```python run="Practice >>" hidden
+```python practice
 # Create two variables:
 # - age.
 # - has_access (True or False).
@@ -330,15 +330,15 @@ The program should display `Access granted` only if the person is 18 years old o
 # denied"
 ```
 
-:::details[View possible solution]
-```python run="Try Solution >>"
+:::details
+```python run
 age = 20
 has_access = True
 
 if age >= 18 and has_access:
-	print("Access granted")
+    print("Access granted")
 else:
-	print("Access denied")
+    print("Access denied")
 ```
 :::
 

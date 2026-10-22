@@ -16,7 +16,7 @@ El bucle `for` permite recorrer automáticamente todos los elementos de una cole
 frutas = ["manzana", "pera", "uva"]
 
 for fruta in frutas:
-	print(fruta)
+    print(fruta)
 ```
 
 ```output
@@ -25,7 +25,7 @@ pera
 uva
 ```
 
-:::note[Nota:]
+:::note
 El bucle `for` es la forma más común y segura de recorrer colecciones en Python.
 :::
 
@@ -51,7 +51,7 @@ Cuando necesitamos conocer la posición de cada elemento, podemos combinar `len(
 nombres = ["Ana", "Luis", "Carlos"]
 
 for i in range(len(nombres)):
-	print(i, nombres[i])
+    print(i, nombres[i])
 ```
 
 ```output
@@ -60,7 +60,7 @@ for i in range(len(nombres)):
 2 Carlos
 ```
 
-:::tip[Tip:]
+:::tip
 Este método es útil cuando necesitas modificar elementos por posición.
 :::
 
@@ -72,7 +72,7 @@ La función `enumerate()` permite obtener el índice y el valor al mismo tiempo.
 estudiantes = ["Ana", "Luis", "Pedro"]
 
 for indice, estudiante in enumerate(estudiantes):
-	print(indice, estudiante)
+    print(indice, estudiante)
 ```
 
 ```output
@@ -97,7 +97,7 @@ for indice, estudiante in enumerate(estudiantes):
 coordenadas = (10, 20, 30)
 
 for valor in coordenadas:
-	print(valor)
+    print(valor)
 ```
 
 ```output
@@ -112,7 +112,7 @@ for valor in coordenadas:
 numeros = {1, 2, 3}
 
 for n in numeros:
-	print(n)
+    print(n)
 ```
 
 ```output
@@ -121,7 +121,7 @@ for n in numeros:
 3
 ```
 
-:::note[Nota:]
+:::note
 El orden puede variar.
 :::
 
@@ -133,7 +133,7 @@ El orden puede variar.
 persona = {"nombre": "Ana", "edad": 25}
 
 for clave in persona:
-	print(clave)
+    print(clave)
 ```
 
 ```output
@@ -147,7 +147,7 @@ edad
 persona = {"nombre": "Ana", "edad": 25}
 
 for valor in persona.values():
-	print(valor)
+    print(valor)
 ```
 
 ```output
@@ -161,7 +161,7 @@ Ana
 persona = {"nombre": "Ana", "edad": 25}
 
 for clave, valor in persona.items():
-	print(clave, valor)
+    print(clave, valor)
 ```
 
 ```output
@@ -169,7 +169,7 @@ nombre Ana
 edad 25
 ```
 
-:::tip[Tip:]
+:::tip
 `items()` es la forma más completa de recorrer diccionarios.
 :::
 
@@ -183,14 +183,14 @@ Se utiliza para trabajar con estructuras más complejas.
 
 ```python run
 matriz = [
-	[1, 2, 3],
-	[4, 5, 6],
-	[7, 8, 9]
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
 ]
 
 for fila in matriz:
-	for numero in fila:
-		print(numero)
+    for numero in fila:
+        print(numero)
 ```
 
 ```output
@@ -205,7 +205,7 @@ for fila in matriz:
 9
 ```
 
-:::note[Nota:]
+:::note
 Los bucles anidados permiten recorrer estructuras multidimensionales.
 :::
 
@@ -215,7 +215,7 @@ Los bucles anidados permiten recorrer estructuras multidimensionales.
 productos = ["Laptop", "Mouse", "Teclado"]
 
 for indice, producto in enumerate(productos):
-	print("Producto", indice, ":", producto)
+    print("Producto", indice, ":", producto)
 ```
 
 ```output
@@ -236,7 +236,7 @@ Crea un programa que:
 - Después, use `enumerate()` para mostrar el número de posición y el nombre del estudiante.
 - Finalmente, muestre cuántos estudiantes hay en la lista utilizando `len()`.
 
-```python run="Practicar >>" hidden
+```python practice
 # Crea un programa que:
 # 1. Defina una lista llamada estudiantes con al menos
 # 5 nombres.
@@ -248,8 +248,8 @@ Crea un programa que:
 # lista utilizando len()
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # 1. Defina una lista llamada estudiantes con al menos
 # 5 nombres
 estudiantes = ["Ana", "Luis", "Carlos", "Sofía", "Pedro"]
@@ -257,12 +257,12 @@ estudiantes = ["Ana", "Luis", "Carlos", "Sofía", "Pedro"]
 # 2. Recorra la lista usando un bucle for
 # 3. Imprima cada nombre
 for estudiante in estudiantes:
-	print(estudiante)
+    print(estudiante)
 
 # 4. Después, use enumerate() para mostrar el número de
 # posición y el nombre del estudiante
 for indice, estudiante in enumerate(estudiantes):
-	print(indice, estudiante)
+    print(indice, estudiante)
 
 # 5. Finalmente, muestre cuántos estudiantes hay en la
 # lista utilizando len()
@@ -279,7 +279,7 @@ Crea un programa que:
 - Luego muestre únicamente los valores.
 - Finalmente recorra el diccionario mostrando clave y valor juntos.
 
-```python run="Practicar >>" hidden
+```python practice
 # Crea un programa que:
 # 1. Defina un diccionario llamado producto con:
 # nombre, precio y stock.
@@ -289,28 +289,28 @@ Crea un programa que:
 # y valor juntos
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # 1. Defina un diccionario llamado producto con:
 # nombre, precio y stock
 producto = {
-	"nombre": "Laptop",
-	"precio": 1200,
-	"stock": 5
+    "nombre": "Laptop",
+    "precio": 1200,
+    "stock": 5
 }
 
 # 2. Recorra el diccionario mostrando solo las claves
 for clave in producto:
-	print(clave)
+    print(clave)
 
 # 3. Luego muestre únicamente los valores
 for valor in producto.values():
-	print(valor)
+    print(valor)
 
 # 4. Finalmente recorra el diccionario mostrando clave
 # y valor juntos
 for clave, valor in producto.items():
-	print(clave, valor)
+    print(clave, valor)
 ```
 :::
 
@@ -323,7 +323,7 @@ Crea un programa que:
 - Imprima cada número.
 - Calcule la suma total de todos los valores.
 
-```python run="Practicar >>" hidden
+```python practice
 # Crea un programa que:
 # 1. Defina una lista que contenga tres listas internas
 # con números.
@@ -333,14 +333,14 @@ Crea un programa que:
 # 4. Calcule la suma total de todos los valores
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # 1. Defina una lista que contenga tres listas internas
 # con números
 matriz = [
-	[1, 2, 3],
-	[4, 5, 6],
-	[7, 8, 9]
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
 ]
 
 suma = 0
@@ -348,10 +348,10 @@ suma = 0
 # 2. Utilice bucles anidados para recorrer todos los
 # números
 for fila in matriz:
-	for numero in fila:
-		# 3. Imprima cada número
-		print(numero)
-		suma += numero
+    for numero in fila:
+        # 3. Imprima cada número
+        print(numero)
+        suma += numero
 
 # 4. Calcule la suma total de todos los valores
 print("Suma total:", suma)

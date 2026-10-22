@@ -15,10 +15,10 @@ Una función anidada es una función definida dentro de otra función.
 ```python
 def funcion_externa():
 
-	def funcion_interna():
-		print("Soy una función interna")
+    def funcion_interna():
+        print("Soy una función interna")
 
-	funcion_interna()
+    funcion_interna()
 ```
 
 Ejemplo:
@@ -26,10 +26,10 @@ Ejemplo:
 ```python run
 def saludar():
 
-	def mensaje():
-		print("Hola desde la función interna")
+    def mensaje():
+        print("Hola desde la función interna")
 
-	mensaje()
+    mensaje()
 
 saludar()
 ```
@@ -38,7 +38,7 @@ saludar()
 Hola desde la función interna
 ```
 
-:::note[Nota:]
+:::note
 La función interna solo existe dentro de la función externa y no puede ser llamada desde fuera.
 :::
 
@@ -55,15 +55,15 @@ NameError: name 'mensaje' is not defined
 ```python run hidden error
 def saludar():
 
-	def mensaje():
-		print("Hola desde la función interna")
+    def mensaje():
+        print("Hola desde la función interna")
 
-	mensaje()
+    mensaje()
 
 mensaje()
 ```
 
-:::tip[Tip:]
+:::tip
 Usa funciones anidadas cuando una función solo tiene sentido dentro de otra.
 :::
 
@@ -72,11 +72,11 @@ Usa funciones anidadas cuando una función solo tiene sentido dentro de otra.
 ```python run
 def operacion():
 
-	def sumar(a, b):
-		return a + b
+    def sumar(a, b):
+        return a + b
 
-	resultado = sumar(5, 3)
-	print(resultado)
+    resultado = sumar(5, 3)
+    print(resultado)
 
 operacion()
 ```
@@ -85,7 +85,7 @@ operacion()
 8
 ```
 
-:::note[Nota:]
+:::note
 Esto ayuda a organizar mejor el código y evitar que funciones internas se usen en otros contextos por error.
 :::
 
@@ -111,7 +111,7 @@ print(sumar(4, 6))
 10
 ```
 
-:::note[Nota:]
+:::note
 Las funciones lambda no usan `def` ni `return`, el resultado se devuelve automáticamente.
 :::
 
@@ -135,7 +135,7 @@ print(cuadrado(5))
 25
 ```
 
-:::tip[Tip]
+:::tip
 Si la función es compleja o tiene varias líneas, es mejor usar `def`.
 :::
 
@@ -166,7 +166,7 @@ print(resultado)
 [2, 4, 6, 8]
 ```
 
-:::note[Nota:]
+:::note
 `map()` aplica una función a cada elemento de una colección.
 :::
 
@@ -175,15 +175,15 @@ print(resultado)
 ```python run
 def calcular():
 
-	def multiplicar(a, b):
-		return a * b
+    def multiplicar(a, b):
+        return a * b
 
-	resultado = multiplicar(3, 4)
+    resultado = multiplicar(3, 4)
 
-	doble = lambda x: x * 2
+    doble = lambda x: x * 2
 
-	print("Multiplicación:", resultado)
-	print("Doble:", doble(resultado))
+    print("Multiplicación:", resultado)
+    print("Doble:", doble(resultado))
 
 calcular()
 ```
@@ -206,7 +206,7 @@ Crea un programa que:
 - Ejecuta la función principal.
 - Intenta llamar la función interna fuera de la función principal (observar el error).
 
-```python run="Practicar >>" hidden
+```python practice
 # Crea un programa que:
 # 1. Defina una función llamada principal.
 # 2. Dentro de esa función define otra función llamada
@@ -220,21 +220,21 @@ Crea un programa que:
 # función principal (observar el error).
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # 1. Defina una función llamada principal
 def principal():
 
-	# 2. Dentro de esa función define otra función llamada
-	# mensaje
-	def mensaje():
-		# 3. La función interna debe imprimir: "Hola desde la
-		# función interna"
-		print("Hola desde la función interna")
+    # 2. Dentro de esa función define otra función llamada
+    # mensaje
+    def mensaje():
+        # 3. La función interna debe imprimir: "Hola desde la
+        # función interna"
+        print("Hola desde la función interna")
 
-	# 4. Llama la función interna desde la función
-	# principal
-	mensaje()
+    # 4. Llama la función interna desde la función
+    # principal
+    mensaje()
 
 # 5. Ejecuta la función principal
 principal()
@@ -256,7 +256,7 @@ Crea un programa que:
 - Llama la función con el valor `5`.
 - Muestra el resultado en pantalla.
 
-```python run="Practicar >>" hidden
+```python practice
 # Crea un programa que:
 # 1. Defina una función lambda que reciba un número.
 # 2. La función debe devolver el triple del número.
@@ -265,8 +265,8 @@ Crea un programa que:
 # 5. Muestra el resultado en pantalla.
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # 1. Defina una función lambda que reciba un número
 # 2. La función debe devolver el triple del número
 # 3. Guarda la función en una variable
@@ -287,7 +287,7 @@ Desarrolla un programa que:
 - Convierta el resultado a lista.
 - Muestra el resultado final.
 
-```python run="Practicar >>" hidden
+```python practice
 # Desarrolla un programa que:
 # 1. Cree una lista con los números: [2, 4, 6, 8].
 # 2. Use la función map() junto con una función lambda.
@@ -297,8 +297,8 @@ Desarrolla un programa que:
 # 5. Muestra el resultado final.
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # 1. Cree una lista con los números: [2, 4, 6, 8]
 numeros = [2, 4, 6, 8]
 

@@ -45,7 +45,7 @@ Resultado:
 ['Python', 'es', 'un', 'lenguaje', 'muy', 'poderoso', 'y', 'Python', 'es', 'fácil', 'de', 'aprender']
 ```
 
-:::note[Nota:]
+:::note
 El método `split()` convierte un texto en una lista separando las palabras por espacios.
 :::
 
@@ -103,7 +103,7 @@ print(len(texto))
 print(texto.count("Python"))
 ```
 
-:::tip[Tip:]
+:::tip
 Puedes combinar `.lower()` con `.count()` para evitar problemas entre mayúsculas y minúsculas.
 :::
 
@@ -135,9 +135,9 @@ Por ejemplo:
 contraseña = "Python123"
 
 if len(contraseña) >= 8:
-	print("La contraseña tiene buena longitud")
+    print("La contraseña tiene buena longitud")
 else:
-	print("La contraseña es demasiado corta")
+    print("La contraseña es demasiado corta")
 ```
 
 ### Buscar Números Dentro del Texto
@@ -148,8 +148,8 @@ contraseña = "Python123"
 tiene_numero = False
 
 for caracter in contraseña:
-	if caracter.isdigit():
-		tiene_numero = True
+    if caracter.isdigit():
+        tiene_numero = True
 
 print(tiene_numero)
 ```
@@ -166,13 +166,13 @@ contraseña = "Python123"
 tiene_mayuscula = False
 
 for caracter in contraseña:
-	if caracter.isupper():
-		tiene_mayuscula = True
+    if caracter.isupper():
+        tiene_mayuscula = True
 
 print(tiene_mayuscula)
 ```
 
-:::note[Nota:]
+:::note
 `isdigit()` verifica si un carácter es un número.\
 `isupper()` verifica si una letra está en mayúscula.
 :::
@@ -186,19 +186,19 @@ tiene_numero = False
 tiene_mayuscula = False
 
 for caracter in contraseña:
-	if caracter.isdigit():
-		tiene_numero = True
+    if caracter.isdigit():
+        tiene_numero = True
 
-	if caracter.isupper():
-		tiene_mayuscula = True
+    if caracter.isupper():
+        tiene_mayuscula = True
 
 if len(contraseña) >= 8 and tiene_numero and tiene_mayuscula:
-	print("Contraseña válida")
+    print("Contraseña válida")
 else:
-	print("Contraseña insegura")
+    print("Contraseña insegura")
 ```
 
-:::tip[Tip:]
+:::tip
 Dividir un problema en pequeñas verificaciones facilita mucho la programación.
 :::
 
@@ -249,7 +249,7 @@ texto = "Python"
 resultado = ""
 
 for letra in texto:
-	resultado = letra + resultado
+    resultado = letra + resultado
 
 print(resultado)
 ```
@@ -258,7 +258,7 @@ print(resultado)
 nohtyP
 ```
 
-:::note[Nota:]
+:::note
 Este segundo método ayuda a entender mejor cómo construir cadenas manualmente.
 :::
 
@@ -301,7 +301,7 @@ El programa debe utilizar:
 - Slicing.
 - Métodos de cadenas.
 
-```python run="Practicar >>" hidden
+```python practice
 # Crea un programa que:
 # 1. Almacene un texto en una variable.
 #  Y luego muestre:
@@ -318,8 +318,8 @@ El programa debe utilizar:
 # 11. Métodos de cadenas.
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # Crea un programa que:
 # 1. Almacene un texto en una variable.
 texto = "Python es divertido y poderoso"
@@ -359,7 +359,7 @@ Desarrolla un programa que revise si una contraseña cumple estas condiciones:
 
 El programa debe mostrar mensajes indicando qué condición no se cumple.
 
-```python run="Practicar >>" hidden
+```python practice
 # Desarrolla un programa que revise si una contraseña cumple estas
 # condiciones:
 # 1. Tiene mínimo 10 caracteres.
@@ -370,8 +370,8 @@ El programa debe mostrar mensajes indicando qué condición no se cumple.
 # cumple.
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # Desarrolla un programa que revise si una contraseña cumple estas
 # condiciones:
 contraseña = "PiG85D59*@fd"
@@ -381,36 +381,36 @@ tiene_mayuscula = False
 tiene_minuscula = False
 
 for caracter in contraseña:
-	# 2. Contiene al menos un número.
-	if caracter.isdigit():
-		tiene_numero = True
+    # 2. Contiene al menos un número.
+    if caracter.isdigit():
+        tiene_numero = True
 
-	# 3. Contiene al menos una letra mayúscula.
-	if caracter.isupper():
-		tiene_mayuscula = True
+    # 3. Contiene al menos una letra mayúscula.
+    if caracter.isupper():
+        tiene_mayuscula = True
 
-	# 4. Contiene al menos una letra minúscula.
-	if caracter.islower():
-		tiene_minuscula = True
+    # 4. Contiene al menos una letra minúscula.
+    if caracter.islower():
+        tiene_minuscula = True
 
 # 5. El programa debe mostrar mensajes indicando qué condición no se
 # cumple.
 
 # 1. Tiene mínimo 10 caracteres.
 if len(contraseña) < 10:
-	print("La contraseña es demasiado corta")
+    print("La contraseña es demasiado corta")
 
 if not tiene_numero:
-	print("Falta un número")
+    print("Falta un número")
 
 if not tiene_mayuscula:
-	print("Falta una mayúscula")
+    print("Falta una mayúscula")
 
 if not tiene_minuscula:
-	print("Falta una minúscula")
+    print("Falta una minúscula")
 
 if len(contraseña) >= 10 and tiene_numero and tiene_mayuscula and tiene_minuscula:
-	print("Contraseña válida")
+    print("Contraseña válida")
 ```
 :::
 
@@ -435,15 +435,15 @@ odnum aloH
 aloH odnum
 ```
 
-```python run="Practicar >>" hidden
+```python practice
 # Crea un programa que:
 # 1. Guarde una frase en una variable.
 # 2. Invierta completamente el texto.
 # 3. Muestre también cada palabra invertida individualmente.
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # 1. Guarde una frase en una variable.
 frase = "Hola mundo"
 
@@ -457,7 +457,7 @@ palabras = frase.split()
 resultado = ""
 
 for palabra in palabras:
-	resultado += palabra[::-1] + " "
+    resultado += palabra[::-1] + " "
 
 print(resultado)
 ```

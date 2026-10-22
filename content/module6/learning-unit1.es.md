@@ -14,12 +14,12 @@ Observa el siguiente ejemplo conceptual:
 
 ```python
 def ejemplo():
-	ejemplo()
+    ejemplo()
 ```
 
 Aunque la función se llama a sí misma, este código tiene un problema importante: nunca termina.
 
-:::note[Nota:]
+:::note
 Una función recursiva siempre debe tener una condición que detenga las llamadas recursivas. De lo contrario, el programa entrará en una recursión infinita.
 :::
 
@@ -34,8 +34,8 @@ Estructura general:
 ```python
 def funcion():
 
-	if condicion_base:
-		return resultado
+    if condicion_base:
+        return resultado
 
 return funcion()
 ```
@@ -47,12 +47,12 @@ Supongamos que queremos mostrar una cuenta regresiva desde un número hasta cero
 ```python run
 def cuenta_regresiva(numero):
 
-	if numero == 0:
-		print("¡Despegue!")
-		return
+    if numero == 0:
+        print("¡Despegue!")
+        return
 
-	print(numero)
-	cuenta_regresiva(numero - 1)
+    print(numero)
+    cuenta_regresiva(numero - 1)
 
 cuenta_regresiva(5)
 ```
@@ -77,7 +77,7 @@ cuenta_regresiva(5)
 | `cuenta_regresiva(1)` | Imprime 1 |
 | `cuenta_regresiva(0)` | Caso base |
 
-:::tip[Tip:]
+:::tip
 Cuando estudies recursión, intenta imaginar una pila de llamadas donde cada ejecución espera a que termine la siguiente.
 :::
 
@@ -100,10 +100,10 @@ Resultado:
 ```python run
 def factorial(numero):
 
-	if numero == 1:
-		return 1
+    if numero == 1:
+        return 1
 
-	return numero * factorial(numero - 1)
+    return numero * factorial(numero - 1)
 
 print(factorial(5))
 ```
@@ -130,7 +130,7 @@ factorial(5)
 120
 ```
 
-:::note[Nota:]
+:::note
 La recursión suele parecer compleja al principio porque una función se ejecuta muchas veces antes de devolver el resultado final.
 :::
 
@@ -149,10 +149,10 @@ Ejemplo:
 ```python run
 def suma_hasta(numero):
 
-	if numero == 1:
-		return 1
+    if numero == 1:
+        return 1
 
-	return numero + suma_hasta(numero - 1)
+    return numero + suma_hasta(numero - 1)
 
 print(suma_hasta(5))
 ```
@@ -203,7 +203,7 @@ suma_hasta(5)
 | Requiere caso base | No | Sí |
 | Uso frecuente | Muy alto | Situacional |
 
-:::tip[Tip:]
+:::tip
 Antes de escribir una función recursiva, identifica claramente dos cosas: el caso base y cómo reducir el problema en cada llamada.
 :::
 
@@ -214,10 +214,10 @@ Supongamos que queremos contar cuántos caracteres tiene un texto usando recursi
 ```python run
 def contar_caracteres(texto):
 
-	if texto == "":
-		return 0
+    if texto == "":
+        return 0
 
-	return 1 + contar_caracteres(texto[1:])
+    return 1 + contar_caracteres(texto[1:])
 
 print(contar_caracteres("Python"))
 ```
@@ -268,7 +268,7 @@ sumar_naturales(4)
 
 No debes utilizar bucles (`for` o `while`).
 
-```python run="Practicar >>" hidden
+```python practice
 # Crea una función recursiva llamada sumar_naturales() que reciba un
 # número entero positivo.
 # La función debe calcular la suma de todos los números desde 1 hasta
@@ -276,8 +276,8 @@ No debes utilizar bucles (`for` o `while`).
 # No debes utilizar bucles (for o while).
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # Crea una función recursiva llamada sumar_naturales() que reciba un
 # número entero positivo.
 # La función debe calcular la suma de todos los números desde 1 hasta
@@ -286,10 +286,10 @@ No debes utilizar bucles (`for` o `while`).
 
 def sumar_naturales(numero):
 
-	if numero == 1:
-		return 1
+    if numero == 1:
+        return 1
 
-	return numero + sumar_naturales(numero - 1)
+    return numero + sumar_naturales(numero - 1)
 
 print(sumar_naturales(4))
 ```
@@ -312,7 +312,7 @@ Ejemplo:
 
 No utilices el operador `**`.
 
-```python run="Practicar >>" hidden
+```python practice
 # Desarrolla una función llamada potencia() que reciba dos parámetros:
 # - Base.
 # - Exponente.
@@ -320,8 +320,8 @@ No utilices el operador `**`.
 # No utilices el operador **.
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # Desarrolla una función llamada potencia() que reciba dos parámetros:
 # - Base.
 # - Exponente.
@@ -330,10 +330,10 @@ No utilices el operador `**`.
 
 def potencia(base, exponente):
 
-	if exponente == 0:
-		return 1
+    if exponente == 0:
+        return 1
 
-	return base * potencia(base, exponente - 1)
+    return base * potencia(base, exponente - 1)
 
 print(potencia(2, 4))
 ```
@@ -361,7 +361,7 @@ Debes utilizar:
 
 No utilices bucles.
 
-```python run="Practicar >>" hidden
+```python practice
 # Crea una función llamada contar_vocales() que reciba una cadena de
 # texto.
 # La función debe recorrer el texto de forma recursiva y devolver
@@ -373,8 +373,8 @@ No utilices bucles.
 # No utilices bucles.
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # Crea una función llamada contar_vocales() que reciba una cadena de
 # texto.
 # La función debe recorrer el texto de forma recursiva y devolver
@@ -387,15 +387,15 @@ No utilices bucles.
 
 def contar_vocales(texto):
 
-	if texto == "":
-		return 0
+    if texto == "":
+        return 0
 
-	vocales = "aeiouAEIOU"
+    vocales = "aeiouAEIOU"
 
-	if texto[0] in vocales:
-		return 1 + contar_vocales(texto[1:])
+    if texto[0] in vocales:
+        return 1 + contar_vocales(texto[1:])
 
-	return contar_vocales(texto[1:])
+    return contar_vocales(texto[1:])
 
 print(contar_vocales("Programacion"))
 ```

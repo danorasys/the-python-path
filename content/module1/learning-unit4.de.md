@@ -19,7 +19,7 @@ Hier:
 - Das "Label" ist `name` oder `alter`.
 - Der Inhalt ist `"Python"` und `33`.
 
-:::note[Hinweis:]
+:::note
 Das Zeichen `=` bedeutet in Python nicht "mathematisch gleich", sondern "einen Wert zuweisen". Das heißt: "Speichere diesen Wert in dieser Variable".
 :::
 
@@ -32,7 +32,7 @@ x = 10       # int (Ganzzahl)
 x = "Hallo"   # str (Zeichenkette)
 ```
 
-:::tip[Tipp:]
+:::tip
 Du kannst den Typ jederzeit ändern, aber vermeide es. Ein konsistenter Typ macht deinen Code verständlicher.
 :::
 
@@ -61,7 +61,7 @@ meine variable = "text"
 for = 5
 ```
 
-:::note[Hinweis:]
+:::note
 Verwende beschreibende Namen. Dein Code wird leichter lesbar sein, ohne viele Kommentare.
 :::
 
@@ -87,7 +87,7 @@ preis = 19.99
 temperatur = 36.5
 ```
 
-:::tip[Tipp:]
+:::tip
 Floats können aufgrund ihrer internen Darstellung manchmal überraschende Ergebnisse liefern:
 :::
 
@@ -125,7 +125,7 @@ angemeldet = False
 
 Sie werden sehr häufig in Bedingungen verwendet.
 
-:::note[Hinweis:]
+:::note
 In Python beginnen `True` und `False` mit einem Großbuchstaben.
 :::
 
@@ -219,7 +219,7 @@ text = str(x)
 print(type(text))
 ```
 
-:::tip[Tipp:]
+:::tip
 `input()` gibt immer einen String zurück, deshalb musst du ihn manchmal in `int` oder `float` umwandeln.
 :::
 
@@ -295,7 +295,7 @@ Alter: 20
 Alter: 20
 ```
 
-:::note[Hinweis:]
+:::note
 Diese Fehler passieren sehr häufig am Anfang. Mit der Zeit wirst du sie vermeiden können.
 :::
 
@@ -313,7 +313,7 @@ Erstelle Variablen für:
 
 Gib sie anschließend mit `print()` aus.
 
-```python run="Üben >>" hidden
+```python practice
 # Übung 1: Grundlegende Variablen erstellen
 # Erstelle Variablen für:
 # - Deinen Namen
@@ -324,8 +324,8 @@ Gib sie anschließend mit `print()` aus.
 # Gib sie anschließend mit print() aus
 ```
 
-:::details[Mögliche Lösung anzeigen]
-```python run="Lösung Ausprobieren >>"
+:::details
+```python run
 name = "DEIN NAME"
 alter = 22
 stadt = "DEINE STADT"
@@ -340,14 +340,14 @@ print(name, alter, stadt, ist_volljaehrig, groesse)
 
 Eine Variable enthält eine Zahl als Text (`"25"`). Wandle diesen Wert in eine Ganzzahl um und addiere 10. Gib dann das Ergebnis aus.
 
-```python run="Üben >>" hidden
+```python practice
 # Eine Variable enthält eine Zahl als Text ("25").
 # Wandle diesen Wert in eine Ganzzahl um und
 # addiere 10. Gib dann das Ergebnis aus.
 ```
 
-:::details[Mögliche Lösung anzeigen]
-```python run="Lösung Ausprobieren >>"
+:::details
+```python run
 zahl = "25"      # Die Zahl kommt als Text
 zahl = int(zahl)   # Umwandlung in int
 print(zahl + 10)
@@ -370,7 +370,7 @@ Gib aus:
 - Die Verkettung "Ich mag " + `c`.
 - Den Typ jeder Variable mit `type()`.
 
-```python run="Üben >>" hidden
+```python practice
 # a = 10
 # b = 3.5
 # c = "Python"
@@ -380,8 +380,8 @@ Gib aus:
 # 3. Den Typ jeder Variable mit type()
 ```
 
-:::details[Mögliche Lösung anzeigen]
-```python run="Lösung Ausprobieren >>"
+:::details
+```python run
 a = 10
 b = 3.5
 c = "Python"
@@ -409,7 +409,7 @@ Hallo Camilo, du bist 30 Jahre alt.
 
 Verwende Verkettung oder Kommata.
 
-```python run="Üben >>" hidden
+```python practice
 # Erstelle Variablen:
 # name = "Camilo"
 # alter = 30
@@ -418,8 +418,8 @@ Verwende Verkettung oder Kommata.
 # Verwende Verkettung oder Kommata
 ```
 
-:::details[Mögliche Lösung anzeigen]
-```python run="Lösung Ausprobieren >>"
+:::details
+```python run
 name = "Camilo"
 alter = 30
 

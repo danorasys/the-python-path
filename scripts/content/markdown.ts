@@ -8,12 +8,13 @@ import { unified, type Plugin } from "unified";
 import type { ContentBlock, TextBlockType } from "../../src/content/types";
 import type { Language } from "../../src/i18n/languages";
 import { ContentError } from "./errors";
-import { DEFAULT_LABELS } from "./labels";
+import { DEFAULT_LABELS, foreignDefault } from "./labels";
 
 export interface MarkdownContext {
   file: string;
   language: Language;
   lineOffset: number;
+  inDetails?: boolean | undefined;
 }
 
 const remarkTables: Plugin<[], Root> = function () {
@@ -46,6 +47,13 @@ function fail(ctx: MarkdownContext, node: Pick<Node, "position"> | undefined, me
     line: start ? start.line + ctx.lineOffset : undefined,
     column: start?.column,
   });
+}
+
+function checkLabel(text: string, node: Pick<Node, "position">, ctx: MarkdownContext): void {
+  const other = foreignDefault(text, ctx.language);
+  if (other) {
+    fail(ctx, node, `"${text}" is the default text of the ${other} files. Translate it, or remove it to use the default of this file.`);
+  }
 }
 
 function hasAttributes(node: { attributes?: Record<string, string | null | undefined> | null | undefined }): boolean {
@@ -102,7 +110,7 @@ type MetaValue = string | true;
 export const INPUT_SEPARATOR = "|";
 
 const ALLOWED_META: Record<CodeOptions["kind"], Record<string, "flag" | "value" | "either">> = {
-  python: { run: "either", hidden: "flag", error: "flag", input: "value" },
+  python: { run: "either", practice: "flag", hidden: "flag", error: "flag", input: "value" },
   output: { label: "value", static: "flag" },
 };
 
@@ -134,22 +142,40 @@ export function readCodeOptions(node: Code, ctx: MarkdownContext): CodeOptions {
   const options = parseMeta(node, lang, ctx);
   if (lang === "output") {
     const label = options.get("label");
+    if (typeof label === "string") checkLabel(label, node, ctx);
     return { kind: "output", label: typeof label === "string" ? label : undefined, static: options.has("static") };
   }
   const run = options.get("run");
+  const practice = options.has("practice");
   const input = options.get("input");
   const hidden = options.has("hidden");
   const error = options.has("error");
-  if (run === undefined && (hidden || error || input !== undefined)) {
-    fail(ctx, node, `"hidden", "error" and "input" only work together with "run".`);
+  if (practice && (run !== undefined || hidden)) {
+    fail(ctx, node, `"practice" already creates its own button. Use it without "run" or "hidden".`);
   }
+  if (run === undefined && !practice && (hidden || error || input !== undefined)) {
+    fail(ctx, node, `"hidden", "error" and "input" only work together with "run" or "practice".`);
+  }
+  if (typeof run === "string") checkLabel(run, node, ctx);
+  const labels = DEFAULT_LABELS[ctx.language];
+  const defaultRun = ctx.inDetails ? labels.solution : labels.run;
   return {
     kind: "python",
-    run: run === undefined ? undefined : run === true ? DEFAULT_LABELS[ctx.language].run : run,
-    hidden,
+    run: practice ? labels.practice : run === true ? defaultRun : run,
+    hidden: hidden || practice,
     error,
     inputs: typeof input === "string" ? input.split(INPUT_SEPARATOR) : [],
   };
+}
+
+function checkIndentation(node: Code, ctx: MarkdownContext): void {
+  const line = node.value.split("\n").findIndex((text) => text.includes("\t"));
+  if (line === -1) return;
+  const start = node.position?.start;
+  throw new ContentError("Python code must use spaces instead of tabs (PEP 8 recommends 4 spaces per level).", {
+    file: ctx.file,
+    line: start ? start.line + ctx.lineOffset + line + 1 : undefined,
+  });
 }
 
 export function parseMarkdown(body: string): Root {
@@ -174,6 +200,8 @@ function directiveBlocks(node: ContainerDirective, ctx: MarkdownContext): Conten
   const labelled = first?.type === "paragraph" && first.data?.directiveLabel === true;
   const label = labelled ? renderInline(first.children, ctx) : undefined;
   const body = labelled ? rest : node.children;
+  if (label) checkLabel(label, node, ctx);
+  const labels = DEFAULT_LABELS[ctx.language];
 
   switch (node.name) {
     case "note":
@@ -185,11 +213,13 @@ function directiveBlocks(node: ContainerDirective, ctx: MarkdownContext): Conten
       );
       if (paragraphs.length === 0) fail(ctx, node, `":::${node.name}" is empty.`);
       const text = paragraphs.join("<br><br>");
-      return [{ type: node.name, text: label === undefined ? text : `<strong>${label}</strong><br>${text}` }];
+      const title = label ?? escapeHtml(labels[node.name]);
+      return [{ type: node.name, text: title === "" ? text : `<strong>${title}</strong><br>${text}` }];
     }
-    case "details":
-      if (label === undefined) fail(ctx, node, `":::details" needs a title, like :::details[Ver solución].`);
-      return [{ type: "collapsible", title: label, content: convertBlocks(body, ctx) }];
+    case "details": {
+      const title = label || escapeHtml(labels.details);
+      return [{ type: "collapsible", title, content: convertBlocks(body, { ...ctx, inDetails: true }) }];
+    }
     case "table": {
       const [table, ...extra] = body;
       if (label === undefined) fail(ctx, node, `":::table" needs a title, like :::table[Operadores].`);
@@ -258,6 +288,7 @@ function convertBlocks(nodes: readonly RootContent[], ctx: MarkdownContext): Con
       blocks.push(...outputBlocks(node, options.label, ctx));
       continue;
     }
+    checkIndentation(node, ctx);
     if (!options.hidden) blocks.push({ type: "code", text: node.value, language: "python" });
     if (options.run === undefined) continue;
     const next = nodes[index + 1];

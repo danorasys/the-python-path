@@ -20,7 +20,7 @@ Puede almacenar distintos tipos de datos:
 datos = ("Ana", 25, True)
 ```
 
-:::note[Nota:]
+:::note
 Las tuplas mantienen el orden de los elementos, igual que las listas.
 :::
 
@@ -38,11 +38,11 @@ numeros = (1, 2, 3, 4)
 valor = (5,)
 ```
 
-:::note[Nota:]
+:::note
 La coma es obligatoria; sin ella Python no reconoce una tupla.
 :::
 
-:::tip[Tip:]
+:::tip
 Si olvidas la coma, Python interpretará el valor como un número normal y no como una tupla.
 :::
 
@@ -66,10 +66,10 @@ uva
 
 ```python
 for fruta in frutas:
-	print(fruta)
+    print(fruta)
 ```
 
-:::note[Nota:]
+:::note
 Aunque no puedas modificar la tupla, sí puedes leer sus valores y recorrerlos.
 :::
 
@@ -133,7 +133,7 @@ print(y)
 8
 ```
 
-:::tip[Tip:]
+:::tip
 El número de variables debe coincidir con la cantidad de elementos.
 :::
 
@@ -178,7 +178,7 @@ Carlos
 Colombia
 ```
 
-:::note[Nota:]
+:::note
 Las tuplas funcionan muy bien para representar registros pequeños donde cada posición tiene un significado fijo.
 :::
 
@@ -194,7 +194,7 @@ Crea un programa que:
 - Intente modificar un valor (observa el error).
 - Explica en un comentario por qué ocurre ese error.
 
-```python run="Practicar >>" hidden
+```python practice
 # Crea un programa que:
 # 1. Defina una tupla llamada persona con: nombre, edad
 # y país.
@@ -204,8 +204,8 @@ Crea un programa que:
 # 5. Explica en un comentario por qué ocurre ese error
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # 1. Defina una tupla llamada persona con: nombre, edad
 # y país
 persona = ("Ana", 22, "Colombia")
@@ -217,7 +217,7 @@ print(persona[2])
 
 # 3. Recorra la tupla con un bucle for
 for dato in persona:
-	print(dato)
+    print(dato)
 
 # 4. Intente modificar un valor (observa el error)
 # 5. Explica en un comentario por qué ocurre ese error
@@ -234,7 +234,7 @@ Realiza un programa que:
 - Imprima ambas variables.
 - Calcule la suma de las coordenadas.
 
-```python run="Practicar >>" hidden
+```python practice
 # Realiza un programa que:
 # 1. Cree una tupla llamada coordenada con dos números.
 # 2. Desempaquete la tupla en variables x y y.
@@ -242,8 +242,8 @@ Realiza un programa que:
 # 4. Calcule la suma de las coordenadas
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # 1. Cree una tupla llamada coordenada con dos números
 coordenada = (4, 7)
 
@@ -268,7 +268,7 @@ Desarrolla un programa que:
 - Encuentre la posición de un valor usando `index()`.
 - Muestre los resultados en pantalla.
 
-```python run="Practicar >>" hidden
+```python practice
 # Desarrolla un programa que:
 # 1. Cree una tupla con varios números repetidos.
 # 2. Cuente cuántas veces aparece un número específico
@@ -277,8 +277,8 @@ Desarrolla un programa que:
 # 4. Muestre los resultados en pantalla
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # 1. Cree una tupla con varios números repetidos
 numeros = (1, 3, 5, 3, 7, 3)
 

@@ -25,7 +25,7 @@ Enter your name: Linus
 Hello, Linus
 ```
 
-:::note[Note:]
+:::note
 Everything that `input()` returns is text, even if the user types a number.
 :::
 
@@ -54,7 +54,7 @@ How old are you? 55
 Next year you will be 56
 ```
 
-:::tip[Tip:]
+:::tip
 If you don’t convert it, a number cannot be added mathematically, only as text.
 :::
 
@@ -88,19 +88,19 @@ n = input("Number: ")
 print(n + 10)    # ERROR
 ```
 
-```python run="Test Error >>" hidden input="5" error
+```python run="Test Error >>" hidden error input="5"
 n = input("Number: ")
 print(n + 10)
 ```
 
 ### 2\. Attempt to Convert Invalid Text
 
-```python run="Test Error >>" input="hello" error
+```python run="Test Error >>" error input="hello"
 text = input("Input: ") # Input: hello
 int(text)    # ERROR
 ```
 
-:::note[Note:]
+:::note
 Later, you will learn to handle these errors with `try` and `except`.
 :::
 
@@ -144,7 +144,7 @@ Enter a word: Python
 PythonPythonPython
 ```
 
-:::tip[Tip:]
+:::tip
 When you repeat a string, spaces are not added automatically.
 :::
 
@@ -154,13 +154,13 @@ When you repeat a string, spaces are not added automatically.
 
 Ask the user for their name and show them a greeting.
 
-```python run="Practice >>" hidden
+```python practice
 # Ask the user for their name and show
 # them a greeting
 ```
 
-:::details[View possible solution]
-```python run="Try Solution >>" input="Ana"
+:::details
+```python run input="Ana"
 name = input("Enter your name: ")
 print("Hello", name)
 ```
@@ -170,13 +170,13 @@ print("Hello", name)
 
 Ask the user for their age and tell them how old they will be in 5 years.
 
-```python run="Practice >>" hidden
+```python practice
 # Ask the user for their age and tell them
 # how old they will be in 5 years
 ```
 
-:::details[View possible solution]
-```python run="Try Solution >>" input="25"
+:::details
+```python run input="25"
 age = int(input("How old are you? "))
 print("In 5 years you will be", age + 5)
 ```
@@ -186,13 +186,13 @@ print("In 5 years you will be", age + 5)
 
 Ask the user for a word and a number. Display the word repeated that number of times.
 
-```python run="Practice >>" hidden
+```python practice
 # Ask the user for a word and a number. Display
 # the word repeated that number of times
 ```
 
-:::details[View possible solution]
-```python run="Try Solution >>" input="Python|3"
+:::details
+```python run input="Python|3"
 word = input("Enter a word: ")
 amount = int(input("How many times do you want to repeat it? "))
 print(word * amount)
@@ -203,13 +203,13 @@ print(word * amount)
 
 Ask the user for a temperature in Celsius and convert it to Fahrenheit (show it to the user).
 
-```python run="Practice >>" hidden
+```python practice
 # Ask the user for a temperature in Celsius and
 # convert it to Fahrenheit (show it to the user)
 ```
 
-:::details[View possible solution]
-```python run="Try Solution >>" input="25"
+:::details
+```python run input="25"
 c = float(input("Temperature in Celsius: "))
 f = (c * 9 / 5) + 32
 print("Equivalent to", f, "°F")

@@ -17,7 +17,7 @@ Es ist eine vielseitige Programmiersprache, was bedeutet, dass sie in einer Viel
 - Server-Scripting.
 - Desktop-Anwendungen.
 
-:::note[Hinweis:]
+:::note
 Ein großer Teil des Erfolgs von Python stammt aus seiner riesigen Community und seinem umfangreichen Bibliotheksökosystem. Zum Beispiel gibt es für KI TensorFlow, für Datenanalyse Pandas, für Webentwicklung Django usw.
 :::
 
@@ -35,7 +35,7 @@ print('Hallo, Welt')
 Hallo, Welt
 ```
 
-:::tip[Tipp:]
+:::tip
 Wenn eine Python-Zeile „klingt“, wie das, was du erreichen willst, ist sie wahrscheinlich die richtige Art, es zu schreiben.
 :::
 
@@ -49,7 +49,7 @@ Dies ermöglicht:
 - Code in interaktiven Umgebungen wie Pyodide (im Browser) oder im Terminal ausführen.
 - Fehler Zeile für Zeile erkennen.
 
-:::note[Hinweis:]
+:::note
 Da Python interpretiert wird, führt es die ersten 79 Zeilen problemlos aus, und ein Fehler tritt nur auf, wenn die 80. Zeile erreicht wird.
 :::
 
@@ -73,7 +73,7 @@ x = 10      # Ganzzahl
 x = "Hallo"  # Jetzt ist es eine Zeichenkette (String)
 ```
 
-:::tip[Tipp:]
+:::tip
 Die Flexibilität der dynamischen Typisierung ist mächtig, kann aber manchmal schwer zu entdeckende Fehler verursachen. Später wirst du Best Practices lernen, um dies zu vermeiden.
 :::
 
@@ -89,7 +89,7 @@ Prozessübersicht:
 - Python wandelt es in Bytecode um (`.pyc`).
 - Der Bytecode wird in der Python Virtual Machine (PVM) ausgeführt.
 
-:::note[Hinweis:]
+:::note
 Bytecode ist eine optimierte Version, die es deinem Programm ermöglicht, beim nächsten Mal schneller zu starten.
 :::
 
@@ -105,7 +105,7 @@ Du kannst fast alles automatisieren: Dateien umbenennen, E-Mails senden, Dokumen
 
 Frameworks wie Django oder Flask ermöglichen es, vollständige Webanwendungen zu erstellen.
 
-:::note[Hinweis:]
+:::note
 Django ist „batteries included“, Flask ist minimalistischer. Später kannst du je nach deinen Bedürfnissen wählen.
 :::
 

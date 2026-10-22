@@ -26,10 +26,10 @@ Cuando Python encuentra un `break`, sale del ciclo y continúa con el código qu
 contador = 1
 
 while contador <= 10:
-	if contador == 5:
-		break
-	print(contador)
-	contador += 1
+    if contador == 5:
+        break
+    print(contador)
+    contador += 1
 ```
 
 ```output
@@ -45,19 +45,19 @@ En este caso, el bucle se detiene cuando el contador llega a 5.
 contador = 1
 
 while contador <= 10:
-	if contador == 5:
-		break
-	print(contador)
-	contador += 1
+    if contador == 5:
+        break
+    print(contador)
+    contador += 1
 ```
 
 ### Ejemplo con `for`
 
 ```python
 for letra in "Python":
-	if letra == "h":
-		break
-	print(letra)
+    if letra == "h":
+        break
+    print(letra)
 ```
 
 ```output
@@ -70,16 +70,16 @@ El ciclo se interrumpe cuando encuentra la letra `"h"`.
 
 ```python run hidden
 for letra in "Python":
-	if letra == "h":
-		break
-	print(letra)
+    if letra == "h":
+        break
+    print(letra)
 ```
 
-:::note[Nota:]
+:::note
 `break` detiene completamente el ciclo, no solo una repetición.
 :::
 
-:::tip[Tip:]
+:::tip
 Usa `break` cuando encuentres lo que estás buscando y no necesites seguir recorriendo.
 :::
 
@@ -91,9 +91,9 @@ Ejemplo:
 
 ```python
 for numero in range(1, 6):
-	if numero == 3:
-		continue
-	print(numero)
+    if numero == 3:
+        continue
+    print(numero)
 ```
 
 ```output
@@ -107,16 +107,16 @@ Aquí el número 3 no se imprime, pero el bucle continúa con el resto.
 
 ```python run hidden
 for numero in range(1, 6):
-	if numero == 3:
-		continue
-	print(numero)
+    if numero == 3:
+        continue
+    print(numero)
 ```
 
-:::note[Nota:]
+:::note
 `continue` no termina el ciclo, solo omite una vuelta específica.
 :::
 
-:::tip[Tip:]
+:::tip
 Úsalo cuando quieras ignorar ciertos casos dentro del bucle sin detenerlo por completo.
 :::
 
@@ -128,7 +128,7 @@ Ejemplo:
 
 ```python run
 for i in range(5):
-	pass
+    pass
 ```
 
 ```output
@@ -138,17 +138,17 @@ También se usa mucho con condicionales:
 
 ```python run
 if True:
-	pass
+    pass
 ```
 
 ```output
 ```
 
-:::note[Nota:]
+:::note
 `pass` evita errores de sintaxis cuando un bloque está vacío.
 :::
 
-:::tip[Tip:]
+:::tip
 Es útil cuando estás planificando tu programa y aún no has decidido qué código irá allí.
 :::
 
@@ -166,9 +166,9 @@ Es útil cuando estás planificando tu programa y aún no has decidido qué cód
 
 ```python run
 for letra in "Programacion":
-	if letra == "g":
-		print("Letra encontrada")
-		break
+    if letra == "g":
+        print("Letra encontrada")
+        break
 ```
 
 ```output
@@ -179,9 +179,9 @@ Letra encontrada
 
 ```python run
 for numero in range(1, 10):
-	if numero % 2 == 0:
-		continue
-	print(numero)
+    if numero % 2 == 0:
+        continue
+    print(numero)
 ```
 
 ```output
@@ -200,7 +200,7 @@ Crea un bucle `for` que recorra los números del 1 al 10.\
 Cuando el número sea 7, el programa debe detener completamente el ciclo usando `break`.\
 Imprime cada número antes de que el ciclo se detenga.
 
-```python run="Practicar >>" hidden
+```python practice
 # Crea un bucle for que recorra los números del 1 al
 # 10.
 # Cuando el número sea 7, el programa debe detener
@@ -208,12 +208,12 @@ Imprime cada número antes de que el ciclo se detenga.
 # Imprime cada número antes de que el ciclo se detenga
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 for numero in range(1, 11):
-	if numero == 7:
-		break
-	print(numero)
+    if numero == 7:
+        break
+    print(numero)
 ```
 :::
 
@@ -223,7 +223,7 @@ Crea una variable llamada `palabra` con el valor `"computadora"`.\
 Usa un bucle `for` para mostrar cada letra, excepto la letra `"o"`.\
 Utiliza `continue`.
 
-```python run="Practicar >>" hidden
+```python practice
 # Crea una variable llamada palabra con el valor
 # "computadora".
 # Usa un bucle for para mostrar cada letra, excepto la
@@ -231,14 +231,14 @@ Utiliza `continue`.
 # Utiliza continue
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 palabra = "computadora"
 
 for letra in palabra:
-	if letra == "o":
-		continue
-	print(letra)
+    if letra == "o":
+        continue
+    print(letra)
 ```
 :::
 
@@ -248,19 +248,19 @@ Crea una lista simulada usando `range()` del -3 al 3.\
 Recorre los valores con un bucle `for`.\
 Si encuentras un número negativo, imprime `"Número negativo detectado"` y detén el bucle con `break`.
 
-```python run="Practicar >>" hidden
+```python practice
 # Crea una lista simulada usando range() del -3 al 3.
 # Recorre los valores con un bucle for.
 # Si encuentras un número negativo, imprime "Número
 # negativo detectado" y detén el bucle con break
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 for numero in range(-3, 4):
-	if numero < 0:
-		print("Número negativo detectado")
-		break
+    if numero < 0:
+        print("Número negativo detectado")
+        break
 ```
 :::
 
@@ -270,7 +270,7 @@ Crea un bucle `for` que recorra los números del 1 al 5.\
 Dentro del bucle, coloca una condición `if` que verifique si el número es mayor que 3.\
 Por ahora, no hagas nada dentro de esa condición; usa `pass`.
 
-```python run="Practicar >>" hidden
+```python practice
 # Crea un bucle for que recorra los números del 1 al 5.
 # Dentro del bucle, coloca una condición if que
 # verifique si el número es mayor que 3.
@@ -278,12 +278,12 @@ Por ahora, no hagas nada dentro de esa condición; usa `pass`.
 # pass
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 for numero in range(1, 6):
-	if numero > 3:
-		pass
-	print(numero)
+    if numero > 3:
+        pass
+    print(numero)
 ```
 :::
 

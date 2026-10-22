@@ -40,7 +40,7 @@ print(palabras)
 ['Python', 'es', 'divertido']
 ```
 
-:::note[Nota:]
+:::note
 Si no se especifica separador, `split()` separa por espacios.
 :::
 
@@ -58,7 +58,7 @@ print(frutas)
 ['manzana', 'pera', 'uva']
 ```
 
-:::tip[Tip:]
+:::tip
 Usa separadores como `,`, `;`, `-` cuando trabajes con datos estructurados.
 :::
 
@@ -86,7 +86,7 @@ print(texto)
 Python es genial
 ```
 
-:::note[Nota:]
+:::note
 Todos los elementos de la lista deben ser cadenas.
 :::
 
@@ -146,7 +146,7 @@ texto = "python es poderoso"
 palabras = texto.split()
 
 for palabra in palabras:
-	print(palabra.upper())
+    print(palabra.upper())
 ```
 
 ```output
@@ -155,7 +155,7 @@ ES
 PODEROSO
 ```
 
-:::tip[Tip:]
+:::tip
 Convertir a lista permite recorrer y transformar cada elemento fácilmente.
 :::
 
@@ -186,7 +186,7 @@ print(resultado)
 PYTHON ES MUY ÚTIL
 ```
 
-:::note[Nota:]
+:::note
 `split()` y `join()` son herramientas clave para trabajar con datos reales y texto estructurado.
 :::
 
@@ -208,7 +208,7 @@ Crea un programa que:
 - Una nuevamente el texto usando un solo espacio entre palabras.
 - Muestre el resultado final.
 
-```python run="Practicar >>" hidden
+```python practice
 # Crea un programa que:
 # 1. Defina una cadena con el siguiente texto (2
 # espacios al inicio y al final y 4 espacios entre
@@ -223,8 +223,8 @@ Crea un programa que:
 # 6. Muestre el resultado final.
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # 1. Defina una cadena con el siguiente texto (2
 # espacios al inicio y al final y 4 espacios entre
 # palabras):
@@ -270,7 +270,7 @@ java: 2
 c++: 1
 ```
 
-```python run="Practicar >>" hidden
+```python practice
 # Desarrolla un programa que:
 # 1. Defina una cadena:
 # "python java python c++ python java"
@@ -282,8 +282,8 @@ c++: 1
 # c++: 1
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # 1. Defina una cadena:
 # "python java python c++ python java"
 texto = "python java python c++ python java"
@@ -295,17 +295,17 @@ palabras = texto.split()
 conteo = {}
 
 for palabra in palabras:
-	if palabra in conteo:
-		conteo[palabra] += 1
-	else:
-		conteo[palabra] = 1
+    if palabra in conteo:
+        conteo[palabra] += 1
+    else:
+        conteo[palabra] = 1
 
 # 4. Muestre el resultado en formato:
 # python: 3
 # java: 2
 # c++: 1
 for clave, valor in conteo.items():
-	print(f"{clave}: {valor}")
+    print(f"{clave}: {valor}")
 ```
 :::
 
@@ -327,7 +327,7 @@ Crea un programa que:
 10 - 20 - 30 - 40 - 50
 ```
 
-```python run="Practicar >>" hidden
+```python practice
 # Crea un programa que:
 # 1. Defina una lista de números:
 # [10, 20, 30, 40, 50]
@@ -337,8 +337,8 @@ Crea un programa que:
 # 10 - 20 - 30 - 40 - 50
 ```
 
-:::details[Observar posible solución]
-```python run="Probar Solución >>"
+:::details
+```python run
 # 1. Defina una lista de números:
 # [10, 20, 30, 40, 50]
 numeros = [10, 20, 30, 40, 50]
