@@ -1,6 +1,7 @@
 ---
 title: "`while` und `for` Schleifen"
 summary: In dieser Einheit lernst du, wie man Anweisungen mit `while` und `for` wiederholt, wodurch Aufgaben ohne wiederholtes Schreiben des gleichen Codes ausgeführt werden können. Außerdem lernst du, wie man über eine Zeichenkette (`str`) iteriert.
+source: 9ef6b06fcfa0
 ---
 
 En der Programmierung erfordern viele Aufgaben das Wiederholen von Aktionen: Nachrichten mehrmals anzeigen, Zahlen zählen oder Text Zeichen für Zeichen verarbeiten. Schleifen ermöglichen es, denselben Codeblock mehrfach auszuführen, ohne ihn wiederholt schreiben zu müssen. In Python sind die beiden wichtigsten Schleifen `while` und `for`.

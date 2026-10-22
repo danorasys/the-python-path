@@ -1,6 +1,7 @@
 ---
 title: Kommentare und Grundlegender Code-Stil
 summary: Verwende `#`, um den Code zu dokumentieren und ihn lesbar zu halten.
+source: f258c1deb230
 ---
 
 ## Was Ist Ein Kommentar in Python?

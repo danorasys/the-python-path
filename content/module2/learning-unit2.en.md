@@ -1,6 +1,7 @@
 ---
 title: Logical and Comparison Operators
 summary: Here you will understand how operators such as `==`, `!=`, `<`, `>`, `<=`, `>=` work, and how to combine them with `and`, `or` and `not` to build more complex conditions. This will allow you to evaluate multiple situations at the same time and create more precise decisions within your conditional structures.
+source: 2c31d31aed00
 ---
 
 Comparison operators and logical operators are essential for making decisions in Python. They allow you to compare values, check conditions, and combine multiple evaluations within an `if` statement. With them, you can build more complete rules, such as checking whether an age is within a range, whether a password matches, or whether an action is valid only under certain conditions.

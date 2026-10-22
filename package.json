@@ -13,7 +13,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "content:check": "vite-node scripts/content/outputs-cli.ts",
-    "content:outputs": "vite-node scripts/content/outputs-cli.ts --write"
+    "content:outputs": "vite-node scripts/content/outputs-cli.ts --write",
+    "content:translations": "vite-node scripts/content/translations-cli.ts"
   },
   "dependencies": {
     "@fontsource-variable/bricolage-grotesque": "^5.2.0",

@@ -1,6 +1,7 @@
 ---
 title: Mathematical and Text Operations
 summary: Using `+`, `-`, `*`, `/` operators, string concatenation, and repetition.
+source: cd4b1f0c906b
 ---
 
 In Python, we can perform operations with both numbers and text (strings). This learning unit will teach you how to use the most important operators for mathematical calculations and basic text manipulation.

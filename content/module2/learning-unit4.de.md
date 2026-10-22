@@ -1,6 +1,7 @@
 ---
 title: Ablaufsteuerung in Schleifen
 summary: "Hier erfährst du, wie du die interne Ausführung einer Schleife mithilfe spezieller Anweisungen ändern kannst: `break` um sie vorzeitig zu stoppen, `continue`, um eine bestimmte Wiederholung zu überspringen, und `pass`, um einen leeren Block zu lassen, den du später ausfüllen kannst. Diese Werkzeuge ermöglichen dir eine präzisere und flexiblere Kontrolle über das Verhalten deiner Schleifen."
+source: 4336cb72b3f3
 ---
 
 In der vorherigen Einheit hast du gelernt, wie man `while` und `for` verwendet, um Anweisungen zu wiederholen. Jetzt wirst du lernen, wie man das interne Verhalten einer Schleife während ihrer Ausführung verändert.

@@ -3,9 +3,10 @@ import type { Language } from "../../src/i18n/languages";
 import { ContentError } from "./errors";
 import { renderInlineMarkdown, type MarkdownContext } from "./markdown";
 
-const FRONTMATTER = /^---\n([\s\S]*?)\n---(?:\n|$)/;
+export const FRONTMATTER = /^---\n([\s\S]*?)\n---(?:\n|$)/;
 const HEX_COLOR = /^#[0-9a-f]{6}$/i;
 const UNIT_PATH = /^module\d+\/learning-unit\d+$/;
+export const FINGERPRINT = /^[0-9a-f]{12}$/;
 
 type Fields = Record<string, unknown>;
 
@@ -16,6 +17,7 @@ export interface UnitMeta {
   order?: number | undefined;
   color?: string | undefined;
   aliases: string[];
+  source?: string | undefined;
 }
 
 export interface ModuleMeta {
@@ -23,11 +25,13 @@ export interface ModuleMeta {
   description: string;
   order?: number | undefined;
   color?: string | undefined;
+  source?: string | undefined;
 }
 
 export interface RoadmapMeta {
   title: string;
   description: string;
+  source?: string | undefined;
 }
 
 export function normalizeNewlines(source: string): string {
@@ -134,6 +138,16 @@ class FieldReader {
     return value as string[];
   }
 
+  source(allowed: boolean): string | undefined {
+    const value = this.#take("source");
+    if (value === undefined) return undefined;
+    if (!allowed) this.#fail(`"source" only goes in translations. The Spanish file is the source.`);
+    if (typeof value !== "string" || !FINGERPRINT.test(value)) {
+      this.#fail(`"source" must be the 12-character fingerprint written by npm run content:translations.`);
+    }
+    return value;
+  }
+
   finish(): void {
     const unknown = Object.keys(this.#fields).filter((key) => !this.#used.has(key));
     if (unknown.length > 0) this.#fail(`Unknown header field "${unknown.join('", "')}".`);
@@ -153,6 +167,7 @@ export function readUnitMeta(fields: Fields, file: string, language: Language, i
     order: reader.order(isBase),
     color: reader.color(isBase),
     aliases: reader.aliases(isBase),
+    source: reader.source(!isBase),
   };
   reader.finish();
   return meta;
@@ -165,16 +180,18 @@ export function readModuleMeta(fields: Fields, file: string, language: Language,
     description: reader.text("description", false),
     order: reader.order(isBase),
     color: reader.color(isBase),
+    source: reader.source(!isBase),
   };
   reader.finish();
   return meta;
 }
 
-export function readRoadmapMeta(fields: Fields, file: string, language: Language): RoadmapMeta {
+export function readRoadmapMeta(fields: Fields, file: string, language: Language, isBase: boolean): RoadmapMeta {
   const reader = new FieldReader(fields, context(file, language));
   const meta: RoadmapMeta = {
     title: reader.text("title", true),
     description: reader.text("description", false),
+    source: reader.source(!isBase),
   };
   reader.finish();
   return meta;

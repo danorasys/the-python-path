@@ -1,6 +1,7 @@
 ---
 title: Logische und Vergleichsoperatoren
 summary: Hier wirst du verstehen, wie Operatoren wie `==`, `!=`, `<`, `>`, `<=`, `>=` funktionieren und wie man sie mit `and`, `or` und `not` kombiniert, um komplexere Bedingungen zu erstellen. So kannst du mehrere Situationen gleichzeitig auswerten und präzisere Entscheidungen innerhalb deiner bedingten Strukturen treffen.
+source: 2c31d31aed00
 ---
 
 Vergleichsoperatoren und logische Operatoren sind essenziell, um in Python Entscheidungen zu treffen. Sie ermöglichen es dir, Werte zu vergleichen, Bedingungen zu überprüfen und mehrere Auswertungen innerhalb einer `if`-Anweisung zu kombinieren. Mit ihnen kannst du umfassendere Regeln erstellen, zum Beispiel prüfen, ob ein Alter in einem bestimmten Bereich liegt, ob ein Passwort übereinstimmt oder ob eine Aktion nur unter bestimmten Bedingungen gültig ist.

@@ -1,7 +1,8 @@
 import { existsSync } from "node:fs";
 import path from "node:path";
 import type { Plugin, ResolvedConfig, ViteDevServer } from "vite";
-import { buildContent, type ContentFiles } from "./project";
+import { analyzeContent, type ContentFiles } from "./project";
+import { translationWarnings } from "./translations";
 
 const REBUILD_DELAY_MS = 60;
 
@@ -18,9 +19,10 @@ export function contentPlugin(contentDir: string): Plugin {
   let config: ResolvedConfig | undefined;
   let files: ContentFiles = new Map();
   let lastError: string | null = null;
+  let lastWarnings = "";
 
   const compile = async () => {
-    const next = await buildContent(contentDir);
+    const { files: next, translations } = await analyzeContent(contentDir);
     const clashing = conflicts(next, config?.publicDir ?? "");
     if (clashing.length > 0) {
       throw new Error(
@@ -28,6 +30,9 @@ export function contentPlugin(contentDir: string): Plugin {
       );
     }
     files = next;
+    const warnings = translationWarnings(translations).join("\n");
+    if (warnings && warnings !== lastWarnings) config?.logger.warn(warnings);
+    lastWarnings = warnings;
   };
 
   const showError = (server: ViteDevServer) => {

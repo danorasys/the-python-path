@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { readdir, readFile, stat } from "node:fs/promises";
 import path from "node:path";
 import type { ContentBlock, ModuleId, PathDocument, PathStep, UnitDocument, UnitId } from "../../src/content/types";
@@ -17,6 +18,7 @@ import { BASE_LANGUAGE, stepColor } from "./labels";
 import { compileMarkdown } from "./markdown";
 
 interface CompiledUnit {
+  file: string;
   meta: UnitMeta;
   content: ContentBlock[] | null;
 }
@@ -32,7 +34,29 @@ interface ModuleEntry {
   id: ModuleId;
   file: string;
   versions: Map<Language, ModuleMeta>;
+  files: Map<Language, string>;
   units: UnitEntry[];
+}
+
+export type TranslationState = "current" | "outdated" | "untracked" | "missing";
+
+export interface TranslationStatus {
+  file: string;
+  language: Language;
+  state: TranslationState;
+  fingerprint: string;
+  recorded?: string | undefined;
+}
+
+export type ContentFiles = Map<string, string>;
+
+export interface ContentAnalysis {
+  files: ContentFiles;
+  translations: TranslationStatus[];
+}
+
+export function fingerprint(value: unknown): string {
+  return createHash("sha256").update(JSON.stringify(value)).digest("hex").slice(0, 12);
 }
 
 const MODULE_DIR = /^module\d+$/;
@@ -86,11 +110,11 @@ function compileUnit(source: string, file: string, language: Language): Compiled
   const { fields, body, lineOffset } = splitFrontmatter(source, file);
   const meta = readUnitMeta(fields, file, language, language === BASE_LANGUAGE);
   const content = body.trim() === "" ? null : compileMarkdown(body, { file, language, lineOffset });
-  return { meta, content };
+  return { file, meta, content };
 }
 
 async function loadModule(dir: string, id: ModuleId, root: string, collector: Collector): Promise<ModuleEntry> {
-  const entry: ModuleEntry = { id, file: relative(root, dir), versions: new Map(), units: [] };
+  const entry: ModuleEntry = { id, file: relative(root, dir), versions: new Map(), files: new Map(), units: [] };
   const units = new Map<UnitId, UnitEntry>();
   const names = (await readdir(dir)).sort();
   let hasBaseFile = false;
@@ -106,7 +130,10 @@ async function loadModule(dir: string, id: ModuleId, root: string, collector: Co
       const meta = collector.run(() =>
         readModuleMeta(readYamlFile(source, file), file, parts.language, parts.language === BASE_LANGUAGE),
       );
-      if (meta) entry.versions.set(parts.language, meta);
+      if (meta) {
+        entry.versions.set(parts.language, meta);
+        entry.files.set(parts.language, file);
+      }
       continue;
     }
     if (parts && UNIT_NAME.test(parts.base) && parts.extension === "md") {
@@ -214,14 +241,76 @@ function redirects(modules: ModuleEntry[], collector: Collector): Record<string,
   return result;
 }
 
-export type ContentFiles = Map<string, string>;
+function status(file: string, language: Language, expected: string, recorded: string | undefined): TranslationStatus {
+  const state = recorded === undefined ? "untracked" : recorded === expected ? "current" : "outdated";
+  return { file, language, state, fingerprint: expected, recorded };
+}
+
+function unitFingerprint(base: CompiledUnit, withContent: boolean): string {
+  const { title, summary, description } = base.meta;
+  return fingerprint(withContent ? { title, summary, description, content: base.content } : { title, summary, description });
+}
+
+function translationReport(
+  modules: ModuleEntry[],
+  roadmaps: Map<Language, { meta: RoadmapMeta; file: string }>,
+  root: string,
+): TranslationStatus[] {
+  const report: TranslationStatus[] = [];
+  const baseRoadmap = roadmaps.get(BASE_LANGUAGE);
+  const others = LANGUAGES.filter((language) => language !== BASE_LANGUAGE);
+  const contentDir = relative(root, root);
+
+  for (const language of others) {
+    if (baseRoadmap) {
+      const expected = fingerprint({ title: baseRoadmap.meta.title, description: baseRoadmap.meta.description });
+      const version = roadmaps.get(language);
+      report.push(
+        version
+          ? status(version.file, language, expected, version.meta.source)
+          : { file: `${contentDir}/roadmap.${language}.yml`, language, state: "missing", fingerprint: expected },
+      );
+    }
+    for (const entry of modules) {
+      const base = entry.versions.get(BASE_LANGUAGE);
+      if (!base) continue;
+      const expected = fingerprint({ title: base.title, description: base.description });
+      const version = entry.versions.get(language);
+      report.push(
+        version
+          ? status(entry.files.get(language) ?? entry.file, language, expected, version.source)
+          : { file: `${entry.file}/module.${language}.yml`, language, state: "missing", fingerprint: expected },
+      );
+      for (const unit of entry.units) {
+        const baseUnit = unit.versions.get(BASE_LANGUAGE);
+        if (!baseUnit) continue;
+        const version = unit.versions.get(language);
+        report.push(
+          version
+            ? status(version.file, language, unitFingerprint(baseUnit, version.content !== null), version.meta.source)
+            : {
+                file: `${entry.file}/${unit.id}.${language}.md`,
+                language,
+                state: "missing",
+                fingerprint: unitFingerprint(baseUnit, true),
+              },
+        );
+      }
+    }
+  }
+  return report;
+}
 
 export async function buildContent(root: string): Promise<ContentFiles> {
+  return (await analyzeContent(root)).files;
+}
+
+export async function analyzeContent(root: string): Promise<ContentAnalysis> {
   const files: ContentFiles = new Map();
-  if (!(await exists(root))) return files;
+  if (!(await exists(root))) return { files, translations: [] };
 
   const collector = new Collector();
-  const roadmaps = new Map<Language, RoadmapMeta>();
+  const roadmaps = new Map<Language, { meta: RoadmapMeta; file: string }>();
   const loaded: ModuleEntry[] = [];
 
   for (const name of (await readdir(root)).sort()) {
@@ -231,8 +320,10 @@ export async function buildContent(root: string): Promise<ContentFiles> {
     const parts = localized(name);
     if (parts?.base === "roadmap" && parts.extension === "yml") {
       const source = await readFile(absolute, "utf8");
-      const meta = collector.run(() => readRoadmapMeta(readYamlFile(source, file), file, parts.language));
-      if (meta) roadmaps.set(parts.language, meta);
+      const meta = collector.run(() =>
+        readRoadmapMeta(readYamlFile(source, file), file, parts.language, parts.language === BASE_LANGUAGE),
+      );
+      if (meta) roadmaps.set(parts.language, { meta, file });
     } else if (MODULE_DIR.test(name) && (await exists(absolute))) {
       loaded.push(await loadModule(absolute, name as ModuleId, root, collector));
     } else {
@@ -266,7 +357,7 @@ export async function buildContent(root: string): Promise<ContentFiles> {
 
   for (const language of LANGUAGES) {
     const roadmap = roadmaps.get(language);
-    if (roadmap) write(`roadmap/roadmap-${language}.json`, roadmapDocument(roadmap, modules, language));
+    if (roadmap) write(`roadmap/roadmap-${language}.json`, roadmapDocument(roadmap.meta, modules, language));
 
     modules.forEach((entry, position) => {
       const meta = entry.versions.get(language);
@@ -285,5 +376,5 @@ export async function buildContent(root: string): Promise<ContentFiles> {
     });
   }
   write("redirects.json", aliasMap);
-  return files;
+  return { files, translations: translationReport(modules, roadmaps, root) };
 }

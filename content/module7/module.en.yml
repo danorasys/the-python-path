@@ -1,2 +1,3 @@
 title: Error and Exception Handling
 description: In this module, you will learn how to identify the most common errors in Python and handle them using exceptions. You will use `try`, `except`, `finally`, and `else` blocks to safely manage failures and keep your programs running correctly.
+source: f26107306be2

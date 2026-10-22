@@ -1,6 +1,7 @@
 ---
 title: Variablen und Grundlegende Datentypen
 summary: "Was Variablen sind, wie sie erstellt werden und die gebräuchlichsten Typen: `int`, `float`, `str`, `bool`."
+source: 632783c2c492
 ---
 
 ## Was Ist eine Variable?

@@ -1,6 +1,7 @@
 ---
 title: Flow Control in Loops
 summary: Here you will discover how to modify the internal execution of a loop using special statements like `break` to stop it early, `continue` to skip a specific iteration, and `pass` to leave an empty block to be completed later. These tools allow you to have more precise and flexible control over the behavior of your loops.
+source: 4336cb72b3f3
 ---
 
 In the previous unit, you learned how to use `while` and `for` to repeat instructions. Now you will learn how to modify the internal behavior of a loop while it is running.
