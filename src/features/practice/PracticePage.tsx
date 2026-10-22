@@ -5,7 +5,9 @@ import { Button } from "../../components/ui/Button";
 import { Callout } from "../../components/ui/Callout";
 import { Icon } from "../../components/ui/Icon";
 import { Window } from "../../components/ui/Window";
+import { format } from "../../i18n/format";
 import { useI18n } from "../../i18n/useI18n";
+import { cx } from "../../lib/cx";
 import { CodeEditor } from "./CodeEditor";
 import { OutputConsole } from "./OutputConsole";
 import styles from "./PracticePage.module.css";
@@ -14,7 +16,7 @@ import { usePythonRunner } from "./usePythonRunner";
 const DEFAULT_CODE = '# The Python Path\nprint("Hello World!")\n';
 
 export default function PracticePage() {
-  const { t } = useI18n();
+  const { t, language } = useI18n();
   const [searchParams] = useSearchParams();
   const initialCode = searchParams.get("code") ?? DEFAULT_CODE;
   const codeRef = useRef(initialCode);
@@ -59,12 +61,12 @@ export default function PracticePage() {
           {t.practice.clear}
         </Button>
         <Button
-          variant="primary"
-          onClick={runCode}
-          disabled={runner.status !== "ready" || runner.running}
+          variant={runner.running ? "coral" : "primary"}
+          onClick={runner.running ? runner.stop : runCode}
+          disabled={runner.status !== "ready"}
         >
-          <Icon name="play" />
-          {runner.running ? t.practice.running : t.practice.run}
+          <Icon name={runner.running ? "stop" : "play"} />
+          {runner.running ? t.practice.stop : t.practice.run}
         </Button>
       </div>
 
@@ -78,9 +80,23 @@ export default function PracticePage() {
             onRun={runCode}
           />
         </Window>
-        <Window title={t.practice.outputTitle} tone="yellow">
+        <Window
+          title={t.practice.outputTitle}
+          tone="yellow"
+          actions={
+            (runner.running || runner.lineCount > 0) && (
+              <span className={cx(styles.outputMeta, runner.running && styles.live)}>
+                {runner.running && <span className={styles.liveDot} aria-hidden="true" />}
+                {format(runner.lineCount === 1 ? t.practice.lineCountOne : t.practice.lineCountOther, {
+                  count: runner.lineCount.toLocaleString(language),
+                })}
+              </span>
+            )
+          }
+        >
           <OutputConsole
             output={runner.output}
+            truncated={runner.truncated}
             pendingInput={runner.pendingInput}
             onSubmitInput={runner.submitInput}
           />

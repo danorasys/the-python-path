@@ -5,6 +5,7 @@ const PATHS = {
   arrowDown: "M12 5v14m6-6-6 6-6-6",
   play: "M7 4.5v15l12-7.5z",
   pause: "M8 5v14M16 5v14",
+  stop: "M6.5 6.5h11v11h-11z",
   copy: "M9 9h11v11H9zM5 15H4V4h11v1",
   check: "m4.5 12.5 5 5 10-11",
   menu: "M4 7h16M4 12h16M4 17h16",
@@ -27,7 +28,7 @@ interface IconProps {
 }
 
 export function Icon({ name, className, label }: IconProps) {
-  const filled = name === "play";
+  const filled = name === "play" || name === "stop";
   return (
     <svg
       className={className}

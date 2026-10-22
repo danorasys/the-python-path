@@ -3,8 +3,11 @@ import { useI18n } from "../../i18n/useI18n";
 import styles from "./PracticePage.module.css";
 import type { OutputChunk, PendingInput } from "./usePythonRunner";
 
+const STICK_THRESHOLD_PX = 32;
+
 interface OutputConsoleProps {
   output: OutputChunk[];
+  truncated: boolean;
   pendingInput: PendingInput | null;
   onSubmitInput: (value: string) => void;
 }
@@ -39,23 +42,44 @@ function InputLine({ prompt, onSubmit }: { prompt: string; onSubmit: (value: str
   );
 }
 
-export function OutputConsole({ output, pendingInput, onSubmitInput }: OutputConsoleProps) {
+export function OutputConsole({
+  output,
+  truncated,
+  pendingInput,
+  onSubmitInput,
+}: OutputConsoleProps) {
   const { t } = useI18n();
   const screenRef = useRef<HTMLDivElement>(null);
+  const followRef = useRef(true);
+
+  const handleScroll = () => {
+    const screen = screenRef.current;
+    if (!screen) return;
+    followRef.current =
+      screen.scrollHeight - screen.scrollTop - screen.clientHeight < STICK_THRESHOLD_PX;
+  };
 
   useEffect(() => {
     const screen = screenRef.current;
-    if (screen) screen.scrollTop = screen.scrollHeight;
+    if (output.length === 0) followRef.current = true;
+    if (screen && followRef.current) screen.scrollTop = screen.scrollHeight;
   }, [output, pendingInput]);
 
   const isEmpty = output.length === 0 && !pendingInput;
 
   return (
-    <div ref={screenRef} className={styles.screen} role="log" aria-live="polite">
+    <div
+      ref={screenRef}
+      className={styles.screen}
+      role="log"
+      aria-live="polite"
+      onScroll={handleScroll}
+    >
       {isEmpty ? (
         <p className={styles.placeholder}>{t.practice.emptyOutput}</p>
       ) : (
         <div className={styles.pre}>
+          {truncated && <p className={styles.truncated}>{t.practice.truncatedOutput}</p>}
           {output.map((chunk) => (
             <span key={chunk.id} className={styles[chunk.kind]}>
               {chunk.text}

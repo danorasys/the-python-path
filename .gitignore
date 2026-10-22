@@ -23,6 +23,9 @@ desktop.ini
 .idea/
 *.swp
 
+# Local notes
+revision/
+
 # Local development tools
 .claude/
 skills-lock.json

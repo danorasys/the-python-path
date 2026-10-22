@@ -5,6 +5,7 @@ import inspect
 import linecache
 import sys
 import traceback
+import types
 
 _FILENAME = "<exec>"
 
@@ -59,20 +60,43 @@ async def _input(prompt=""):
     value = await __tpp_read_line(str(prompt))
     return str(value)
 
-def _print_error(error, namespace):
-    tb = error.__traceback__
-    while tb is not None and tb.tb_frame.f_globals is not namespace:
-        tb = tb.tb_next
-    traceback.print_exception(type(error), error, tb)
+def _sync_input(read_line):
+    def input(prompt=""):
+        sys.stdout.flush()
+        value = read_line(str(prompt))
+        if value is None:
+            raise KeyboardInterrupt
+        return str(value)
+    return input
 
-async def __tpp_run(source):
+def _learner_traceback(error, namespace):
+    frames = []
+    tb = error.__traceback__
+    while tb is not None:
+        if tb.tb_frame.f_globals is namespace:
+            frames.append(tb)
+        tb = tb.tb_next
+    filtered = None
+    for item in reversed(frames):
+        filtered = types.TracebackType(filtered, item.tb_frame, item.tb_lasti, item.tb_lineno)
+    return filtered
+
+def _print_error(error, namespace):
+    traceback.print_exception(type(error), error, _learner_traceback(error, namespace))
+
+async def __tpp_run(source, read_line_sync=None):
     linecache.cache[_FILENAME] = (len(source), None, source.splitlines(True), _FILENAME)
-    namespace = {"__name__": "__main__", "__builtins__": builtins, "input": _input}
+    synchronous = read_line_sync is not None
+    namespace = {
+        "__name__": "__main__",
+        "__builtins__": builtins,
+        "input": _sync_input(read_line_sync) if synchronous else _input,
+    }
     try:
         tree = ast.parse(source, _FILENAME)
-        code = compile(
-            _transform(tree), _FILENAME, "exec", flags=ast.PyCF_ALLOW_TOP_LEVEL_AWAIT
-        )
+        if not synchronous:
+            tree = _transform(tree)
+        code = compile(tree, _FILENAME, "exec", flags=ast.PyCF_ALLOW_TOP_LEVEL_AWAIT)
     except SyntaxError as error:
         traceback.print_exception(type(error), error, None)
         return

@@ -60,7 +60,7 @@ export const en: Dictionary = {
     intro: "Write Python code and run it right here. Everything runs in your browser.",
     editorLabel: "Python code editor",
     run: "Run",
-    running: "Running…",
+    stop: "Stop",
     clear: "Clear output",
     shortcut: "Ctrl + Enter to run",
     loadingRuntime: "Loading Python…",
@@ -71,6 +71,9 @@ export const en: Dictionary = {
     inputLabel: "Input for input()",
     inputPlaceholder: "Type and press Enter",
     loadingEditor: "Loading editor…",
+    lineCountOne: "{count} line",
+    lineCountOther: "{count} lines",
+    truncatedOutput: "The output is very long: only the latest lines are shown.",
   },
   snake: {
     title: "Snake Game",

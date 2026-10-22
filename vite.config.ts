@@ -3,9 +3,23 @@ import { defineConfig } from "vitest/config";
 
 const BASE_PATH = "/the-python-path/";
 
+const CROSS_ORIGIN_ISOLATION = {
+  "Cross-Origin-Opener-Policy": "same-origin",
+  "Cross-Origin-Embedder-Policy": "credentialless",
+};
+
 export default defineConfig({
   base: BASE_PATH,
   plugins: [react()],
+  server: {
+    headers: CROSS_ORIGIN_ISOLATION,
+  },
+  preview: {
+    headers: {},
+  },
+  worker: {
+    format: "es",
+  },
   build: {
     target: "es2022",
     sourcemap: true,

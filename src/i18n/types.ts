@@ -60,7 +60,7 @@ export interface Dictionary {
     intro: string;
     editorLabel: string;
     run: string;
-    running: string;
+    stop: string;
     clear: string;
     shortcut: string;
     loadingRuntime: string;
@@ -71,6 +71,9 @@ export interface Dictionary {
     inputLabel: string;
     inputPlaceholder: string;
     loadingEditor: string;
+    lineCountOne: string;
+    lineCountOther: string;
+    truncatedOutput: string;
   };
   snake: {
     title: string;

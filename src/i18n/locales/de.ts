@@ -62,7 +62,7 @@ export const de: Dictionary = {
     intro: "Schreibe Python-Code und führe ihn direkt hier aus. Alles läuft in deinem Browser.",
     editorLabel: "Python-Code-Editor",
     run: "Ausführen",
-    running: "Wird ausgeführt…",
+    stop: "Stoppen",
     clear: "Ausgabe leeren",
     shortcut: "Strg + Enter zum Ausführen",
     loadingRuntime: "Python wird geladen…",
@@ -74,6 +74,9 @@ export const de: Dictionary = {
     inputLabel: "Eingabe für input()",
     inputPlaceholder: "Tippen und Enter drücken",
     loadingEditor: "Editor wird geladen…",
+    lineCountOne: "{count} Zeile",
+    lineCountOther: "{count} Zeilen",
+    truncatedOutput: "Die Ausgabe ist sehr lang: Es werden nur die letzten Zeilen angezeigt.",
   },
   snake: {
     title: "Schlangenspiel",

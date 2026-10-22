@@ -62,6 +62,39 @@
   }
 }
 
+.outputMeta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.1rem 0.6rem;
+  font-family: var(--font-code);
+  font-size: var(--step--1);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  background: var(--color-surface);
+  border: var(--border-thin);
+  border-radius: 999px;
+}
+
+.liveDot {
+  width: 0.6rem;
+  height: 0.6rem;
+  border: 2px solid var(--color-ink);
+  border-radius: 50%;
+  background: var(--color-coral);
+  animation: pulse 1s ease-in-out infinite;
+}
+
+.truncated {
+  margin-bottom: var(--space-3);
+  padding-bottom: var(--space-2);
+  font-family: var(--font-body);
+  font-size: var(--step--1);
+  color: #8f9bab;
+  border-bottom: 1px dashed #3d4754;
+}
+
 .shortcut {
   margin-right: auto;
   font-size: var(--step--1);

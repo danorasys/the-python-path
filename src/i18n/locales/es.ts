@@ -62,7 +62,7 @@ export const es: Dictionary = {
     intro: "Escribe código Python y ejecútalo aquí mismo. Todo corre en tu navegador.",
     editorLabel: "Editor de código Python",
     run: "Ejecutar",
-    running: "Ejecutando…",
+    stop: "Detener",
     clear: "Limpiar salida",
     shortcut: "Ctrl + Enter para ejecutar",
     loadingRuntime: "Cargando Python…",
@@ -73,6 +73,9 @@ export const es: Dictionary = {
     inputLabel: "Entrada para input()",
     inputPlaceholder: "Escribe y pulsa Enter",
     loadingEditor: "Cargando editor…",
+    lineCountOne: "{count} línea",
+    lineCountOther: "{count} líneas",
+    truncatedOutput: "La salida es muy larga: solo se muestran las últimas líneas.",
   },
   snake: {
     title: "Juego de la Serpiente",
