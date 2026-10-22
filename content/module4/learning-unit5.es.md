@@ -52,7 +52,7 @@ mensaje()  # Error: no existe fuera
 NameError: name 'mensaje' is not defined
 ```
 
-```python run hidden
+```python run hidden error
 def saludar():
 
 	def mensaje():

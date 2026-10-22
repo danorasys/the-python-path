@@ -102,7 +102,7 @@ numeros = [1, 2, 3]
 TypeError: sequence item 0: expected str instance, int found
 ```
 
-```python run hidden
+```python run hidden error
 numeros = [1, 2, 3]
 
 print(" ".join(numeros))  # Error

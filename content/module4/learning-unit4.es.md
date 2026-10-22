@@ -32,7 +32,7 @@ Ana
 
 Error fuera de la función:
 
-```python run
+```python run error
 def mostrar_nombre():
 	nombre = "Ana"
 	print(nombre)
@@ -41,6 +41,10 @@ print(nombre) # Error: no existe fuera de la función
 ```
 
 ```output
+Traceback (most recent call last):
+  File "<exec>", line 5, in <module>
+    print(nombre) # Error: no existe fuera de la función
+          ^^^^^^
 NameError: name 'nombre' is not defined
 ```
 

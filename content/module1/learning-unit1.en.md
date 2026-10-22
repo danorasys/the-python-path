@@ -119,8 +119,8 @@ With libraries like Pygame, you can create 2D games.
 
 ## First Look at Python Code
 
-```python run
-name = input('What is your name?')
+```python run input="Daniel"
+name = input('What is your name? ')
 print('Hello', name)
 ```
 

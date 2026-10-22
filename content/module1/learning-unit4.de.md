@@ -267,7 +267,7 @@ int("hallo")
 # ValueError
 ```
 
-```python run="Fehler Ausprobieren >>" hidden
+```python run="Fehler Ausprobieren >>" hidden error
 int("hallo")
 ```
 
@@ -278,7 +278,7 @@ print("Alter: " + 20)
 # TypeError
 ```
 
-```python run="Fehler Ausprobieren >>" hidden
+```python run="Fehler Ausprobieren >>" hidden error
 print("Alter: " + 20)
 ```
 

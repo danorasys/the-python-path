@@ -173,7 +173,7 @@ Los argumentos nombrados mejoran la legibilidad del código, especialmente cuand
 
 ## Ejemplo Integrador
 
-```python
+```python run
 def calcular_descuento(precio, descuento=10):
 	total = precio - (precio * descuento / 100)
 	return total
@@ -182,20 +182,9 @@ print(calcular_descuento(100))
 print(calcular_descuento(100, 20))
 ```
 
-Resultado:
-
-```python
+```output label="Resultado:"
 90.0
 80.0
-```
-
-```python run hidden
-def calcular_descuento(precio, descuento=10):
-	total = precio - (precio * descuento / 100)
-	return total
-
-print(calcular_descuento(100))
-print(calcular_descuento(100, 20))
 ```
 
 :::note[Nota:]

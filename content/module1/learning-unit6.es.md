@@ -16,7 +16,7 @@ La función `input()` permite a tu programa recibir información escrita por el 
 
 Ejemplo:
 
-```python run
+```python run input="Linus"
 nombre = input("Escribe tu nombre: ")
 print("Hola,", nombre)
 ```
@@ -44,23 +44,15 @@ Usa:
 
 Ejemplo:
 
-```python
-edad = input("¿Cuántos años tienes?")
+```python run input="55"
+edad = input("¿Cuántos años tienes? ")
 edad = int(edad)    # conversión necesaria
 print("El próximo año tendrás", edad + 1)
 ```
 
-Salida
-
-```python
+```output label="Salida"
 ¿Cuántos años tienes? 55
 El próximo año tendrás 56
-```
-
-```python run hidden
-edad = input("¿Cuántos años tienes?")
-edad = int(edad)    # conversión necesaria
-print("El próximo año tendrás", edad + 1)
 ```
 
 :::tip[Tip:]
@@ -77,7 +69,7 @@ Ejemplo de error común:
 
 Después de recibir información, puedes usarla para cálculos, decisiones o mostrar mensajes personalizados.
 
-```python run
+```python run input="7"
 numero = int(input("Escribe un número: "))
 doble = numero * 2
 print("El doble es:", doble)
@@ -92,14 +84,14 @@ El doble es: 14
 
 ### 1\. Olvidar Que Devuelve Texto
 
-```python run="Probar Error >>"
+```python run="Probar Error >>" input="5" error
 n = input("Número: ")
 print(n + 10)    # ERROR
 ```
 
 ### 2\. Tratar de Convertir un Texto No Válido
 
-```python run="Probar Error >>"
+```python run="Probar Error >>" input="hello" error
 text = input("Input: ") # Input: hello
 int(text)    # ERROR
 ```
@@ -112,7 +104,7 @@ Más adelante aprenderás a manejar estos errores con `try` y `except`.
 
 ### Ejemplo 1: Saludo Personalizado
 
-```python run
+```python run input="Python"
 nombre = input("¿Cómo te llamas? ")
 print("Mucho gusto,", nombre)
 ```
@@ -124,9 +116,9 @@ Mucho gusto, Python
 
 ### Ejemplo 2: Suma Interactiva
 
-```python run
+```python run input="7|3"
 a = int(input("Ingresa un número: "))
-b = int(input("Ingrese otro: "))
+b = int(input("Ingresa otro: "))
 print("La suma es:", a + b)
 ```
 
@@ -138,7 +130,7 @@ La suma es: 10
 
 ### Ejemplo 3: Repetición Con Texto
 
-```python run
+```python run input="Python"
 palabra = input("Escribe una palabra: ")
 print(palabra * 3)
 ```
@@ -163,7 +155,7 @@ Pídele al usuario su nombre y muéstrale un saludo.
 ```
 
 :::details[Observar posible solución]
-```python run="Probar Solución >>"
+```python run="Probar Solución >>" input="Ana"
 nombre = input("Escribe tu nombre: ")
 print("Hola", nombre)
 ```
@@ -179,7 +171,7 @@ Pídele al usuario su edad y dile cuántos años tendrá en 5 años.
 ```
 
 :::details[Observar posible solución]
-```python run="Probar Solución >>"
+```python run="Probar Solución >>" input="25"
 edad = int(input("¿Cuántos años tienes? "))
 print("En 5 años tendrás", edad + 5)
 ```
@@ -195,7 +187,7 @@ Pidele al usuario una palabra y un número. Muestra la palabra repetida ese núm
 ```
 
 :::details[Observar posible solución]
-```python run="Probar Solución >>"
+```python run="Probar Solución >>" input="Python|3"
 palabra = input("Escribe una palabra: ")
 cantidad = int(input("¿Cuántas veces quieres repetirla? "))
 print(palabra * cantidad)
@@ -213,7 +205,7 @@ Pídele al usuario una temperatura en grados Celsius y conviértelos a Fahrenhei
 ```
 
 :::details[Observar posible solución]
-```python run="Probar Solución >>"
+```python run="Probar Solución >>" input="25"
 c = float(input("Temperatura en Celsius: "))
 f = (c * 9 / 5) + 32
 print("Equivalen a", f, "°F")

@@ -86,7 +86,7 @@ print(f"Precio: {precio:.2f}")
 ```
 
 ```output
-Precio 19.99
+Precio: 19.99
 ```
 
 Ejemplo (Enteros con formato):

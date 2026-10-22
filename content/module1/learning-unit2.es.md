@@ -163,7 +163,7 @@ print("Hola)
 
 Python mostrará un error de sintaxis.
 
-```python run="Probar Error >>" hidden
+```python run="Probar Error >>" hidden error
 print("Hola)
 ```
 

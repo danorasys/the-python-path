@@ -93,15 +93,17 @@ export function renderInlineMarkdown(text: string, ctx: MarkdownContext): string
   return renderInline(first.children, ctx);
 }
 
-type CodeOptions =
-  | { kind: "python"; run?: string | undefined; hidden: boolean }
-  | { kind: "output"; label?: string | undefined };
+export type CodeOptions =
+  | { kind: "python"; run?: string | undefined; hidden: boolean; error: boolean; inputs: string[] }
+  | { kind: "output"; label?: string | undefined; static: boolean };
 
 type MetaValue = string | true;
 
+export const INPUT_SEPARATOR = "|";
+
 const ALLOWED_META: Record<CodeOptions["kind"], Record<string, "flag" | "value" | "either">> = {
   python: { run: "either", hidden: "flag", error: "flag", input: "value" },
-  output: { label: "value" },
+  output: { label: "value", static: "flag" },
 };
 
 const META_TOKEN = /([a-z]+)(?:="([^"]*)")?/g;
@@ -124,7 +126,7 @@ function parseMeta(node: Code, kind: CodeOptions["kind"], ctx: MarkdownContext):
   return options;
 }
 
-function parseCode(node: Code, ctx: MarkdownContext): CodeOptions {
+export function readCodeOptions(node: Code, ctx: MarkdownContext): CodeOptions {
   const lang = node.lang ?? "python";
   if (lang !== "python" && lang !== "output") {
     return fail(ctx, node, `Unsupported code block language "${lang}". Use python or output.`);
@@ -132,16 +134,26 @@ function parseCode(node: Code, ctx: MarkdownContext): CodeOptions {
   const options = parseMeta(node, lang, ctx);
   if (lang === "output") {
     const label = options.get("label");
-    return { kind: "output", label: typeof label === "string" ? label : undefined };
+    return { kind: "output", label: typeof label === "string" ? label : undefined, static: options.has("static") };
   }
   const run = options.get("run");
+  const input = options.get("input");
   const hidden = options.has("hidden");
-  if (hidden && run === undefined) fail(ctx, node, `"hidden" only works together with "run".`);
+  const error = options.has("error");
+  if (run === undefined && (hidden || error || input !== undefined)) {
+    fail(ctx, node, `"hidden", "error" and "input" only work together with "run".`);
+  }
   return {
     kind: "python",
     run: run === undefined ? undefined : run === true ? DEFAULT_LABELS[ctx.language].run : run,
     hidden,
+    error,
+    inputs: typeof input === "string" ? input.split(INPUT_SEPARATOR) : [],
   };
+}
+
+export function parseMarkdown(body: string): Root {
+  return processor.parse(body);
 }
 
 function outputBlocks(node: Code, label: string | undefined, ctx: MarkdownContext): ContentBlock[] {
@@ -241,7 +253,7 @@ function convertBlocks(nodes: readonly RootContent[], ctx: MarkdownContext): Con
       blocks.push(...convertBlock(node, ctx));
       continue;
     }
-    const options = parseCode(node, ctx);
+    const options = readCodeOptions(node, ctx);
     if (options.kind === "output") {
       blocks.push(...outputBlocks(node, options.label, ctx));
       continue;
@@ -250,7 +262,7 @@ function convertBlocks(nodes: readonly RootContent[], ctx: MarkdownContext): Con
     if (options.run === undefined) continue;
     const next = nodes[index + 1];
     if (!options.hidden && next?.type === "code" && next.lang === "output") {
-      const output = parseCode(next, ctx);
+      const output = readCodeOptions(next, ctx);
       if (output.kind === "output") blocks.push(...outputBlocks(next, output.label, ctx));
       index++;
     }

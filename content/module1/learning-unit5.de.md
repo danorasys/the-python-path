@@ -92,7 +92,7 @@ Das wird einen Fehler verursachen:
 print("Alter: " + 25)    # ERROR
 ```
 
-```python run="Fehler Ausprobieren >>" hidden
+```python run="Fehler Ausprobieren >>" hidden error
 print("Alter: " + 25)
 ```
 

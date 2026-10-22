@@ -15,7 +15,7 @@ The `input()` function allows your program to receive information typed by the u
 
 Example:
 
-```python run
+```python run input="Linus"
 name = input("Enter your name: ")
 print("Hello,", name)
 ```
@@ -43,8 +43,8 @@ Use:
 
 Example:
 
-```python
-age = input("How old are you?")
+```python run input="55"
+age = input("How old are you? ")
 age = int(age)    # necessary conversion
 print("Next year you will be", age + 1)
 ```
@@ -52,12 +52,6 @@ print("Next year you will be", age + 1)
 ```output
 How old are you? 55
 Next year you will be 56
-```
-
-```python run hidden
-age = input("How old are you?")
-age = int(age)
-print("Next year you will be", age + 1)
 ```
 
 :::tip[Tip:]
@@ -74,7 +68,7 @@ Common error example:
 
 After receiving information, you can use it for calculations, making decisions, or displaying personalized messages.
 
-```python run
+```python run input="7"
 number = int(input("Enter a number: "))
 double = number * 2
 print("The double is:", double)
@@ -94,14 +88,14 @@ n = input("Number: ")
 print(n + 10)    # ERROR
 ```
 
-```python run="Test Error >>" hidden
+```python run="Test Error >>" hidden input="5" error
 n = input("Number: ")
 print(n + 10)
 ```
 
 ### 2\. Attempt to Convert Invalid Text
 
-```python run="Test Error >>"
+```python run="Test Error >>" input="hello" error
 text = input("Input: ") # Input: hello
 int(text)    # ERROR
 ```
@@ -114,7 +108,7 @@ Later, you will learn to handle these errors with `try` and `except`.
 
 ### Example 1: Personalized Greeting
 
-```python run
+```python run input="Python"
 name = input("What is your name? ")
 print("Nice to meet you,", name)
 ```
@@ -126,7 +120,7 @@ Nice to meet you, Python
 
 ### Example 2: Interactive Addition
 
-```python run
+```python run input="7|3"
 a = int(input("Enter a number: "))
 b = int(input("Enter another number: "))
 print("The sum is:", a + b)
@@ -140,7 +134,7 @@ The sum is: 10
 
 ### Example 3: Repeating Text
 
-```python run
+```python run input="Python"
 word = input("Enter a word: ")
 print(word * 3)
 ```
@@ -166,7 +160,7 @@ Ask the user for their name and show them a greeting.
 ```
 
 :::details[View possible solution]
-```python run="Try Solution >>"
+```python run="Try Solution >>" input="Ana"
 name = input("Enter your name: ")
 print("Hello", name)
 ```
@@ -182,7 +176,7 @@ Ask the user for their age and tell them how old they will be in 5 years.
 ```
 
 :::details[View possible solution]
-```python run="Try Solution >>"
+```python run="Try Solution >>" input="25"
 age = int(input("How old are you? "))
 print("In 5 years you will be", age + 5)
 ```
@@ -198,7 +192,7 @@ Ask the user for a word and a number. Display the word repeated that number of t
 ```
 
 :::details[View possible solution]
-```python run="Try Solution >>"
+```python run="Try Solution >>" input="Python|3"
 word = input("Enter a word: ")
 amount = int(input("How many times do you want to repeat it? "))
 print(word * amount)
@@ -215,7 +209,7 @@ Ask the user for a temperature in Celsius and convert it to Fahrenheit (show it 
 ```
 
 :::details[View possible solution]
-```python run="Try Solution >>"
+```python run="Try Solution >>" input="25"
 c = float(input("Temperature in Celsius: "))
 f = (c * 9 / 5) + 32
 print("Equivalent to", f, "°F")

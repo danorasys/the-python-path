@@ -23,22 +23,18 @@ En Python, cuando ocurre un error, el intérprete genera un mensaje conocido com
 
 Por ejemplo:
 
-```python run
+```python run error
 numero = 10
 
 print(numero2)
 ```
 
 ```output
-PythonError: Traceback (most recent call last):
-  File "/lib/python311.zip/_pyodide/_base.py", line 573, in eval_code_async
-    await CodeRunner(
-  File "/lib/python311.zip/_pyodide/_base.py", line 393, in run_async
-    coroutine = eval(self.code, globals, locals)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "<exec>", line 2, in <module>
-  File "<string>", line 4, in <module>
-NameError: name 'numero2' is not defined
+Traceback (most recent call last):
+  File "<exec>", line 3, in <module>
+    print(numero2)
+          ^^^^^^^
+NameError: name 'numero2' is not defined. Did you mean: 'numero'?
 ```
 
 En este caso, Python informa que la variable `numero2` no existe.
@@ -91,7 +87,7 @@ Son generalmente los errores más fáciles de detectar porque Python indica exac
 
 Código incorrecto:
 
-```python run
+```python run error
 edad = 20
 
 if edad >= 18
@@ -99,14 +95,7 @@ if edad >= 18
 ```
 
 ```output
-PythonError: Traceback (most recent call last):
-  File "/lib/python311.zip/_pyodide/_base.py", line 573, in eval_code_async
-    await CodeRunner(
-  File "/lib/python311.zip/_pyodide/_base.py", line 393, in run_async
-    coroutine = eval(self.code, globals, locals)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "<exec>", line 2, in <module>
-  File "<string>", line 4
+  File "<exec>", line 3
     if edad >= 18
                  ^
 SyntaxError: expected ':'
@@ -129,19 +118,12 @@ Mayor de edad
 
 Código incorrecto:
 
-```python run
+```python run error
 print("Hola Mundo"
 ```
 
 ```output
-PythonError: Traceback (most recent call last):
-  File "/lib/python311.zip/_pyodide/_base.py", line 573, in eval_code_async
-    await CodeRunner(
-  File "/lib/python311.zip/_pyodide/_base.py", line 393, in run_async
-    coroutine = eval(self.code, globals, locals)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "<exec>", line 2, in <module>
-  File "<string>", line 2
+  File "<exec>", line 1
     print("Hola Mundo"
          ^
 SyntaxError: '(' was never closed
@@ -163,7 +145,7 @@ Python utiliza la indentación para definir bloques de código.
 
 Código incorrecto:
 
-```python run
+```python run error
 numero = 8
 
 if numero > 5:
@@ -171,17 +153,10 @@ print("Es mayor que cinco")
 ```
 
 ```output
-PythonError: Traceback (most recent call last):
-  File "/lib/python311.zip/_pyodide/_base.py", line 573, in eval_code_async
-    await CodeRunner(
-  File "/lib/python311.zip/_pyodide/_base.py", line 393, in run_async
-    coroutine = eval(self.code, globals, locals)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "<exec>", line 2, in <module>
-  File "<string>", line 5
+  File "<exec>", line 4
     print("Es mayor que cinco")
     ^^^^^
-IndentationError: expected an indented block after 'if' statement on line 4
+IndentationError: expected an indented block after 'if' statement on line 3
 ```
 
 Corrección:
@@ -218,21 +193,17 @@ Cuando esto sucede, el programa se detiene y genera una excepción.
 
 ##### Ejemplo 1: Variable Inexistente
 
-```python run
+```python run error
 nombre = "Carlos"
 
 print(apellido)
 ```
 
 ```output
-PythonError: Traceback (most recent call last):
-  File "/lib/python311.zip/_pyodide/_base.py", line 573, in eval_code_async
-    await CodeRunner(
-  File "/lib/python311.zip/_pyodide/_base.py", line 393, in run_async
-    coroutine = eval(self.code, globals, locals)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "<exec>", line 2, in <module>
-  File "<string>", line 4, in <module>
+Traceback (most recent call last):
+  File "<exec>", line 3, in <module>
+    print(apellido)
+          ^^^^^^^^
 NameError: name 'apellido' is not defined
 ```
 
@@ -240,7 +211,7 @@ Python indica que la variable nunca fue creada.
 
 ##### Ejemplo 2: División Entre Cero
 
-```python run
+```python run error
 numero = 20
 resultado = numero / 0
 
@@ -248,14 +219,10 @@ print(resultado)
 ```
 
 ```output
-PythonError: Traceback (most recent call last):
-  File "/lib/python311.zip/_pyodide/_base.py", line 573, in eval_code_async
-    await CodeRunner(
-  File "/lib/python311.zip/_pyodide/_base.py", line 393, in run_async
-    coroutine = eval(self.code, globals, locals)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Traceback (most recent call last):
   File "<exec>", line 2, in <module>
-  File "<string>", line 3, in <module>
+    resultado = numero / 0
+                ~~~~~~~^~~
 ZeroDivisionError: division by zero
 ```
 
@@ -263,21 +230,17 @@ Python no permite dividir entre cero.
 
 ##### Ejemplo 3: Índice Fuera del Rango
 
-```python run
+```python run error
 numeros = [10, 20, 30]
 
 print(numeros[5])
 ```
 
 ```output
-PythonError: Traceback (most recent call last):
-  File "/lib/python311.zip/_pyodide/_base.py", line 573, in eval_code_async
-    await CodeRunner(
-  File "/lib/python311.zip/_pyodide/_base.py", line 393, in run_async
-    coroutine = eval(self.code, globals, locals)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "<exec>", line 2, in <module>
-  File "<string>", line 4, in <module>
+Traceback (most recent call last):
+  File "<exec>", line 3, in <module>
+    print(numeros[5])
+          ~~~~~~~^^^
 IndexError: list index out of range
 ```
 
@@ -285,21 +248,16 @@ La lista únicamente posee tres elementos.
 
 ##### Ejemplo 4: Conversión Incorrecta
 
-```python run
+```python run error
 edad = "veinte"
 
 numero = int(edad)
 ```
 
 ```output
-PythonError: Traceback (most recent call last):
-  File "/lib/python311.zip/_pyodide/_base.py", line 573, in eval_code_async
-    await CodeRunner(
-  File "/lib/python311.zip/_pyodide/_base.py", line 393, in run_async
-    coroutine = eval(self.code, globals, locals)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "<exec>", line 2, in <module>
-  File "<string>", line 4, in <module>
+Traceback (most recent call last):
+  File "<exec>", line 3, in <module>
+    numero = int(edad)
 ValueError: invalid literal for int() with base 10: 'veinte'
 ```
 
@@ -307,21 +265,17 @@ La cadena no representa un número entero válido.
 
 ##### Ejemplo 5: Tipo Incompatible
 
-```python run
+```python run error
 numero = 15
 
 print(numero + " años")
 ```
 
 ```output
-PythonError: Traceback (most recent call last):
-  File "/lib/python311.zip/_pyodide/_base.py", line 573, in eval_code_async
-    await CodeRunner(
-  File "/lib/python311.zip/_pyodide/_base.py", line 393, in run_async
-    coroutine = eval(self.code, globals, locals)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "<exec>", line 2, in <module>
-  File "<string>", line 4, in <module>
+Traceback (most recent call last):
+  File "<exec>", line 3, in <module>
+    print(numero + " años")
+          ~~~~~~~^~~~~~~~~
 TypeError: unsupported operand type(s) for +: 'int' and 'str'
 ```
 
@@ -388,7 +342,7 @@ Código:
 edad = 18
 
 if edad > 18:
-	print("Usted es un adultuo, puede ingresar")
+	print("Usted es un adulto, puede ingresar")
 else:
 	print("Usted no es un adulto, no puede ingresar")
 ```
@@ -405,7 +359,7 @@ Corrección:
 edad = 18
 
 if edad >= 18:
-	print("Usted es un adultuo, puede ingresar")
+	print("Usted es un adulto, puede ingresar")
 else:
 	print("Usted no es un adulto, no puede ingresar")
 ```
@@ -444,9 +398,9 @@ print(promedio)
 
 ```output
 4.166666666666667
-
-# Se podría considerar redondear el resultado a dos decimales, por ejemplo.
 ```
+
+Se podría considerar redondear el resultado a dos decimales, por ejemplo.
 
 :::note[Nota:]
 Los errores lógicos son especialmente peligrosos porque pueden pasar desapercibidos durante mucho tiempo si no se prueban cuidadosamente los resultados obtenidos por el programa.
@@ -465,7 +419,7 @@ Los errores lógicos son especialmente peligrosos porque pueden pasar desapercib
 
 ### Ejemplo 1: Identificando un Error de Sintaxis
 
-```python run
+```python run error
 numero = 15
 
 if numero > 10
@@ -473,14 +427,7 @@ if numero > 10
 ```
 
 ```output
-PythonError: Traceback (most recent call last):
-  File "/lib/python311.zip/_pyodide/_base.py", line 573, in eval_code_async
-    await CodeRunner(
-  File "/lib/python311.zip/_pyodide/_base.py", line 393, in run_async
-    coroutine = eval(self.code, globals, locals)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "<exec>", line 2, in <module>
-  File "<string>", line 4
+  File "<exec>", line 3
     if numero > 10
                   ^
 SyntaxError: expected ':'
@@ -490,21 +437,17 @@ Python detectará inmediatamente que falta el carácter `:` al finalizar la cond
 
 ### Ejemplo 2: Identificando un Error en Tiempo de Ejecución
 
-```python run
+```python run error
 edades = [20, 25, 30]
 
 print(edades[5])
 ```
 
 ```output
-PythonError: Traceback (most recent call last):
-  File "/lib/python311.zip/_pyodide/_base.py", line 573, in eval_code_async
-    await CodeRunner(
-  File "/lib/python311.zip/_pyodide/_base.py", line 393, in run_async
-    coroutine = eval(self.code, globals, locals)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "<exec>", line 2, in <module>
-  File "<string>", line 4, in <module>
+Traceback (most recent call last):
+  File "<exec>", line 3, in <module>
+    print(edades[5])
+          ~~~~~~^^^
 IndexError: list index out of range
 ```
 

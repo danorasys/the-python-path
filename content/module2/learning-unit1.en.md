@@ -78,7 +78,7 @@ else:
 ```
 
 ```output
-It iz zero
+It is zero
 ```
 
 This type of structure helps model real-world processes: evaluating grades, classifying ages, selecting options, and more.

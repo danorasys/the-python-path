@@ -119,8 +119,8 @@ Mit Bibliotheken wie Pygame kannst du 2D-Spiele erstellen.
 
 ## Erster Blick auf Python-Code
 
-```python run
-name = input('Wie heißt du?')
+```python run input="Daniel"
+name = input('Wie heißt du? ')
 print('Hallo', name)
 ```
 

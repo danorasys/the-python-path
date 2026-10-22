@@ -15,7 +15,7 @@ Die Funktion `input()` ermöglicht es deinem Programm, Informationen zu erhalten
 
 Beispiel:
 
-```python run
+```python run input="Linus"
 name = input("Gib deinen Namen ein: ")
 print("Hallo,", name)
 ```
@@ -43,7 +43,7 @@ Verwende:
 
 Beispiel:
 
-```python run
+```python run input="55"
 alter = input("Wie alt bist du? ")
 alter = int(alter)    # notwendige Umwandlung
 print("Nächstes Jahr wirst du", alter + 1, "Jahre alt sein.")
@@ -68,7 +68,7 @@ Beispiel für einen häufigen Fehler:
 
 Nachdem du Informationen erhalten hast, kannst du sie für Berechnungen, Entscheidungen oder personalisierte Nachrichten verwenden.
 
-```python run
+```python run input="7"
 zahl = int(input("Gib eine Zahl ein: "))
 doppelt = zahl * 2
 print("Das Doppelte ist:", doppelt)
@@ -83,14 +83,14 @@ Das Doppelte ist: 14
 
 ### 1\. Vergessen, dass `input()` Immer Text Zurückgibt
 
-```python run="Fehler Ausprobieren >>"
+```python run="Fehler Ausprobieren >>" input="5" error
 n = input("Zahl: ")
 print(n + 10)    # FEHLER
 ```
 
 ### 2\. Versuchen, Ungültigen Text Umzuwandeln
 
-```python run="Fehler Ausprobieren >>"
+```python run="Fehler Ausprobieren >>" input="hallo" error
 text = input("Eingabe: ")  # Eingabe: hallo
 int(text)    # FEHLER
 ```
@@ -103,7 +103,7 @@ Später wirst du lernen, diese Fehler mit `try` und `except` zu behandeln.
 
 ### Beispiel 1: Persönliche Begrüßung
 
-```python run
+```python run input="Python"
 name = input("Wie heißt du? ")
 print("Freut mich,", name)
 ```
@@ -115,7 +115,7 @@ Freut mich, Python
 
 ### Beispiel 2: Interaktive Addition
 
-```python run
+```python run input="7|3"
 a = int(input("Gib eine Zahl ein: "))
 b = int(input("Gib noch eine Zahl ein: "))
 print("Die Summe ist:", a + b)
@@ -129,7 +129,7 @@ Die Summe ist: 10
 
 ### Beispiel 3: Text Wiederholen
 
-```python run
+```python run input="Python"
 wort = input("Gib ein Wort ein: ")
 print(wort * 3)
 ```
@@ -155,7 +155,7 @@ Bitte den Benutzer um seinen Namen und zeige eine Begrüßung an.
 ```
 
 :::details[Mögliche Lösung anzeigen]
-```python run="Lösung Ausprobieren >>"
+```python run="Lösung Ausprobieren >>" input="Ana"
 name = input("Gib deinen Namen ein: ")
 print("Hallo", name)
 ```
@@ -171,7 +171,7 @@ Bitte den Benutzer um sein Alter und sage ihm, wie alt er in 5 Jahren sein wird.
 ```
 
 :::details[Mögliche Lösung anzeigen]
-```python run="Lösung Ausprobieren >>"
+```python run="Lösung Ausprobieren >>" input="25"
 alter = int(input("Wie alt bist du? "))
 print("In 5 Jahren wirst du", alter + 5, "Jahre alt sein.")
 ```
@@ -187,7 +187,7 @@ Bitte den Benutzer um ein Wort und eine Zahl. Zeige das Wort so oft wiederholt a
 ```
 
 :::details[Mögliche Lösung anzeigen]
-```python run="Lösung Ausprobieren >>"
+```python run="Lösung Ausprobieren >>" input="Python|3"
 wort = input("Gib ein Wort ein: ")
 anzahl = int(input("Wie oft soll es wiederholt werden? "))
 print(wort * anzahl)
@@ -204,7 +204,7 @@ Bitte den Benutzer um eine Temperatur in Grad Celsius und wandle sie in Fahrenhe
 ```
 
 :::details[Mögliche Lösung anzeigen]
-```python run="Lösung Ausprobieren >>"
+```python run="Lösung Ausprobieren >>" input="25"
 c = float(input("Temperatur in Celsius: "))
 f = (c * 9 / 5) + 32
 print("Das entspricht", f, "°F")

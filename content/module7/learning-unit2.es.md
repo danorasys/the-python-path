@@ -18,7 +18,7 @@ Cuando aparece una excepción, Python interrumpe el flujo normal del programa y 
 
 Por ejemplo, observa el siguiente código:
 
-```python run
+```python run error
 numero = 10
 resultado = numero / 0
 
@@ -26,14 +26,10 @@ print(resultado)
 ```
 
 ```output
-PythonError: Traceback (most recent call last):
-  File "/lib/python311.zip/_pyodide/_base.py", line 573, in eval_code_async
-    await CodeRunner(
-  File "/lib/python311.zip/_pyodide/_base.py", line 393, in run_async
-    coroutine = eval(self.code, globals, locals)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Traceback (most recent call last):
   File "<exec>", line 2, in <module>
-  File "<string>", line 3, in <module>
+    resultado = numero / 0
+                ~~~~~~~^~~
 ZeroDivisionError: division by zero
 ```
 
@@ -41,21 +37,17 @@ En este caso, Python detecta que una división entre cero no está permitida y g
 
 Otro ejemplo:
 
-```python run
+```python run error
 numeros = [5, 8, 10]
 
 print(numeros[5])
 ```
 
 ```output
-PythonError: Traceback (most recent call last):
-  File "/lib/python311.zip/_pyodide/_base.py", line 573, in eval_code_async
-    await CodeRunner(
-  File "/lib/python311.zip/_pyodide/_base.py", line 393, in run_async
-    coroutine = eval(self.code, globals, locals)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "<exec>", line 2, in <module>
-  File "<string>", line 4, in <module>
+Traceback (most recent call last):
+  File "<exec>", line 3, in <module>
+    print(numeros[5])
+          ~~~~~~~^^^
 IndexError: list index out of range
 ```
 
@@ -105,23 +97,18 @@ Si el usuario escribe:
 veinte
 ```
 
-Python mostrará:
-
-```python
-PythonError: Traceback (most recent call last):
-  File "/lib/python311.zip/_pyodide/_base.py", line 573, in eval_code_async
-    await CodeRunner(
-  File "/lib/python311.zip/_pyodide/_base.py", line 395, in run_async
-    await coroutine
-  File "<exec>", line 9, in <module>
-  File "<exec>", line 5, in __runner__
-ValueError: invalid literal for int() with base 10: 'veinte'
-```
-
-```python run hidden
+```python run hidden input="veinte" error
 edad = int(input("Ingrese su edad: "))
 
 print("Su edad es:", edad)
+```
+
+```output label="Python mostrará:"
+Ingrese su edad: veinte
+Traceback (most recent call last):
+  File "<exec>", line 1, in <module>
+    edad = int(input("Ingrese su edad: "))
+ValueError: invalid literal for int() with base 10: 'veinte'
 ```
 
 Y el programa finalizará inmediatamente.
@@ -323,7 +310,7 @@ La ejecución del anterior código genera la siguiente salida:
 Debe ingresar un número entero.
 ```
 
-```python run hidden
+```python run hidden input="hola"
 try:
     numero = int(input("Número: "))
 except ValueError:
@@ -379,7 +366,7 @@ Además, si se ingresara el valor `0`, entonces se obtendría la siguiente salid
 No es posible dividir entre cero.
 ```
 
-```python run hidden
+```python run hidden input="cinco"
 try:
     numero = int(input("Número: "))
     resultado = 100 / numero
@@ -393,7 +380,7 @@ Cada excepción posee su propio bloque.
 
 También es posible agrupar varias excepciones cuando el tratamiento será exactamente el mismo.
 
-```python run
+```python run input="cinco"
 try:
     numero = int(input("Número: "))
     resultado = 100 / numero
@@ -450,7 +437,7 @@ Se nos muestra la siguiente salida:
 invalid literal for int() with base 10: 'hola'
 ```
 
-```python run hidden
+```python run hidden input="hola"
 try:
     numero = int(input("Número: "))
 except ValueError as error:
@@ -534,7 +521,7 @@ Entonces, se obtendrá la siguiente salida:
 Edad registrada: 21
 ```
 
-```python run hidden
+```python run hidden input="hola mundo"
 try:
     edad = int(input("Ingrese su edad: "))
     print("Edad registrada:", edad)
@@ -599,7 +586,7 @@ Entonces, se obtendría la siguiente salida, correspondiente al resultado normal
 9.0
 ```
 
-```python run hidden
+```python run hidden input="7|0"
 try:
     numerador = float(input("Numerador: "))
     denominador = float(input("Denominador: "))
@@ -670,7 +657,7 @@ Entonces, se obtendrá el elemento correspondiente a dicho índice:
 Pera
 ```
 
-```python run hidden
+```python run hidden input="9"
 try:
     frutas = [
         "Manzana",
@@ -712,7 +699,7 @@ Se produjo una excepción.
 Detalle: invalid literal for int() with base 10: 'c++'
 ```
 
-```python run hidden
+```python run hidden input="c++"
 try:
     numero = int(input("Número: "))
 except ValueError as error:
@@ -775,7 +762,7 @@ Construye un programa que cumpla con los siguientes requerimientos:
 ```
 
 :::details[Observar posible solución]
-```python run="Probar Solución >>"
+```python run="Probar Solución >>" input="10|2"
 try:
     # Solicitar el primer número al usuario.
     numero1 = float(input("Ingrese el primer número: "))
@@ -920,7 +907,7 @@ Construye un programa que realice las siguientes acciones:
 ```
 
 :::details[Observar posible solución]
-```python run="Probar Solución >>"
+```python run="Probar Solución >>" input="Ana|25"
 # Iniciar el bloque de manejo de excepciones.
 try:
     # Solicitar el nombre del usuario.

@@ -120,8 +120,8 @@ Con librerías como Pygame puedes crear juegos 2D.
 
 ## Primer Vistazo a Código Python
 
-```python run
-name = input('¿Cómo te llamas?')
+```python run input="Daniel"
+name = input('¿Cómo te llamas? ')
 print('Hola', name)
 ```
 

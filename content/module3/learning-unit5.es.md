@@ -49,7 +49,7 @@ print(frutas)
 ```
 
 ```output
-{'manzana', 'uva', 'pera'}
+{'uva', 'manzana', 'pera'}
 ```
 
 ### Desde una Lista
@@ -85,7 +85,7 @@ print(colores)
 ```
 
 ```output
-{'verde', 'azul', 'rojo'}
+{'rojo', 'azul', 'verde'}
 ```
 
 ## Eliminar Elementos
@@ -122,7 +122,7 @@ print(colores)
 ```
 
 ```output
-{'azul', 'rojo'}
+{'rojo', 'azul'}
 ```
 
 No produce error si no está presente.
@@ -219,7 +219,7 @@ print(python & java)
 ```
 
 ```output
-{'Carlos', 'Ana'}
+{'Ana', 'Carlos'}
 ```
 
 :::tip[Tip:]
@@ -238,8 +238,8 @@ print("Solo día 1:", clientes_dia1 - clientes_dia2)
 ```
 
 ```output
-Todos: {'Pedro', 'Luis', 'Sofía', 'Ana'}
-Repetidos: {'Pedro', 'Luis'}
+Todos: {'Ana', 'Luis', 'Pedro', 'Sofía'}
+Repetidos: {'Luis', 'Pedro'}
 Solo día 1: {'Ana'}
 ```
 

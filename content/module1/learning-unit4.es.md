@@ -268,7 +268,7 @@ int("hola")
 # ValueError
 ```
 
-```python run="Probar Error >>" hidden
+```python run="Probar Error >>" hidden error
 int("hola")
 ```
 
@@ -279,7 +279,7 @@ print("Edad: " + 20)
 # TypeError
 ```
 
-```python run="Probar Error >>" hidden
+```python run="Probar Error >>" hidden error
 print("Edad: " + 20)
 ```
 

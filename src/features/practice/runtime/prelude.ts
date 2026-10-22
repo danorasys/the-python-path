@@ -99,7 +99,7 @@ async def __tpp_run(source, read_line_sync=None):
         code = compile(tree, _FILENAME, "exec", flags=ast.PyCF_ALLOW_TOP_LEVEL_AWAIT)
     except SyntaxError as error:
         traceback.print_exception(type(error), error, None)
-        return
+        return False
     try:
         result = eval(code, namespace)
         if inspect.iscoroutine(result):
@@ -108,7 +108,9 @@ async def __tpp_run(source, read_line_sync=None):
         pass
     except BaseException as error:
         _print_error(error, namespace)
+        return False
     finally:
         sys.stdout.flush()
         sys.stderr.flush()
+    return True
 `;

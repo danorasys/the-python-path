@@ -85,7 +85,7 @@ Esto dará error:
 print("Edad: " + 25)    # ERROR
 ```
 
-```python run="Probar Error >>" hidden
+```python run="Probar Error >>" hidden error
 print("Edad: " + 25)
 ```
 

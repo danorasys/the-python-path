@@ -84,7 +84,7 @@ This will give an error:
 print("Age: " + 25)    # ERROR
 ```
 
-```python run="Test Error >>" hidden
+```python run="Test Error >>" hidden error
 print("Age: " + 25)
 ```
 

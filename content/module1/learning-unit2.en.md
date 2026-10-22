@@ -162,7 +162,7 @@ print("Hello)
 
 Python will show a syntax error.
 
-```python run="Test Error >>" hidden
+```python run="Test Error >>" hidden error
 print("Hello)
 ```
 

@@ -142,7 +142,7 @@ else:
 
 ### Buscar Números Dentro del Texto
 
-```python
+```python run
 contraseña = "Python123"
 
 tiene_numero = False
@@ -154,22 +154,8 @@ for caracter in contraseña:
 print(tiene_numero)
 ```
 
-Resultado:
-
-```python
+```output label="Resultado:"
 True
-```
-
-```python run hidden
-contraseña = "Python123"
-
-tiene_numero = False
-
-for caracter in contraseña:
-	if caracter.isdigit():
-		tiene_numero = True
-
-print(tiene_numero)
 ```
 
 ### Buscar Letras Mayúsculas

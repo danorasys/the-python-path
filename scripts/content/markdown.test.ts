@@ -187,14 +187,15 @@ describe("code blocks", () => {
   });
 
   it("accepts the options used to run examples", () => {
-    expect(compile(md('```python run error input="7,3"', "int('x')", "```"))).toHaveLength(2);
+    expect(compile(md('```python run error input="7|3"', "int('x')", "```", "```output static", "x", "```"))).toHaveLength(4);
   });
 
   it("rejects unknown languages and options", () => {
     expect(errorOf(() => compile(md("```js", "x", "```"))).message).toContain('language "js"');
     expect(errorOf(() => compile(md("```python fast", "x", "```"))).message).toContain('Unknown option "fast"');
     expect(errorOf(() => compile(md("```python hidden", "x", "```"))).message).toContain('together with "run"');
-    expect(errorOf(() => compile(md("```python input", "x", "```"))).message).toContain("needs a value");
+    expect(errorOf(() => compile(md('```python input="1"', "x", "```"))).message).toContain('together with "run"');
+    expect(errorOf(() => compile(md("```python run input", "x", "```"))).message).toContain("needs a value");
     expect(errorOf(() => compile(md("```python run run", "x", "```"))).message).toContain("repeated");
   });
 });
