@@ -15,6 +15,7 @@ export interface MarkdownContext {
   language: Language;
   lineOffset: number;
   inDetails?: boolean | undefined;
+  inCallout?: boolean | undefined;
 }
 
 const remarkTables: Plugin<[], Root> = function () {
@@ -206,9 +207,10 @@ function directiveBlocks(node: ContainerDirective, ctx: MarkdownContext): Conten
   switch (node.name) {
     case "note":
     case "tip": {
+      if (ctx.inCallout) fail(ctx, node, `":::${node.name}" cannot go inside another note or tip.`);
       if (body.length === 0) fail(ctx, node, `":::${node.name}" is empty.`);
       const title = label ?? escapeHtml(labels[node.name]);
-      const content = convertBlocks(body, ctx);
+      const content = convertBlocks(body, { ...ctx, inCallout: true });
       return [title === "" ? { type: node.name, content } : { type: node.name, title, content }];
     }
     case "details": {

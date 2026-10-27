@@ -174,6 +174,22 @@ describe("notes, tips and details", () => {
     ]);
   });
 
+  it("rejects notes and tips inside other notes and tips, even through details", () => {
+    for (const [outer, inner] of [
+      ["note", "note"],
+      ["note", "tip"],
+      ["tip", "note"],
+      ["tip", "tip"],
+    ]) {
+      expect(errorOf(() => compile(md(`::::${outer}`, `:::${inner}`, "x", ":::", "::::"))).message).toContain(
+        `":::${inner}" cannot go inside another note or tip`,
+      );
+    }
+    expect(
+      errorOf(() => compile(md(":::::tip", "::::details", ":::note", "x", ":::", "::::", ":::::"))).message,
+    ).toContain("cannot go inside another note or tip");
+  });
+
   it("rejects empty notes and still checks what is inside", () => {
     expect(errorOf(() => compile(md(":::note", ":::"))).message).toContain('":::note" is empty');
     expect(errorOf(() => compile(md(":::tip", "1. uno", ":::"))).message).toContain("Numbered lists");
