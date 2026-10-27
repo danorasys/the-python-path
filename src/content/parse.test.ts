@@ -62,6 +62,31 @@ describe("parseBlocks", () => {
     expect(warn).toHaveBeenCalledOnce();
   });
 
+  it("parses notes and tips with nested content and an optional title", () => {
+    expect(
+      parseBlocks([
+        { type: "note", title: "Nota:", content: [{ type: "list", items: ["a"] }, { type: "code", text: "x" }] },
+        { type: "tip", content: [{ type: "paragraph", text: "hi" }] },
+      ]),
+    ).toEqual([
+      {
+        type: "note",
+        title: "Nota:",
+        content: [
+          { type: "list", items: ["a"] },
+          { type: "code", text: "x", language: "python" },
+        ],
+      },
+      { type: "tip", content: [{ type: "paragraph", text: "hi" }] },
+    ]);
+  });
+
+  it("reads notes in the previous text format", () => {
+    expect(parseBlocks([{ type: "tip", text: "<strong>Tip:</strong><br>hi" }])).toEqual([
+      { type: "tip", content: [{ type: "paragraph", text: "<strong>Tip:</strong><br>hi" }] },
+    ]);
+  });
+
   it("drops images with script URLs", () => {
     expect(parseBlocks([{ type: "image", src: "javascript:alert(1)" }])).toEqual([]);
   });

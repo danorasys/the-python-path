@@ -1,7 +1,7 @@
 ---
 title: What is Python and How Does It Work?
 summary: Introduction to the language, its features, readable syntax, and its uses.
-source: b7c0317ef5e4
+source: e56058e8f418
 ---
 
 ## What is Python?

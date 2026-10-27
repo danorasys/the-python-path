@@ -22,12 +22,13 @@ export type TextBlockType =
   | "subtitle2"
   | "subtitle3"
   | "subtitle4"
-  | "paragraph"
-  | "note"
-  | "tip";
+  | "paragraph";
+
+export type CalloutBlockType = "note" | "tip";
 
 export type ContentBlock =
   | { type: TextBlockType; text: string }
+  | { type: CalloutBlockType; title?: string; content: ContentBlock[] }
   | { type: "list"; items: string[] }
   | { type: "code"; text: string; language: string }
   | { type: "test-button"; text: string; code: string }

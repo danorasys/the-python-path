@@ -1,7 +1,7 @@
 ---
 title: "`while` and `for` Loops"
 summary: In this unit, you will learn how to repeat instructions using `while` and `for`, which allows you to perform tasks repeatedly without writing the same code many times. You will also learn how to iterate over a sequence of characters (`str`).
-source: 9ef6b06fcfa0
+source: 42d151625e02
 ---
 
 In programming, many tasks require repeating actions: displaying messages multiple times, counting numbers, or processing text character by character. Loops allow you to execute the same block of code multiple times without having to write it repeatedly. In Python, the two main loops are `while` and `for`.

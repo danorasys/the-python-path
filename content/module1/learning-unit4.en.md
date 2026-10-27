@@ -1,7 +1,7 @@
 ---
 title: Variables and Basic Data Types
 summary: "What variables are, how to create them, and the most common types: `int`, `float`, `str`, `bool`."
-source: 632783c2c492
+source: fe65d4a54900
 ---
 
 ## What Is a Variable?

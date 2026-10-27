@@ -25,8 +25,6 @@ const TEXT_BLOCK_TYPES = new Set<TextBlockType>([
   "subtitle3",
   "subtitle4",
   "paragraph",
-  "note",
-  "tip",
 ]);
 
 type JsonObject = Record<string, unknown>;
@@ -101,6 +99,14 @@ function parseBlock(raw: unknown): ContentBlock | null {
     }
     case "divider":
       return { type };
+    case "note":
+    case "tip": {
+      const content = Array.isArray(raw.content)
+        ? parseBlocks(raw.content)
+        : [{ type: "paragraph" as const, text: asText(raw.text) }];
+      const title = asText(raw.title);
+      return title ? { type, title, content } : { type, content };
+    }
     case "collapsible":
       return { type, title: asText(raw.title), content: parseBlocks(raw.content) };
     case "table": {

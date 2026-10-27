@@ -206,15 +206,10 @@ function directiveBlocks(node: ContainerDirective, ctx: MarkdownContext): Conten
   switch (node.name) {
     case "note":
     case "tip": {
-      const paragraphs = body.map((child) =>
-        child.type === "paragraph"
-          ? renderInline(child.children, ctx)
-          : fail(ctx, child, `Only text is allowed inside ":::${node.name}".`),
-      );
-      if (paragraphs.length === 0) fail(ctx, node, `":::${node.name}" is empty.`);
-      const text = paragraphs.join("<br><br>");
+      if (body.length === 0) fail(ctx, node, `":::${node.name}" is empty.`);
       const title = label ?? escapeHtml(labels[node.name]);
-      return [{ type: node.name, text: title === "" ? text : `<strong>${title}</strong><br>${text}` }];
+      const content = convertBlocks(body, ctx);
+      return [title === "" ? { type: node.name, content } : { type: node.name, title, content }];
     }
     case "details": {
       const title = label || escapeHtml(labels.details);

@@ -1,7 +1,7 @@
 ---
 title: Dateneingabe Mit `input()`
 summary: Wie man Informationen vom Benutzer erhält und sie verarbeitet.
-source: c67a5035db05
+source: 0e7dec19425a
 ---
 
 Die Funktion `input()` ermöglicht es deinem Programm, Informationen zu erhalten, die vom Benutzer eingegeben werden. Sie ist einer der ersten Schritte, um wirklich interaktive Programme zu erstellen.

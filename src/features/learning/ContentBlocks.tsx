@@ -54,7 +54,12 @@ function Block({ block, interactive }: { block: ContentBlock; interactive: boole
     case "tip":
       return (
         <Callout tone={block.type} icon={block.type === "note" ? "pin" : "bulb"}>
-          <RichText html={block.text} />
+          {block.title && (
+            <strong className={styles.calloutTitle}>
+              <RichText html={block.title} />
+            </strong>
+          )}
+          <ContentBlocks blocks={block.content} interactive={interactive} />
         </Callout>
       );
     case "list":

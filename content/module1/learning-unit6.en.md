@@ -1,7 +1,7 @@
 ---
 title: Data Input With `input()`
 summary: How to receive information from the user and process it.
-source: c67a5035db05
+source: 0e7dec19425a
 ---
 
 The `input()` function allows your program to receive information typed by the user. It is one of the first steps toward creating truly interactive programs.

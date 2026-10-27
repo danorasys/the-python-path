@@ -1,7 +1,7 @@
 ---
 title: Mathematische Operationen und Textoperationen
 summary: Verwendung der Operatoren `+`, `-`, `*`, `/`, Verkettung und Wiederholung von Zeichenketten.
-source: cd4b1f0c906b
+source: cc76c2dab688
 ---
 
 In Python können wir sowohl mit Zahlen als auch mit Texten (Zeichenketten) arbeiten. Diese Lerneinheit zeigt dir, wie du die wichtigsten Operatoren für mathematische Berechnungen und die grundlegende Textmanipulation verwendest.

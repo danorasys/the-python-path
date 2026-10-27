@@ -1,7 +1,7 @@
 ---
 title: "Dein Erstes Programm: `print()`"
 summary: Wie man Text auf dem Bildschirm anzeigt und die minimale Struktur eines Programms versteht.
-source: da5079a4b7c4
+source: 55773158d2fa
 ---
 
 ## Was Ist Ein Programm in Python?

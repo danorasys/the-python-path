@@ -105,27 +105,78 @@ describe("lists, tables and dividers", () => {
 });
 
 describe("notes, tips and details", () => {
-  it("puts the label in bold before the text", () => {
+  it("keeps the label as the title of the note", () => {
     expect(compile(md(":::note[Nota:]", "Los `int` no tienen decimales.", ":::"))).toEqual([
-      { type: "note", text: '<strong>Nota:</strong><br>Los <code class="language-python">int</code> no tienen decimales.' },
+      {
+        type: "note",
+        title: "Nota:",
+        content: [{ type: "paragraph", text: 'Los <code class="language-python">int</code> no tienen decimales.' }],
+      },
     ]);
   });
 
   it("uses the default label of each language and allows several paragraphs", () => {
     expect(compile(md(":::tip", "Uno.", "", "Dos.", ":::"))).toEqual([
-      { type: "tip", text: "<strong>Tip:</strong><br>Uno.<br><br>Dos." },
+      {
+        type: "tip",
+        title: "Tip:",
+        content: [
+          { type: "paragraph", text: "Uno." },
+          { type: "paragraph", text: "Dos." },
+        ],
+      },
     ]);
     expect(compile(md(":::note", "Eins.", ":::"), "de")).toEqual([
-      { type: "note", text: "<strong>Hinweis:</strong><br>Eins." },
+      { type: "note", title: "Hinweis:", content: [{ type: "paragraph", text: "Eins." }] },
     ]);
   });
 
   it("leaves the label out when the brackets are empty", () => {
-    expect(compile(md(":::note[]", "Solo texto.", ":::"))).toEqual([{ type: "note", text: "Solo texto." }]);
+    expect(compile(md(":::note[]", "Solo texto.", ":::"))).toEqual([
+      { type: "note", content: [{ type: "paragraph", text: "Solo texto." }] },
+    ]);
   });
 
-  it("rejects anything but text inside a note", () => {
-    expect(errorOf(() => compile(md(":::note[Nota:]", "- uno", ":::"))).message).toContain("Only text");
+  it("accepts any content inside notes and tips", () => {
+    expect(
+      compile(md(":::tip", "- uno", "", "```python run", "print(1)", "```", "", "```output", "1", "```", "", "---", ":::")),
+    ).toEqual([
+      {
+        type: "tip",
+        title: "Tip:",
+        content: [
+          { type: "list", items: ["uno"] },
+          { type: "code", text: "print(1)", language: "python" },
+          { type: "paragraph", text: "Salida:" },
+          { type: "code", text: "1", language: "python" },
+          { type: "test-button", text: "Probar >>", code: "print(1)" },
+          { type: "divider" },
+        ],
+      },
+    ]);
+  });
+
+  it("nests blocks inside notes and keeps the solution label inside details", () => {
+    expect(compile(md("::::details", ":::note[]", "```python run", "print(1)", "```", ":::", "::::"))).toEqual([
+      {
+        type: "collapsible",
+        title: "Observar posible solución",
+        content: [
+          {
+            type: "note",
+            content: [
+              { type: "code", text: "print(1)", language: "python" },
+              { type: "test-button", text: "Probar Solución >>", code: "print(1)" },
+            ],
+          },
+        ],
+      },
+    ]);
+  });
+
+  it("rejects empty notes and still checks what is inside", () => {
+    expect(errorOf(() => compile(md(":::note", ":::"))).message).toContain('":::note" is empty');
+    expect(errorOf(() => compile(md(":::tip", "1. uno", ":::"))).message).toContain("Numbered lists");
   });
 
   it("builds collapsible sections whose buttons try the solution", () => {

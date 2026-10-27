@@ -1,7 +1,7 @@
 ---
 title: Was ist Python und Wie Funktioniert Es?
 summary: Einführung in die Programmiersprache, ihre Merkmale, lesbare Syntax und Verwendungszwecke.
-source: b7c0317ef5e4
+source: e56058e8f418
 ---
 
 ## Was ist Python?

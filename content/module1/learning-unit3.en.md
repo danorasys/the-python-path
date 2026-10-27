@@ -1,7 +1,7 @@
 ---
 title: Comments and Basic Code Style
 summary: Using `#` to document code and keep it readable.
-source: f258c1deb230
+source: ce508e9b295b
 ---
 
 ## What is a Comment in Python?

@@ -1,7 +1,7 @@
 ---
 title: "Bedingungen: `if`, `elif`, `else`"
 summary: In dieser Einheit lernst du, wie dein Programm Entscheidungen treffen kann, indem du `if`, `elif` und `else` verwendest, sodass der Code verschiedene Aktionen ausführt, abhängig davon, welche Bedingungen erfüllt sind. Du wirst sehen, wie der Ablauf funktioniert, wenn eine Bedingung wahr ist, was passiert, wenn keine zutrifft, und wie man mehrere Optionen hintereinander verknüpft.
-source: 07ec9aa6a217
+source: 81ee5134c758
 ---
 
 Bedingungen sind eines der wichtigsten Werkzeuge in jeder Programmiersprache, da sie es einem Programm ermöglichen, Entscheidungen zu treffen. Dank ihnen kann dein Code je nach Situation das eine oder andere ausführen. In Python steuern die Schlüsselwörter `if`, `elif` und `else` dieses Verhalten.
