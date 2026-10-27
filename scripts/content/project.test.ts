@@ -55,7 +55,7 @@ describe("buildContent", () => {
       "roadmap.es.yml": "title: Ruta\ndescription: Aprende Python",
       "module2/module.es.yml": "title: Control de flujo\norder: 2",
       "module1/module.es.yml": "title: Fundamentos\ndescription: Lo básico\norder: 1\ncolor: '#123456'",
-      "module1/learning-unit9.es.md": unit("title: Variables\nsummary: Guardar datos\norder: 2"),
+      "module1/learning-unit2.es.md": unit("title: Variables\nsummary: Guardar datos\norder: 2"),
       "module1/learning-unit1.es.md": unit("title: Qué es Python\norder: 1\ncolor: '#ABCDEF'"),
     });
 
@@ -72,10 +72,10 @@ describe("buildContent", () => {
       description: "Lo básico",
       steps: [
         { name: "1. Qué es Python", description: "", color: "#ABCDEF", unit: "learning-unit1" },
-        { name: "2. Variables", description: "Guardar datos", color: "#3776AB", unit: "learning-unit9" },
+        { name: "2. Variables", description: "Guardar datos", color: "#3776AB", unit: "learning-unit2" },
       ],
     });
-    expect(read("modules/module1/learning-units/learning-unit9/learning-unit9-es.json")).toEqual({
+    expect(read("modules/module1/learning-units/learning-unit2/learning-unit2-es.json")).toEqual({
       title: "Variables",
       description: "",
       content: [{ type: "paragraph", text: "Texto de la unidad." }],
@@ -85,15 +85,15 @@ describe("buildContent", () => {
 
   it("lists units without content as not yet available", async () => {
     const read = await built({
-      "module7/module.es.yml": "title: Errores\norder: 1",
-      "module7/learning-unit3.es.md": unit("title: Uso de finally\norder: 1", ""),
+      "module1/module.es.yml": "title: Errores\norder: 1",
+      "module1/learning-unit1.es.md": unit("title: Uso de finally\norder: 1", ""),
     });
-    expect(read("modules/module7/module7-es.json")).toEqual({
+    expect(read("modules/module1/module1-es.json")).toEqual({
       title: "1. Errores",
       description: "",
       steps: [{ name: "1. Uso de finally", description: "", color: "#FFD43B" }],
     });
-    expect(read("modules/module7/learning-units/learning-unit3/learning-unit3-es.json")).toBeUndefined();
+    expect(read("modules/module1/learning-units/learning-unit1/learning-unit1-es.json")).toBeUndefined();
   });
 
   it("uses translations where they exist and Spanish where they do not", async () => {
@@ -139,10 +139,33 @@ describe("buildContent", () => {
 
   it("writes redirects for units that moved", async () => {
     const read = await built({
-      "module3/module.es.yml": "title: Estructuras\norder: 1",
-      "module3/learning-unit9.es.md": unit("title: Comprehensions\norder: 1\naliases: [module6/learning-unit2]"),
+      "module1/module.es.yml": "title: Estructuras\norder: 1",
+      "module1/learning-unit1.es.md": unit("title: Comprehensions\norder: 1\naliases: [module6/learning-unit2]"),
     });
-    expect(read("redirects.json")).toEqual({ "module6/learning-unit2": "module3/learning-unit9" });
+    expect(read("redirects.json")).toEqual({ "module6/learning-unit2": "module1/learning-unit1" });
+  });
+
+  it("requires file and folder numbers to match the position given by order", async () => {
+    const messages = await failures({
+      "module1/module.es.yml": "title: Fundamentos\norder: 2",
+      "module2/module.es.yml": "title: Control\norder: 1",
+      "module2/learning-unit1.es.md": unit("title: A\norder: 1"),
+      "module2/learning-unit3.es.md": unit("title: C\norder: 2"),
+    });
+    expect(messages).toEqual([
+      'content/module2/module.es.yml: This module is number 1 by its "order", so its folder must be named module1.',
+      "content/module2/learning-unit3.es.md: This unit is number 2 by its \"order\", so the file must be named learning-unit2.es.md.",
+      'content/module1/module.es.yml: This module is number 2 by its "order", so its folder must be named module2.',
+    ]);
+  });
+
+  it("checks positions only once the rest of the content is valid", async () => {
+    const messages = await failures({
+      "module1/module.es.yml": "title: Fundamentos\norder: 1",
+      "module1/learning-unit1.es.md": unit("title: A\norder: 1\nlevel: easy"),
+      "module1/learning-unit2.es.md": unit("title: B\norder: 2"),
+    });
+    expect(messages).toEqual([expect.stringContaining('Unknown header field "level"')]);
   });
 
   it("reports every problem with the file it comes from", async () => {

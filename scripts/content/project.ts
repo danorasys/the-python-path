@@ -179,6 +179,27 @@ function sortByOrder<T>(items: T[], order: (item: T) => number, file: (item: T) 
   return sorted;
 }
 
+function checkPositions(modules: ModuleEntry[], collector: Collector): void {
+  modules.forEach((entry, index) => {
+    const expected = `module${index + 1}`;
+    if (entry.id !== expected) {
+      collector.report(
+        `This module is number ${index + 1} by its "order", so its folder must be named ${expected}.`,
+        `${entry.file}/module.${BASE_LANGUAGE}.yml`,
+      );
+    }
+    entry.units.forEach((unit, position) => {
+      const name = `learning-unit${position + 1}`;
+      if (unit.id !== name) {
+        collector.report(
+          `This unit is number ${position + 1} by its "order", so the file must be named ${name}.${BASE_LANGUAGE}.md.`,
+          unit.file,
+        );
+      }
+    });
+  });
+}
+
 function pick<T>(versions: Map<Language, T>, language: Language): T | undefined {
   for (const candidate of [...contentFallbackChain(language), BASE_LANGUAGE]) {
     const version = versions.get(candidate);
@@ -349,6 +370,7 @@ export async function analyzeContent(root: string): Promise<ContentAnalysis> {
       collector,
     );
   }
+  if (collector.errors.length === 0) checkPositions(modules, collector);
   const aliasMap = redirects(modules, collector);
 
   if (collector.errors.length > 0) throw new ContentErrors(collector.errors);
