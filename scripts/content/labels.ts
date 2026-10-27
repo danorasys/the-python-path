@@ -33,7 +33,7 @@ export const DEFAULT_LABELS = {
   },
   de: {
     run: "Ausprobieren >>",
-    solution: "Lösung Ausprobieren >>",
+    solution: "Lösung ausprobieren >>",
     practice: "Üben >>",
     output: "Ausgabe:",
     note: "Hinweis:",
